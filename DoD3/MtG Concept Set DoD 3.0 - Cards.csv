@@ -12,7 +12,7 @@ FALSE,Send High,Enchantment,,{X}{w/u},"Flash
 When Send High enters, put X time counters on it and exile target permanent you control with converted mana cost less than or equal to X.
 At the beginning of your end step, remove a time counter from Send High. 
 When Send High has no time counters on it, sacrifice it and return the exiled permanent to the battlefield under your control. Then it deals damage to any target equal to its mana cost.",,,,"Burn, Flicker, ETB",,1,,,1,1,1,0,0,0,0,1,1,0,0,0,0
-FALSE,Encouragement,Sorcery,,{1}{g/p},Flicker each creature you control with backup.,,,,Flicker,Backup,2,,,1,0,0,0,0,1,0,0,0,0,0,1,0
+FALSE,Encouragement,Sorcery,,{1}{u/g},Flicker each creature you control with backup.,,,,Flicker,Backup,2,,,1,0,1,0,0,1,0,1,0,0,0,1,0
 FALSE,Overrun,Enchantment ,,{3}{r/g},"Spells you control have trample. 
 Horde 3 - creatures you control have trample. ",,,,Horde,,4,,,1,0,0,0,1,1,0,1,1,0,0,0,0
 FALSE,Active Duty Bonus,Sorcery,,{1}{w/u}{w/r},Tap up to two target permanents target opponent controls. Make a treasure for each tapped creature they control. ,,,,"Tap, Tokens",Tap,3,,,1,1,1,0,1,0,0,1,0,0,0,1,0
@@ -32,7 +32,7 @@ Backup
 {1}, {t}, sacrifice this creature: it deals damage equal to its converted mana cost to target creature.",1,1,,"Backup, Burn, Flying",,2,,,1,0,0,0,1,1,0,1,0,1,0,0,0
 FALSE,Devoted Bombardier,Creature,Human Scout,{r}{r}{r},"When Devoted Bombardier enters the battlefield, it deals damage equal to your devotion to red equal to target creature. This ability cannot be countered or protected against by hexproof or protection.",1,1,,"Burn, ETB",Devotion,3,,,1,0,0,0,1,0,0,0,0,1,0,0,0
 FALSE,Priest of the Corals,Creature,Human Cleric,{2}{w/u},"{2},{t}: Scry X for target player, where X is your devotion to white and blue.",1,3,,Scry,Devotion,3,,,1,1,1,0,0,0,0,1,0,1,0,0,0
-FALSE,False Devotion,Sorcery,,{1}{b/p},"Until the end of your next end step, any time your devotion to anything is checked, it is considered 3 greater. (If something checks for devotion to two things, this bonus only applies to one of them.)",,,,Devotion,,2,,,1,0,0,1,0,0,0,0,0,0,0,1,0
+FALSE,False Devotion,Sorcery,,{1}{p/b},"Until the end of your next end step, any time your devotion to anything is checked, it is considered 3 greater. (If something checks for devotion to two things, this bonus only applies to one of them.)",,,,Devotion,,2,,,1,0,0,1,0,0,0,0,0,0,0,1,0
 FALSE,Tumor Priest,Creature,Human Cleric,{2}{b}{b},"Backup
 When this creature dies, distribute +1/+1 counters equal to your devotion to black on any number of target creatures you control.",2,2,,"Backup, Counters, Dying",Devotion,4,,,1,0,0,1,0,0,0,0,0,1,0,0,0
 FALSE,Cardboard Enthusiast,Creature,Human,{1},"When Cardboard Enthusiast enters the battlefield, create a colorless 1/1 construct creature token.
@@ -125,7 +125,7 @@ FALSE,End of Exam,Instant,,{3}{r},"Split Second
 All creatures have haste.
 Until end of turn, whenever a creature deals combat damage to a player, its controller may draw a card then discard a card.
 Horde 3 - The first time a creature you control deals combat damage to a player this turn, you may draw a card.",,,,"Horde, Card Acceleration","Mass army, combat damage",4,,,1,0,0,0,1,0,0,0,0,0,0,1,0
-FALSE,Birdcrank,Artifact,,{3}{b/p},"Tap a creature you control with power 3 or less: add {b}. Until end of turn, your devotion to black is considered 1 greater.
+FALSE,Birdcrank,Artifact,,{3}{p/b},"Tap a creature you control with power 3 or less: add {b}. Until end of turn, your devotion to black is considered 1 greater.
 Sacrifice a creature, {t}: If your devotion to black is 10 or greater, tap all permanents target opponent controls.",,,,"Tap, Ramp",Devotion,4,,,1,0,0,1,0,0,0,0,0,0,1,0,0
 FALSE,Gluttonous Mind,Enchantment,,{2}{u}{u},"Whenever a player sacrifices a Food, they draw a card.
 At the beginning of each player's upkeep, they make a Food. Then, they lose 2 life unless their devotion to blue is at least 6.",,,,"Card Acceleration, Food","Devotion, Food",4,"Once you start knowing, you just can't stop. Just some food for thought.",,1,0,1,0,0,0,0,0,1,0,0,0,0
@@ -146,7 +146,7 @@ Deconstructor Agent cannot be blocked by creatures with greater power.
 Whenever Deconstructor Agent deals combat damage to a player, destroy target artifact that player controls.",2,2,,"Duck, Removal, attacking",Combat damage,2,,,1,0,1,0,1,0,0,1,0,1,0,0,0
 FALSE,Skitterjill,Creature,Dwarf Rabbit,{w},"Duck - deal the next 1 damage that would be dealt to Skitterjill this turn to the creature it's ducking behind.
 Whenever a creature you control ducks, you gain 1 life.",1,1,,"Duck, Life gain",,1,,,1,1,0,0,0,0,0,0,0,1,0,0,0
-FALSE,Heated Fifferjill,Creature,Dwarf Rabbit,{w/}{w},"Duck - deal the next 1 damage that would be dealt to Heated Fifferjill this turn to the creature it's ducking behind.
+FALSE,Heated Fifferjill,Creature,Dwarf Rabbit,{w}{w},"Duck - deal the next 1 damage that would be dealt to Heated Fifferjill this turn to the creature it's ducking behind.
 Whenever Fifferjill ducks, you may pay {1} and place a stun counter on it. If you do, make a token that's a copy of it. ",2,2,,"Duck, Mass army, tokens, counters",,2,,,1,1,0,0,0,0,0,0,0,1,0,0,0
 FALSE,Razing Wind,Sorcery,,{3}{w},"Tap all artifacts and return any number of creatures with combined mana value 4 or less to their owners' hands. Then Razing Wind deals 2 damage to all creatures. 
 ",,,,"bounce, tap, burn",,4,,,1,1,0,0,0,0,0,0,0,0,0,1,0
@@ -226,7 +226,7 @@ Bestow {6}{w/u}{u/b}
 Enchanted creature gets +4/+4, lifelink, and ward {1}.",4,4,,"Hand Reveal, Scry, Bestow",,6,,,1,1,1,1,0,0,0,1,1,1,0,0,0
 FALSE,Up-Front Mercenary,Creature,Goblin Mercenary,{2}{r}{w/b},"When Up-Front Mercenary enters, reveal any number of unrevealed cards from your hand. Up-Front Mercenary deals that much damage to any target. Target opponent mills cards equal to the number of cards in your hand not revealed this way.",4,3,,"Hand Reveal, Burn, Mill, ETB",,4,,,1,1,0,1,1,0,0,1,0,1,0,0,0
 FALSE,Too Much Information,Enchantment,,{3}{r/g},"Whenever an opponent reveals one or more unrevealed cards or discards one or more cards, Too Much Information deals half that damage rounded up to them.",,,,Burn,Hand Reveal,4,,,1,0,0,0,1,1,0,1,1,0,0,0,0
-FALSE,Lemme See!,Sorcery,,{r/b},"Target opponent reveals two cards from their hand. They discard one of your choice. (If they only have one, they only reveal one).",,,,"Hand Reveal, Discard",,1,,,1,0,0,1,1,0,0,1,0,0,0,1,0
+FALSE,Lemme See!,Sorcery,,{b/r},"Target opponent reveals two cards from their hand. They discard one of your choice. (If they only have one, they only reveal one).",,,,"Hand Reveal, Discard",,1,,,1,0,0,1,1,0,0,1,0,0,0,1,0
 FALSE,Nosey Officer,Creature,Wolf Detective,{3}{b},"Whenever Nosey Officer attacks, you may pay {1}{b}. If you do, target player dicards a card.",4,4,,Discard,,4,,,1,0,0,1,0,0,0,0,0,1,0,0,0
 FALSE,Worldtree Adherent,Creature,Reptile Cleric,{2}{g}{g},"Landfall - if your devotion to green is at least 3, put a +1/+1 counter on target creature. Then if it's at least 6, you may attach an aura or creature with bestow from your hand to a creature you control.",1,4,,"Landfall, Counters, Bestow, Auras",Devotion,4,,,1,0,0,0,0,1,0,0,0,1,0,0,0
 FALSE,Inviting Shroomling,Creature,Dwarf Spore,{1}{g}{g},"Whenever a creature you control ducks, add {g}.",2,2,,Ramp,Duck,3,,,1,0,0,0,0,1,0,0,0,1,0,0,0
@@ -300,7 +300,7 @@ Tap target Boulder you control: Lumbouldeer gets +2/+0 until end of turn.",1,5,,
 FALSE,Glittering Starchild,Enchantment Creature,Astral Spirit,{3}{w/b}{w/r},"Backup
 Flying, Double Strike, Trample
 When Glittering Starchild dies, add {w}.",3,0,,"Dying, backup",,5,,,1,1,0,1,1,0,0,1,1,1,0,0,0
-FALSE,Quick Pursuit,Instant,,{r/b},Destroy target creature that is targeted by a spell or ability that causes it to leave the battlefield.,,,,Removal,Bounce,1,,,1,0,0,1,1,0,0,1,0,0,0,1,0
+FALSE,Quick Pursuit,Instant,,{b/r},Destroy target creature that is targeted by a spell or ability that causes it to leave the battlefield.,,,,Removal,Bounce,1,,,1,0,0,1,1,0,0,1,0,0,0,1,0
 FALSE,Gargantuan Nail Trap,Artifact,,{3},"Disguise {0}
 When this artifact is turned face up, destroy target creature with trample or total power and toughness above 8.
 {2}, sacrifice Gargantuan Nail Trap: Draw a card.",,,,"Removal, Disguise",Big creatures,3,,,1,0,0,0,0,0,1,0,0,0,1,0,0
@@ -501,7 +501,7 @@ FALSE,Foggy Beachfront,Land,,,"When Foggy Beachfront enters, return a land you c
 {5}{u/g}, {t}: Until end of turn, whenever one or more counters would be put on a creature you control, put that many counters of that type plus one instead.",,,u/g,"Counters, bounce",Counters,0,,,1,0,1,0,0,1,0,1,0,0,0,0,1
 FALSE,Furnace of the Edge,Land,,,"When Furnace of the Edge enters, return a land you control to your hand or sacrifice Furnace of the Edge.
 {t}: Add {r} or {b}.
-{2}{r/b}, {t}: Target opponent reveals an unrevealed card from their hand.",,,r/b,"Bounce, hand reveal",,0,,,1,0,0,1,1,0,0,1,0,0,0,0,1
+{2}{b/r}, {t}: Target opponent reveals an unrevealed card from their hand.",,,b/r,"Bounce, hand reveal",,0,,,1,0,0,1,1,0,0,1,0,0,0,0,1
 FALSE,Ancient Tidepools,,,,"When Ancient Tidepools enters, return a land you control to your hand or sacrifice Ancient Tidepools.
 {t}: Add {u} or {b}.
 {3}{u/b}, {t}: Make a 1/1 blue and black Trilobite creature token with, ""When this creature dies, target opponent mills 2 cards.""",,,u/b,"Bounce, Tokens, Mill, Dying",,2,,,1,0,1,1,0,0,0,1,0,1,0,0,0
@@ -527,7 +527,7 @@ Whenever you cast an noncreature spell, untap Skittish Electromancer.",2,2,,"Duc
 FALSE,Outgrow,Sorcery,,{r}{g},"Until end of turn, whenever a creature you control ducks, put +1/+1 counters on it equal to the difference of its power and the permanent it's ducking behind.",,,,"Pump, counters","Small creatures, duck",2,,,1,0,0,0,1,1,0,1,0,1,0,0,0
 FALSE,Siamese Goon-Twins,Creature,Spore,{3}{b/g},"Duck - Create a 0/1 green Plant creature token or put a +1/+1 counter on target Plant or Spore you control.
 Indecisive Goon-Twins may duck behind two creatures simultaneously.",3,2,,"Duck, tokens, counters, pump","Plant, Spore",4,,,1,0,0,1,0,1,0,1,0,1,0,0,0
-FALSE,Big Brother Brenton,Creature,Elephant Wall,{2}{b/g},"Defender
+FALSE,Big Brother Brenton,Creature,Elephant Wall,{2}{g/b},"Defender
 When Big Brother Brenton enters, you may pay {2}{g/b} and create a colorless 0/3 Boulder artifact creature token with defender.",2,6,,"Defender, ETB, tokens, Boulders",,3,,,1,0,0,1,0,1,0,1,0,1,0,0,0
 FALSE,Surpringly Effective Fort,Creature,Wall Construct,{2}{2/w},"Defender
 When Surprisingly Effective Fort dies, tap target creature.",1,5,,"Defender, tap, dying",,3,,,1,1,0,0,0,0,0,0,0,1,0,0,0
@@ -582,7 +582,7 @@ Equipped creature has ward {1}.
 FALSE,Mark-Fluid Bot,Artifact Creature,Bird Insect,{2},"Modular 1
 {2}, sacrifice Mark-Fluid Bot: Scry 1.",0,0,,"Counters, dying, scry",,2,,,1,0,0,0,0,0,1,0,0,0,0,1,0
 FALSE,Unearth Memories,Instant,,{u/g}{b},"Surveil 2, then target instant or sorcery in your graveyard gains flashback until end of turn. Its flashback cost is equal to its mana cost.",,,,"Flashback, surveil",Graveyard,2,,,1,0,1,1,0,1,0,1,1,0,0,0,0
-FALSE,Memories of Meals,Enchantment,Food,{1}{u}{b/g},"When Pull From the Past, you may exile any number of cards from your graveyard. Add {u} or {b} for each card exiled this way.
+FALSE,Memories of Meals,Enchantment,Food,{1}{u}{b/g},"When Memories of Meals enters, you may exile any number of cards from your graveyard. Add {u} or {b} for each card exiled this way.
 {2}, sacrifice Pull From the Past: Gain 3 life.",,,,"Food, ramp, sacrifice",Graveyard,3,,,1,0,1,1,0,1,0,1,0,1,0,0,0
 FALSE,Aggressor Captain,Creature,Goblin Dwarf,{2}{r}{r},"Haste
 Aggressor Captain must attack each combat if able.

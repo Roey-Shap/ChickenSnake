@@ -74,8 +74,8 @@ When Send High has no time counters on it, sacrifice it and return the exiled pe
 <card>
     <name>Encouragement</name>
     <set picURL="/Encouragement.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>G</color>
-    <manacost>1{G/P}</manacost>
+    <color>UG</color>
+    <manacost>1{U/G}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Flicker each creature you control with backup.</text>
@@ -209,7 +209,7 @@ Backup
     <name>False Devotion</name>
     <set picURL="/False Devotion.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>B</color>
-    <manacost>1{B/P}</manacost>
+    <manacost>1{P/B}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Until the end of your next end step, any time your devotion to anything is checked, it is considered 3 greater. (If something checks for devotion to two things, this bonus only applies to one of them.)</text>
@@ -269,6 +269,7 @@ When Treacherous Tree Spirit leaves the battlefield, if your devotion to green i
     <color>U</color>
     <manacost>5UU</manacost>
     <type>Creature - Spirit</type>
+	<pt>*/*</pt>
     <tablerow>0</tablerow>
     <text>Sea Horde costs X less to cast, where X is your devotion to blue.
 Sea Horde's power and toughness are each equal to your devotion to blue.
@@ -709,7 +710,7 @@ Horde 3 - The first time a creature you control deals combat damage to a player 
     <name>Birdcrank</name>
     <set picURL="/Birdcrank.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>B</color>
-    <manacost>3{B/P}</manacost>
+    <manacost>3{P/B}</manacost>
     <type>Artifact</type>
     <tablerow>0</tablerow>
     <text>Tap a creature you control with power 3 or less: add {b}. Until end of turn, your devotion to black is considered 1 greater.
@@ -834,7 +835,7 @@ Whenever a creature you control ducks, you gain 1 life.</text>
     <name>Heated Fifferjill</name>
     <set picURL="/Heated Fifferjill.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>W</color>
-    <manacost>{W/}W</manacost>
+    <manacost>WW</manacost>
     <type>Creature - Dwarf Rabbit</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -1292,7 +1293,7 @@ Enchanted creature gets +4/+4, lifelink, and ward {1}.</text>
     <name>Lemme See!</name>
     <set picURL="/Lemme See!.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>BR</color>
-    <manacost>{R/B}</manacost>
+    <manacost>{B/R}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Target opponent reveals two cards from their hand. They discard one of your choice. (If they only have one, they only reveal one).</text>
@@ -1478,6 +1479,7 @@ Equipped creature gets +1/+1. The first time equipped creature's controller draw
     <color>G</color>
     <manacost>1GGG</manacost>
     <type>Legendary Creature - Rabbit Cleric</type>
+	<pt>*/*</pt>
     <tablerow>0</tablerow>
     <text>When Okal enters, search your library for up to two lands. Put up to one in your hand and up to one on the battlefield tapped.
 Okal's power and toughness are each equal to the number of lands you control. 
@@ -1728,7 +1730,7 @@ When Glittering Starchild dies, add {w}.</text>
     <name>Quick Pursuit</name>
     <set picURL="/Quick Pursuit.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>BR</color>
-    <manacost>{R/B}</manacost>
+    <manacost>{B/R}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Destroy target creature that is targeted by a spell or ability that causes it to leave the battlefield.</text>
@@ -2829,7 +2831,7 @@ Reveal Monk's Peak if it's in your unrevealed in your hand or an unrevealed card
     <tablerow>0</tablerow>
     <text>When Furnace of the Edge enters, return a land you control to your hand or sacrifice Furnace of the Edge.
 {t}: Add {r} or {b}.
-{2}{r/b}, {t}: Target opponent reveals an unrevealed card from their hand.</text>
+{2}{b/r}, {t}: Target opponent reveals an unrevealed card from their hand.</text>
 </card>
 
 <card>
@@ -2957,7 +2959,7 @@ Indecisive Goon-Twins may duck behind two creatures simultaneously.</text>
     <name>Big Brother Brenton</name>
     <set picURL="/Big Brother Brenton.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>BG</color>
-    <manacost>2{B/G}</manacost>
+    <manacost>2{G/B}</manacost>
     <type>Creature - Elephant Wall</type>
 	<pt>2/6</pt>
     <tablerow>0</tablerow>
@@ -3272,7 +3274,7 @@ Equipped creature has ward {1}.
     <manacost>1U{B/G}</manacost>
     <type>Enchantment - Food</type>
     <tablerow>0</tablerow>
-    <text>When Pull From the Past, you may exile any number of cards from your graveyard. Add {u} or {b} for each card exiled this way.
+    <text>When Memories of Meals enters, you may exile any number of cards from your graveyard. Add {u} or {b} for each card exiled this way.
 {2}, sacrifice Pull From the Past: Gain 3 life.</text>
 </card>
 

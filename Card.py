@@ -4,6 +4,7 @@ class Card():
                 name: str,
                 colors: str,
                 manacost: str,
+                raw_mana_cost_string: str,
                 converted_manacost: int,
                 supertype: str,
                 subtype: str,
@@ -21,6 +22,7 @@ class Card():
         elif self.is_colorless:
             self.colors_string = ""
         self.manacost = manacost
+        self.raw_mana_cost_string = raw_mana_cost_string
         self.converted_manacost = converted_manacost
         self.supertype = supertype
         self.subtype = subtype
@@ -35,3 +37,9 @@ class Card():
             final_string += " - " + self.subtype
 
         return final_string
+
+    def get_stats_string(self):
+        star_char = "="
+        power     = star_char if self.stats == "*" else self.stats[0] 
+        toughness = star_char if self.stats == "*" else self.stats[1]
+        return f"{power}/{toughness}"

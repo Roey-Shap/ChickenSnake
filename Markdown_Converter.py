@@ -12,8 +12,9 @@ import LineSegment
 # Get version number from the spreadsheet
 # Make playtest art autogenerate images based on type and mana cost
 # Have the mana symbols be replaced by spaces and then have the symbols pasted over correctly
+# >>> Fix 2brid and hybrid mana coloration and spacing between pips
+# >>> Add mana cost
 # Change text size based on amount of text (number of lines of text)
-# Add mana cost
 base_filepath = "C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\MtG\\DoD3\\"
 markdown_filepath = base_filepath + "DoD3.xml"
 card_data_filepath = base_filepath + "MtG Concept Set DoD 3.0 - Cards.csv"

@@ -1,0 +1,2 @@
+ChickenSnake is a scrappy script for me to convert spreadsheets of custom MtG cards into semi-pretty images and metadata for Cockatrice to use.
+None of the fonts are mine. Used PIL and some built-in Python modules. 
