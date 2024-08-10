@@ -3,6 +3,10 @@
 from CardData import *
 from Card import Card 
 from UI import *
+import LineSegment
+
+# test_text = "This is some test text. {t}, do a thing, add {r}{r}."
+# print(LineSegment.LineSegment.split_text_for_symbols(test_text))
 
 # @TODO: 
 # Get version number from the spreadsheet
@@ -10,7 +14,6 @@ from UI import *
 # Have the mana symbols be replaced by spaces and then have the symbols pasted over correctly
 # Change text size based on amount of text (number of lines of text)
 # Add mana cost
-# Instead of 2-mana/hybrid cards being gold, have them be multicolored
 base_filepath = "C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\MtG\\DoD3\\"
 markdown_filepath = base_filepath + "DoD3.xml"
 card_data_filepath = base_filepath + "MtG Concept Set DoD 3.0 - Cards.csv"

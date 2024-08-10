@@ -1,11 +1,24 @@
 import csv
 from Card import Card
 from PIL import Image, ImageFont, ImageDraw, ImageTk
+from Fonts import body_text_font_name, symbols_font_name
+from LineSegment import LineSegment
 
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
 # card_pixel_dims = (375, 523)
 card_pixel_dims = (500, 700)
+font_title = ImageFont.truetype(body_text_font_name, 26)
+font_title_small = ImageFont.truetype(body_text_font_name, 18)
+
+font_types = ImageFont.truetype(body_text_font_name, 24)
+font_types_small = ImageFont.truetype(body_text_font_name, 15)
+
+font_stats = ImageFont.truetype(body_text_font_name, 30)
+
+# font_body  = ImageFont.truetype(body_text_font_name, 13)
+# font_body_tiny = ImageFont.truetype(body_text_font_name, 11)
+# font_body_large  = ImageFont.truetype(body_text_font_name, 15)
 
 def get_color_string(csv_row: dict[str, str]) -> str:
     color_string = ""
@@ -59,72 +72,26 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
     return cards_dict
 
 def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, image_assets: dict[str, Image]):
-    font_title = ImageFont.truetype("OpenSans-Regular.ttf", 22)
-    font_title_small = ImageFont.truetype("OpenSans-Regular.ttf", 18)
-
-    font_types = ImageFont.truetype("OpenSans-Regular.ttf", 18)
-    font_types_small = ImageFont.truetype("OpenSans-Regular.ttf", 15)
-
-    font_body  = ImageFont.truetype("OpenSans-Regular.ttf", 13)
-    font_body_tiny = ImageFont.truetype("OpenSans-Regular.ttf", 11)
-    font_body_large  = ImageFont.truetype("OpenSans-Regular.ttf", 15)
     num_cards_total = len(card_dict)
     current_card_index = 0
 
-    # base_names_from_colors: dict[str, str] = {
-    #     "W": "white_base",
-    #     "U": "blue_base",
-    #     "B": "black_base", 
-    #     "R": "red_base",
-    #     "G": "green_base",
-    #     "M": "multicolored_base",
-    #     "C": "colorless_base"
-    # }
-    # image_base_colors: dict[str, tuple[int, int, int]] = {
-    #     "W": C_WHITE,
-    #     "U": (150, 150, 200),
-    #     "B": (130, 130, 130),
-    #     "R": (200, 150, 150),
-    #     "G": (150, 200, 150),
-    #     "M": (200, 200, 150),
-    #     "C": (200, 200, 200)
-    # }
-
     for card_data in card_dict.values():
-
         card_image_total = Image.new(mode="RGB", size=card_pixel_dims, color=C_WHITE).convert("RGBA")
 
-        # match len(card_data.colors_string):
-        #     case 0:
-        #         card_image_total.col
-        #     case 1 | 2:
-        #         pass
-        #     case _:
-        #         pass
-
-        # if card_data.is_colorless:
-        #     card_base_image = image_assets[base_names_from_colors["C"]]
-        # elif len(card_data.colors_string) > 1:
-        #     card_base_image = image_assets[base_names_from_colors["M"]]
-        # else:
-        #     card_base_image = image_assets[base_names_from_colors[card_data.colors_string]]
-
-
         # Card Base
-        if 1 <= len(card_data.colors_string) <= 2 and not card_data.is_gold and not card_data.is_colorless:
-            card_colors = card_data.colors_string
-            for prefix in [card_colors[0]+"_l", card_colors[-1]+"_r"]:
-                card_bg: Image = image_assets[prefix]
-                card_image_total.alpha_composite(card_bg)
-        elif card_data.is_colorless:
-            # print("c")
+        if card_data.is_colorless:
             card_image_total.alpha_composite(image_assets["c_"])
+        elif 1 <= len(card_data.colors_string) <= 2 and not card_data.is_gold:
+            card_colors = card_data.colors_string
+            # It's important to layer the middle part first so it can be covered up by the sides
+            for prefix in [card_colors[-1]+"_m", card_colors[0]+"_l", card_colors[-1]+"_r"]:
+                card_bg: Image = image_assets[prefix]
+                card_image_total.alpha_composite(card_bg)            
         else:
-            # print("gold")
             card_image_total.alpha_composite(image_assets["m_"])
 
-        Image.alpha_composite(card_image_total, image_assets["c_pt_"])
-        # alpha_composite(image_assets["c_pt_"])
+        if card_data.has_stats:
+            card_image_total.alpha_composite(image_assets["c_pt_"])
 
         # Title font config
         chosen_title_font = font_title
@@ -135,36 +102,47 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
 
         # Title
         ImageDraw.Draw(card_image_total).text(
-            (32, 26), card_data.name, C_BLACK, font=chosen_title_font
+            (40, 40), card_data.name, C_BLACK, font=chosen_title_font
         )
 
         # Mana Cost
         ImageDraw.Draw(card_image_total).text(
-            (343, 35), card_data.manacost, C_BLACK, font=chosen_manacost_font, anchor="rt"
+            (343, 50), card_data.manacost, C_BLACK, font=chosen_manacost_font, anchor="rt"
         )
 
         # Types
         ImageDraw.Draw(card_image_total).text(
-            (36, 294), card_data.get_type_string(), C_BLACK, font=font_types
+            (40, 400), card_data.get_type_string(), C_BLACK, font=font_types
         )
 
         # Body Text config
-        chosen_body_font = font_body
-        chosen_body_max_width = 300
-        if len(card_data.body_text.split()) > 65:
-            chosen_body_font = font_body_tiny
-            chosen_body_max_width = 355
-        elif len(card_data.body_text.split()) < 35:
-            chosen_body_font = font_body_large
-            chosen_body_max_width = 250
+        # Go through each line of text and convert it into a series of LineSegments - each with their own font, offset, and text
+        # Then draw each of their texts on the card at their offset and with their font
 
-        ImageDraw.Draw(card_image_total).text(
-            (36, 330), get_wrapped_text(card_data.body_text, font_body, chosen_body_max_width), C_BLACK, chosen_body_font, spacing=2
+        segments: list[LineSegment] = LineSegment.split_text_for_symbols(
+            card_data.body_text, card_image_total, 420, 500
         )
 
-        if card_data.stats is not None:
+        for segment in segments:
+            segment.draw(card_image_total, (40, 450))
+        # chosen_body_font = font_body
+        # chosen_body_max_width = 300
+        # if len(card_data.body_text.split()) > 65:
+        #     chosen_body_font = font_body_tiny
+        #     chosen_body_max_width = 355
+        # elif len(card_data.body_text.split()) < 35:
+        #     chosen_body_font = font_body_large
+        #     chosen_body_max_width = 250
+
+
+
+        # ImageDraw.Draw(card_image_total).text(
+        #     (36, 330), get_wrapped_text(card_data.body_text, font_body, chosen_body_max_width), C_BLACK, chosen_body_font, spacing=2
+        # )
+
+        if card_data.has_stats:
             ImageDraw.Draw(card_image_total).text(
-                (293, 462), f"{card_data.stats[0]}/{card_data.stats[1]}", C_BLACK, font_title
+                (433, 643), f"{card_data.stats[0]}/{card_data.stats[1]}", C_BLACK, font_stats, anchor="mm"
             )
 
         try:
@@ -178,11 +156,12 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
 
 
         current_card_index += 1
+        return
 
         
 def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
     resized_images: dict[str, Image] = {}
-    image_color_prefixes = [f"{color}_{side}" for side in ["l", "r"] for color in "WUBRG"] + ["c_pt_", "m_", "c_"]
+    image_color_prefixes = [f"{color}_{side}" for side in ["l", "m", "r"] for color in "WUBRG"] + ["c_pt_", "m_", "c_"]
     for prefix in image_color_prefixes:
         image_filepath = assets_filepath + prefix.lower() + "base.png"
         print("Opening:", image_filepath)

@@ -25,6 +25,7 @@ class Card():
         self.supertype = supertype
         self.subtype = subtype
         self.stats = stats
+        self.has_stats = self.stats is not None
         self.body_text = body_text
         self.flavor_text = flavor_text
 
