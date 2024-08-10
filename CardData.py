@@ -156,7 +156,6 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
 
 
         current_card_index += 1
-        return
 
         
 def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
