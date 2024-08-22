@@ -8,6 +8,7 @@ C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
 # card_pixel_dims = (375, 523)
 card_pixel_dims = (500, 700)
+right_mana_border = int(card_pixel_dims[0] * 0.93)
 font_title = ImageFont.truetype(body_text_font_name, 26)
 font_title_small = ImageFont.truetype(body_text_font_name, 18)
 
@@ -17,7 +18,8 @@ font_types_tiny = ImageFont.truetype(body_text_font_name, 18)
 
 font_stats = ImageFont.truetype(body_text_font_name, 30)
 
-font_symbols_large = ImageFont.truetype(symbols_font_name, 24)
+font_symbols_large = ImageFont.truetype(symbols_font_name, 26)
+font_symbols_large_pip_bg = ImageFont.truetype(symbols_font_name, 24)
 
 # font_body  = ImageFont.truetype(body_text_font_name, 13)
 # font_body_tiny = ImageFont.truetype(body_text_font_name, 11)
@@ -120,7 +122,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # Mana Cost
             debug_on = False # card_data.name == "Ancient Nestite"
             mana_cost_segments: list[LineSegment] = LineSegment.split_text_for_symbols(
-                card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, debug_mode=debug_on, font_override=font_symbols_large
+                card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, debug_mode=debug_on, font_override=(font_symbols_large, font_symbols_large_pip_bg), 
             )
             
             # We assume each pip is the same width and draw them from left to right with manual offsets
@@ -129,12 +131,11 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 print(num_mana_pips)
 
             if num_mana_pips > 0:
-                right_mana_border = 458
                 mana_pip_width = mana_cost_segments[0].dims[0]
-                margin = int(mana_pip_width * 0.1)
+                margin = 0 #int(mana_pip_width * 0.1)
                 left_mana_border = right_mana_border - (mana_pip_width * num_mana_pips) - (margin * (num_mana_pips-1))
                 for i, segment in enumerate(mana_cost_segments):
-                    segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), 40), True, font_symbols_large)
+                    segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), 40), True, (font_symbols_large, font_symbols_large_pip_bg), True)
 
             # Types
             chosen_types_font = font_types
@@ -158,21 +159,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
 
             for segment in segments:
                 segment.draw(card_image_total, (44, 445))
-            # chosen_body_font = font_body
-            # chosen_body_max_width = 300
-            # if len(card_data.body_text.split()) > 65:
-            #     chosen_body_font = font_body_tiny
-            #     chosen_body_max_width = 355
-            # elif len(card_data.body_text.split()) < 35:
-            #     chosen_body_font = font_body_large
-            #     chosen_body_max_width = 250
-
-
-
-            # ImageDraw.Draw(card_image_total).text(
-            #     (36, 330), get_wrapped_text(card_data.body_text, font_body, chosen_body_max_width), C_BLACK, chosen_body_font, spacing=2
-            # )
-
+           
             if card_data.has_stats:
                 ImageDraw.Draw(card_image_total).text(
                     (433, 643), card_data.get_stats_string(), C_BLACK, font_stats, anchor="mm"

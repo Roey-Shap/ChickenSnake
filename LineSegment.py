@@ -5,8 +5,10 @@ from Fonts import body_text_font_name, symbols_font_name
 font_body  = ImageFont.truetype(body_text_font_name, 22)
 font_body_tiny = ImageFont.truetype(body_text_font_name, 18)
 
-font_symbols = ImageFont.truetype(symbols_font_name, 21)
-font_symbols_small = ImageFont.truetype(symbols_font_name, 17)
+font_symbols_pip_background = ImageFont.truetype(symbols_font_name, 21)
+font_symbols = ImageFont.truetype(symbols_font_name, 23)
+font_symbols_small_pip_background = ImageFont.truetype(symbols_font_name, 17)
+font_symbols_small = ImageFont.truetype(symbols_font_name, 19)
 
 font_symbols_map: dict[str, str] = \
 {
@@ -34,16 +36,24 @@ font_symbols_map: dict[str, str] = \
    "ut": "q",
    "c": "s"
 }
+# wb, wu, ub, br, rg, gw
+# wb, bg, gu, ur, rw, wu
+# flipped ones are gw, gu, rw
+hybrid_pips_with_non_wubrg_order_colors = ["w/g", "u/g", "w/r"]
 
 color_code_map: dict[str: tuple[int, int, int]] = \
 {
-    "w": (220,215,183),
-    "u": (191,225,249),
-    "b": (210,210,210),
-    "r": (248,172,142),
-    "g": (176,215,220),
-    "c": (201,197,194)
+    'w': (220,215,183),
+    'u': (191,225,249),
+    'b': (210,210,210),
+    'r': (248,172,142),
+    'g': (176,215,220),
+    'c': (201,197,194),
+    '#': (0  ,0  ,0  ) 
 }
+
+C_PIP_BG = '#'
+CHAR_PIP_BG = 'H'
 
 class LineSegment():
     def __init__(self, text: str, 
@@ -52,23 +62,37 @@ class LineSegment():
                  color: tuple[int, int, int]=(0, 0, 0)):
         self.text = text
         self.font = font
+        self.font_secondary = None
         self.offset = offset
         self.is_symbol: bool = is_symbol
         self.color = color
         self.dims = dims
         self.spacing = 2
 
+    def set_secondary_font(self, font):
+        self.font_secondary = font
+        return self
+
     def draw(self, image: Image, relative_offset: tuple[int, int], 
-             absolute_draw_mode=False, font_override=None):
+             absolute_draw_mode=False, font_override=None, give_pip_shadow=False):
         absolute_pos = (self.offset[0] + relative_offset[0], self.offset[1] + relative_offset[1])
         if absolute_draw_mode:
             absolute_pos = relative_offset
-        font = font_override if font_override is not None else self.font
+
+        font = self.font
+        font_secondary = self.font_secondary
+        if font_override:
+            font, font_secondary = font_override
 
         if self.is_symbol:
+            if give_pip_shadow:
+                bg_offset_position = (absolute_pos[0] - 2, absolute_pos[1] + 2)
+                draw_pip_color_background(C_PIP_BG, C_PIP_BG, bg_offset_position, image, font_secondary)
+
             is_phyrexian = 'p' in self.text
             is_hybrid = '/' in self.text
             is_two_hybrid = '2' in self.text and is_hybrid
+            is_numeric = self.text.isdecimal()
             color_text = self.text 
             if strings_have_overlap("xct", self.text.lower()) or self.text.isdecimal():
                 color_text = 'c'
@@ -82,26 +106,32 @@ class LineSegment():
                 c2 = background_color.strip("2/")
             elif is_hybrid:
                 c1, c2 = self.text.split('/')
+                if self.text in hybrid_pips_with_non_wubrg_order_colors:
+                    c1, c2 = c2, c1
             else:
                 c1, c2 = color_text, color_text
 
-            draw_pip_color_background(c1, c2, absolute_pos, image, font)
+            draw_pip_color_background(c1, c2, absolute_pos, image, font_secondary)
 
             # Draw final symbol overlay
             symbol_string = ""
             if is_hybrid:
                 symbol_string = font_symbols_map[self.text]
-            elif self.text.isdecimal() or strings_have_overlap("tx", self.text.lower()):
+            elif is_numeric or strings_have_overlap("tx", self.text.lower()):
                 symbol_string = self.text
             elif not strings_have_overlap('wubrg', self.text.lower()):
                 symbol_string = font_symbols_map[color_text]
             else:
                 symbol_string = self.text
 
-            # print(self.font.getname())
-            # print(symbol_string)
+            symbol_string_pos_offset = (0, 0) if is_numeric else (1, 1)
+            if not is_hybrid:
+                symbol_string_pos_offset = (0, symbol_string_pos_offset[1])
+            if not font_override:
+                symbol_string_pos_offset = (0, 0)
+            final_symbol_string_pos = (absolute_pos[0] - symbol_string_pos_offset[0], absolute_pos[1] - symbol_string_pos_offset[1])
             ImageDraw.Draw(image).text(
-                absolute_pos, symbol_string, self.color, font, spacing=self.spacing
+                final_symbol_string_pos, symbol_string, self.color, font, spacing=self.spacing
             )
         else:
             ImageDraw.Draw(image).text(
@@ -144,6 +174,7 @@ class LineSegment():
 
         chosen_font_text = font_body if not small_text_mode else font_body_tiny
         chosen_font_symbols = font_symbols if not small_text_mode else font_symbols_small
+        chosen_font_symbols_bg = font_symbols_pip_background if not small_text_mode else font_symbols_small_pip_background
 
         for raw_segment in tokenized_strings:
             if line_count > max_line_count and not small_text_mode:
@@ -165,11 +196,12 @@ class LineSegment():
                 parsed_text = raw_segment.replace("&", "")
                 chosen_font = chosen_font_text
 
-            chosen_font = font_override if font_override is not None else chosen_font 
+            if font_override:
+                chosen_font, chosen_font_symbols_bg = font_override
 
             string_bbox = draw_context.multiline_textbbox(
                 (current_x_offset, 0), 
-                parsed_text[0] if is_symbol else parsed_text,
+                CHAR_PIP_BG if is_symbol else parsed_text,
                 chosen_font
             )
 
@@ -190,7 +222,7 @@ class LineSegment():
                 parsed_text.replace("&", ""), chosen_font, 
                 (current_x_offset, line_count-1), is_symbol,
                 (string_width, string_height)
-            ))
+            ).set_secondary_font(chosen_font_symbols_bg))
 
             current_x_offset += string_width
 
@@ -208,12 +240,13 @@ def flatten(xss):
     return [x for xs in xss for x in xs]
 
 def draw_pip_color_background(c1: str, c2: str, 
-                              pos: tuple[int, int], image: Image, font: ImageFont.FreeTypeFont):
+                              pos: tuple[int, int], image: Image, 
+                              font: ImageFont.FreeTypeFont):
     
-    pos = (pos[0] - 2, pos[1])
     ImageDraw.Draw(image).text(
-        pos, "H", color_code_map[c1.lower()], font
+        pos, CHAR_PIP_BG, color_code_map[c1.lower()], font
     )
+
     ImageDraw.Draw(image).text(
         pos, "J", color_code_map[c2.lower()], font
     )
