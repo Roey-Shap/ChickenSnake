@@ -11,15 +11,13 @@ import LineSegment
 # @TODO: 
 # Get version number from the spreadsheet
 # Make playtest art autogenerate images based on type and mana cost
-# Have the mana symbols be replaced by spaces and then have the symbols pasted over correctly
-# >>> Fix 2brid and hybrid mana coloration and spacing between pips
-# >>> Add mana cost
-# Change text size based on amount of text (number of lines of text)
-base_filepath = "C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\MtG\\DoD3\\"
+base_filepath = ".\\DoD3\\"
 markdown_filepath = base_filepath + "DoD3.xml"
 card_data_filepath = base_filepath + "MtG Concept Set DoD 3.0 - Cards.csv"
 card_images_filepath = base_filepath + "\\Playtest_Images\\"
 card_image_creation_assets_filepath = base_filepath + "Playtest_Base_Images\\"
+draft_text_filepath = base_filepath + "DoD3.txt"
+uploaded_images_base_url = "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/"
 set_code = "DoD"
 header_string = \
 f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -42,9 +40,10 @@ f"""
 """
 
 def main():
-    print("Welcome to Basilesque!")
+    print("Welcome to ChickenSnake!")
     do_generate_card_images: bool = get_user_input(yes_no_input_check, "In addition to generating a markdown file, do you want to generate default card images? (y/n)\n")
     cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(card_data_filepath)
+    num_cards_total = len(cards_dict)
 
     if do_generate_card_images.lower() in ["y", "yes"]:
         print("Initializing image creation assets...")
@@ -55,6 +54,19 @@ def main():
         generate_card_images(cards_dict, card_images_filepath, image_assets)
         print("Done!")
 
+    with open(draft_text_filepath, 'w') as draft_text_file:
+        draft_text_file.write("[CustomCards]\n[")
+        for i, card in enumerate(cards_dict.values()):
+            draft_text_file.write(card.get_draft_text_rep(uploaded_images_base_url, CARD_PICTURE_FILE_FORMAT))
+            if i < num_cards_total - 1:
+                draft_text_file.write(",")
+            # single_line_text_file.write(card.name)
+            # single_line_text_file.write('\n')
+        draft_text_file.write("]\n")
+        draft_text_file.write("[MainSlot(15)]\n")
+        for card in cards_dict.values():
+            draft_text_file.write(f"2 {card.name}\n")
+
     with open(markdown_filepath, 'w') as markdown_file:
         markdown_file.write(header_string)
         for card in cards_dict.values():
@@ -62,7 +74,7 @@ def main():
 f"""
 <card>
     <name>{card.name}</name>
-    <set picURL="{f"/{card.name}.full.jpg"}" picURLHq="" picURLSt="">{set_code}</set>
+    <set picURL="{f"/{card.name}.full.{CARD_PICTURE_FILE_FORMAT}"}" picURLHq="" picURLSt="">{set_code}</set>
     <color>{card.colors}</color>
     <manacost>{card.manacost}</manacost>
     <type>{card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.stats[0]}/{card.stats[1]}</pt>"}

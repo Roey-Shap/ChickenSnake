@@ -12,7 +12,7 @@ class Card():
                 body_text: str,
                 flavor_text: str
                 ) -> None:
-        self.name = name.replace("?", "") # Would honestly be better to properly clean names of filepath-illegal characters but whatevs
+        self.name = name.replace("?", "").strip() # Would honestly be better to properly clean names of filepath-illegal characters but whatevs
         self.colors = colors
         self.is_gold = len(colors) >= 3
         self.is_colorless = len(colors) == 0
@@ -43,3 +43,17 @@ class Card():
         power     = star_char if self.stats == "*" else self.stats[0] 
         toughness = star_char if self.stats == "*" else self.stats[1]
         return f"{power}/{toughness}"
+
+    def get_draft_text_rep(self, uploaded_images_base_url: str, card_picture_file_format: str) -> str:
+        final_string = \
+    f"""
+    {{
+        "name":  "{self.name}",
+        "mana_cost":  "{self.manacost}",
+        "type":  "{self.supertype}",
+        "rarity":  "rare",
+        "image_uris":  {{
+                            "en":  "{uploaded_images_base_url}{self.name}.{card_picture_file_format}"
+                        }}
+    }}"""
+        return final_string

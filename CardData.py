@@ -3,23 +3,18 @@ from Card import Card
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 from Fonts import body_text_font_name, symbols_font_name
 from LineSegment import LineSegment
+import Fonts
+from LineSegment import hybrid_pips_with_non_wubrg_order_colors
+
+import traceback
+
+CARD_PICTURE_FILE_FORMAT = "jpg"
 
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
 # card_pixel_dims = (375, 523)
 card_pixel_dims = (500, 700)
 right_mana_border = int(card_pixel_dims[0] * 0.93)
-font_title = ImageFont.truetype(body_text_font_name, 26)
-font_title_small = ImageFont.truetype(body_text_font_name, 18)
-
-font_types = ImageFont.truetype(body_text_font_name, 24)
-font_types_small = ImageFont.truetype(body_text_font_name, 20)
-font_types_tiny = ImageFont.truetype(body_text_font_name, 18)
-
-font_stats = ImageFont.truetype(body_text_font_name, 30)
-
-font_symbols_large = ImageFont.truetype(symbols_font_name, 26)
-font_symbols_large_pip_bg = ImageFont.truetype(symbols_font_name, 24)
 
 # font_body  = ImageFont.truetype(body_text_font_name, 13)
 # font_body_tiny = ImageFont.truetype(body_text_font_name, 11)
@@ -56,10 +51,18 @@ def get_power_toughness(csv_row: dict[str, str]) -> tuple[int|str, int|str] | No
 def get_mana_cost_string(raw_mana_cost: str) -> str:
     tokens = raw_mana_cost.split('{')
     stripped = [s.removesuffix('}').upper() for s in tokens if len(s) > 0]
-    hybrid = ["{" + s + "}" if '/' in s else s for s in stripped]
+    hybrid = ["{" + reorder_mana_string(s) + "}" if '/' in s else s for s in stripped]
     joined = ''.join(hybrid)
 
     return joined
+
+def reorder_mana_string(stripped_cost: str) -> str:
+    if stripped_cost.lower() in hybrid_pips_with_non_wubrg_order_colors or "p" in stripped_cost.lower():
+        first, second = stripped_cost.split('/')
+        return second + '/' + first
+    else:
+        return stripped_cost
+
 
 def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
     cards_dict: dict[str, Card] = {}
@@ -110,9 +113,9 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 card_image_total.alpha_composite(image_assets["c_pt_"])
 
             # Title font config
-            chosen_title_font = font_title
+            chosen_title_font = Fonts.font_title
             if len(card_data.name) + len(card_data.manacost) > 45:
-                chosen_title_font = font_title_small
+                chosen_title_font = Fonts.font_title_small
 
             # Title
             ImageDraw.Draw(card_image_total).text(
@@ -122,28 +125,28 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # Mana Cost
             debug_on = False # card_data.name == "Ancient Nestite"
             mana_cost_segments: list[LineSegment] = LineSegment.split_text_for_symbols(
-                card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, debug_mode=debug_on, font_override=(font_symbols_large, font_symbols_large_pip_bg), 
+                card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, debug_mode=debug_on, font_override=(Fonts.font_symbols_large, Fonts.font_symbols_large_pip_bg)
             )
             
             # We assume each pip is the same width and draw them from left to right with manual offsets
             num_mana_pips = len(mana_cost_segments)
-            if debug_on:
-                print(num_mana_pips)
+            # if debug_on:
+                # print(num_mana_pips)
 
             if num_mana_pips > 0:
                 mana_pip_width = mana_cost_segments[0].dims[0]
                 margin = 0 #int(mana_pip_width * 0.1)
                 left_mana_border = right_mana_border - (mana_pip_width * num_mana_pips) - (margin * (num_mana_pips-1))
                 for i, segment in enumerate(mana_cost_segments):
-                    segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), 40), True, (font_symbols_large, font_symbols_large_pip_bg), True)
+                    segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), 40), absolute_draw_mode=True, mana_cost_mode=True)
 
             # Types
-            chosen_types_font = font_types
+            chosen_types_font = Fonts.font_types
             types_string = card_data.get_type_string()
             if len(types_string) > 32:
-                chosen_types_font = font_types_small
+                chosen_types_font = Fonts.font_types_small
             if len(types_string) > 40:
-                chosen_types_font = font_types_tiny
+                chosen_types_font = Fonts.font_types_tiny
 
             ImageDraw.Draw(card_image_total).text(
                 (40, 413), card_data.get_type_string(), C_BLACK, font=chosen_types_font, anchor="lm"
@@ -162,11 +165,12 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
            
             if card_data.has_stats:
                 ImageDraw.Draw(card_image_total).text(
-                    (433, 643), card_data.get_stats_string(), C_BLACK, font_stats, anchor="mm"
+                    (433, 643), card_data.get_stats_string(), C_BLACK, Fonts.font_stats, anchor="mm"
                 )
-
+            
+            rgb_image = card_image_total.convert("RGB")
             try:
-                card_image_total.save(images_save_filepath + f"{card_data.name}.png", quality=100)
+                rgb_image.save(images_save_filepath + f"{card_data.name}.{CARD_PICTURE_FILE_FORMAT}", quality=100)
             except:
                 raise ValueError(f"There was an issue saving the image for: {card_data.name}")
 
@@ -179,8 +183,9 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
         except Exception as e:
             print(f"There was an issue with {card_data.name}")
             print(e)
+            print(traceback.format_exc())
+            print()
 
-        
 def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
     resized_images: dict[str, Image] = {}
     image_color_prefixes = [f"{color}_{side}" for side in ["l", "m", "r"] for color in "WUBRG"] + ["c_pt_", "m_", "c_"]
@@ -192,20 +197,3 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
         resized_images[prefix] = resized_image.convert("RGBA")
     
     return resized_images
-
-# Initially from Stack Overflow "Wrap text in PIL", modified to account for text that already has newlines
-def get_wrapped_text(text: str, font: ImageFont.ImageFont, line_length: int, debug_mode=False):
-    lines_init = text.split("\n")
-    lines_total = []
-    for line_init in lines_init:
-        lines = [""]
-        for word in line_init.split():
-            line = f"{lines[-1]} {word}".strip()
-            if font.getlength(line) <= line_length:
-                lines[-1] = line
-            else:
-                lines.append(word)
-        
-        lines_total += lines
-
-    return '\n'.join(lines_total)

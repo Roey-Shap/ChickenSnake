@@ -75,7 +75,7 @@ When Send High has no time counters on it, sacrifice it and return the exiled pe
     <name>Encouragement</name>
     <set picURL="/Encouragement.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UG</color>
-    <manacost>1{U/G}</manacost>
+    <manacost>1{G/U}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Flicker each creature you control with backup.</text>
@@ -96,7 +96,7 @@ Horde 3 - creatures you control have trample. </text>
     <name>Active Duty Bonus</name>
     <set picURL="/Active Duty Bonus.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WUR</color>
-    <manacost>1{W/U}{W/R}</manacost>
+    <manacost>1{W/U}{R/W}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Tap up to two target permanents target opponent controls. Make a treasure for each tapped creature they control. </text>
@@ -106,7 +106,7 @@ Horde 3 - creatures you control have trample. </text>
     <name>Soul Sister</name>
     <set picURL="/Soul Sister.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>2{W/R}{W/R}</manacost>
+    <manacost>2{R/W}{R/W}</manacost>
     <type>Enchantment Creature - Spirit</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -151,7 +151,7 @@ Whenever a spell or ability you control would tap X creatures, you may give this
     <name>Spirit Spear</name>
     <set picURL="/Spirit Spear.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
-    <manacost>1{W/G}</manacost>
+    <manacost>1{G/W}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Destroy target enchantment.
@@ -209,7 +209,7 @@ Backup
     <name>False Devotion</name>
     <set picURL="/False Devotion.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>B</color>
-    <manacost>1{P/B}</manacost>
+    <manacost>1{B/P}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Until the end of your next end step, any time your devotion to anything is checked, it is considered 3 greater. (If something checks for devotion to two things, this bonus only applies to one of them.)</text>
@@ -320,7 +320,7 @@ You may cast sorcery spells as though they have flash.</text>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
     <text>Landfall - place a +1/+1 counter on this creature or a -1/-1 counter on target creature.
-Horde 3 - whenever Oozing Oozer deals combat damage to a player, you make sacrifice a creature or artifact. If you do, make a tapped green Ooze token with power and toughness equal to Oozing Oozer's power.</text>
+Whenever Oozing Oozer deals combat damage to a player, you make sacrifice a creature or artifact. If you do, make a tapped green Ooze token with power and toughness equal to Oozing Oozer's power.</text>
 </card>
 
 <card>
@@ -348,7 +348,7 @@ Horde 3 - whenever Oozing Oozer deals combat damage to a player, you make sacrif
     <name>Juju Farmer</name>
     <set picURL="/Juju Farmer.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UG</color>
-    <manacost>2{U/G}</manacost>
+    <manacost>2{G/U}</manacost>
     <type>Creature - Beast</type>
 	<pt>3/3</pt>
     <tablerow>0</tablerow>
@@ -405,7 +405,7 @@ Horde 3 - Whenever equipped creature attacks, Cascade X, where X is your devotio
     <name>Unruly Uprising</name>
     <set picURL="/Unruly Uprising.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>2{P/W}{P/R}</manacost>
+    <manacost>2{W/P}{R/P}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Creature you control get +2/+2 and trample until end of turn. If life was paid to cast this spell, they get +2/+0 and trample instead.</text>
@@ -415,7 +415,7 @@ Horde 3 - Whenever equipped creature attacks, Cascade X, where X is your devotio
     <name>Afterlife Leech</name>
     <set picURL="/Afterlife Leech.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UBG</color>
-    <manacost>1{B/G}{U/G}</manacost>
+    <manacost>1{B/G}{G/U}</manacost>
     <type>Enchantment Creature - Spirit Leech</type>
 	<pt>1/2</pt>
     <tablerow>0</tablerow>
@@ -429,7 +429,7 @@ At the beginning of your end step, if Afterlife Leech is attached to a creature,
     <name>Augmented Oracle</name>
     <set picURL="/Augmented Oracle.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>URG</color>
-    <manacost>{U/R}{U/G}</manacost>
+    <manacost>{U/R}{G/U}</manacost>
     <type>Creature - Cleric Weird</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -510,7 +510,7 @@ Remove charge counters:
     <name>Well-Travelled Alpakon</name>
     <set picURL="/Well-Travelled Alpakon.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
-    <manacost>{W/G}</manacost>
+    <manacost>{G/W}</manacost>
     <type>Creature - Alpaca</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
@@ -534,7 +534,7 @@ Sacrifice this creature: add one mana of any color and target creature gets +0/+
     <name>Mother Alpakon</name>
     <set picURL="/Mother Alpakon.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
-    <manacost>X5{W/G}</manacost>
+    <manacost>X5{G/W}</manacost>
     <type>Legendary Creature - Alpaca Giant</type>
 	<pt>6/5</pt>
     <tablerow>0</tablerow>
@@ -594,7 +594,7 @@ When Mossroamer enters, you may search your library for a basic land, put it ont
     <name>Regrowl</name>
     <set picURL="/Regrowl.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WBG</color>
-    <manacost>2{W/G}{B/G}</manacost>
+    <manacost>2{G/W}{B/G}</manacost>
     <type>Enchantment Creature - Tiger Spirit</type>
 	<pt>4/1</pt>
     <tablerow>0</tablerow>
@@ -608,7 +608,7 @@ First strike</text>
     <name>Viss, the Dauntless</name>
     <set picURL="/Viss, the Dauntless.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>2{W/R}{W/R}</manacost>
+    <manacost>2{R/W}{R/W}</manacost>
     <type>Legendary Creature - Warrior</type>
 	<pt>3/3</pt>
     <tablerow>0</tablerow>
@@ -620,7 +620,7 @@ Persist, First Strike</text>
     <name>Dream Reacher</name>
     <set picURL="/Dream Reacher.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>U</color>
-    <manacost>5{P/U}</manacost>
+    <manacost>5{U/P}</manacost>
     <type>Legendary Artifact</type>
     <tablerow>0</tablerow>
     <text>You may Cascade, Scry, Explore, and Surveil with any player's library whenever you would your own.
@@ -710,7 +710,7 @@ Horde 3 - The first time a creature you control deals combat damage to a player 
     <name>Birdcrank</name>
     <set picURL="/Birdcrank.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>B</color>
-    <manacost>3{P/B}</manacost>
+    <manacost>3{B/P}</manacost>
     <type>Artifact</type>
     <tablerow>0</tablerow>
     <text>Tap a creature you control with power 3 or less: add {b}. Until end of turn, your devotion to black is considered 1 greater.
@@ -918,7 +918,7 @@ First Strike
     <name>Rallying Wimp</name>
     <set picURL="/Rallying Wimp.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WBR</color>
-    <manacost>1{W/R}{B/R}</manacost>
+    <manacost>1{R/W}{B/R}</manacost>
     <type>Creature - Dwarf Imp</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -1020,7 +1020,7 @@ Whenever this creature deals combat damage to a player, proliferate or place a -
     <name>Cloak of Proliferation</name>
     <set picURL="/Cloak of Proliferation.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UG</color>
-    <manacost>3{U/G}</manacost>
+    <manacost>3{G/U}</manacost>
     <type>Enchantment - Aura</type>
     <tablerow>0</tablerow>
     <text>Enchant creature 
@@ -1125,7 +1125,7 @@ Search your library for a land that can produce mana of the chosen color and put
     <name>Overgenerous Symbiote</name>
     <set picURL="/Overgenerous Symbiote.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UG</color>
-    <manacost>3{U/G}{U/G}</manacost>
+    <manacost>3{G/U}{G/U}</manacost>
     <type>Creature - Plant Horse Goblin</type>
 	<pt>3/4</pt>
     <tablerow>0</tablerow>
@@ -1149,7 +1149,7 @@ Trample, Haste</text>
     <name>Shroom Gator Randy</name>
     <set picURL="/Shroom Gator Randy.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>URG</color>
-    <manacost>{U/G}{R/G}</manacost>
+    <manacost>{G/U}{R/G}</manacost>
     <type>Creature - Dwarf Reptile</type>
 	<pt>2/1</pt>
     <tablerow>0</tablerow>
@@ -1350,7 +1350,7 @@ Whenever a creature ducks behind Modest Lumberbeast, put a +1/+1 counter on Mode
     <name>Owhale</name>
     <set picURL="/Owhale.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WUG</color>
-    <manacost>5{W/U}{U/G}</manacost>
+    <manacost>5{W/U}{G/U}</manacost>
     <type>Creature - Bird Whale</type>
 	<pt>7/7</pt>
     <tablerow>0</tablerow>
@@ -1490,7 +1490,7 @@ Landfall - proliferate.</text>
     <name>Enveloping Hills</name>
     <set picURL="/Enveloping Hills.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UG</color>
-    <manacost>U{U/G}</manacost>
+    <manacost>U{G/U}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Counter target spell. 
@@ -1512,7 +1512,7 @@ Landfall - if you played a land this turn, this spell can't be countered.</text>
     <name>Underworld Voyager</name>
     <set picURL="/Underworld Voyager.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>B</color>
-    <manacost>{P/B}B</manacost>
+    <manacost>{B/P}B</manacost>
     <type>Creature - Human Explorer</type>
 	<pt>2/1</pt>
     <tablerow>0</tablerow>
@@ -1545,7 +1545,7 @@ Landfall - if you played a land this turn, this spell can't be countered.</text>
     <name>Ancient Nestite</name>
     <set picURL="/Ancient Nestite.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
-    <manacost>2{W/G}</manacost>
+    <manacost>2{G/W}</manacost>
     <type>Creature - Plant Wolf</type>
 	<pt>2/4</pt>
     <tablerow>0</tablerow>
@@ -1557,7 +1557,7 @@ Landfall - create a tapped, blue and white 1/1 Bird token with flying onto the b
     <name>Resis, Garden Assistant</name>
     <set picURL="/Resis, Garden Assistant.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
-    <manacost>1{W/G}</manacost>
+    <manacost>1{G/W}</manacost>
     <type>Creature - Rabbit Citizen</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -1671,7 +1671,7 @@ Sacrifice Alter Altar: put a +1/+1 counter on each creature you control. Activat
     <name>It That Arrives</name>
     <set picURL="/It That Arrives.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WB</color>
-    <manacost>7{P/W}{P/B}</manacost>
+    <manacost>7{W/P}{B/P}</manacost>
     <type>Legendary Creature - Elemental Spirit</type>
 	<pt>6/6</pt>
     <tablerow>0</tablerow>
@@ -1717,7 +1717,7 @@ Tap target Boulder you control: Lumbouldeer gets +2/+0 until end of turn.</text>
     <name>Glittering Starchild</name>
     <set picURL="/Glittering Starchild.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WBR</color>
-    <manacost>3{W/B}{W/R}</manacost>
+    <manacost>3{W/B}{R/W}</manacost>
     <type>Enchantment Creature - Astral Spirit</type>
 	<pt>3/0</pt>
     <tablerow>0</tablerow>
@@ -1794,8 +1794,8 @@ When Whitehair Hare enters, put a white 2/2 Rabbit creature token.</text>
 </card>
 
 <card>
-    <name>Overexertion Propogandist (hype frog)</name>
-    <set picURL="/Overexertion Propogandist (hype frog).full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <name>Hype Bro</name>
+    <set picURL="/Hype Bro.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>URG</color>
     <manacost>2U{R/G}</manacost>
     <type>Creature - Frog Citizen</type>
@@ -1865,8 +1865,8 @@ Whenever a creature ducks behind Cheer Cedar, target creature you control gets +
 </card>
 
 <card>
-    <name>Pre-chewer </name>
-    <set picURL="/Pre-chewer .full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <name>Pre-chewer</name>
+    <set picURL="/Pre-chewer.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>G</color>
     <manacost>1G</manacost>
     <type>Creature - Bird Cleric</type>
@@ -1915,7 +1915,7 @@ Whenever a creature you control ducks behind Hazardous Ballista, Hazardous Balli
     <name>Good Parenting</name>
     <set picURL="/Good Parenting.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WUG</color>
-    <manacost>5{W/U}{U/G}</manacost>
+    <manacost>5{W/U}{G/U}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Good Parenting costs {1} less to cast for each card in your hand you've revealed or Transparent permanent you control.
@@ -2044,7 +2044,7 @@ Flashback {b}</text>
     <name>Townie Cooperation</name>
     <set picURL="/Townie Cooperation.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WRG</color>
-    <manacost>3{W/R}{W/G}</manacost>
+    <manacost>3{R/W}{G/W}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Convoke
@@ -2209,7 +2209,7 @@ Whenever equipped creature attacks, if it's an enchantment creature, up to one t
     <name>Queen's Command</name>
     <set picURL="/Queen's Command.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WBR</color>
-    <manacost>2{P/W}{P/R}B</manacost>
+    <manacost>2{W/P}{R/P}B</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Gain control of target creature until the beginning of your next endstep. It gains haste and flying until end of turn. Untap it.</text>
@@ -2253,7 +2253,7 @@ Whenever you cast a creature spell that was revealed to an opponent before they 
     <name>Rambunny</name>
     <set picURL="/Rambunny.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>{W/R}{W/R}</manacost>
+    <manacost>{R/W}{R/W}</manacost>
     <type>Creature - Rabbit Goat</type>
 	<pt>3/3</pt>
     <tablerow>0</tablerow>
@@ -2334,7 +2334,7 @@ Counter target spell. Then look at the top card of its controller's library.</te
     <name>Enveloping Arcana</name>
     <set picURL="/Enveloping Arcana.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UG</color>
-    <manacost>1{U/G}{U/G}</manacost>
+    <manacost>1{G/U}{G/U}</manacost>
     <type>Creature - Plant Weird</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -2346,7 +2346,7 @@ Sacrifice this creature: counter target spell with mana cost less than or equal 
     <name>Infectious Mutagen</name>
     <set picURL="/Infectious Mutagen.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WUG</color>
-    <manacost>{U/G}{W/G}</manacost>
+    <manacost>{G/U}{G/W}</manacost>
     <type>Creature - Frog Rabbit</type>
 	<pt>2/1</pt>
     <tablerow>0</tablerow>
@@ -2404,7 +2404,7 @@ Discard Tidepool Charmer: target opponent reveals an unrevealed card to you.</te
     <name>Proud Fangirl</name>
     <set picURL="/Proud Fangirl.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>{W/R}</manacost>
+    <manacost>{R/W}</manacost>
     <type>Creature - Rabbit Citizen</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
@@ -2416,7 +2416,7 @@ Reveal Proud Fangirl from your hand: target creature you control gets +1/+0 and 
     <name>Synthesis Hulk</name>
     <set picURL="/Synthesis Hulk.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UBG</color>
-    <manacost>4{U/G}{B/G}G</manacost>
+    <manacost>4{G/U}{B/G}G</manacost>
     <type>Creature - Nymph Weird</type>
 	<pt>7/7</pt>
     <tablerow>0</tablerow>
@@ -2576,7 +2576,7 @@ You may return a creature from your graveyard to the battlefield under your cont
     <name>Battlefield Chef</name>
     <set picURL="/Battlefield Chef.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>2{W/R}</manacost>
+    <manacost>2{R/W}</manacost>
     <type>Creature - Dwarf Elephant</type>
 	<pt>4/2</pt>
     <tablerow>0</tablerow>
@@ -2588,7 +2588,7 @@ Whenever you sacrifice a token, you gain 1 life.</text>
     <name>The Puny Rise Up</name>
     <set picURL="/The Puny Rise Up.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WRG</color>
-    <manacost>1{W/R}{R/G}</manacost>
+    <manacost>1{R/W}{R/G}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Creatures you control with toughness 2 or less get +3/+0 and gain trample and first strike until end of turn.</text>
@@ -2683,7 +2683,7 @@ Whenever a nontoken creature you control enters, make a 1/1 white Wind Spirit to
     <name>Mayor's Potluck</name>
     <set picURL="/Mayor's Potluck.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
-    <manacost>X{W/G}{W/G}</manacost>
+    <manacost>X{G/W}{G/W}</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Convoke
@@ -2694,7 +2694,7 @@ Make X Foods.</text>
     <name>Faceless Sheep</name>
     <set picURL="/Faceless Sheep.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
-    <manacost>{W/G}</manacost>
+    <manacost>{G/W}</manacost>
     <type>Creature - Sheep</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
@@ -2850,7 +2850,7 @@ Reveal Monk's Peak if it's in your unrevealed in your hand or an unrevealed card
     <name>Territorial Toad</name>
     <set picURL="/Territorial Toad.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UG</color>
-    <manacost>1{U/G}</manacost>
+    <manacost>1{G/U}</manacost>
     <type>Creature - Frog Warrior</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -2959,12 +2959,12 @@ Indecisive Goon-Twins may duck behind two creatures simultaneously.</text>
     <name>Big Brother Brenton</name>
     <set picURL="/Big Brother Brenton.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>BG</color>
-    <manacost>2{G/B}</manacost>
+    <manacost>2{B/G}</manacost>
     <type>Creature - Elephant Wall</type>
 	<pt>2/6</pt>
     <tablerow>0</tablerow>
     <text>Defender
-When Big Brother Brenton enters, you may pay {2}{g/b} and create a colorless 0/3 Boulder artifact creature token with defender.</text>
+When Big Brother Brenton enters, you may pay {2}{b/g} and create a colorless 0/3 Boulder artifact creature token with defender.</text>
 </card>
 
 <card>
@@ -3063,7 +3063,7 @@ Scry 2. As you do so, you may play either of those cards if able.</text>
     <name>Cocky Rooster</name>
     <set picURL="/Cocky Rooster.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>1{W/R}</manacost>
+    <manacost>1{R/W}</manacost>
     <type>Creature - Bird</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -3175,7 +3175,7 @@ As long as your life total is 5 or more above your starting life total, creature
     <name>Renee's Jetpack</name>
     <set picURL="/Renee's Jetpack.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>2{W/R}</manacost>
+    <manacost>2{R/W}</manacost>
     <type>Artifact - Equipment</type>
     <tablerow>0</tablerow>
     <text>Equip {1}
@@ -3261,7 +3261,7 @@ Equipped creature has ward {1}.
     <name>Unearth Memories</name>
     <set picURL="/Unearth Memories.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UBG</color>
-    <manacost>{U/G}B</manacost>
+    <manacost>{G/U}B</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Surveil 2, then target instant or sorcery in your graveyard gains flashback until end of turn. Its flashback cost is equal to its mana cost.</text>
@@ -3345,7 +3345,7 @@ At the beginning of your upkeep, remove a time counter from Fickle Fireball. The
     <name>Eager Combatant</name>
     <set picURL="/Eager Combatant.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WR</color>
-    <manacost>1{W/R}{W/R}</manacost>
+    <manacost>1{R/W}{R/W}</manacost>
     <type>Creature - Human Warrior</type>
 	<pt>3/1</pt>
     <tablerow>0</tablerow>
