@@ -1,0 +1,10 @@
+Playing online:
+>> https://cockatrice.github.io/
+
+Getting the cards locally:
+>> https://github.com/Roey-Shap/ChickenSnake/tree/main/DoD3/Playtest_Images
+>> https://github.com/Roey-Shap/ChickenSnake/blob/main/DoD3/DoD3.xml
+
+Drafting:
+>> https://draftmancer.com
+>> Upload https://github.com/Roey-Shap/ChickenSnake/blob/main/DoD3/DoD3.txt

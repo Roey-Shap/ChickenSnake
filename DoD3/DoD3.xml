@@ -187,22 +187,23 @@ Backup
     <name>Devoted Bombardier</name>
     <set picURL="/Devoted Bombardier.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>R</color>
-    <manacost>RRR</manacost>
+    <manacost>1RR</manacost>
     <type>Creature - Human Scout</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
-    <text>When Devoted Bombardier enters the battlefield, it deals damage equal to your devotion to red equal to target creature. This ability cannot be countered or protected against by hexproof or protection.</text>
+    <text>When Devoted Bombardier enters the battlefield, it deals damage equal to your devotion to red equal to target creature. This damage cannot be prevented.</text>
 </card>
 
 <card>
     <name>Priest of the Corals</name>
     <set picURL="/Priest of the Corals.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>WU</color>
-    <manacost>2{W/U}</manacost>
+    <color>UG</color>
+    <manacost>2{G/U}</manacost>
     <type>Creature - Human Cleric</type>
 	<pt>1/3</pt>
     <tablerow>0</tablerow>
-    <text>{2},{t}: Scry X for target player, where X is your devotion to white and blue.</text>
+    <text>{u}, {t}: Scry 1. If your devotion to blue is at least 3, scry 3 instead.
+{g}, {t}: Target creature you control gets +1/+1 until end of turn. If your devotion to green is at least 3, it also gains reach and trample.</text>
 </card>
 
 <card>
@@ -224,19 +225,18 @@ Backup
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
     <text>Backup
-When this creature dies, distribute +1/+1 counters equal to your devotion to black on any number of target creatures you control.</text>
+As this creature dies, if your devotion to black is at least 4, put a +1/+1 counter on target creature you control.</text>
 </card>
 
 <card>
     <name>Cardboard Enthusiast</name>
     <set picURL="/Cardboard Enthusiast.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color></color>
-    <manacost>1</manacost>
+    <manacost>3</manacost>
     <type>Creature - Human</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
-    <text>When Cardboard Enthusiast enters the battlefield, create a colorless 1/1 construct creature token.
-When Cardboard Enthusiast leaves the battlefield, discard a card if you control no tokens.</text>
+    <text>When Cardboard Enthusiast enters the battlefield, create a colorless 1/1 construct creature token.</text>
 </card>
 
 <card>
@@ -281,11 +281,11 @@ Sea Horde has trample as long as your devotion to blue is at least 4.
     <name>Holy Sniper</name>
     <set picURL="/Holy Sniper.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WB</color>
-    <manacost>{W/B}{W/B}</manacost>
+    <manacost>1{W/B}{W/B}</manacost>
     <type>Enchantment Artifact - Equipment</type>
     <tablerow>0</tablerow>
     <text>Equip {3}
-Equipped creature has, "{t}: deal X damage to target creature, where X is your devotion to white and black. Scry X for them."</text>
+Equipped creature has, "{t}: deal X damage to target creature, where X is your devotion to white and black."</text>
 </card>
 
 <card>
@@ -301,13 +301,13 @@ Equipped creature has, "{t}: deal X damage to target creature, where X is your d
 <card>
     <name>Speed Demon</name>
     <set picURL="/Speed Demon.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>UB</color>
-    <manacost>2{U/B}</manacost>
+    <color>UR</color>
+    <manacost>1UR</manacost>
     <type>Enchantment Creature - Demon Spirit</type>
 	<pt>4/2</pt>
     <tablerow>0</tablerow>
     <text>Haste
-As long as your devotion to blue and black is less than 4, Speed Demon isn't a creature.
+As long as your devotion to blue and red is less than 4, Speed Demon isn't a creature.
 You may cast sorcery spells as though they have flash.</text>
 </card>
 
@@ -319,15 +319,15 @@ You may cast sorcery spells as though they have flash.</text>
     <type>Creature - Ooze</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
-    <text>Landfall - place a +1/+1 counter on this creature or a -1/-1 counter on target creature.
-Whenever Oozing Oozer deals combat damage to a player, you make sacrifice a creature or artifact. If you do, make a tapped green Ooze token with power and toughness equal to Oozing Oozer's power.</text>
+    <text>Whenever Oozing Oozer deals combat damage to a player, make a tapped green Ooze token whose power and toughness are equal to the number of Oozes you control.
+Landfall - Oozing Oozer gains deathtouch until end of turn.</text>
 </card>
 
 <card>
     <name>Abuse Momentum</name>
     <set picURL="/Abuse Momentum.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>UR</color>
-    <manacost>{U/R}{U/R}</manacost>
+    <color>WR</color>
+    <manacost>{R/W}{R/W}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Until end of turn, whenever target creature receives combat damage greater than its toughness, it deals that much damage to target creature, planeswalker, or battle.</text>
@@ -363,7 +363,7 @@ Whenever Oozing Oozer deals combat damage to a player, you make sacrifice a crea
     <type>Enchantment Creature - Spirit</type>
 	<pt>3/3</pt>
     <tablerow>0</tablerow>
-    <text>Whenever Fragment Horde attacks, make a token that's a copy of it tapped and attacking (the copy counts towards your devotion).
+    <text>Whenever Fragment Horde attacks, make a token that's a copy of it tapped and attacking (the copy counts towards your devotion) except it doesn't have this ability.
 When Fragment Horde dies, gain X life and tap up to X permanents, where X to your devotion to white.</text>
 </card>
 
@@ -545,14 +545,13 @@ When Mother Alpaca enters, create X 0/1 colorless Alpaca creatures with "Backup"
 <card>
     <name>Frozen Dragon</name>
     <set picURL="/Frozen Dragon.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>WUB</color>
-    <manacost>4{W/U}{W/B}{U/B}</manacost>
+    <color>U</color>
+    <manacost>4UU</manacost>
     <type>Legendary Creature - Dragon</type>
-	<pt>8/8</pt>
+	<pt>5/5</pt>
     <tablerow>0</tablerow>
     <text>Ward {1}
-Frozen Dragon enters tapped with 2 stun counters on it if it was cast.
-If Frozen Dragon would be dealt damage while it has a stun counter on it, remove a stun counter instead.
+Frozen Dragon enters tapped with a stun counter on it if it was cast.
 Whenever Frozen Dragon attacks, you may place up to 3 stun counters in any way on up to 3 target permanents. 
 Islands you control have "{1}, {t}: tap target permanent."</text>
 </card>
@@ -1068,7 +1067,7 @@ Whenever you would proliferate, proliferate that many times plus one instead.</t
     <manacost>2{R/G}</manacost>
     <type>Enchantment</type>
     <tablerow>0</tablerow>
-    <text>When Hit the Ground Running enters, you may search your library for a basic land and put it onto the battlefield tapped. 
+    <text>When Hit the Ground Running enters, you may search your library for a basic land and put it onto the battlefield tapped. Target creature you control gains haste until end of turn.
 Landfall - Place a 1/+1 counter on target creature that entered the battlefield this turn. It gains haste until end of turn. </text>
 </card>
 
@@ -1177,7 +1176,7 @@ Enchanted creature gets +1/+1.</text>
     <manacost>{R/G}</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
-    <text>Choose a color or colorless. Target creature you control gains protection from the chosen color. Whenever it would be dealt damage by a source of that color this turn, make a Blood token.
+    <text>Choose a color or colorless. The next time target creature you control would be dealt damage by a source of that color this turn, prevent that damage and make a Blood token.
 Cycling {r/g}</text>
 </card>
 
@@ -1292,8 +1291,8 @@ Enchanted creature gets +4/+4, lifelink, and ward {1}.</text>
 <card>
     <name>Lemme See!</name>
     <set picURL="/Lemme See!.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>BR</color>
-    <manacost>{B/R}</manacost>
+    <color>B</color>
+    <manacost>B</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Target opponent reveals two cards from their hand. They discard one of your choice. (If they only have one, they only reveal one).</text>
@@ -1333,17 +1332,15 @@ Enchanted creature gets +4/+4, lifelink, and ward {1}.</text>
 </card>
 
 <card>
-    <name>Modest Lumberbeast</name>
-    <set picURL="/Modest Lumberbeast.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <name>Great Lumberbeast</name>
+    <set picURL="/Great Lumberbeast.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>G</color>
     <manacost>2GG</manacost>
     <type>Creature - Plant Giant</type>
 	<pt>4/4</pt>
     <tablerow>0</tablerow>
-    <text>Duck - Modest Lumberbeast deals 1 damage to all creatures.
-Trample
-Whenever Modest Lumberbeast attacks, target creature you control gets +X/+X, where X is you devotion to green.
-Whenever a creature ducks behind Modest Lumberbeast, put a +1/+1 counter on Modest Lumberbeast.</text>
+    <text>Trample
+Whenever Great Lumberbeast attacks and your devotion to green is at least 4, it deals 1 damage to each creature defending player controls.</text>
 </card>
 
 <card>
@@ -1375,21 +1372,21 @@ Whenever Exploitative Liz enters or ducks, you may draw a card, then discard a c
 <card>
     <name>Open Wide</name>
     <set picURL="/Open Wide.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color></color>
-    <manacost></manacost>
+    <color>R</color>
+    <manacost>1R</manacost>
     <type>Instant </type>
     <tablerow>0</tablerow>
-    <text>Reptiles you control get +1/+1 and first strike until end of turn. Target creature you control fights target creature you don't control.</text>
+    <text>Reptiles you control get +1/+1 and first strike until end of turn.</text>
 </card>
 
 <card>
     <name>Reattempt</name>
     <set picURL="/Reattempt.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>U</color>
-    <manacost>1U</manacost>
+    <color>UB</color>
+    <manacost>UB</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
-    <text>Reveal one or more unrevealed cards from your hand, then reveal that number of cards from your library (put them back in the same order). You may cast target card in your graveyard with mana cost less than or equal to the total mana cost of the revealed cards from your library. If it's a permanent, it enters with a finality counter on it. Otherwise, exile it if it would enter the graveyard.</text>
+    <text>Reveal any number of unrevealed cards from your hand. Then search your graveyard for a card with mana value less than or equal to that number plus one and cast it. If it's a permanent, it enters with a finality counter on it. Otherwise, exile it as it resolves.</text>
 </card>
 
 <card>
@@ -1656,18 +1653,6 @@ Horde 4 - Counter target spell instead. You may put a +1/+1 counter on target cr
 </card>
 
 <card>
-    <name>Alter Altar</name>
-    <set picURL="/Alter Altar.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color></color>
-    <manacost></manacost>
-    <type>Legendary Land</type>
-    <tablerow>0</tablerow>
-    <text>Whenever a creature you control with power or toughness greater than the number of charge counters on Alter Altar, put a charge counter on Alter Altar. 
-{t}, remove 2 charge counters from Alter Altar: place a +1/+1 counter on target creature you control.
-Sacrifice Alter Altar: put a +1/+1 counter on each creature you control. Activate only if Alter Altar has 5 or more charge counters on it.</text>
-</card>
-
-<card>
     <name>It That Arrives</name>
     <set picURL="/It That Arrives.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WB</color>
@@ -1689,16 +1674,6 @@ Transparent creatures you control get +1/+1 and have trample.</text>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Suspend target creature with 8 minus X time counters on it. If X is greater than 8, put none. Then place X +1/+1 counters on it. </text>
-</card>
-
-<card>
-    <name>Curtesy Battle</name>
-    <set picURL="/Curtesy Battle.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color></color>
-    <manacost></manacost>
-    <type>Instant</type>
-    <tablerow>0</tablerow>
-    <text>You may reveal an unrevealed card from your hand or tap a permanent you control. Then an opponent may do the same with cards and permanents they control. If they do not, draw a card. If do they do, repeat this process. If you could not, they draw a card and you don't repeat this process.</text>
 </card>
 
 <card>
@@ -2110,14 +2085,14 @@ When Newborn Nid enters, you gain 1 life.</text>
 <card>
     <name>Icarus, Moment-Chaser</name>
     <set picURL="/Icarus, Moment-Chaser.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>W</color>
-    <manacost>1WW</manacost>
+    <color>U</color>
+    <manacost>1UU</manacost>
     <type>Creature - Bird Spider</type>
 	<pt>1/3</pt>
     <tablerow>0</tablerow>
     <text>Flying, Lifelink 
 Play with the top card of your library revealed. 
-You may play cards from the top of your library. Whenever you do, you may pay {1}. If you do, target creature you control gets +1/+1 and gains flying until end of turn.</text>
+You may play nonland cards from the top of your library. Whenever you do, you may pay {w}. If you do, target creature you control gets +1/+1 and gains flying until end of turn.</text>
 </card>
 
 <card>
@@ -2316,7 +2291,7 @@ Duck - target creature this creature is ducking behind gains deathtouch until en
     <manacost>GGG</manacost>
     <type>Enchantment</type>
     <tablerow>0</tablerow>
-    <text>Tap target creature you control with toughness X or less: counter target spell that has been revealed.</text>
+    <text>Reveal target card with mana cost X: target creature you control gets +X/+X until end of turn..</text>
 </card>
 
 <card>
@@ -2392,12 +2367,13 @@ Discard Tidepool Charmer: target opponent reveals an unrevealed card to you.</te
 <card>
     <name>Dreamdiver Fairy</name>
     <set picURL="/Dreamdiver Fairy.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>UB</color>
-    <manacost>{U/B}</manacost>
+    <color>U</color>
+    <manacost>UU</manacost>
     <type>Creature - Fairy</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
-    <text>When Dreamdiver Fairy enters, reveal the card X cards from the top of your library, where X is at most your devotion to blue and black (X equals 1 means reveal the top card).</text>
+    <text>Flash
+When Dreamdiver Fairy enters, reveal up 3 cards from the top of your library. Counter target spell with mana cost less than or equal to the number revealed.</text>
 </card>
 
 <card>
@@ -2467,7 +2443,7 @@ When Chest-Jutting Guard enters, it deals 2 damage to up to one target tapped cr
 	<pt>3/3</pt>
     <tablerow>0</tablerow>
     <text>Haste
-Whenever General Specific attacks, put a +1/+1 counter on target creature you control. It gains haste and trample until end of turn.</text>
+Whenever General Specific attacks, put a +1/+1 counter on target creature you control. It gains trample until end of turn.</text>
 </card>
 
 <card>
@@ -2839,7 +2815,7 @@ Reveal Monk's Peak if it's in your unrevealed in your hand or an unrevealed card
     <set picURL="/Ancient Tidepools.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UB</color>
     <manacost></manacost>
-    <type></type>
+    <type>Land</type>
     <tablerow>0</tablerow>
     <text>When Ancient Tidepools enters, return a land you control to your hand or sacrifice Ancient Tidepools.
 {t}: Add {u} or {b}.
@@ -3207,7 +3183,7 @@ Equipped creature gets +2/+1 and has flying.
     <name>Darkest Heart</name>
     <set picURL="/Darkest Heart.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>B</color>
-    <manacost>2B</manacost>
+    <manacost>1B</manacost>
     <type>Artifact</type>
     <tablerow>0</tablerow>
     <text>{1}{b}, sacrifice Darkest Heart: destroy target creature or planeswalker with mana cost less than or equal to your devotion to black.</text>
@@ -3254,7 +3230,7 @@ Equipped creature has ward {1}.
 	<pt>0/0</pt>
     <tablerow>0</tablerow>
     <text>Modular 1
-{2}, sacrifice Mark-Fluid Bot: Scry 1.</text>
+Sacrifice Mark-Fluid Bot: Scry 1.</text>
 </card>
 
 <card>
@@ -3284,12 +3260,11 @@ Equipped creature has ward {1}.
     <color>R</color>
     <manacost>2RR</manacost>
     <type>Creature - Goblin Dwarf</type>
-	<pt>3/3</pt>
+	<pt>2/3</pt>
     <tablerow>0</tablerow>
     <text>Haste
 Aggressor Captain must attack each combat if able.
-Whenever a creature you control attacks, creatures you control get +1/+0 until end of turn.
-Horde 4 - Ward {1}</text>
+Whenever a creature you control attacks, creatures you control get +1/+0 until end of turn.</text>
 </card>
 
 <card>
@@ -3521,6 +3496,16 @@ Prevent all combat damage that would be dealt this turn.</text>
     <tablerow>0</tablerow>
     <text>Target creature you control deals damage equal to its power to target tapped or transparent creature.
 Cycling {2}</text>
+</card>
+
+<card>
+    <name>Thief's Boost</name>
+    <set picURL="/Thief's Boost.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>G</color>
+    <manacost>1G</manacost>
+    <type>Instant</type>
+    <tablerow>0</tablerow>
+    <text>Tap any number of creatures. Up to that many target creatures you control gain reach until end of turn.</text>
 </card>
 
 </cards>

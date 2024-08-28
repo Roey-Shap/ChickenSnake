@@ -5,11 +5,14 @@ from Card import Card
 from UI import *
 import LineSegment
 
-# test_text = "This is some test text. {t}, do a thing, add {r}{r}."
-# print(LineSegment.LineSegment.split_text_for_symbols(test_text))
 
 # @TODO: 
-# Get version number from the spreadsheet
+# Make rarity consideration in text file
+# Assign rarities to current cards
+# Check that get_stats_string still works in the correct context with the use of get_draft_text_rep
+# Check Slow-moving projectile
+# Split header stringgs and general file-writing data into a separate file
+# Make it so user can change the set name and csv name and such
 # Make playtest art autogenerate images based on type and mana cost
 base_filepath = ".\\DoD3\\"
 markdown_filepath = base_filepath + "DoD3.xml"
@@ -32,6 +35,30 @@ f"""<?xml version="1.0" encoding="UTF-8"?>
 </sets>
 <cards>
 """
+draft_pack_settings_string = \
+f"""
+[Settings]
+{{
+    "layouts": {{
+        "Rare": {{
+            "weight": 7,
+            "slots": {{
+                "Common": 10,
+                "Uncommon": 3,
+                "Rare": 1
+            }}
+        }},
+        "Mythic": {{
+            "weight": 1,
+            "slots": {{
+                "Common": 10,
+                "Uncommon": 3,
+                "Mythic": 1
+            }}
+        }}
+    }}
+}}
+"""
 
 closer_string = \
 f"""
@@ -41,9 +68,11 @@ f"""
 
 def main():
     print("Welcome to ChickenSnake!")
-    do_generate_card_images: bool = get_user_input(yes_no_input_check, "In addition to generating a markdown file, do you want to generate default card images? (y/n)\n")
+    do_generate_card_images: bool = get_user_input(
+        yes_no_input_check, 
+        "In addition to generating a markdown file, do you want to generate default card images? (y/n)\n"
+    )
     cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(card_data_filepath)
-    num_cards_total = len(cards_dict)
 
     if do_generate_card_images.lower() in ["y", "yes"]:
         print("Initializing image creation assets...")
@@ -53,38 +82,15 @@ def main():
         print(".....")
         generate_card_images(cards_dict, card_images_filepath, image_assets)
         print("Done!")
+    
+    card_rarities = ["Common", "Uncommon", "Rare", "Mythic"]
+    cards_by_rarity = group_cards_by_rarity(card_rarities, cards_dict)
+    generate_draft_text_file(draft_text_filepath, cards_dict, draft_pack_settings_string, uploaded_images_base_url, card_rarities, cards_by_rarity)
+    generate_markdown_file(markdown_filepath, cards_dict, header_string, closer_string, set_code)
 
-    with open(draft_text_filepath, 'w') as draft_text_file:
-        draft_text_file.write("[CustomCards]\n[")
-        for i, card in enumerate(cards_dict.values()):
-            draft_text_file.write(card.get_draft_text_rep(uploaded_images_base_url, CARD_PICTURE_FILE_FORMAT))
-            if i < num_cards_total - 1:
-                draft_text_file.write(",")
-            # single_line_text_file.write(card.name)
-            # single_line_text_file.write('\n')
-        draft_text_file.write("]\n")
-        draft_text_file.write("[MainSlot(15)]\n")
-        for card in cards_dict.values():
-            draft_text_file.write(f"2 {card.name}\n")
 
-    with open(markdown_filepath, 'w') as markdown_file:
-        markdown_file.write(header_string)
-        for card in cards_dict.values():
-            markdown_file.write(
-f"""
-<card>
-    <name>{card.name}</name>
-    <set picURL="{f"/{card.name}.full.{CARD_PICTURE_FILE_FORMAT}"}" picURLHq="" picURLSt="">{set_code}</set>
-    <color>{card.colors}</color>
-    <manacost>{card.manacost}</manacost>
-    <type>{card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.stats[0]}/{card.stats[1]}</pt>"}
-    <tablerow>0</tablerow>
-    <text>{card.body_text}</text>
-</card>
-"""
-    )
-
-        markdown_file.write(closer_string)
         
 if __name__ == "__main__":
     main()
+
+

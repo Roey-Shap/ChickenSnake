@@ -77,13 +77,17 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 converted_manacost = row["CMC"]
                 supertype = row["Type"]
                 subtype = row["Subtype"]
+                rarity = row["Rarity"]
+                if len(rarity) == 0:
+                    rarity = "c"
+
                 stats = get_power_toughness(row)
                 body_text = row["Desc"]
                 flavor_text = row["Flavor Text"]
 
                 cards_dict[name] = Card(
                     name, colors, manacost, raw_mana_cost_string,
-                    converted_manacost, supertype, subtype,
+                    converted_manacost, supertype, subtype, rarity,
                     stats, body_text, flavor_text
                 )
 
@@ -197,3 +201,66 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
         resized_images[prefix] = resized_image.convert("RGBA")
     
     return resized_images
+
+
+def group_cards_by_rarity(card_rarities: list[str], cards_dict: dict[str: Card]):
+    cards_by_rarity: dict[str, list[Card]] = {rarity[0].lower(): [] for rarity in card_rarities}
+    for card in cards_dict.values():
+        try:
+            cards_by_rarity[card.rarity].append(card)
+        except:
+            raise ValueError(f"{card.name} didn't have a rarity and couldn't be sorted.")
+            
+    return cards_by_rarity
+
+def generate_markdown_file(markdown_filepath: str, 
+                           cards_dict: dict[str: Card],
+                           header_string: str,
+                           closer_string: str,
+                           set_code: str):
+    with open(markdown_filepath, 'w') as markdown_file:
+        markdown_file.write(header_string)
+        for card in cards_dict.values():
+            markdown_file.write(
+f"""
+<card>
+    <name>{card.name}</name>
+    <set picURL="{f"/{card.name}.full.{CARD_PICTURE_FILE_FORMAT}"}" picURLHq="" picURLSt="">{set_code}</set>
+    <color>{card.colors}</color>
+    <manacost>{card.manacost}</manacost>
+    <type>{card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.stats[0]}/{card.stats[1]}</pt>"}
+    <tablerow>0</tablerow>
+    <text>{card.body_text}</text>
+</card>
+"""
+    )
+
+        markdown_file.write(closer_string)
+
+def generate_draft_text_file(draft_text_filepath: str,
+                             cards_dict: dict[str, Card],
+                             draft_pack_settings_string: str,
+                             uploaded_images_base_url: str,
+                             card_rarities: list[str],
+                             cards_by_rarity: dict[str: list[Card]]):
+    with open(draft_text_filepath, 'w') as draft_text_file:
+        # Declaring custom cards
+        draft_text_file.write("[CustomCards]\n[")        
+
+        num_cards_total = len(cards_dict)
+
+        for i, card in enumerate(cards_dict.values()):
+            draft_text_file.write(card.get_draft_text_rep(uploaded_images_base_url, CARD_PICTURE_FILE_FORMAT))
+            if i < num_cards_total - 1:
+                draft_text_file.write(",")
+        draft_text_file.write("\n]\n")
+
+        # Write custom pack settings
+        draft_text_file.write(draft_pack_settings_string)
+
+        for rarity in card_rarities:
+            draft_text_file.write("[" + rarity + "]\n")
+            rarity_code: str = rarity[0].lower()
+            for card in cards_by_rarity[rarity_code]:
+                draft_text_file.write(card.name + "\n")
+
