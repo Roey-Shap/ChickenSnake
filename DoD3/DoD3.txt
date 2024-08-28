@@ -1,3 +1,25 @@
+
+[Settings]
+{
+    "layouts": {
+        "Rare": {
+            "weight": 7,
+            "slots": {
+                "Common": 10,
+                "Uncommon": 3,
+                "Rare": 1
+            }
+        },
+        "Mythic": {
+            "weight": 1,
+            "slots": {
+                "Common": 10,
+                "Uncommon": 3,
+                "Mythic": 1
+            }
+        }
+    }
+}
 [CustomCards]
 [
     {
@@ -2433,28 +2455,6 @@
                         }
     }
 ]
-
-[Settings]
-{
-    "layouts": {
-        "Rare": {
-            "weight": 7,
-            "slots": {
-                "Common": 10,
-                "Uncommon": 3,
-                "Rare": 1
-            }
-        },
-        "Mythic": {
-            "weight": 1,
-            "slots": {
-                "Common": 10,
-                "Uncommon": 3,
-                "Mythic": 1
-            }
-        }
-    }
-}
 [Common]
 Oversee
 Encouragement

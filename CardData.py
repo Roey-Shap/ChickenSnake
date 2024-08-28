@@ -244,6 +244,9 @@ def generate_draft_text_file(draft_text_filepath: str,
                              card_rarities: list[str],
                              cards_by_rarity: dict[str: list[Card]]):
     with open(draft_text_filepath, 'w') as draft_text_file:
+        # Write custom pack settings
+        draft_text_file.write(draft_pack_settings_string)
+
         # Declaring custom cards
         draft_text_file.write("[CustomCards]\n[")        
 
@@ -255,9 +258,7 @@ def generate_draft_text_file(draft_text_filepath: str,
                 draft_text_file.write(",")
         draft_text_file.write("\n]\n")
 
-        # Write custom pack settings
-        draft_text_file.write(draft_pack_settings_string)
-
+        # Writing in cards sorted by rarity
         for rarity in card_rarities:
             draft_text_file.write("[" + rarity + "]\n")
             rarity_code: str = rarity[0].lower()
