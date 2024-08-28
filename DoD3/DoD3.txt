@@ -626,7 +626,7 @@
     },
     {
         "name":  "Rallying Wimp",
-        "mana_cost":  "1{R/W}{B/R}",
+        "mana_cost":  "WR",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Rallying Wimp.jpg"
@@ -834,7 +834,7 @@
     },
     {
         "name":  "Red-Hot Hooves",
-        "mana_cost":  "3{U/R}",
+        "mana_cost":  "2{U/R}",
         "type":  "Artifact Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Red-Hot Hooves.jpg"
@@ -842,7 +842,7 @@
     },
     {
         "name":  "Self-Ostracize",
-        "mana_cost":  "{W/B}",
+        "mana_cost":  "WW",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Self-Ostracize.jpg"
@@ -850,7 +850,7 @@
     },
     {
         "name":  "Final Day",
-        "mana_cost":  "{W/B}",
+        "mana_cost":  "2WB",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Final Day.jpg"
@@ -2494,7 +2494,6 @@ Call Out
 Flicker Bolt
 Spontaneous Bet
 Battlefield Confusion
-Bo, Bowtie Bowmaster
 End of Exam
 Birdcrank
 Gluttonous Mind
@@ -2514,25 +2513,14 @@ Indecisive Threat
 Condescending Dismissal
 Self-Deprecating Potz
 Burrowing Moledon
-Rallying Wimp
 Mirthful Stomping
-Scatterbomb
 Boulder Mine
 Cobble Animator
 Reheat Offense
-Showcropper
-Quad-Palm Jerry
-Storm-Seed Fairy
-Cloak of Proliferation
 Graveflood
 Feast of Waking Dreams
-Mob Momentum
-Hit the Ground Running
-Composted Farmer
 Crankenstein
-Impression of Greed
 Plant Slowly
-Overgenerous Symbiote
 Stutt
 Shroom Gator Randy
 Ninth Life
@@ -2540,23 +2528,14 @@ Crocodile Tears
 Reoccuring Bullying
 Turn Brave
 Dweeb Detector
-Red-Hot Hooves
-Self-Ostracize
-Final Day
 Honest Divination
 Spirit-Pact Pegasus
 Up-Front Mercenary
-Too Much Information
 Lemme See!
 Nosey Officer
 Worldtree Adherent
-Inviting Shroomling
-Great Lumberbeast
-Owhale
 Exploitative Liz
 Open Wide
-Reattempt
-Renee, Regretful Traveller
 Repress Memory
 Brutal Honesty
 Honest Brutality
@@ -2750,6 +2729,15 @@ Devoted Bombardier
 Treacherous Tree Spirit
 Speed Demon
 Abuse Momentum
+Quad-Palm Jerry
+Storm-Seed Fairy
+Cloak of Proliferation
+Mob Momentum
+Hit the Ground Running
+Composted Farmer
+Red-Hot Hooves
+Inviting Shroomling
+Great Lumberbeast
 [Rare]
 Waterfall Mongrel
 Greedy Trapper
@@ -2759,7 +2747,19 @@ Tap-Dancing Heron
 Rolling Waves
 Sea Horde
 Holy Sniper
+Rallying Wimp
+Scatterbomb
+Showcropper
+Impression of Greed
+Overgenerous Symbiote
+Self-Ostracize
+Final Day
+Too Much Information
+Reattempt
 [Mythic]
 Fragment Horde
 Volcanic Horde
 Illusory Forces
+Bo, Bowtie Bowmaster
+Owhale
+Renee, Regretful Traveller

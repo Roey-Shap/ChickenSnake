@@ -916,12 +916,12 @@ First Strike
 <card>
     <name>Rallying Wimp</name>
     <set picURL="/Rallying Wimp.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>WBR</color>
-    <manacost>1{R/W}{B/R}</manacost>
+    <color>WR</color>
+    <manacost>WR</manacost>
     <type>Creature - Dwarf Imp</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
-    <text>Duck - target creature Rallying Wimp is ducking behind gets +2/+0 until end of turn.
+    <text>Duck - target creature Rallying Wimp is ducking behind gets +2/+0 and gains haste until end of turn.
 Creatures you control with duck have haste.</text>
 </card>
 
@@ -943,7 +943,7 @@ Horde 4 - Mirthful Stomping deals 3 damage to up to 4 target creatures your oppo
     <manacost>X{W/B}G</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
-    <text>Make X 1/1 green Rabbit Spider creature tokens with Duck (no effect).</text>
+    <text>Make X 1/1 green Rabbit Spider creature tokens with "Duck - target creature this is ducking behind gets +1/+0 until end of turn."</text>
 </card>
 
 <card>
@@ -1214,7 +1214,7 @@ Cycling {r/g}</text>
     <name>Red-Hot Hooves</name>
     <set picURL="/Red-Hot Hooves.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UR</color>
-    <manacost>3{U/R}</manacost>
+    <manacost>2{U/R}</manacost>
     <type>Artifact Creature - Horse Vehicle</type>
 	<pt>4/4</pt>
     <tablerow>0</tablerow>
@@ -1225,8 +1225,8 @@ Crew 2</text>
 <card>
     <name>Self-Ostracize</name>
     <set picURL="/Self-Ostracize.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>WB</color>
-    <manacost>{W/B}</manacost>
+    <color>W</color>
+    <manacost>WW</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>As an additional cost to casting this spell, pay {1} or tap 2 nonland permanents you control.
@@ -1237,7 +1237,7 @@ Choose target nonland permanent. At the beginning of the next end step, exile it
     <name>Final Day</name>
     <set picURL="/Final Day.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WB</color>
-    <manacost>{W/B}</manacost>
+    <manacost>2WB</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Choose artifacts, enchantments, or creatures, then exile all nonland permanents of the chosen type. All players reveal their hands to each other.</text>
