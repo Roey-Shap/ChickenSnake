@@ -1,7 +1,7 @@
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 
-body_text_font_name = "mplantin.ttf" #"Elegant Garamond Regular.ttf"
-symbols_font_name = "MTG.TTF" #"PlanewalkerDings-Pl9d.ttf"
+body_text_font_name = "./Fonts/mplantin.ttf"
+symbols_font_name = "./Fonts/MTG.TTF"
 
 
 font_body  = ImageFont.truetype(body_text_font_name, 22)

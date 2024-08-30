@@ -116,6 +116,9 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             if card_data.has_stats:
                 card_image_total.alpha_composite(image_assets["c_pt_"])
 
+            # Set Symbol
+            card_image_total.alpha_composite(image_assets["set_symbol_"])
+
             # Title font config
             chosen_title_font = Fonts.font_title
             if len(card_data.name) + len(card_data.manacost) > 45:
@@ -192,14 +195,17 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
 
 def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
     resized_images: dict[str, Image] = {}
-    image_color_prefixes = [f"{color}_{side}" for side in ["l", "m", "r"] for color in "WUBRG"] + ["c_pt_", "m_", "c_"]
+    image_color_prefixes = [f"{color}_{side}" for side in ["l", "m", "r"] for color in "WUBRG"] + ["c_pt_", "m_", "c_", "set_symbol_"]
     for prefix in image_color_prefixes:
-        image_filepath = assets_filepath + prefix.lower() + "base.png"
-        print("Opening:", image_filepath)
-        base_image: Image = Image.open(image_filepath)
-        resized_image: Image = base_image.resize(card_pixel_dims)
-        resized_images[prefix] = resized_image.convert("RGBA")
-    
+        image_name_suffix = prefix.lower() + "base.png"
+        image_filepath = assets_filepath + image_name_suffix
+        try:
+            base_image: Image = Image.open(image_filepath)
+            resized_image: Image = base_image.resize(card_pixel_dims)
+            resized_images[prefix] = resized_image.convert("RGBA")
+        except:
+            raise ValueError(f"There was an issue accessing image: {image_name_suffix}")
+
     return resized_images
 
 
