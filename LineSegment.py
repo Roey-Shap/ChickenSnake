@@ -1,11 +1,11 @@
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 import re
 import Fonts
+import metadata
+from UI import log_and_print
 
 
-
-
-font_symbols_map: dict[str, str] = \
+font_symbols_map_init: dict[str, str] = \
 {
    "w/u": "A",
    "w/b": "O",
@@ -23,6 +23,7 @@ font_symbols_map: dict[str, str] = \
    "p/b": "P",
    "p/r": "P",
    "p/g": "P",
+   "p/c": "P",
    "2/w": "M",
    "2/u": "M",
    "2/b": "M",
@@ -36,6 +37,15 @@ font_symbols_map: dict[str, str] = \
 # wb, bg, gu, ur, rw, wu
 # flipped ones are gw, gu, rw
 hybrid_pips_with_non_wubrg_order_colors = ["w/g", "u/g", "w/r"]
+
+# Now we'll just duplicate each entry 
+font_symbols_map: dict[str, str] = {}
+for key, value in font_symbols_map_init.items():
+    flipped_key = key[-1] + '/' + key[0]
+    if flipped_key in hybrid_pips_with_non_wubrg_order_colors:
+        font_symbols_map[flipped_key] = value
+    font_symbols_map[key] = value
+
 
 color_code_map: dict[str: tuple[int, int, int]] = \
 {
@@ -64,6 +74,8 @@ class LineSegment():
         self.color = color
         self.dims = dims
         self.spacing = 2
+        if self.is_symbol and '/' in self.text and self.text not in font_symbols_map:
+            self.text = self.text[::-1]
 
     def set_secondary_font(self, font):
         self.font_secondary = font
@@ -104,9 +116,10 @@ class LineSegment():
                 c1 = 'c'
                 c2 = background_color.strip("2/")
             elif is_hybrid:
-                c1, c2 = self.text.split('/')
                 if self.text in hybrid_pips_with_non_wubrg_order_colors:
-                    c1, c2 = c2, c1
+                    c1, c2 = self.text[::-1].split('/')
+                else:
+                    c1, c2 = self.text.split('/')
             else:
                 c1, c2 = color_text, color_text
 
@@ -149,16 +162,16 @@ class LineSegment():
     @staticmethod
     def tokenize_card_text(raw_text: str, debug_mode=False) -> list[str]:
         # if debug_mode:
-        #     print(raw_text)
+        #     log_and_print(raw_text)
         rebracketed_newlines_replaced = (raw_text.replace("{", "<{").replace("}", "}>").replace('\n', "&#").split("#"))
         # if debug_mode:
-        #     print(rebracketed_newlines_replaced)
+        #     log_and_print(rebracketed_newlines_replaced)
         newlines_split = flatten([re.split(r"[<>]", split_piece) for split_piece in rebracketed_newlines_replaced])
         # if debug_mode:
-        #     print(newlines_split)
+        #     log_and_print(newlines_split)
         tokenized_strings = [string.replace(" ", " |") for string in newlines_split if len(string) > 0]
         # if debug_mode:
-        #     print(tokenized_strings)
+        #     log_and_print(tokenized_strings)
         return flatten(segment.split("|") for segment in tokenized_strings)
 
     @staticmethod
@@ -167,10 +180,10 @@ class LineSegment():
         max_width: int, max_height: int, small_text_mode: bool = False, 
         debug_mode=False, font_override=None):
         # Split text into bracketed tokens and normal strings
-        # print(rebracketed_newlines_replaced)
-        # print()
-        # print(newlines_split)
-        # print()
+        # log_and_print(rebracketed_newlines_replaced)
+        # log_and_print()
+        # log_and_print(newlines_split)
+        # log_and_print()
         tokenized_strings = LineSegment.tokenize_card_text(raw_text, debug_mode)
         line_segments = []
         max_lineheight_seen = 0
@@ -186,9 +199,9 @@ class LineSegment():
 
         for raw_segment in tokenized_strings:
             if line_count > max_line_count and not small_text_mode:
-                # print("===================")
-                # print("going small!")
-                # print("===================")
+                # log_and_print("===================")
+                # log_and_print("going small!")
+                # log_and_print("===================")
                 return LineSegment.split_text_for_symbols(raw_text, image, max_width, max_height, small_text_mode=True)
 
             is_symbol = re.match(r"[{}]", raw_segment)
@@ -196,7 +209,7 @@ class LineSegment():
             chosen_font = None
             parsed_text = ""
             # if debug_mode:
-            #     print(raw_segment)
+            #     log_and_print(raw_segment)
             if is_symbol:
                 parsed_text = raw_segment.strip(r"{}")
                 chosen_font = chosen_font_symbols
@@ -215,32 +228,35 @@ class LineSegment():
 
             string_width = string_bbox[2] - string_bbox[0]
             string_height = string_bbox[3] - string_bbox[1]
-            # print(string_width)
+            # log_and_print(string_width)
 
-            max_lineheight_seen = max(max_lineheight_seen, string_height)
+            if not is_symbol:
+                max_lineheight_seen = max(max_lineheight_seen, string_height)
 
             adding_word_overruns = current_x_offset + string_width > max_width
             if adding_word_overruns:
-                # print("OVERUN")
+                # log_and_print("OVERUN")
                 current_x_offset = 0
                 line_count += 1                
 
-            # Add the word in the proper place, given that 
-            line_segments.append(LineSegment(
+            new_segment: LineSegment = LineSegment(
                 parsed_text.replace("&", ""), chosen_font, 
                 (current_x_offset, line_count-1), is_symbol,
                 (string_width, string_height)
-            ).set_secondary_font(chosen_font_symbols_bg))
+            )
+            new_segment.set_secondary_font(chosen_font_symbols_bg)
+
+            line_segments.append(new_segment)
 
             current_x_offset += string_width
 
             # Account for in-text newlines
             if '&' in raw_segment:
                 current_x_offset = 0
-                line_count += 1
+                line_count += metadata.card_line_height_between_abilities
             
         for segment in line_segments:
-            segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen)
+            segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen * metadata.card_line_height_normal)
 
         return line_segments
 

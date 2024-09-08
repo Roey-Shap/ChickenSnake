@@ -5,6 +5,8 @@ from Fonts import body_text_font_name, symbols_font_name
 from LineSegment import LineSegment
 import Fonts
 from LineSegment import hybrid_pips_with_non_wubrg_order_colors
+import metadata
+from UI import log_and_print
 
 import traceback
 
@@ -14,6 +16,7 @@ C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
 # card_pixel_dims = (375, 523)
 card_pixel_dims = (500, 700)
+max_types_string_width_ratio = 357 / 500
 right_mana_border = int(card_pixel_dims[0] * 0.93)
 
 # font_body  = ImageFont.truetype(body_text_font_name, 13)
@@ -78,18 +81,43 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 supertype = row["Type"]
                 subtype = row["Subtype"]
                 rarity = row["Rarity"]
-                if len(rarity) == 0:
+
+                is_rarity_missing = len(rarity) == 0
+                if is_rarity_missing:
                     rarity = "c"
 
                 stats = get_power_toughness(row)
                 body_text = row["Desc"]
                 flavor_text = row["Flavor Text"]
 
+                # Replace placeholder name with card name
+                if metadata.replace_reference_string_with_cardname and len(metadata.reference_card_name) > 0:
+                    body_text = body_text.replace(metadata.reference_card_name, name)
+
                 cards_dict[name] = Card(
                     name, colors, manacost, raw_mana_cost_string,
                     converted_manacost, supertype, subtype, rarity,
                     stats, body_text, flavor_text
                 )
+
+                if metadata.warn_about_card_semantics_errors:                
+                    card_warning_messages = []
+                    is_creature = supertype.find("Creature") != -1
+                    if len(raw_mana_cost_string) == 0 and supertype.find("Land") == -1:
+                        card_warning_messages.append("Missing a mana cost.")
+                    if len(supertype) == 0:
+                        card_warning_messages.append("Missing a supertype.")
+                    if is_creature and len(subtype) == 0:
+                        card_warning_messages.append("Missing a subtype.")
+                    if is_creature and stats is None:
+                        card_warning_messages.append("Missing power/toughness.")
+                    if metadata.rarities_should_be_in_place and is_rarity_missing:
+                        card_warning_messages.append("Missing rarity. Defaulting to COMMON.")
+                    if len(card_warning_messages) > 0:
+                        log_and_print(f"Warnings for '{name}':")
+                        for warning in card_warning_messages:
+                            log_and_print(">  " + warning)
+                        log_and_print()
 
     return cards_dict
 
@@ -138,7 +166,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # We assume each pip is the same width and draw them from left to right with manual offsets
             num_mana_pips = len(mana_cost_segments)
             # if debug_on:
-                # print(num_mana_pips)
+                # log_and_print(num_mana_pips)
 
             if num_mana_pips > 0:
                 mana_pip_width = mana_cost_segments[0].dims[0]
@@ -150,10 +178,17 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # Types
             chosen_types_font = Fonts.font_types
             types_string = card_data.get_type_string()
-            if len(types_string) > 32:
-                chosen_types_font = Fonts.font_types_small
-            if len(types_string) > 40:
-                chosen_types_font = Fonts.font_types_tiny
+            # Try up to five times to shrink the text based on the estimated size
+            types_string_width, _ = Fonts.get_string_size(types_string, chosen_types_font)
+            max_types_string_width_in_pixels = max_types_string_width_ratio * card_pixel_dims[0]
+            if types_string_width > max_types_string_width_in_pixels:
+                current_types_width_to_max_width_ratio = max_types_string_width_in_pixels / types_string_width
+                chosen_types_font = Fonts.get_title_font(Fonts.font_types_initial_size * current_types_width_to_max_width_ratio)
+
+            # if len(types_string) > 29:
+            #     chosen_types_font = Fonts.font_types_small
+            # if len(types_string) > 36:
+            #     chosen_types_font = Fonts.font_types_tiny
 
             ImageDraw.Draw(card_image_total).text(
                 (40, 413), card_data.get_type_string(), C_BLACK, font=chosen_types_font, anchor="lm"
@@ -181,17 +216,18 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             except:
                 raise ValueError(f"There was an issue saving the image for: {card_data.name}")
 
-            if current_card_index % 25 == 0:
-                print(f"Finished card {current_card_index+1}/{num_cards_total}")
+            if metadata.verbose_mode_cards:
+                if current_card_index % 25 == 0:
+                    log_and_print(f"Finished card {current_card_index+1}/{num_cards_total}")
 
 
 
             current_card_index += 1
         except Exception as e:
-            print(f"There was an issue with {card_data.name}")
-            print(e)
-            print(traceback.format_exc())
-            print()
+            log_and_print(f"There was an issue with {card_data.name}")
+            log_and_print(e)
+            log_and_print(traceback.format_exc())
+            log_and_print()
 
 def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
     resized_images: dict[str, Image] = {}

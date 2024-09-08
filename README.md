@@ -4,9 +4,9 @@ ChickenSnake is a scrappy script to convert **spreadsheets** of custom MtG cards
 
 Usage
 =
-The main thing you need to do is put your spreadsheet (.csv) in the same folder as *Markdown_Converter.py*. Then you'll simply need to run it in the terminal from the folder containing it like so:
+The main thing you need to do is put your spreadsheet (.csv) in the same folder as *ChickenSnake.py*. Then you'll simply need to run it in the terminal from the folder containing it like so:
 <br>
->python Markdown_Converter.py
+>python ChickenSnake.py
 
 Opening *metadata.py* will allow you to configure ChickenSnake's behavior. The main things to control are:
 1. Where your input is taken
