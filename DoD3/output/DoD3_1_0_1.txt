@@ -257,7 +257,7 @@
     {
         "name":  "Exposed Metal",
         "mana_cost":  "1{B/G}",
-        "type":  "",
+        "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Exposed Metal.jpg"
                         }
@@ -553,7 +553,7 @@
     {
         "name":  "Shadow's Reflection",
         "mana_cost":  "",
-        "type":  "Enchantment",
+        "type":  "Enchantment Land",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Shadow's Reflection.jpg"
                         }
@@ -832,7 +832,7 @@
     },
     {
         "name":  "Snapstrike Una",
-        "mana_cost":  "2U",
+        "mana_cost":  "3U",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Snapstrike Una.jpg"
@@ -953,7 +953,7 @@
     {
         "name":  "Cape Flip",
         "mana_cost":  "1UB",
-        "type":  "",
+        "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Cape Flip.jpg"
                         }
@@ -1268,14 +1268,6 @@
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Meek Saboteur.jpg"
-                        }
-    },
-    {
-        "name":  "Pie-Thrower Runt",
-        "mana_cost":  "1R",
-        "type":  "Creature",
-        "image_uris":  {
-                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Pie-Thrower Runt.jpg"
                         }
     },
     {
@@ -1624,7 +1616,7 @@
     },
     {
         "name":  "Shroom Gator Randy",
-        "mana_cost":  "{G/U}{R/G}",
+        "mana_cost":  "1{G/U}{R/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Shroom Gator Randy.jpg"
@@ -1688,7 +1680,7 @@
     },
     {
         "name":  "Up-Front Mercenary",
-        "mana_cost":  "2BR",
+        "mana_cost":  "2B",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Up-Front Mercenary.jpg"
@@ -2080,7 +2072,7 @@
     },
     {
         "name":  "Newborn Nid",
-        "mana_cost":  "1{W/B}",
+        "mana_cost":  "1{W/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Newborn Nid.jpg"
@@ -2088,7 +2080,7 @@
     },
     {
         "name":  "The Moment",
-        "mana_cost":  "{W/U}{W/U}{U/B}{U/B}",
+        "mana_cost":  "2WU",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/The Moment.jpg"
@@ -2503,11 +2495,11 @@
                         }
     },
     {
-        "name":  "Naturalist Crystal",
+        "name":  "Crystal, Naturalist",
         "mana_cost":  "2{W/B}",
-        "type":  "Creature",
+        "type":  "Legendary Creature",
         "image_uris":  {
-                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Naturalist Crystal.jpg"
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Crystal, Naturalist.jpg"
                         }
     },
     {
@@ -2528,7 +2520,7 @@
     },
     {
         "name":  "Never Too Late",
-        "mana_cost":  "W",
+        "mana_cost":  "1W",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Never Too Late.jpg"
@@ -2669,6 +2661,86 @@
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Grit Teeth.jpg"
                         }
+    },
+    {
+        "name":  "Knowledge Parasite",
+        "mana_cost":  "3U",
+        "type":  "Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Knowledge Parasite.jpg"
+                        }
+    },
+    {
+        "name":  "Unstable Hydra",
+        "mana_cost":  "UR",
+        "type":  "Enchantment Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Unstable Hydra.jpg"
+                        }
+    },
+    {
+        "name":  "Rebellious Cacophany",
+        "mana_cost":  "RGW",
+        "type":  "Instant",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Rebellious Cacophany.jpg"
+                        }
+    },
+    {
+        "name":  "Forced Experiment",
+        "mana_cost":  "UU",
+        "type":  "Instant",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Forced Experiment.jpg"
+                        }
+    },
+    {
+        "name":  "Insistent Assistant",
+        "mana_cost":  "3R",
+        "type":  "Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Insistent Assistant.jpg"
+                        }
+    },
+    {
+        "name":  "Mental Tripwire",
+        "mana_cost":  "6U",
+        "type":  "Sorcery",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Mental Tripwire.jpg"
+                        }
+    },
+    {
+        "name":  "Jealousy Flare",
+        "mana_cost":  "3R",
+        "type":  "Instant",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Jealousy Flare.jpg"
+                        }
+    },
+    {
+        "name":  "Gode the Gloating Goat",
+        "mana_cost":  "2{R/G}",
+        "type":  "Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Gode the Gloating Goat.jpg"
+                        }
+    },
+    {
+        "name":  "Ravenous Studies",
+        "mana_cost":  "RRR",
+        "type":  "Instant",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Ravenous Studies.jpg"
+                        }
+    },
+    {
+        "name":  "Titan of the Grove",
+        "mana_cost":  "3BGW",
+        "type":  "Legendary Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Titan of the Grove.jpg"
+                        }
     }
 ]
 [Common]
@@ -2744,7 +2816,6 @@ Ambitious Gambit
 Enlisting Shadow
 Compulsive Maniac
 Meek Saboteur
-Pie-Thrower Runt
 Well-Travelled Alpakon
 Mossroamer
 Call Out
@@ -2786,7 +2857,6 @@ Fiery Bite
 Feather Pollen
 Shudders From Below
 Newborn Nid
-The Moment
 Conspicuous Pyromaniac
 Crazed Hopper
 Merciless Birth
@@ -2796,42 +2866,17 @@ Obvious Ambusher
 Infectious Mutagen
 Proud Fangirl
 Flit-Cloud
-Fumble-Finger Necromaniac
-Elder Warptree
-Impending Despir
-Forest of Eternal Autumn
-Cloud Ruins
-Dream Glade
-Rabbit Family Farm
-Boiling Labworks
-Icarus' Resting Place
-Foggy Beachfront
-Furnace of the Edge
-Ancient Tidepools
 Territorial Toad
-Tawnty the Evidence-Burner
-Assimilamorph
 Acrobatic Stunt
 Intrusive Thoughts
 Triumphant Shout
 Hall of Chimes
 Extentoad
-Daycare Grand Opening
-Political Divination
-Draining Relationship
-Naturalist Crystal
-Darkest Heart
-Let Go
-Never Too Late
-Silver-Thread Cloak
 Precocious Bolt
 Determinate
-Father's Will
-Conniving Pyromiggy
-Heel Swipe
-Pick Off
 Fearful Megafauna
 Make Amends
+Gode the Gloating Goat
 [Uncommon]
 Secret Wrangler
 Ambitious Contortionist
@@ -2913,16 +2958,26 @@ Chest-Jutting Guard
 Bravening Crab
 The Puny Rise Up
 Slow-Moving Projectile
+Tawnty the Evidence-Burner
 Nate and Tate
 Twin-Stalk Spore
 Collapsing Fortress
 Cocky Rooster
 A Good Cry
+Political Divination
+Crystal, Naturalist
+Let Go
+Silver-Thread Cloak
 Nomad Shade
+Conniving Pyromiggy
+Heel Swipe
+Pick Off
 Absorb the Mist
 Quad-Palm Jerry
 Storm-Seed Fairy
 Grit Teeth
+Knowledge Parasite
+Mental Tripwire
 [Rare]
 Secret-Gorger
 Obliging Confession
@@ -2976,15 +3031,39 @@ Open Conversation
 Wounded Tree
 Field Beast
 Corpse-Littered Battlefront
+The Moment
 Queen's Command
 Brazen Confrontation
 From a Mile Away
 Synthesis Hulk
+Fumble-Finger Necromaniac
+Elder Warptree
+Forest of Eternal Autumn
+Cloud Ruins
+Dream Glade
+Rabbit Family Farm
+Boiling Labworks
+Icarus' Resting Place
+Foggy Beachfront
+Furnace of the Edge
+Ancient Tidepools
+Assimilamorph
 Outgrow
 Cache Dragon
+Daycare Grand Opening
+Draining Relationship
+Darkest Heart
+Never Too Late
 Aggressor Captain
+Father's Will
 Mourning Morning
 Humble
+Unstable Hydra
+Rebellious Cacophany
+Forced Experiment
+Insistent Assistant
+Jealousy Flare
+Ravenous Studies
 [Mythic]
 Prinoc, Outraged
 Spirit-Pact Pegasus
@@ -3003,6 +3082,8 @@ Mirru, One With Her Army
 Okal, Overgrown Gardener
 It That Arrives
 Glittering Starchild
+Impending Despir
 Spirit of Growth
 Shade of Acceptance
 Coltz, Jumpspark Mage
+Titan of the Grove

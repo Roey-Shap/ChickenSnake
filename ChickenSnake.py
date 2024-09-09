@@ -5,7 +5,7 @@ from UI import *
 import LineSegment
 import os
 from ascii_art import logo_art
-from UI import log_and_print, log_file
+from UI import log_and_print
 
 # @TODO: 
 # Add set symbol to each card with correct symbol color
@@ -45,21 +45,22 @@ def main():
             os.mkdir(generated_folder)
             generated_output_folder = True
 
-    log_file = open(metadata.log_filepath, 'w')
-
-    log_and_print(logo_art)
-    log_and_print("\n")
+    print(logo_art)
+    print("\n")
     log_and_print("Welcome to ChickenSnake, for fast custom playtest cards!")
     
     generate_card_images_input: str = get_user_input(
         yes_no_input_check, 
-        "Do you also want to generate default card images? (y/n)\n"
+        "Do you also want to generate default card images? (y/n) >>> >>> "
     )
+    log_to_file("[User input]: " + generate_card_images_input)
+
+    log_and_print("\nExtracting card data from input file...")
     cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(metadata.card_data_filepath)
 
     do_generate_card_images = generate_card_images_input.lower() in ["y", "yes"]
     if do_generate_card_images:
-        log_and_print("Initializing image creation assets...")
+        log_and_print("\nInitializing image creation assets...")
         image_assets = initialize_card_image_assets(metadata.card_image_creation_assets_filepath)
         
         log_and_print("\nGenerating card images...")
@@ -88,7 +89,6 @@ def main():
     log_and_print("This entire program output has also been printed to a log file there.")
     log_and_print("==============")
 
-    log_file.close()
 
 if __name__ == "__main__":
     main()

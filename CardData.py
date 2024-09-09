@@ -69,6 +69,7 @@ def reorder_mana_string(stripped_cost: str) -> str:
 
 def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
     cards_dict: dict[str, Card] = {}
+    saw_card_with_errors = False
     with open(card_data_filepath) as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
@@ -100,24 +101,30 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                     stats, body_text, flavor_text
                 )
 
-                if metadata.warn_about_card_semantics_errors:                
-                    card_warning_messages = []
-                    is_creature = supertype.find("Creature") != -1
-                    if len(raw_mana_cost_string) == 0 and supertype.find("Land") == -1:
-                        card_warning_messages.append("Missing a mana cost.")
-                    if len(supertype) == 0:
-                        card_warning_messages.append("Missing a supertype.")
-                    if is_creature and len(subtype) == 0:
-                        card_warning_messages.append("Missing a subtype.")
-                    if is_creature and stats is None:
-                        card_warning_messages.append("Missing power/toughness.")
-                    if metadata.rarities_should_be_in_place and is_rarity_missing:
-                        card_warning_messages.append("Missing rarity. Defaulting to COMMON.")
-                    if len(card_warning_messages) > 0:
-                        log_and_print(f"Warnings for '{name}':")
-                        for warning in card_warning_messages:
-                            log_and_print(">  " + warning)
-                        log_and_print()
+                # Card data warnings
+                card_warning_messages = []
+                is_creature = supertype.find("Creature") != -1
+                if len(raw_mana_cost_string) == 0 and supertype.find("Land") == -1:
+                    card_warning_messages.append("Missing a mana cost.")
+                if len(supertype) == 0:
+                    card_warning_messages.append("Missing a supertype.")
+                if is_creature and len(subtype) == 0:
+                    card_warning_messages.append("Missing a subtype.")
+                if is_creature and stats is None:
+                    card_warning_messages.append("Missing power/toughness.")
+                if metadata.rarities_should_be_in_place and is_rarity_missing:
+                    card_warning_messages.append("Missing rarity. Defaulting to COMMON.")
+                if len(card_warning_messages) > 0:
+                    if not metadata.verbose_mode_cards:
+                        if not saw_card_with_errors:
+                            print(">>>  You had warnings about imported card data! Check the log for more details.")
+                            saw_card_with_errors = True
+                    
+                    log_and_print(f"Warnings for '{name}':", do_print=metadata.verbose_mode_cards)
+                    for warning in card_warning_messages:
+                        log_and_print(">  " + warning, do_print=metadata.verbose_mode_cards)
+        if not saw_card_with_errors:
+            log_and_print("No warnings about imported card data to report!", do_print=metadata.verbose_mode_cards)
 
     return cards_dict
 

@@ -24,14 +24,20 @@ card_line_height_normal = 1.035
 # The one I always see is tilde (~). Another common one is CARDNAME. Chose whatever you'd like!
 replace_reference_string_with_cardname = True
 reference_card_name =  "~"
-
-warn_about_card_semantics_errors = True
+# If you didn't have time to do rarities, just set this to False and you won't be warned about it!
 rarities_should_be_in_place = True
 
-# @TODO: Doesn't currently do anything
+# Set to True if you want a new log each time you run the program. 
+# ... if you want to can keep track of errors you've fixed over time.
+make_unique_program_run_log = False
+
 # Give updates about card errors and file accesses as the program runs.
 verbose_mode_cards = True
+# @TODO: Doesn't currently do anything
 verbose_mode_files = True
+# @TODO: Doesn't currently do anything. Should warn about things like mana symbols being out of order and corrected. 
+# Maybe also templating issues?
+warn_about_card_semantics_errors = True
 
 # Determines how often certain pack types appear in Draftmancer's drafts. 
 # This is a typical distribution for MtG packs in the wild.
@@ -73,4 +79,5 @@ log_filepath = output_base_filepath + "log_chickensnake.txt"
 markdown_filepath = output_base_filepath + f"{text_files_base_name}.xml"
 # For Draftmancer
 draft_text_filepath = output_base_filepath + f"{text_files_base_name}.txt"
+current_execution_log_filepath = log_filepath
 ####################

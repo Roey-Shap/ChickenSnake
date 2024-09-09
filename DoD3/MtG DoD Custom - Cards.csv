@@ -68,7 +68,7 @@ Mill the top 4 cards of your library. Then choose one, where X is the sacrificed
 FALSE,Open Burial,Sorcery,,{6}{b/g}{b/g},"This spell costs {2} less to cast for each card you reveal or and {1} less for each card you exile from your graveyard as you cast it.
 Exile target land you control, then return it to the battlefield under your control. Untap it.
 Return target creature from a graveyard under your control with a finality counter. Untap it. It gains haste until end of turn.",,,r,,Reanimate,Graveyard,8,,,1,0,0,1,0,1,0,1,0,0,0,1,0,,TRUE,,{6}$$,6,29
-FALSE,Exposed Metal,,,{1}{b/g},"Target opponent reveals a card of your choice. If it's an artifact, you may have them discard it. If it wasn't discarded this way, you may destroy target artifact.",,,c,,"Artifact removal, reveal",,2,,,1,0,0,1,0,1,0,1,0,0,0,0,0,,TRUE,,{1}$,1,30
+FALSE,Exposed Metal,Sorcery,,{1}{b/g},"Target opponent reveals a card of your choice. If it's an artifact, you may have them discard it. If it wasn't discarded this way, you may destroy target artifact.",,,c,,"Artifact removal, reveal",,2,,,1,0,0,1,0,1,0,1,0,0,0,1,0,,TRUE,,{1}$,1,30
 FALSE,Dead On Sight,Instant,,{2}{b},"Choose 1-
 - Target opponent discards target revealed card and loses 1 life.
 - Destroy target creature with toughness 4 or less.",,,c,,Discard,Reveal,3,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{2}$,2,31
@@ -91,7 +91,7 @@ When The Chortle-Beast enters, you may reveal a card from your hand.
 Whenever you reveal a card from your hand, put a +1/+1 counter on The Chortle-Beast. Then you may reveal the top card of your library and, if it's a land, put it onto the battlefield tapped.",4,4,u,,"ETB, expose, counters, ramp","Lands, expose",6,,,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{4}$$,4,37
 FALSE,Law-Bind Eagle,Creature,Bird,{2}{w}{w},"Pop-up {2}{w}
 As Law-Bind Eagle enters, if it was cast for its pop-up cost, tap target creature.
-Flying",2,3,c,,"pop-up, flying, tap",expose,4,,,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,38
+Flying",2,3,c,,"pop-up, flying, tap",expose,4,,,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,38
 FALSE,Brazen Hawk,Creature,Bird,{1}{u},"Pop-up {2}{u}
 As Brazen Hawk enters, if it was cast for its pop-up cost, target creature gains flying until end of turn.
 Flying",2,2,c,,"pop-up, flying",expose,2,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,39
@@ -114,7 +114,7 @@ When Thunder Chief enters, creatures you control get +1/+0 and haste until end o
 Double Strike",2,4,r,,"Pop-up, pump, haste",Mass army,5,"""One second, we losing, and then... he was there, and we struck like lightning!""",,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{3}$$,3,44
 FALSE,Couragous Yaunling,Creature,Plant Possum,{1}{g/w}{g/w},"Couragous Yaunling gets +1/+1 for each creature you control.
 At the beginning of your endstep, you may pay {1}{g/w} and create a 0/1 green and white Seedling enchantment creature token.
-Horde 5 - Ward {1}",1,2,r,,"Pump, tokens, horde, ward",Mass army,3,,,1,1,0,0,0,1,0,1,0,1,0,0,0,,TRUE,,{1}$$,1,45
+Horde 5 - If you control 5 or more creatures, this creature has ward {1}.",1,2,r,,"Pump, tokens, horde, ward",Mass army,3,,,1,1,0,0,0,1,0,1,0,1,0,0,0,,TRUE,,{1}$$,1,45
 FALSE,Nervous Mound-Worker,Creature, Mole Citizen,{2}{g},"Pop-up {1}{r}
 As Nervous Digger enters, if it was cast for its pop-up cost, it gains haste until end of turn.
 Duck - exile target land you control and return it to the battlefield under your control. Untap it.",2,3,c,,"Pop-up, haste, duck, flicker",Lands,3,"""I'm not saying it's a mountain. It isn't isn't a molehill anymore, either!!""",,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$,2,46
@@ -129,7 +129,7 @@ Reveal a card: The Taxing Man gains deathtouch until end of turn.
 Conceal a card, draw a card, then put a card from your hand on the bottom of your library: 
 The first time an opponent reveals one or more cards each turn, they lose that much life and you gain that much life. 
 Whenever The Taxing Man deals combat damage to a player, they reveal 2 cards.  ",3,4,m,,,,5,,,0,1,0,1,0,0,0,1,0,1,0,0,0,,TRUE,,{3}$$,3,49
-FALSE,Soul-Weave,Sorcery,,{1}{w/g}{w/g},"Until end of turn, whenever an enchantment or enchanted creature you control with mana cost X deals combat damage to a player, you may search your library for an enchantment permanent with mana cost or bestow cost at most X minus one and put it onto the battlefield, then shuffle.",,,r,,Searching,"Enchantments, bestow, combat damage",3,,,1,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{1}$$,1,50
+FALSE,Soul-Weave,Sorcery,,{1}{w/g}{w/g},"Until end of turn, whenever an enchantment or enchanted creature you control with mana cost X deals combat damage to a player, you may search your library for an enchantment permanent with mana cost or bestow cost at most X minus one and put it onto the battlefield, then shuffle.",,,r,,Searching,"Enchantments, bestow, combat damage",3,,Feels cumbersome. Ultimately the idea is to cheat cheap enchantments into play including the enchantment lands. Maybe just an enchantment that in your upkeep you can pay and get one back? Or build up its power over time and then crack it to get one back and whatever mana you invested in it?,1,1,0,0,0,1,0,1,0,0,0,1,0,,FALSE,,{1}$$,1,50
 FALSE,Geist-Grove,Enchantment Land,,,"As Geist-Grove enters, you may tap two enchantment creatures you control. If you don't, it enters tapped.
 {t}: Add {w}, {g}, or {b}.
 {t}: Add {c}{c}. Spend this mana only to cast enchantments. ",,,u,w/b/g,Tap,Enchantments,0,,,1,1,0,1,0,1,0,1,1,0,0,0,1,,TRUE,,,0,51
@@ -171,9 +171,9 @@ Exile a white card from your hand and Calling Point from your graveyard: you gai
 FALSE,Place Between Tides,Enchantment Land,Island,,"{t}: add {u}.
 {t}: Sacrifice Place Between Tides. add {u} and scry 1.
 You may play Place Between Tides if you view it while scrying.",,,u,u,Scry,Scry,0,,,1,0,1,0,0,0,0,0,1,0,0,0,1,,TRUE,,,0,67
-FALSE,Shadow's Reflection,Enchantment,Swamp,,"{t}: add {b}.
+FALSE,Shadow's Reflection,Enchantment Land,Swamp,,"{t}: add {b}.
 {t}, Sacrifice Shadow's Reflection: add {b}{b}.
-Exile a black card from your hand: return Shadow's Reflection from your graveyard to the battlefield tapped with a finality counter on it.",,,u,b,ETB,,0,,,1,0,0,1,0,0,0,0,1,0,0,0,0,,TRUE,,,0,68
+Exile a black card from your hand: return Shadow's Reflection from your graveyard to the battlefield tapped with a finality counter on it.",,,u,b,ETB,,0,,,1,0,0,1,0,0,0,0,1,0,0,0,1,,TRUE,,,0,68
 FALSE,Flamespire,Enchantment Land,Mountain,,"{t}: add {r}.
 Sacrifice Flamespire: add {r}{r}.
 Exile Flimespire from your hand: it deals 1 damage to any target.",,,u,r,Burn,,0,,,1,0,0,0,1,0,0,0,1,0,0,0,1,,TRUE,,,0,69
@@ -245,8 +245,8 @@ Draw a card.",,,c,,"Duck, protection, draw",,1,"""Use your head. Live to fight a
 FALSE,Pack Dog,Creature,Dog,{w/r},Pack Dog can't attack alone.,2,2,c,,,many creatures,1,Just look him in the eyes and see if you can tell him to go out there alone!,,1,1,0,0,1,0,0,1,0,1,0,0,0,,TRUE,,$,0,101
 FALSE,Cunning Mink,Creature,Mink Soldier,{b}{b},"Duck - Destroy target creature blocking a creature Cunning Minx is ducking behind.
 {b}: Cunning Mink gets +1/-1 until end of turn.",2,2,r,,"Removal, duck",,2,,,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,$$,0,102
-FALSE,Snapstrike Una,Creature,Shark Soldier,{2}{u},"Backup 2
-First Strike",2,1,c,,Backup,,3,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,103
+FALSE,Snapstrike Una,Creature,Shark Soldier,{3}{u},"Backup 2
+First Strike",2,1,c,,Backup,,4,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,103
 FALSE,Likeminded Tactician,Creature,Human Soldier,{1}{u},"Transparent
 If Likeminded Tactician and exactly one other creature attack, they each get +1/+1 and gain flying until end of turn.",2,2,c,,"Transparent, flying",many creatures,2,"""Dude, like, how are we so on the same wavelength?""",,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,104
 FALSE,Relentless Fortification,Sorcery,,{2},"You may pay {4} any number of times. Copy this spell that many times.
@@ -281,8 +281,8 @@ FALSE,The Second Wind,Enchantment Creature,Elemental,{2}{w/u}{w/u},"The Second W
 Flying
 Creatures you control get +1/+1.
 Creatures you control with toughness 2 or less have vigilance.",4,4,r,,"Flying, pump","Mass army, small creatures",4,,,1,1,1,0,0,0,0,1,1,1,0,0,0,,TRUE,,{2}$$,2,117
-FALSE,Cape Flip,,,{1}{u}{b},"You may shuffle any number of revealed cards from your hand back into your library as you cast Cape Flip. If you shuffled in at least one, Cape Flip costs {b} less to cast and you draw a card after its other effects.  
-Counter target spell. ",,,u,,"Counter_spell, draw",Expose,3,Nothing cooler than disappearing behind a cape. ,,1,0,1,1,0,0,0,1,0,0,0,0,0,,TRUE,,{1}$$,1,118
+FALSE,Cape Flip,Instant,,{1}{u}{b},"You may shuffle any number of revealed cards from your hand back into your library as you cast Cape Flip. If you shuffled in at least one, Cape Flip costs {b} less to cast and you draw a card after its other effects.  
+Counter target spell. ",,,u,,"Counter_spell, draw",Expose,3,Nothing cooler than disappearing behind a cape. ,,1,0,1,1,0,0,0,1,0,0,0,1,0,,TRUE,,{1}$$,1,118
 FALSE,Soul Sear,Enchantment,,{2}{r},"{r}{r}, Sacrifice a nontoken creature: destroy target enchantment.
 {r}{r}, Sacrifice Soul Sear: it deals 3 damage to target creature.",,,u,,"Sacrifice, removal, burn",Enchantments,3,Even souls can feed a hungry enough flame.,,1,0,0,0,1,0,0,0,1,0,0,0,0,,TRUE,,{2}$,2,119
 TRUE,Greedy Trapper,Creature,Goblin Rogue,{2}{b}{r},"{b}{r}, {t}: Exile target creature until Greedy Trapper leaves the battlefield.
@@ -303,7 +303,7 @@ FALSE,Active Duty Bonus,Sorcery,,{1}{w},"Tap up to two target permanents target 
 - {u}: Draw half X cards, rounded down.",,,u,,"Tap, Tokens",Tap,2,,,1,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,126
 FALSE,High-Brow Gatekeeper,Creature,Rhino Soldier,{3}{w}{w},"Vigilance
 Opponents may attack you with at most 3 creatures.
-Whenever a creature ducks behind High-Brow Gatekeeper, High-Brow Gatekeeper gets +1/+1 until end of turn.",4,4,r,,Vigilance,"Mass army, duck",5,,,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$$,3,127
+Whenever a creature ducks behind High-Brow Gatekeeper, High-Brow Gatekeeper gets +1/+1 until end of turn.",3,4,r,,Vigilance,"Mass army, duck",5,,,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$$,3,127
 TRUE,Cannibalistic Ritual,Instant ,,{g},"You may sacrifice a creature or two Foods rather than pay this spell's mana cost. 
 Target creature gets +3/+3, gains trample and hexproof, and loses flying and first strike until end of turn.",,,c,,Pump,"Food, Flying, First Strike",1,,,0,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,$,0,128
 TRUE,Hunger for Magic,Enchantment ,,{2}{b/g},Sacrifice an enchantment: make a Food token. ,,,u,,Food,Enchantments,3,,,0,0,0,1,0,1,0,1,1,0,0,0,0,,TRUE,,{2}$,2,129
@@ -420,18 +420,18 @@ At the beginning of each end step, put a time counter on Fuse-burners.
 Whenever Fuse-burners deals combat damage, put a +1/+1 counter on it.
 Fuse-burners gets -0/-1 for each time counter on it.",3,4,u,,Counters,,3,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,$$$,0,177
 FALSE,Enlisting Shadow,Creature,Ninja,{b}{r},"Ninjitsu - Reveal a card, {b}{r}
-If you cast a creature during combat that was revealed for Enlisting Shadow's ninjitsu cost, you may have that creature enter attacking.",2,2,c,,"Ninjitsu, expose",,,,,1,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,$$,0,178
+If you cast a creature during combat that was revealed for Enlisting Shadow's ninjitsu cost, you may have that creature enter attacking.",2,2,c,,"Ninjitsu, expose",,2,,,1,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,$$,0,178
 FALSE,Compulsive Maniac,Creature,Reptile Ninja,{1}{r},"Ninjitsu {2}{r}
 Compulsive Maniac can't block.
-Whenever Compulsive Maniac deals combat damage, exile the top two cards of your library. You may cast them until the end of your next turn.",2,1,c,,"Ninjitsu, card acceleration",,,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,179
+Whenever Compulsive Maniac deals combat damage, exile the top two cards of your library. You may cast them until the end of your next turn.",2,1,c,,"Ninjitsu, card acceleration",,2,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,179
 FALSE,Meek Saboteur,Creature,Wizard Imp,{r}{r},"Duck - Target creature can block 1 less creature until end of turn. Meek Saboteur gets +0/+1 until end of turn.
-Whenever you cast an instant or sorcery, you may sacrifice Meek Saboteur. If you do, it deals 1 damage to target opponent and they reveal a card.",1,2,c,,"Reveal, burn","Blocking, instants and sorceries",,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,$$,0,180
+Whenever you cast an instant or sorcery, you may sacrifice Meek Saboteur. If you do, it deals 1 damage to target opponent and they reveal a card.",1,2,c,,"Reveal, burn","Blocking, instants and sorceries",2,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,$$,0,180
 TRUE,Monument to Chigerous,Artifact,Monument,{5},"At the end of your combat step, for each creature that could have attacked a permanent or player but did not, put a charge counter on Monument to Chigerous.
 Remove charge counters:
 - 4: Permanents you control gain indestructible and hexproof until end of turn. You gain 1 life.
 - 6: Put a 1/1 white and black soldier creature token on the battlefield with, ""at the end of your combat step, if this creature could have attacked a permanent or player but did not, put a +1/+1 counter on it.
 - 20, sacrifice Monument to Chigerous: deal 20 damage distributed among any number of target permanents.",,,,,"Counters, protection, lifegain, tokens, burn","Counters, mass army ",5,,,0,0,0,0,0,0,0,0,0,0,1,0,0,,TRUE,,{5},5,181
-FALSE,Pie-Thrower Runt,Creature,Demon,{1}{r},"{t}, sacrifice a token: Pie-Thrower Runt deals 2 damage to any target. If the token was a Food, gain 1 life.",0,2,,,"Burn, lifegain, Tap",Food,2,"""That was definitely less than 5 seconds!""",,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,182
+TRUE,Pie-Thrower Runt,Creature,Demon,{1}{r},"{t}, sacrifice a token: Pie-Thrower Runt deals 2 damage to any target. If the token was a Food, gain 1 life.",0,2,,,"Burn, lifegain, Tap",Food,2,"""That was definitely less than 5 seconds!""",,0,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,182
 FALSE,Well-Travelled Alpakon,Creature,Alpaca,{w/g},"Backup 1
 This creature gets +1/+1 so long as you control at least 2 basic lands with different names.",0,1,c,,Backup,Ramp,1,,,1,1,0,0,0,1,0,1,0,1,0,0,0,,TRUE,,$,0,183
 TRUE,Simple Alpakon,Creature,Alpaca,{1},"Backup
@@ -527,7 +527,7 @@ Grave Horde - When Showcropper enters, target creature gets -X/-X until end of t
 Flash, Menace",5,4,r,,"Removal, ETB",Life loss,4,,,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,224
 FALSE,Therapy Whale,Creature,Whale Advisor,{6}{u}{u},"Therapy Whale costs {1} less for each card in you target opponent's hand.
 Flying
-When Therapy Whale enters, scry 1 and draw 2 cards. You may exile target instant or sorcery from your graveyard. If you do, copy it and cast the copy.",2,3,u,,"Flying, draw, scry",Opponent draw,8,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{6}$$,6,225
+When Therapy Whale enters, scry 1 and draw a card. You may exile target instant or sorcery from your graveyard. If you do, copy it and cast the copy.",2,3,u,,"Flying, draw, scry",Opponent draw,8,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{6}$$,6,225
 FALSE,Hallway Studier,Creature,Ninja Student,{2}{u},"Ninjitsu {2}{u}
 When Hallway Studier enters, scry 2.
 You may cast Hallway Studier as it's being scried.",2,2,c,,"Ninjitsu, scry",Scry,3,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,226
@@ -546,7 +546,7 @@ Landfall - Place a 1/+1 counter on target creature that entered the battlefield 
 FALSE,Composted Farmer,Creature,Zombie,{1}{b/g},"Undying
 When Composted Farmer enters, you may play an additional land until end of turn and you may play lands from your graveyard until end of turn.",1,1,u,,"Ramp, Counters, ETB",,2,,,1,0,0,1,0,1,0,1,0,1,0,0,0,,TRUE,,{1}$,1,232
 FALSE,Wide-Stance Visionary,Creature,Human Cleric,{2}{u}{g},"When Wide-Stance Visionary enters, scry 1 or tap target creature.
-Whenever a creature ducks behind this one, both creatures get +1/+1 until end of turn. This one can block an additional creature until end of turn.",3,3,,,"Blocking, scry, tap",Duck,,,,1,0,1,0,0,1,0,1,0,1,0,0,0,,TRUE,,{2}$$,2,233
+Whenever a creature ducks behind this one, both get +1/+1 until end of turn. This creature can block an additional creature until end of turn.",3,3,c,,"Blocking, scry, tap",Duck,4,,,1,0,1,0,0,1,0,1,0,1,0,0,0,,TRUE,,{2}$$,2,233
 FALSE,Impression of Greed,Legendary Enchantment Creature,Nightmare,{3}{b}{b},"Menace, Deathtouch, First Strike
 Impression of Greed gets +1/+0 for each creature in all graveyards.
 Whenever Impression of Greed deals combat damage, defending player makes a Treasure and draws a card.",3,4,r,,,"Devotion, LTB",5,"I am bad. I am. If I wasn't bad, how could I feeling so bad?",Remove/simply card draw ability? Make it only able to attack alone?,1,0,0,1,0,0,0,0,1,1,0,0,0,,FALSE,,{3}$$,3,234
@@ -556,9 +556,9 @@ FALSE,Overgenerous Symbiote,Creature,Plant Horse Goblin,{3}{u/g}{u/g},"Reach, Vi
 {1}: put a +1/+1 counter on Overgenerous Symbiote and draw a card. Any player may activate this ability and it costs {1} more to cast for each counter on this creature.",3,4,r,,"Card Acceleration, Counters",,5,,Clunky,1,0,1,0,0,1,0,1,0,1,0,0,0,,FALSE,,{3}$$,3,236
 FALSE,Unconfident War Elephant,Creature,Elephant,{2}{g},"Haste, Trample
 Horde 3 - Unconfident War Elephant can't block unless you control 3 or more creatures or a creature has ducked behind it this turn.",4,4,c,,Duck,,3,"He can't always get out of the way, but he'll sure as heck try.",,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$,2,237
-FALSE,Shroom Gator Randy,Creature,Dwarf Reptile,{u/g}{r/g},"Duck - Shroom Gator Randy gets +0/+1 until end of turn.
-{t}: add {u} or {g}.",2,2,c,,"Duck, Ramp, tap",,2,"""Yeah, sure I can hook you up! Wait, you said you weren't a cop, right...?""",,1,0,1,0,1,1,0,1,0,1,0,0,0,,TRUE,,$$,0,238
-FALSE,Ninth Life,Enchantment Creature,Cat Spirit,{w/b},"Bestow {1}{w/b}
+FALSE,Shroom Gator Randy,Creature,Dwarf Reptile,{1}{u/g}{r/g},"Duck - Shroom Gator Randy gets +0/+1 until end of turn.
+{t}: add {u} or {g}.",2,2,c,,"Duck, Ramp, tap",,3,"""Yeah, sure I can hook you up! Wait, you said you weren't a cop, right...?""",,1,0,1,0,1,1,0,1,0,1,0,0,0,,TRUE,,{1}$$,1,238
+FALSE,Ninth Life,Enchantment Creature,Cat Spirit,{w/b},"Bestow {2}{w/b}
 If Ninth Life enters attached to a creature, target player mills 2 cards. 
 Enchanted creature gets +1/+1.",1,1,c,,"Bestow, Mill, ETB",,1,,,1,1,0,1,0,0,0,1,1,1,0,0,0,,TRUE,,$,0,239
 TRUE,Crocodile Tears,Instant,,{r/g},"Choose a color or colorless. The next time target creature you control would be dealt damage by a source of that color this turn, prevent that damage and make a Blood token.
@@ -570,28 +570,31 @@ FALSE,Red-Hot Hooves,Artifact Creature,Horse Vehicle,{2}{u/r},"Whenever Red-Hot 
 Crew 2",4,4,u,,"Crew, attacking, pump",,3,,,1,0,1,0,1,0,0,1,0,1,1,0,0,,TRUE,,{2}$,2,244
 TRUE,Self-Ostracize,Instant,,{w}{w},"As an additional cost to casting this spell, pay {1} or tap 2 nonland permanents you control.
 Choose target nonland permanent. At the beginning of the next end step, exile it.",,,r,,"Removal, tap",,2,"""It's better off this way.""",,0,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,$$,0,245
-FALSE,Final Day,Sorcery,,{2}{w}{b},"Choose artifacts, enchantments, or creatures, then exile all nonland permanents of the chosen type. All players reveal their hands to each other.",,,r,,"Mass removal, Hand Reveal",,4,,,1,1,0,1,0,0,0,1,0,0,0,1,0,,TRUE,,{2}$$,2,246
-TRUE,Honest Divination,Instant,,{u},"Reveal any number of unrevealed cards from your hand. Scry X for target player, where X is the number of cards revealed this way.",,,,,"Hand Reveal, Scry",,1,,,0,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,247
+FALSE,Final Day,Sorcery,,{2}{w}{b},"Choose artifacts, enchantments, or creatures, then exile all nonland permanents of the chosen type. All players reveal their hands to each other.",,,r,,"Mass removal, expose",,4,,,1,1,0,1,0,0,0,1,0,0,0,1,0,,TRUE,,{2}$$,2,246
+TRUE,Honest Divination,Instant,,{u},"Reveal any number of unrevealed cards from your hand. Scry X for target player, where X is the number of cards revealed this way.",,,,,"expose, Scry",,1,,,0,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,247
 FALSE,Olfactory Disrupter,Creature,Skunk Soldier,{r}{b},"Whenever Olfactory Disrupter attacks, target creature can't block this turn.
 Whenever a creature ducks behind Olfactory Disrupter choose 1:
 - Target opponent reveals an unrevealed card.
-- Put a -1/-1 counter on target creature.",1,3,u,,,,,,,1,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,$$,0,248
-FALSE,Up-Front Mercenary,Creature,Goblin Mercenary,{2}{b}{r},"When Up-Front Mercenary enters, reveal any number of unrevealed cards from your hand. Up-Front Mercenary deals that much damage to target creature. Target opponent mills cards equal to the number of cards in your hand not revealed this way.",4,3,,,"Hand Reveal, Burn, Mill, ETB",,4,,,1,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,{2}$$,2,249
-TRUE,Too Much Information,Enchantment,,{3}{r/g},"Whenever an opponent reveals one or more unrevealed cards or discards one or more cards, Too Much Information deals half that damage rounded up to them.",,,r,,Burn,Hand Reveal,4,,,0,0,0,0,1,1,0,1,1,0,0,0,0,,TRUE,,{3}$,3,250
-FALSE,Lemme See!,Sorcery,,{b},"Target opponent reveals two cards from their hand. They discard one of your choice. (If they only have one, they only reveal one).",,,c,,"Hand Reveal, Discard",,1,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,251
+- Put a -1/-1 counter on target creature.",1,3,u,,,,2,,,1,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,$$,0,248
+FALSE,Up-Front Mercenary,Creature,Goblin Mercenary,{2}{b},"When Up-Front Mercenary enters, choose any number:
+- {r}: Reveal any number of unrevealed cards from your hand. Up-Front Mercenary deals that much damage to target creature. 
+- {b}: Target opponent mills cards equal to the number of unrevealed cards in your hand.",4,3,c,,"expose, Burn, Mill, ETB",,3,,,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,249
+TRUE,Too Much Information,Enchantment,,{3}{r/g},"Whenever an opponent reveals one or more unrevealed cards or discards one or more cards, Too Much Information deals half that damage rounded up to them.",,,r,,Burn,expose,4,,,0,0,0,0,1,1,0,1,1,0,0,0,0,,TRUE,,{3}$,3,250
+FALSE,Lemme See!,Sorcery,,{b},"Target opponent reveals two cards from their hand. They discard one of your choice. (If they only have one, they only reveal one).",,,c,,"expose, Discard",,1,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,251
 FALSE,Nosey Officer,Creature,Wolf Detective,{3}{b},"Whenever Nosey Officer attacks alone, you may pay {1}{b}. If you do, target player dicards a card.",4,4,c,,Discard,,4,,,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,252
-FALSE,Worldtree Adherent,Creature,Reptile Cleric,{2}{g}{g},"Landfall - if your devotion to green is at least 3, put a +1/+1 counter on target creature. Then if it's at least 6, you may attach an aura or creature with bestow from your hand to a creature you control.",1,4,,,"Landfall, Counters, Bestow, Auras",Devotion,4,,,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,253
+FALSE,Worldtree Adherent,Creature,Reptile Cleric,{2}{g}{g},"Landfall - if your devotion to green is at least 3, put a +1/+1 counter on target creature. Then if it's at least 6, you may attach an aura or creature with bestow from your hand to a creature you control.",1,4,c,,"Landfall, Counters, Bestow, Auras",Devotion,4,,,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,253
 FALSE,Inviting Shroomling,Creature,Dwarf Spore,{1}{g}{g},"Whenever a creature you control ducks, add {g}.
 {1}{g}: Inviting Shroomling can block an additional creature until end of turn.",2,2,u,,"Ramp, blocking",Duck,3,,,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{1}$$,1,254
 TRUE,Great Lumberbeast,Creature,Plant Giant,{2}{g}{g},"Trample
 Whenever Great Lumberbeast attacks and your devotion to green is at least 4, it deals 1 damage to each creature defending player controls.",4,4,u,,Counters,"Devotion, Duck",4,"""Don't spook a Lumberbeast. Neither you nor anything in a five-mile radius don't want it bein' scared of you.""",,0,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,255
 FALSE,Owhale,Creature,Bird Whale,{6}{u},"Flying
-Whenever an ability of a creature you control targets Owhale, that creature gains flying until end of turn. 
-Other creatures you control with flying get +1/+1. ",7,7,m,,"Scry, Flying, tap","Flying, devotion",7,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{6}$,6,256
+Play with the top card of your library revealed. 
+You may play cards from the top of your library. Whenever you do, target creature gains flying until end of turn. Untap it.
+Other creatures you control with flying get +1/+1. ",5,6,m,,"Scry, Flying, tap","Flying, devotion",7,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{6}$,6,256
 FALSE,Exploitative Liz,Creature,Reptile Citizen,{1}{u}{u},"Duck - Exploitative Liz gets +0/+1 until end of turn.
 Whenever Exploitative Liz enters or ducks behind an attacking or blocking creature, you may draw a card, then put a card from your hand on the bottom of your library.",3,2,c,,"Duck, Card Acceleration, ETB",,3,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$$,1,257
 TRUE,Open Wide,Instant ,,{1}{r},Reptiles you control get +1/+1 and first strike until end of turn.,,,c,,Pump,Reptiles,2,,,0,0,0,0,1,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,258
-FALSE,Reattempt,Sorcery,,{u}{b},"Reveal any number of unrevealed cards from your hand. Then search your graveyard for a card with mana value less than or equal to that number plus one and cast it. If it's a permanent, it enters with a finality counter on it. Otherwise, exile it as it resolves.",,,r,,Hand reveal,Graveyard,2,,,1,0,1,1,0,0,0,1,0,0,0,1,0,,TRUE,,$$,0,259
+FALSE,Reattempt,Sorcery,,{u}{b},"Reveal any number of unrevealed cards from your hand. Then search your graveyard for a card with mana value less than or equal to that number plus one and cast it. If it's a permanent, it enters with a finality counter on it. Otherwise, exile it as it resolves.",,,r,,expose,Graveyard,2,,,1,0,1,1,0,0,0,1,0,0,0,1,0,,TRUE,,$$,0,259
 FALSE,"Renee, Regretful Traveller",Creature,Human,{b}{b}{b},"When Renee enters, you may unreveal a card from your hand, draw a card, then put a card from your hand on the bottom of your library.
 Landfall - you may cast target creature or enchantment from your graveyard until end of turn.",1,4,m,,"Flashback, landfall",Graveyard,3,"""Everywhere I go, I think to myself, 'Maybe here, I'll reinvent myself.' But at this point, it's the opportunities themselves that remind me of my failures.""",,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,$$$,0,260
 TRUE,Repress Memory,Sorcery,,{2}{u/b},"Until end of turn, if a card would be put into a graveyard, exile it instead.
@@ -624,11 +627,11 @@ FALSE,"Resis, Garden Assistant",Creature,Rabbit Citizen,{1}{w/g},"At the beginni
 FALSE,Spirit Circle,Enchantment,,{2}{w/b},"Whenever Spirit Circle or another enchantment enters the battlefield under your control, you gain 1 life. 
 Whenever Spirit Circle or another enchantment you control leaves the battlefield, each opponent loses 1 life.",,,u,,"Lifegain, burn, ETB, LTB","Enchantments, Flicker, ETB, LTB",3,,,1,1,0,1,0,0,0,1,1,0,0,0,0,,TRUE,,{2}$,2,275
 FALSE,Truth Crystal,Artifact,,{2}{u}{b/w},"When Truth Crystal enters, target opponent reveals target card in their hand and shows you the top card of their library. 
-The first time an opponent reveals a card to you from their hand or library (including any mill or exile effects) on each of their turns, you gain 1 life and they lose 1 life. ",,,r,,"Hand reveal, deck reveal, ETB","Hand reveal, deck reveal",4,Truth hurts.,Too similar to brutal honesty?,1,1,1,1,0,0,0,1,0,0,1,0,0,,FALSE,,{2}$$,2,276
+The first time an opponent reveals a card to you from their hand or library (including any mill or exile effects) on each of their turns, you gain 1 life and they lose 1 life. ",,,r,,"expose, deck reveal, ETB","expose, deck reveal",4,Truth hurts.,Too similar to brutal honesty?,1,1,1,1,0,0,0,1,0,0,1,0,0,,FALSE,,{2}$$,2,276
 TRUE,Smartyr,Creature,Satyr Zombie Politician,{b}{r/g},"Whenever you sacrifice a creature, if your devotion to one of its colors (or colorless if it's colorless) is greater than or equal to its mana cost, you may have target opponent lose life equal to half its mana cost rounded down.",1,2,,,Burn,"Devotion, Sacrifice",2,"""Trust me, they'll LOVE you once you're dead!""",,0,0,0,1,1,1,0,1,0,1,0,0,0,,TRUE,,$$,0,277
 FALSE,Flaminghost,Creature,Bird Parasite,{2}{b},"Whenever you sacrifice a creature and Flaminghost is untapped, you may tap it. If you do, target opponent discards a card.
 Cycling {1}{b}",2,2,c,,"Discard, life loss, Cycling",Sacrifice,3,,,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,278
-FALSE,Goblidant,Creature,Goblin,{2}{b/r},Sacrifice a creature you control with power greater than Goblidant: Goblidant deals 1 damage to any target. Put a +1/+1 counter on it.,2,1,,,"Burn, sacrifice",,3,,,1,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,{2}$,2,279
+FALSE,Goblidant,Creature,Goblin,{2}{b/r},Sacrifice a creature you control with power greater than Goblidant: Goblidant deals 1 damage to any target. Put a +1/+1 counter on it.,2,1,c,,"Burn, sacrifice",,3,,,1,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,{2}$,2,279
 FALSE,Reharvest Engine,Artifact,Vehicle,{3}{b/g},"Creatures can duck behind Reharvest Engine as though it had 4 toughness.
 The first time a creature ducks behind Reharvest Engine, you may search your graveyard for a land and put it onto the battlefield tapped.
 Sacrifice Reharvest Engine: Draw a card.",,,c,,Ramp,"Graveyard, mill",4,,,1,0,0,1,0,1,0,1,0,0,1,0,0,,TRUE,,{3}$,3,280
@@ -645,7 +648,7 @@ When It That Arrives enters, you may have target opponent sacrifice target creat
 Exile a card from your graveyard: Scry 1 for target player.
 Transparent creatures you control get +1/+1 and have trample.",6,6,m,,"Transparent, Annihilator, Scry, removal, ETB","Graveyard, transparent",9,,,1,1,0,1,0,0,0,1,0,1,0,0,0,,TRUE,,{7}$$,7,284
 TRUE,Inevitable Visit,Sorcery,,{X}{b}{b},"Suspend target creature with 8 minus X time counters on it. If X is greater than 8, put none. Then place X +1/+1 counters on it. ",,,,,"Counters, pump",,2,,,0,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$$,0,285
-TRUE,Curtesy Battle,Instant,,,"You may reveal an unrevealed card from your hand or tap a permanent you control. Then an opponent may do the same with cards and permanents they control. If they do not, draw a card. If do they do, repeat this process. If you could not, they draw a card and you don't repeat this process.",,,,,"Card acceleration, hand reveal, deck reveal, tap","Hand reveal, deck reveal, tap",0,,,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,,0,286
+TRUE,Curtesy Battle,Instant,,,"You may reveal an unrevealed card from your hand or tap a permanent you control. Then an opponent may do the same with cards and permanents they control. If they do not, draw a card. If do they do, repeat this process. If you could not, they draw a card and you don't repeat this process.",,,,,"Card acceleration, expose, deck reveal, tap","expose, deck reveal, tap",0,,,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,,0,286
 TRUE,Lumbouldeer,Creature,Deer Boulder,{3}{2/g},"Reach
 Tap target Boulder you control: Lumbouldeer gets +2/+0 until end of turn.",1,5,,,"Counters, pump, boulders",Boulders,4,,,0,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{3}$,3,287
 FALSE,Glittering Starchild,Enchantment Creature,Astral Spirit,{w}{b}{r},"Backup 2
@@ -685,15 +688,15 @@ Whenever a creature you control ducks behind Hazardous Ballista, Hazardous Balli
 FALSE,Good Parenting,Instant,,{5}{w/u}{u/g},"Good Parenting costs {1} less to cast for each card in your hand you've revealed or Transparent permanent you control.
 Choose 1 - 
 - Distribute 4 +1/+1 counters on creatures you control.
-- Draw 3 cards.",,,r,,,"Transparent, hand reveal",7,"""How can you help him if you aren't behind honest with him?""",,1,1,1,0,0,1,0,1,0,0,0,1,0,,TRUE,,{5}$$,5,305
+- Draw 3 cards.",,,r,,,"Transparent, expose",7,"""How can you help him if you aren't behind honest with him?""",,1,1,1,0,0,1,0,1,0,0,0,1,0,,TRUE,,{5}$$,5,305
 FALSE,Open Conversation,Sorcery,,{5}{w/b}{w/b},"Open Conversation costs {1} less to cast for each card in your hand you've revealed or Transparent permanent you control.
-Each opponent discards their entire hand and loses life equal to the number of cards discarded this way.",,,r,,Discard,"Transparent, hand reveal",7,"""Spill it. Spill it all, and then maybe we have a chance at this.""",,1,1,0,1,0,0,0,1,0,0,0,1,0,,TRUE,,{5}$$,5,306
+Each opponent discards their entire hand and loses life equal to the number of cards discarded this way.",,,r,,Discard,"Transparent, expose",7,"""Spill it. Spill it all, and then maybe we have a chance at this.""",,1,1,0,1,0,0,0,1,0,0,0,1,0,,TRUE,,{5}$$,5,306
 TRUE,Bicycle,Artifact,Vehicle,{3},"Crew 2
 Bi-cycle - Discard Bicycle: draw 2 cards, then put 1 card from your hand on the bottom of your library.",3,1,,,"Crew, card acceleration",,3,,,0,0,0,0,0,0,0,0,0,0,1,0,0,,TRUE,,{3},3,307
-FALSE,Evident Scarring,Instant,,{1}{r},Evident Scarring deals damage to target creature equal to the number of Transparent cards in all graveyards.,,,u,,Burn,Transparent,2,,,1,0,0,0,1,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,308
+FALSE,Evident Scarring,Instant,,{1}{r},Evident Scarring deals damage to target creature equal to the number of Transparent cards in all graveyards.,,,u,,Burn,Transparent,2,,Not enough transparent cards to be more than situational… maybe?,1,0,0,0,1,0,0,0,0,0,0,1,0,,FALSE,,{1}$,1,308
 FALSE,Wounded Tree,Land Creature,Plant,{2}{b/g}{b/g},"Defender
 Whenever a creature ducks behind Wounded Tree, you gain 1 life. Until end of turn, that creature has hexproof and damage that would be dealt to that it is dealt to Wounded Tree instead.
-{t}: Add {g} for each Transparent card in your graveyard.",0,6,r,,"Defender, ramp, life gain, protection","Transparent, Duck",4,It is in a tree's nature to proudly bear its scars.,,1,0,0,1,0,1,0,1,0,1,0,0,1,,TRUE,,{2}$$,2,309
+{t}: Add {g} for each Transparent card in your graveyard.",0,6,r,,"Defender, ramp, life gain, protection","Transparent, Duck",4,It is in a tree's nature to proudly bear its scars.,Not enough transparent cards to be more than situational… maybe different way of adding mana?,1,0,0,1,0,1,0,1,0,1,0,0,1,,FALSE,,{2}$$,2,309
 FALSE,Field Beast,Creature,Plant Beast,{6}{g}{g},"Trample
 Field Beast cannot be destroyed by effects that say ""destroy"".
 Horde 4 - If you control 4 or more creatures, creatures you control get +1/+1 and have trample. 
@@ -701,7 +704,7 @@ Horde 4 - If you control 4 or more creatures, creatures you control get +1/+1 an
 FALSE,Verified Source,Instant,,{1}{u},"Transparent
 Scry 1, then draw a card.",,,u,,,,2,,,1,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,311
 FALSE,Truth-Seeker Elf,Creature,Elf Druid,{1}{g/r},"First strike
-Reveal an unrevealed card from your hand: add {r} or {g}.",2,2,c,,Ramp,Hand reveal,2,,,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,{1}$,1,312
+Reveal an unrevealed card from your hand: add {r} or {g}.",2,2,c,,Ramp,expose,2,,,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,{1}$,1,312
 FALSE,Corpse-Littered Battlefront,Land,,,"Corpse-Littered Battlefront enters tapped.
 Creatures you control can duck behind creatures in your graveyard as though they are on the battlefield.
 {t}: Add {c}.",,,r,c,,Duck,0,,,1,0,0,0,0,0,1,0,0,0,0,0,1,,TRUE,,,0,313
@@ -718,20 +721,20 @@ When Get It Over With is sacrificed, its owner scries X, then draws X cards, whe
 FALSE,Fiery Bite,Instant,,{r},Target creature gets +2/+0 and first strike until end of turn.,,,c,,,,1,"""WRONG PEPPER. WRONG PEPPERRR!!!""",,1,0,0,0,1,0,0,0,0,0,0,1,0,,TRUE,,$,0,318
 FALSE,Feather Pollen,Sorcery,,{w},Target creature you control gains lifelink and deathtouch until end of turn.,,,c,,,,1,"""It was ash. The ash of a life that barely breathed before it became ash of death.""",,1,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,319
 FALSE,Shudders From Below,Sorcery,,{g},"Shudders From Below deals 2 damage to each creature without flying.
-Each player surveils 1.",,,,,"Removal, searching",Flying,1,The stomps of the titan shook the island through the Skytree through kilometers of trunk.,,1,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,$,0,320
-FALSE,Newborn Nid,Creature,Bird Spider,{1}{w/b},"Flying
-When Newborn Nid enters, you gain 1 life.",2,1,,,"Flying, lifegain",,2,,,1,1,0,1,0,0,0,1,0,1,0,0,0,,TRUE,,{1}$,1,321
+Each player surveils 1.",,,c,,"Removal, searching",Flying,1,The stomps of the titan shook the island through the Skytree through kilometers of trunk.,,1,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,$,0,320
+FALSE,Newborn Nid,Creature,Bird Spider,{1}{w/u},"Flying
+When Newborn Nid enters, you gain 1 life.",1,1,c,,"Flying, lifegain",,2,,,1,1,1,0,0,0,0,1,0,1,0,0,0,,TRUE,,{1}$,1,321
 TRUE,"Icarus, Moment-Chaser",Creature,Bird Spider,{1}{u}{u},"Flying, Lifelink 
 Play with the top card of your library revealed. 
 You may play nonland cards from the top of your library. Whenever you do, you may pay {w}. If you do, target creature you control gets +1/+1 and gains flying until end of turn.",1,3,,,"Flying, lifegain, card acceleration, pump ",,3,"""The pursuit of happiness is a false premise. All you can do is be open to finding it. Still, I find myself chasing something…""",,0,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$$,1,322
-FALSE,The Moment,Enchantment Creature,Elemental Construct,{w/u}{w/u}{u/b}{u/b},"Indestructible 
-As long as the number of cards in your hand is 2 or 4, The Moment is a creature and loses indestructible.
-Spells you control cost {1} less to cast.
-Whenever you cast your second spell each turn, draw a card.",5,2,,,Card acceleration,,4,"""I killed them… all of the moments I had. And now they're haunting me.""",,1,1,1,1,0,0,0,1,1,1,0,0,0,,TRUE,,$$$$,0,323
-FALSE,Conspicuous Pyromaniac,Creature,Reptile Wizard,{r},"{t}, reveal an unrevealed card from your hand: Conspicuous Pyromaniac deals 1 damage to target opponent.
-{t}, discard a revealed card: Conspicuous Pyromaniac deals 2 damage to any target.",1,1,,,"Burn, Discard, tap, hand reveal",Hand reveal,1,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,$,0,324
+FALSE,The Moment,Enchantment Creature,Elemental Construct,{2}{w}{u},"Indestructible 
+As long as the number of cards in your hand is 2 or 4, The Moment is a creature and loses indestructible and spells you control cost {1} less to cast.
+Whenever you cast your second spell each turn, draw a card.",5,2,r,,Card acceleration,,4,"""I killed them… all of the moments I had. And now they're haunting me.""",,1,1,1,0,0,0,0,1,1,1,0,0,0,,TRUE,,{2}$$,2,323
+FALSE,Conspicuous Pyromaniac,Creature,Reptile Wizard,{r},"{t}, reveal an unrevealed card from your hand: goad target creature. (Until your next turn it attacks each combat, and a different player if able.)
+{t}, discard a revealed card: Conspicuous Pyromaniac deals 2 damage to any target.",1,1,c,,"Burn, Discard, tap, expose, goad",Expose,1,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,$,0,324
 TRUE,Crippling Thoughts,Instant,,{b},"Target creature gets -2/-2 until end of turn. If it dies this turn, it controller loses 1 life.",,,,,Life loss,,1,,,0,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,325
-FALSE,Crazed Hopper,Creature,Frog,{r/g},Crazed Hopper must attack each combat if able.,2,2,,,,,1,,,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,$,0,326
+FALSE,Crazed Hopper,Creature,Frog,{r/g},"Pop-up {1}{r/g}
+Crazed Hopper must attack each combat if able.",2,2,c,,"Pop-up, attacking",,1,,,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,$,0,326
 TRUE,Queen's Collector,Creature,Bird Spider,{3}{w/b}{w/b},"Flying, Deathtouch
 Whenever Queen's Collector deals combat damage to a player, you may return a creature with mana value 2 or less from your graveyard to your hand.",4,4,,,,"Graveyard, Combat damage",5,,,0,1,0,1,0,0,0,1,0,1,0,0,0,,TRUE,,{3}$$,3,327
 TRUE,Spirit of Great Ibex,Enchantment Creature,Goat Spirit,{2}{g}{g},"Bestow {3}{g}{g}
@@ -746,7 +749,7 @@ FALSE,Merciless Birth,Sorcery,,{2}{b},"As an additional cost to Merciless Birth,
 Search your library for a card whose mana cost is less than or equal to that of the sacrificed creature, and put it into play tapped.",,,c,,"Sacrifice, searching",,3,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{2}$,2,331
 TRUE,Runnin' Rudy,Creature,Rabbit Citizen,{w},Transparent,2,1,,,Transparent,,1,,,0,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,$,0,332
 TRUE,Frank the Frank,Creature,Wolf Citizen,{3}{b},"Transparent
-Whenever you cast a creature spell that was revealed to an opponent before they could respond to it being cast, target opponent loses 1 life and you gain 1 life.",3,3,,,Transparent,"Transparent, hand reveal, graveyard, deck reveal",4,He'll tell you how it is. Right after you buy a hot dog.,,0,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,333
+Whenever you cast a creature spell that was revealed to an opponent before they could respond to it being cast, target opponent loses 1 life and you gain 1 life.",3,3,,,Transparent,"Transparent, expose, graveyard, deck reveal",4,He'll tell you how it is. Right after you buy a hot dog.,,0,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,333
 FALSE,Rambunny,Creature,Rabbit Goat,{w/r}{w/r},"Transparent, Trample",3,3,c,,Transparent,,2,… heh. Rambunctious. ,,1,1,0,0,1,0,0,1,0,1,0,0,0,,TRUE,,$$,0,334
 FALSE,Overt Vaporling,Enchantment Creature,Elemental,{1}{u},"Transparent, Flash
 When Overt Vaporling enters, tap target permanent. 
@@ -757,8 +760,8 @@ When Blinding Jadebug enters, any player may pay {1}. If they do, place a stun c
 FALSE,Obvious Ambusher,Creature,Raccoon Rogue,{b},"Transparent, Exploit
 When Obvious Ambusher Exploits a creature, it gains haste until end of turn.
 Duck - target creature this creature is ducking behind gains deathtouch and +0/+1 until end of turn. ",1,1,c,,"Transparent, duck",,1,,,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,$,0,337
-TRUE,,,,,,,,,,,,,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,338
-FALSE,Brazen Confrontation,Enchantment,,{g}{g}{g},Reveal target card with mana cost X: target creature you control gets +X/+X until end of turn..,,,r,,Counter_spell,"Hand reveal, deck reveal, Transparent",3,"""Magic shmagic. They're right in front of me.""",,1,0,0,0,0,1,0,0,1,0,0,0,0,,TRUE,,$$$,0,339
+TRUE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,338
+FALSE,Brazen Confrontation,Enchantment,,{g}{g}{g},Reveal target card with mana cost X: target creature you control gets +X/+X until end of turn..,,,r,,Counter_spell,"expose, deck reveal, Transparent",3,"""Magic shmagic. They're right in front of me.""",,1,0,0,0,0,1,0,0,1,0,0,0,0,,TRUE,,$$$,0,339
 FALSE,From a Mile Away,Instant,,{1}{u}{u},"This spell costs {u} less to cast if it targets a card that has been revealed.
 Counter target spell. Then look at the top card of its controller's library.",,,r,,"Counter_spell, search ",Transparent,3,,,1,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$$,1,340
 FALSE,Enveloping Arcana,Creature,Plant Weird,{1}{u/g}{u/g},"Adapt 1 {1}{u/g}
@@ -770,11 +773,11 @@ TRUE,Aquablade Artisan,Creature,Human Artificer,{1}{u/r}{u/r}{u/r},"Double Strik
 TRUE,Genegator,Tribal Artifact,Reptile,{2/u}{2/r},"{2}: Make a 1/1 red and blue Reptile creature token.
 {3}, {t}: Reptiles you control get +2/+0 until end of turn.",,,,,"Tokens, mass army, pump",,2,,,0,0,1,0,1,0,0,1,0,0,1,0,0,,TRUE,,$$,0,344
 TRUE,Tidepool Charmer,Creature,Nymph,{u},"Transparent, Flying
-Discard Tidepool Charmer: target opponent reveals an unrevealed card to you.",1,1,,,"Hand reveal, flying, discard, transparent",,1,,,0,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,$,0,345
+Discard Tidepool Charmer: target opponent reveals an unrevealed card to you.",1,1,,,"expose, flying, discard, transparent",,1,,,0,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,$,0,345
 TRUE,Dreamdiver Fairy,Creature,Fairy,{u}{u},"Flash
 When Dreamdiver Fairy enters, reveal up 3 cards from the top of your library. Counter target spell with mana cost less than or equal to the number revealed.",1,1,,,"Deck reveal, counter",,2,,,0,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,$$,0,346
 FALSE,Proud Fangirl,Creature,Rabbit Citizen,{w/r},"Vigilance
-Reveal Proud Fangirl from your hand: target creature you control gets +1/+0 and first strike until end of turn. Activate only if this creature is unrevealed.",1,1,c,,"Hand reveal, pump",,1,,,1,1,0,0,1,0,0,1,0,1,0,0,0,,TRUE,,$,0,347
+Reveal Proud Fangirl from your hand: target creature you control gets +1/+0 and first strike until end of turn. Activate only if this creature is unrevealed.",1,1,c,,"expose, pump",,1,,,1,1,0,0,1,0,0,1,0,1,0,0,0,,TRUE,,$,0,347
 FALSE,Synthesis Hulk,Creature,Nymph Weird,{4}{u}{g},"When Synthesis Hulk enters, draw a card.
 Adapt 3 {2}{u}{g}
 {t}: Move any number of one type of counter from one permanent you control to the another you control.",5,5,r,,"Counters, tap",,6,,,1,0,1,0,0,1,0,1,0,1,0,0,0,,TRUE,,{4}$$,4,348
@@ -782,7 +785,7 @@ FALSE,Flit-Cloud,Creature,Insect Colony,{1}{u},"Flying
 When Flit-Cloud enters or deals combat damage to a player, untap target permanent. ",1,1,c,,"ETB, flying, attacking","Tap, Combat damage",2,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,349
 FALSE,Chest-Jutting Guard,Creature,Human Soldier,{1}{w},"Vigilance
 When Chest-Jutting Guard enters, it deals 2 damage to up to one target tapped creature.
-Horde 4 - if you control 4 or more creatures, Chest-Jutting Guard gets +1/+0.",1,1,u,,"ETB, removal",Tap,2,,,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,350
+Horde 4 - if you control 4 or more creatures, Chest-Jutting Guard gets +1/+1.",1,1,u,,"ETB, removal",Tap,2,,,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,350
 TRUE,Admire Immensity,Sorcery,,{2}{g},"Add {g} equal to half total the power and toughness of creatures you control, rounded down.",,,,,Ramp ,"Big creatures, mass army",3,,,0,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,{2}$,2,351
 TRUE,General Specific,Creature,Human Soldier,{2}{g}{g},"Haste
 Whenever General Specific attacks, put a +1/+1 counter on target creature you control. It gains trample until end of turn.",3,3,,,"Pump, attacking, counters",,4,,,0,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,352
@@ -799,12 +802,13 @@ Sacrifice Horizonless Shore: add {u}{b}.",,,,u/b,"Bounce, graveyard",Graveyard,0
 TRUE,,Creature,Wall Bear,{1}{w/u}{w/u},"Defender
 Whenever T",,,,,,,3,,,0,1,1,0,0,0,0,1,0,1,0,0,0,,TRUE,,{1}$$,1,358
 FALSE,Fumble-Finger Necromaniac,Creature,Human Sorcerer,{3}{b},"Deathtouch
-Duck - return target creature from a graveyard to the battlefield under your control. It gains haste. Exile it at the beginning of the next end step.",2,4,,,Duck,Graveyard,4,"""Dang, slipped through my fingers - and right back down there!""",,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,359
+Duck - return target creature from a graveyard to the battlefield under your control. It gains haste. Exile it at the beginning of the next end step.",2,4,r,,Duck,Graveyard,4,"""Dang, slipped through my fingers - and right back down there!""",,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,359
 FALSE,Elder Warptree,Legendary Land,,,"{t}: Add {c}.
-{1}: Target creature you control with base power 4 or less gets +1/-1 until end of turn.",,,,,Pump,"Duck, small creatures",0,It might have once truly been a tree. But not anymore.,,1,0,0,0,0,0,1,0,0,0,0,0,1,,TRUE,,,0,360
+{1}: Target creature you control with base power 4 or less gets +1/-1 until end of turn.",,,r,,Pump,"Duck, small creatures",0,It might have once truly been a tree. But not anymore.,,1,0,0,0,0,0,1,0,0,0,0,0,1,,TRUE,,,0,360
 FALSE,Impending Despir,Sorcery,,{3}{b}{b}{b},"Transparent, Split Second
 Each player sacrifices each creature they control. Then they discard their entire hand and draw one card.
-Return up to one creature from your graveyard to the battlefield under your control.",,,,,"Mass removal, transparent",,6,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{3}$$$,3,361
+Return up to one creature from your graveyard to the battlefield under your control.
+Exile Impending Despair.",,,m,,"Mass removal, transparent",,6,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{3}$$$,3,361
 TRUE,Battlefield Chef,Creature,Dwarf Elephant,{2}{w/r},"Duck - make a Food.
 Whenever you sacrifice a token, you gain 1 life.",4,2,,,,,3,,,0,1,0,0,1,0,0,1,0,1,0,0,0,,TRUE,,{2}$,2,362
 FALSE,The Puny Rise Up,Instant,,{1}{w/r}{r/g},Creatures you control with toughness 2 or less get +3/+0 and gain trample and first strike until end of turn.,,,u,,Pump,"Small creatures, mass army ",3,,,1,1,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{1}$$,1,363
@@ -836,41 +840,41 @@ TRUE,Aerachnid Nest,Land,,,"When Aerachnid Nest enters, return a land you contro
 {t}: Add {w} or {u}.
 {2}{w/u}, {t}: Make a 1/1 blue and white Bird creature token with flying. ",,,,w/u,"Tokens, Bounce",,0,,,0,1,1,0,0,0,0,1,0,0,0,0,1,,TRUE,,,0,374
 TRUE,Monk's Peak,Land,,,"{t}: Add {r}.
-Reveal Monk's Peak if it's in your unrevealed in your hand or an unrevealed card from your hand if it's on the battlefield: scry 1.",,,,r,"Scry, hand reveal",,0,,,0,0,0,0,1,0,0,0,0,0,0,0,1,,TRUE,,,0,375
+Reveal Monk's Peak if it's in your unrevealed in your hand or an unrevealed card from your hand if it's on the battlefield: scry 1.",,,,r,"Scry, expose",,0,,,0,0,0,0,1,0,0,0,0,0,0,0,1,,TRUE,,,0,375
 FALSE,Forest of Eternal Autumn,Land,,,"Forest of Eternal Autumn enters tapped unless you return a land you control to your hand.
 {t}: Add {r} or {g}.
-{2}{r/g}, {t}: Make a 1/1 red and green Goat creature token with haste.",,,,r/g,"Tokens, bounce",,0,,,1,0,0,0,1,1,0,1,0,0,0,0,1,,TRUE,,,0,376
+{2}{r/g}, {t}: Make a 1/1 red and green Goat creature token with haste.",,,r,r/g,"Tokens, bounce",,0,,,1,0,0,0,1,1,0,1,0,0,0,0,1,,TRUE,,,0,376
 FALSE,Cloud Ruins,Land,,,"Cloud Ruins enters tapped unless you return a land you control to your hand.
 {t}: Add {w} or {r}.
-{3}{w/r}, {t}: Make a 0/3 colorless Boulder artifact creature token with defender.",,,,w/r,"Tokens, bounce, Boulders",,0,,,1,1,0,0,1,0,0,1,0,0,0,0,1,,TRUE,,,0,377
+{3}{w/r}, {t}: Make a 0/3 colorless Boulder artifact creature token with defender.",,,r,w/r,"Tokens, bounce, Boulders",,0,,,1,1,0,0,1,0,0,1,0,0,0,0,1,,TRUE,,,0,377
 FALSE,Dream Glade,Land,,,"Dream Glade enters tapped unless you return a land you control to your hand.
 {t}: Add {w} or {b}.
-{b/g}, {t}, Exile 2 cards from your graveyard: Target creature you control gains hexproof until end of turn.",,,,b/g,"Tokens, bounce, duck",,0,,,1,0,0,1,0,1,0,1,0,0,0,0,1,,TRUE,,,0,378
+{b/g}, {t}, Exile 2 cards from your graveyard: Target creature you control gains hexproof until end of turn.",,,r,b/g,"Tokens, bounce, duck",,0,,,1,0,0,1,0,1,0,1,0,0,0,0,1,,TRUE,,,0,378
 FALSE,Rabbit Family Farm,Land,,,"Rabbit Family Farm enters tapped unless you return a land you control to your hand.
 {t}: Add {w} or {g}.
-{2}{w/g}: Make a 1/1 white and green Rabbit creature token.",,,,w/g,"Tokens, bounce",,0,,,1,1,0,0,0,1,0,1,0,0,0,0,1,,TRUE,,,0,379
+{2}{w/g}: Make a 1/1 white and green Rabbit creature token.",,,r,w/g,"Tokens, bounce",,0,,,1,1,0,0,0,1,0,1,0,0,0,0,1,,TRUE,,,0,379
 FALSE,Boiling Labworks,Land,,,"Boiling Labworks enters tapped unless you return a land you control to your hand.
 {t}: Add {u} or {r}.
-{1}{u/r}, {t}: Target creature you control gains prowess until end of turn. Boiling Labworks deals 1 damage to you.",,,,u/r,"Prowess, bounce",,0,,,1,0,1,0,1,0,0,1,0,0,0,0,1,,TRUE,,,0,380
+{1}{u/r}, {t}: Target creature you control gains prowess until end of turn. Boiling Labworks deals 1 damage to you.",,,r,u/r,"Prowess, bounce",,0,,,1,0,1,0,1,0,0,1,0,0,0,0,1,,TRUE,,,0,380
 FALSE,Icarus' Resting Place,Land,,,"Icarus' Resting Place enters tapped unless you return a land you control to your hand.
 {t}: Add {b} or {w}.
-{1}{w/b}, {t}, exile 2 cards from your graveyard: Create a 1/1 black and green Skeleton creature token with deathtouch.",,,,w/b,"Tokens, bounce",,0,,,1,1,0,1,0,0,0,1,0,0,0,0,1,,TRUE,,,0,381
+{1}{w/b}, {t}, exile 2 cards from your graveyard: Create a 1/1 black and green Skeleton creature token with deathtouch.",,,r,w/b,"Tokens, bounce",,0,,,1,1,0,1,0,0,0,1,0,0,0,0,1,,TRUE,,,0,381
 FALSE,Foggy Beachfront,Land,,,"Foggy Beachfront enters tapped unless you return a land you control to your hand.
 {t}: Add {u} or {g}.
-{5}{u/g}, {t}: Until end of turn, whenever one or more counters would be put on a creature you control, put that many counters of that type plus one instead.",,,,u/g,"Counters, bounce",Counters,0,,,1,0,1,0,0,1,0,1,0,0,0,0,1,,TRUE,,,0,382
+{5}{u/g}, {t}: Until end of turn, whenever one or more counters would be put on a creature you control, put that many counters of that type plus one instead.",,,r,u/g,"Counters, bounce",Counters,0,,,1,0,1,0,0,1,0,1,0,0,0,0,1,,TRUE,,,0,382
 FALSE,Furnace of the Edge,Land,,,"Furnace of the Edge enters tapped unless you return a land you control to your hand.
 {t}: Add {r} or {b}.
-{3}{b/r}, {t}: Target opponent reveals an unrevealed card from their hand.",,,,b/r,"Bounce, hand reveal",,0,,,1,0,0,1,1,0,0,1,0,0,0,0,1,,TRUE,,,0,383
+{3}{b/r}, {t}: Target opponent reveals an unrevealed card from their hand.",,,r,b/r,"Bounce, expose",,0,,,1,0,0,1,1,0,0,1,0,0,0,0,1,,TRUE,,,0,383
 FALSE,Ancient Tidepools,Land,,,"Ancient Tidepools enters tapped unless you return a land you control to your hand.
 {t}: Add {u} or {b}.
-{3}{u/b}, {t}: Make a 1/1 blue and black Trilobite creature token with, ""When this creature dies, target opponent mills 2 cards.""",,,,u/b,"Bounce, Tokens, Mill, Dying",,0,,,1,0,1,1,0,0,0,1,0,1,0,0,1,,TRUE,,,0,384
+{3}{u/b}, {t}: Make a 1/1 blue and black Trilobite creature token with, ""When this creature dies, target opponent mills 2 cards.""",,,r,u/b,"Bounce, Tokens, Mill, Dying",,0,,,1,0,1,1,0,0,0,1,0,1,0,0,1,,TRUE,,,0,384
 FALSE,Territorial Toad,Creature,Frog Warrior,{1}{u/g},"Territorial Toad has vigilance as long as you control two or less creatures.
 Whenever Territorial Toad blocks, it gets +1/+0 until end of turn.
 {6}{u/g}, {t}: Tap all creatures target opponent controls.",2,1,c,,Tap,,2,,,1,0,1,0,0,1,0,1,0,1,0,0,0,,TRUE,,{1}$,1,385
 FALSE,Tawnty the Evidence-Burner,Creature,Human,{2}{r},"{t}, discard a card: Draw a card.
-Whenever a spell or ability would have you reveal one or more cards, untap Forge-Master Tawnty.",4,4,,,"Discard, card acceleration, tokens, mass army",Discard,3,"""You'll never have my secrets!""",,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,386
+Whenever a spell or ability would have you reveal one or more cards, untap Forge-Master Tawnty.",4,4,u,,"Discard, card acceleration, tokens, mass army",Discard,3,"""You'll never have my secrets!""",,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,386
 FALSE,Assimilamorph,Creature,Shapeshifter,{1}{u}{u},"Ward {1}
-Whenever a creature ducks behind this creature, it becomes a copy of that creature until end of turn except it has this ability and ward {1}.",2,3,,,,Duck,3,,,1,0,1,0,0,0,0,0,0,1,1,0,0,,TRUE,,{1}$$,1,387
+Whenever a creature ducks behind this creature, it becomes a copy of that creature until end of turn except it has this ability and ward {1}.",2,3,r,,,Duck,3,,,1,0,1,0,0,0,0,0,0,1,1,0,0,,TRUE,,{1}$$,1,387
 TRUE,Chigerous's Rival,Artifact Creature,Boulder,{4},"Vigilance, Trample, Defender
 Creatures can't duck behind Chigerous' Rival.
 {3}: Until end of turn, creatures can duck behind Chigerous' Rival and it loses defender.
@@ -903,13 +907,13 @@ FALSE,Cache Dragon,Creature,Dragon Fort,{4}{b}{r},"Trample
 Whenever a creature ducks behind Cache Dragon, you may pay {b/r} and create a Treasure.
 When Cache Dragon dies, sacrifice any number of Treasures. Cache Dragon deals that much damage to target permanent.",7,5,r,,"Dying, tokens, ramp, burn",Duck,6,"""So the dragon's in this cave full of treasure?"" Mawty asked excitedly.
 ""... yeah!"" Herc said, nudging coins from the tongue under his foot, trying not to look at the rows of teeth lining the 'cave'.",,1,0,0,1,1,0,0,1,0,0,0,1,0,,TRUE,,{4}$$,4,401
-FALSE,Acrobatic Stunt,Instant,,{1}{w/u},Target creature you control gets +2/+1 and gains flying until end of turn. Untap it.,,,,,"Pump, flying, untap",,2,,,1,1,1,0,0,0,0,1,0,0,0,1,0,,TRUE,,{1}$,1,402
+FALSE,Acrobatic Stunt,Instant,,{1}{w/u},Target creature you control gets +2/+1 and gains flying until end of turn. Untap it.,,,c,,"Pump, flying, untap",,2,,,1,1,1,0,0,0,0,1,0,0,0,1,0,,TRUE,,{1}$,1,402
 FALSE,Intrusive Thoughts,Instant,,{u/r},"Transparent
-Scry 2. As you do so, you may play either of those cards if able.",,,,,"Card acceleration, scry, transparent",,1,,,1,0,1,0,1,0,0,1,0,0,0,1,0,,TRUE,,$,0,403
+Scry 2. As you do so, you may play either of those cards if able.",,,c,,"Card acceleration, scry, transparent",,1,,,1,0,1,0,1,0,0,1,0,0,0,1,0,,TRUE,,$,0,403
 FALSE,Triumphant Shout,Instant,,{u/r},"Kicker - Reveal a card.
 Target creature gets +2/+0 until end of turn. Whenever it deals combat damage to a player this turn, scry 1.
-If Triumphant Shout was kicked, that creature gets +3/+0 instead of +2/+0.",,,c,,"Scry, pump","Combat damage, hand reveal",1,,,1,0,1,0,1,0,0,1,0,1,0,0,0,,TRUE,,$,0,404
-FALSE,Cocky Rooster,Creature,Bird,{1}{u/r},Reveal an unrevealed card from your hand: untap Cocky Rooster. It gets +1/+0 until end of turn.,2,2,u,,"Hand reveal, untap",,2,"""Not to call a cock a cock, but...""",,1,0,1,0,1,0,0,1,0,0,0,1,0,,TRUE,,{1}$,1,405
+If Triumphant Shout was kicked, that creature gets +3/+0 instead of +2/+0.",,,c,,"Scry, pump","Combat damage, expose",1,,,1,0,1,0,1,0,0,1,0,1,0,0,0,,TRUE,,$,0,404
+FALSE,Cocky Rooster,Creature,Bird,{1}{u/r},Reveal an unrevealed card from your hand: untap Cocky Rooster. It gets +1/+0 until end of turn.,2,2,u,,"expose, untap",,2,"""Not to call a cock a cock, but...""",,1,0,1,0,1,0,0,1,0,0,0,1,0,,TRUE,,{1}$,1,405
 FALSE,A Good Cry,Sorcery ,,{u},"Choose 1:
 - Target creature gets -1/-1 until end of turn. Tap it. 
 - Target creature you control gets -2/-2 until end of turn and target creature gets -5/-5 until end of turn.",,,u,,Removal,,1,,,1,0,1,0,0,0,0,0,0,0,1,0,0,,TRUE,,$,0,406
@@ -921,15 +925,15 @@ TRUE,Big-Arm Larry,Creature,Larry,{1}{r}{r},"Trample
 Duck - return up to one target creature you control to its owner's hand. Target creature Big-Arm Larry is ducking behind gets +1/+1 until end of turn.",3,2,,,"Duck, bounce, pump",,3,,,0,0,0,0,1,0,0,0,0,0,0,1,0,,TRUE,,{1}$$,1,409
 FALSE,Daycare Grand Opening,Instant,,{3}{w}{g},"Affinity for creatures with duck
 Prevent all damage dealt to creatures you control this turn.
-Make 3 1/1 green and white Alpaca creature tokens.",,,,,"Tokens, protection",Duck,5,,,1,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{3}$$,3,410
+Make 3 1/1 green and white Alpaca Citizen creature tokens.",,,r,,"Tokens, protection",Duck,5,,,1,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{3}$$,3,410
 FALSE,Political Divination,Sorcery,,{u}{u},"Target opponent separates the top three cards of your library into two piles. Put one pile into your hand and the other onto the bottom of your library in a random order.
-Horde 3 - If you control at least 3 creatures, add {u}.",,,,,Card acceleration,,2,"""The council has ordained.""",,1,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,$$,0,411
+Horde 3 - If you control at least 3 creatures, add {u}.",,,u,,Card acceleration,,2,"""The council has ordained.""",,1,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,$$,0,411
 TRUE,Consider the Future,Sorcery,,{u}{b},"Scry 3 for target player, then draw a card.",,,,,"Card acceleration, scry, searching",,2,,,0,0,1,1,0,0,0,1,1,0,0,0,0,,TRUE,,$$,0,412
 FALSE,Draining Relationship,Enchantment,Aura,{w/b}{w/b},"Enchant creature
 Whenever enchanted creature attacks, defending player loses 1 life and you gain 1 life.
-Enchanted creature has +1/+1.",,,,,"Pump, lifegain, lifeloss",,2,,,1,1,0,1,0,0,0,1,0,1,0,0,0,,TRUE,,$$,0,413
-FALSE,Naturalist Crystal,Creature,Rabbit,{2}{w/b},"Whenever a creature enters under your control, gain 1 life.
-As long as your life total is 5 or more above your starting life total, creatures you control get +1/+1.",,,,,"Lifegain, pump","Lifegain, ETB",3,,,1,1,0,1,0,0,0,1,0,0,1,0,0,,TRUE,,{2}$,2,414
+Enchanted creature has +1/+1.",,,r,,"Pump, lifegain, lifeloss",,2,,,1,1,0,1,0,0,0,1,0,1,0,0,0,,TRUE,,$$,0,413
+FALSE,"Crystal, Naturalist",Legendary Creature,Rabbit,{2}{w/b},"Whenever a creature enters under your control, gain 1 life.
+As long as your life total is 5 or more above your starting life total, creatures you control get +1/+1.",1,4,u,,"Lifegain, pump","Lifegain, ETB",3,,,1,1,0,1,0,0,0,1,0,0,1,0,0,,TRUE,,{2}$,2,414
 TRUE,Chigerous' Helm,Artifact,Equipment,{2}{2/w},,,,,,,,3,,,0,1,0,0,0,0,0,0,0,0,1,0,0,,TRUE,,{2}$,2,415
 TRUE,Renee's Jetpack,Artifact,Equipment,{2}{w/r},"Equip {1}
 Equipped creature gets +2/+1 and has flying.
@@ -938,14 +942,15 @@ TRUE,Toddler Treatise,Enchantment,,{2}{w},Exile target creature whose controller
 TRUE,Environmentalist Movement,Enchantment,,{2}{r}{g},"Whenever a creature with toughness 3 or greater enters under your control, you may pay {r}. If you do, destroy up to one target artifact. If you didn't, then you may pay {g}. If you do, destroy up to one target enchantment.",,,,,Removal,,4,,,0,0,0,0,1,1,0,1,0,0,1,0,0,,TRUE,,{2}$$,2,418
 FALSE,Darkest Heart,Artifact,,{1}{b},"Exploit
 When Darkest Heart exploits a creature, target opponent discards a card.
-{1}{b}, sacrifice Darkest Heart: destroy target creature or planeswalker with mana cost less than or equal to your devotion to black.",,,,,Removal,,2,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,419
-FALSE,Let Go,Instant,,{w/u},Return target attacking creature to its owner's hand.,,,,,Bounce,,1,,,1,1,1,0,0,0,0,1,0,0,0,1,0,,TRUE,,$,0,420
-FALSE,Never Too Late,Instant,,{w},Exile target blocked creature.,,,,,Removal,,1,"""You've never lost too much to discover who you might be."" - Chigerious the Humble ",,1,1,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,$,0,421
+{1}{b}, sacrifice Darkest Heart: destroy target creature or planeswalker with mana cost less than or equal to your devotion to black.",,,r,,Removal,,2,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,419
+FALSE,Let Go,Instant,,{w/u},Return target attacking creature to its owner's hand.,,,u,,Bounce,,1,,,1,1,1,0,0,0,0,1,0,0,0,1,0,,TRUE,,$,0,420
+FALSE,Never Too Late,Instant,,{1}{w},"Exile target blocked creature.
+Flashback {3}{w}{w}",,,r,,"Removal, flashback",,2,"""You've never lost too much to discover who you might be."" - Chigerious the Humble ",,1,1,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,{1}$,1,421
 TRUE,,,,,"If you didn't cast a spell this turn, do a thing? If you cast two spells this turn, do a thing?",,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,422
 TRUE,,,,,Adds mana on entrance ,,,,,,,0,,,0,0,0,0,0,0,0,0,1,0,1,0,0,,TRUE,,,0,423
 FALSE,Silver-Thread Cloak,Enchantment Artifact,Equipment,{1},"Ward {1}, Equip {2}
 Equipped creature has ward {1}.
-{3}: Equipped creature can't be blocked until end of turn.",,,,,"Evasion, ward",,1,,,1,0,0,0,0,0,1,0,0,1,1,0,0,,TRUE,,{1},1,424
+{2}: Equipped creature can't be blocked until end of turn.",,,u,,"Evasion, ward",,1,,,1,0,0,0,0,0,1,0,0,1,1,0,0,,TRUE,,{1},1,424
 TRUE,Mark-Fluid Bot,Artifact Creature,Bird Insect,{2},"Modular 1
 Sacrifice Mark-Fluid Bot: Scry 1.",0,0,,,"Counters, dying, scry",,2,,,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{2},2,425
 TRUE,Unearth Memories,Instant,,{u/g}{b},"Surveil 2, then target instant or sorcery in your graveyard gains flashback until end of turn. Its flashback cost is equal to its mana cost.",,,,,"Flashback, surveil",Graveyard,2,,,0,0,1,1,0,1,0,1,1,0,0,0,0,,TRUE,,$$,0,426
@@ -961,25 +966,25 @@ Flying",1,2,u,,"Bestow, ETB, bounce, pump",Lands,2,,,1,1,0,1,0,0,0,1,0,1,0,0,0,,
 TRUE,Avus Father,Creature,Cleric,{1}{w}{g},"If you control three or more enchantments, Avus Father has ward {1}.
 Enchantment spells you cast cost {1} less to cast. ",2,2,,,Ward,Enchantments,3,,,0,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{1}$$,1,430
 FALSE,Precocious Bolt,Instant,,{1}{r},"You may reveal Precocious Bolt as you draw it. If you do, it deals 1 damage to target player and 1 damage to target creature they control. Then it deals 1 damage to you.
-Precocious Bolt deals 1 damage to target player and 1 damage to target creature they control.",,,,,"Burn, hand reveal",,2,,,1,0,0,0,1,0,0,0,1,0,0,0,0,,TRUE,,{1}$,1,431
+Precocious Bolt deals 1 damage to target player and 1 damage to target creature they control.",,,c,,"Burn, expose",,2,,,1,0,0,0,1,0,0,0,1,0,0,0,0,,TRUE,,{1}$,1,431
 TRUE,Fickle Fireball,Enchantment,,{X}{r}{b},"Fickle Fireball enters with X charge counters on it.
 At the beginning of your upkeep, remove a time counter from Fickle Fireball. Then if it has no time counters on it, sacrifice it; it deals 5 damage to you.
 {3}: Target opponent gains control of Fickle Fireball. ",,,,,"Counters, burn",,2,,,0,0,0,1,1,0,0,1,0,1,0,0,0,,TRUE,,$$,0,432
 TRUE,Eager Combatant,Creature,Human Warrior,{1}{w/r}{w/r},"When Eager Combatant is revealed from your hand, you may pay {1}. If you do, you may cast it (you still need to pay its other costs).
-Haste, Duck - target creature this creature is ducking behind gets +1/+0 and gains haste until end of turn.",3,1,,,"Duck, pump, tap",Hand reveal,3,,,0,1,0,0,1,0,0,1,0,1,1,0,0,,TRUE,,{1}$$,1,433
+Haste, Duck - target creature this creature is ducking behind gets +1/+0 and gains haste until end of turn.",3,1,,,"Duck, pump, tap",expose,3,,,0,1,0,0,1,0,0,1,0,1,1,0,0,,TRUE,,{1}$$,1,433
 TRUE,Jeck in the Box,Artifact Creature,Construct,{1},"When Jeck in the Box is revealed from your hand, you may pay {1}. If you do, you may cast it (you still need to pay its other costs).
-Modular 1",0,0,,,"Counters, modular",Hand reveal ,1,,,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{1},1,434
-FALSE,Determinate,Instant ,,{b},"The next time target creature or artifact would die or be destroyed this turn, tap it instead.",,,,,"Protection, tap",Dying,1,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,435
+Modular 1",0,0,,,"Counters, modular",expose ,1,,,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{1},1,434
+FALSE,Determinate,Instant ,,{b},"The next time target creature or artifact would die or be destroyed this turn, tap it instead.",,,c,,"Protection, tap",Dying,1,,,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,435
 TRUE,Stack the Odds,Sorcery,,{1}{b},"You may play Stack the Odds as though it had flash if it is your opponent's main phase and the stack is empty.
 Look at the top 4 cards of your library and put them back in any order.",,,,,Searching,,2,,,0,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,436
 TRUE,Focus Sprint,Instant,,{2}{b},"Look at your library. Do not change the order of any cards in it.
 Until end of turn or you cast your third spell after this one (whichever happens first), whenever a spell or ability would cause you to shuffle your library, do not instead.",,,,,Searching,Searching,3,,,0,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{2}$,2,437
-FALSE,Father's Will,Instant,,{1}{u/b},"Exile target card from your graveyard. Search the top X cards of your library for a card, where X is the exiled card's mana cost, put it on top of your library, and put the rest on the bottom of your library in a random order.",,,,,"Searching, card acceleration",Graveyard,2,,,1,0,1,1,0,0,0,1,0,1,0,0,0,,TRUE,,{1}$,1,438
-FALSE,Conniving Pyromiggy,Creature,Dwarf Alpaca,{w}{r},"Haste, Duck - Until end of turn, whenever you cast a noncreature spell, Conniving Pyromiggy deals 1 damage to target player and you gain 1 life.",2,1,,,"Duck, burn, lifegain","Instants/sorceries, enchantments, artifacts",2,,,1,1,0,0,1,0,0,1,1,0,0,0,0,,TRUE,,$$,0,439
+FALSE,Father's Will,Instant,,{1}{u/b},"Exile target card from your graveyard. Search the top X cards of your library for a card, where X is the exiled card's mana cost, put it on top of your library, and put the rest on the bottom of your library in a random order.",,,r,,"Searching, card acceleration",Graveyard,2,,,1,0,1,1,0,0,0,1,0,1,0,0,0,,TRUE,,{1}$,1,438
+FALSE,Conniving Pyromiggy,Creature,Dwarf Alpaca,{w}{r},"Haste, Duck - Until end of turn, whenever you cast a noncreature spell, Conniving Pyromiggy deals 1 damage to target player and you gain 1 life.",2,1,u,,"Duck, burn, lifegain","Instants/sorceries, enchantments, artifacts",2,,,1,1,0,0,1,0,0,1,1,0,0,0,0,,TRUE,,$$,0,439
 TRUE,Parental Instinct,Enchantment,,{4}{w}{g},"Affinity for creatures with duck
 Creatures you control with duck or power 2 or less have ward {1}.",,,,,Protection,"Duck, small creatures",6,,,0,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{4}$$,4,440
 FALSE,Mourning Morning,Instant,,{b}{b},"Pop-up {1}{b}
-Draw a card. If a creature you controlled died this turn, draw two cards instead.",,,r,,"Scry, card acceleration","Hand reveal, dying ",2,,,1,0,0,1,0,0,0,0,0,0,0,0,0,,TRUE,,$$,0,441
+Draw a card. If a creature you controlled died this turn, draw two cards instead.",,,r,,"Scry, card acceleration","expose, dying ",2,,,1,0,0,1,0,0,0,0,0,0,0,0,0,,TRUE,,$$,0,441
 TRUE,,,,,Switch out a creature with an artifact of less or equal mana cost from your hand ,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,442
 TRUE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,443
 TRUE,Add ability to dwarf artifact dude to search an artifact from your deck,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,444
@@ -987,28 +992,28 @@ TRUE,Last Act / Rushed Will,,,,"If creature would die this turn, do reward (it s
 TRUE,Mt. Molehill,Land,,,"Sacrifice Mt. Molehill: Search your library for a Mountain, put it on the battlefield tapped, then shuffle your library. If you took damage this turn, you may add {r}.",,,,r,"Sacrifice, searching, ramp",Damage,0,,,0,0,0,0,1,0,0,0,0,0,0,0,1,,TRUE,,,0,446
 TRUE,Overgenerous Geneator,,,,"Must block, takes damage in form of -1/-1, makes tokens every upkeep",,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,,0,447
 TRUE,Spontaneous Terraforming,Instant,,{1}{r}{g},"When this card is revealed from your hand, you may pay {0}. If you do, you may cast it (you still need to pay its other costs).
-Make a green 0/5 Plant creature token with defender and a colorless 0/3 Boulder artifact creature token. Sacrifice them both at the beginning of the next end step.",,,,,"Tokens, boulders, defender, sacrifice",Hand reveal,3,,,0,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{1}$$,1,448
+Make a green 0/5 Plant creature token with defender and a colorless 0/3 Boulder artifact creature token. Sacrifice them both at the beginning of the next end step.",,,,,"Tokens, boulders, defender, sacrifice",expose,3,,,0,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{1}$$,1,448
 FALSE,Humble,Sorcery,,{w},Exile target permanent with indestructible or total power and toughness 9 or greater. ,,,r,,Removal,"Big creatures, indestructible",1,"""Maybe if you were as untouchable as you think you are, you wouldn't have such delusions in the first place."" -Ninti, to Chigerious",,1,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,449
 TRUE,Out of Juice,Instant,,{2}{u},"Until end of turn, counter any spells or abilities that would cause an opponent to shuffle, reorder, or search their library.",,,,,Searching,,3,"""Must… study…!""",,0,0,1,0,0,0,0,0,0,0,0,0,0,,TRUE,,{2}$,2,450
 TRUE,Tattle,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,,0,451
 TRUE,Record Scratch,Instant,,{w},"Split Second
 Prevent all combat damage that would be dealt this turn.",,,,,"Protection, split second",,1,"""Yeah, that's me. You might be wondering how I got myself in this situation…""",,0,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,452
-FALSE,Heel Swipe,Instant,,{r/g},"Heel Swipe deals 2 damage to target creature or planeswalker. If it's a creature with toughness 4 or greater, deal 4 damage instead.",,,,,Removal,Big creatures ,1,,,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,$,0,453
-FALSE,Pick Off,Instant,,{b/r},Deal 3 damage to target creature with base toughness 3 or less.,,,,,Removal ,Small creatures,1,,,1,0,0,1,1,0,0,1,0,0,0,1,0,,TRUE,,$,0,454
+FALSE,Heel Swipe,Instant,,{r/g},"Heel Swipe deals 2 damage to target creature or planeswalker. If it's a creature with toughness 4 or greater, deal 4 damage instead.",,,u,,Removal,Big creatures ,1,,,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,$,0,453
+FALSE,Pick Off,Instant,,{b/r},Deal 3 damage to target creature with base toughness 3 or less.,,,u,,Removal ,Small creatures,1,,,1,0,0,1,1,0,0,1,0,0,0,1,0,,TRUE,,$,0,454
 TRUE,Obvious Hiding Spot,Instant,,{g},"Target creature you control deals damage equal to its power to target tapped or transparent creature.
 Cycling {2}",,,,,"Fight, removal, cycling","Tap, transparent ",1,"""I guess I'll just have to TRY SOMEPLACE ELSE!!""",,0,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,$,0,455
 TRUE,Tutu Bear,Creature,Bear,{1}{g},Reveal two unrevealed cards from your hand: Tutu Bear and up to one other creature you control get +2/+2 until end of turn.,2,2,,,,,2,,,0,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,{1}$,1,456
 TRUE,Thief's Boost,Instant,,{1}{g},Tap any number of creatures. Up to that many target creatures you control gain reach until end of turn.,,,,,"Tap, Reach",,2,,,0,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{1}$,1,457
 FALSE,Fearful Megafauna,Creature,Deer,{4}{g/r},"Trample, Duck - Fearful Megafauna deals 2 damage to each creature.
-Whenever a spell or ability you don't control deals damage to Fearful Megafauna, you activate its duck ability and tap it.",4,4,,,,,5,,,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{4}$,4,458
+Whenever a spell or ability you don't control deals damage to Fearful Megafauna, you activate its duck ability and tap it.",4,4,c,,"Trample, Duck, burn",,5,,,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{4}$,4,458
 FALSE,Absorb the Mist,Instant,,{g},"Spree - 
 {2} - destroy target enchantment.
-{u} - scry 1, then draw a card.",,,u,,,,1,,,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,$,0,459
+{u} - scry 1, then draw a card.",,,u,,"Spree, removal, scry, draw",,1,,,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,$,0,459
 TRUE,Afterlife Connoisseur,Creature,Gremlin,{2}{r/g},"Haste
 Whenever Afterlife Connoisseur deals damage to target enchantment or its controller, destroy that enchantment. ",2,2,c,,,,3,,,0,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{2}$,2,460
 FALSE,Make Amends,Instant,,{1}{w},"Choose 1-
 Pay {g}. Target player exiles target enchantment.
-Pay {1}. Gain 1 life for each enchantment on the battlefield.",,,c,,,,2,,,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,461
+Pay {1}. Gain 1 life for each enchantment on the battlefield.",,,c,,"Removal, lifegain",Enchantments,2,,,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,461
 FALSE,Quad-Palm Jerry,Creature,Cyclops,{4}{b}{b},"Quad-Palm Jerry can block an additional creature.
 {t}, sacrifice a creature with toughness 3 or less: Quad-Palm Jerry deals 2 damage to any target.",5,5,u,,"Burn, Tap, Blocking, Sacrifice",Small creatures,6,,,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{4}$$,4,462
 FALSE,Storm-Seed Fairy,Creature,Fairy,{1}{u}{u},"Flying 
@@ -1026,20 +1031,34 @@ TRUE,Lap Runner,Creature,,,"You can't cast Lap Runner except as it's being drawn
 When Lap Runner enters, you win the game. 
 When the game begins (before you draw your hand), search your library for Lap Runner and put it on the bottom of your library. ",,,,,,,0,"A full lap. Nothing more, nothing less. ",,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,,0,467
 FALSE,Grit Teeth,Instant,,{1}{r/g},"Pop-up {r/g}
-Prevent the next X damage that would be dealt to target creature. It gains deathtouch and trample until end of turn. You lose X life. ",,,u,,,,2,,,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,{1}$,1,468
-FALSE,Knowledge Parasite,Creature,,{3}{u},"Knowledge Parasite's power and toughness are each equal to the number of cards in the hand of the player with the most cards. 
+Prevent the next X damage that would be dealt to target creature. It gains deathtouch and trample until end of turn. If X is 3 or more, you lose X life. ",,,u,,"Pop-up, protection, deathtouch, trample, lifeloss",,2,,,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,{1}$,1,468
+FALSE,Knowledge Parasite,Creature,Elemental Construct,{3}{u},"Knowledge Parasite's power and toughness are each equal to the number of cards in the hand of the player with the most cards. 
 Whenever Knowledge Parasite deals combat damage, target player draws a card. 
-{1}{u}{u}: Tap target creature. ",*,*,u,,,,4,,,0,0,1,0,0,0,0,0,0,0,0,0,0,,TRUE,,{3}$,3,469
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,470
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,471
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,472
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,473
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,474
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,475
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,476
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,477
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,478
-FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,479
+{1}{u}{u}: Tap target creature. ",*,*,u,,Tap,"Draw, opponent draw",4,,,1,0,1,0,0,0,0,0,1,1,0,0,0,,TRUE,,{3}$,3,469
+FALSE,Unstable Hydra,Enchantment Creature,Hydra Weird,{u}{r},"Bestow {1}{u}{r}, Reveal a card
+Whenever you cast an instant or sorcery, Unstable Hydra or enchanted creature gets +1/+1 and must be blocked by an additional creature until end of turn.",2,2,r,,Expose,"Attacking, instants and sorceries",2,,,1,0,1,0,1,0,0,1,0,0,0,1,0,,TRUE,,$$,0,470
+FALSE,Rebellious Cacophany,Instant,,{r}{g}{w},"Create a 1/1 green and white Rabbit Soldier token with Backup 1.
+Rivalstorm (Copy this spell for each spell an opponent has cast this turn.)",,,r,,"Tokens, backup, rivalstorm",,3,,,1,1,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,$$$,0,471
+FALSE,Forced Experiment,Instant,,{u}{u},"Target opponent reveals a card. 
+Choose a revealed card from that opponent's hand. They cast it without paying its mana cost if able. Any time the card says ""may"", they must. Add {u}{u}{u}.
+Flashback {3}{u}{u}",,,r,,"Reveal, flashback, mana acceleration",Reveal,2,,,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,$$,0,472
+FALSE,Insistent Assistant,Creature,Reptile Scientist,{3}{r},"Transparent, Prowess
+Whenever a player casts their second spell that turn, they may exile the top card of their library. If they do, they may cast it until end of turn.
+When Insistent Assistant enters, target opponent reveals a card.",2,2,r,,"Transparent, prowess, card acceleration, reveal",Casting spells,4,,,1,0,0,0,1,0,0,0,0,0,0,1,0,,TRUE,,{3}$,3,473
+FALSE,Mental Tripwire,Sorcery,,{6}{u},"Mental Tripwire costs {1} less to cast for each card in the hand of the opponent it targets.
+Tap each creature target opponent controls.",,,u,,Tap,Opponent draw,7,A gluttonous mind is unprepared and unvigilant.,,1,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,{6}$,6,474
+FALSE,Jealousy Flare,Instant,,{3}{r},"Jealousy Flare costs {3} less to cast if it's the only card in your hand.
+Make a Treasure for each card in target opponent's hand.",,,r,,"Treasures, tokens",Opponent draw,4,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,475
+FALSE,Gode the Gloating Goat,Creature,Goat Citizen,{2}{r/g},"Duck - Goad target craeture. (It must attack each combat, and a player other than you if able.)",3,1,c,,"Goad, duck",,3,,,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{2}$,2,476
+FALSE,Ravenous Studies,Instant,,{r}{r}{r},"Exile the top card of your library. You may play it until the end of your next turn. When you do, add {r}.
+Rivalstorm (Copy this spell for each spell an opponent has cast this turn.)",,,r,,"Card acceleration, rivalstorm",,3,,,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,$$$,0,477
+FALSE,Titan of the Grove,Legendary Creature,Elemental Giant,{3}{b}{g}{w},"When Titan of the Grove enters, return up to 2 enchantments from your graveyard and attach/bestow them or put them on the battlefield.
+Backup 1, Backup 1
+Deathtouch, Lifelink",5,5,m,,"Deathtouch, lifelink, backup","Enchantments, bestow",6,,,1,1,0,1,0,1,0,1,0,1,0,0,0,,TRUE,,{3}$$$,3,478
+FALSE,The Raze,Legendary Creature,Elemental Horror,{r}{r}{g}{g},"Transparent
+The Raze can't be countered.
+Players can't gain life.
+Whenever The Raze attacks, you may pay {r}{r}. It deals 1 damage to all creatures; prevent the damage to yours if you paid.",4,4,m,,"Burn, transparent","Lifegain, counter_spell",4,,,0,0,0,0,1,1,0,1,0,0,0,0,0,,TRUE,,$$$$,0,479
 FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,480
 FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,481
 FALSE,,,,,,,,,,,,0,,,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,482

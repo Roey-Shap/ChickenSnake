@@ -360,7 +360,7 @@ Return target creature from a graveyard under your control with a finality count
     <set picURL="/Exposed Metal.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>BG</color>
     <manacost>1{B/G}</manacost>
-    <type></type>
+    <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>Target opponent reveals a card of your choice. If it's an artifact, you may have them discard it. If it wasn't discarded this way, you may destroy target artifact.</text>
 </card>
@@ -453,7 +453,7 @@ Whenever you reveal a card from your hand, put a +1/+1 counter on The Chortle-Be
 <card>
     <name>Law-Bind Eagle</name>
     <set picURL="/Law-Bind Eagle.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>G</color>
+    <color>W</color>
     <manacost>2WW</manacost>
     <type>Creature - Bird</type>
 	<pt>2/3</pt>
@@ -553,7 +553,7 @@ Double Strike</text>
     <tablerow>0</tablerow>
     <text>Couragous Yaunling gets +1/+1 for each creature you control.
 At the beginning of your endstep, you may pay {1}{g/w} and create a 0/1 green and white Seedling enchantment creature token.
-Horde 5 - Ward {1}</text>
+Horde 5 - If you control 5 or more creatures, this creature has ward {1}.</text>
 </card>
 
 <card>
@@ -813,7 +813,7 @@ You may play Place Between Tides if you view it while scrying.</text>
     <set picURL="/Shadow's Reflection.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>B</color>
     <manacost></manacost>
-    <type>Enchantment - Swamp</type>
+    <type>Enchantment Land - Swamp</type>
     <tablerow>0</tablerow>
     <text>{t}: add {b}.
 {t}, Sacrifice Shadow's Reflection: add {b}{b}.
@@ -1217,7 +1217,7 @@ Draw a card.</text>
     <name>Snapstrike Una</name>
     <set picURL="/Snapstrike Una.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>U</color>
-    <manacost>2U</manacost>
+    <manacost>3U</manacost>
     <type>Creature - Shark Soldier</type>
 	<pt>2/1</pt>
     <tablerow>0</tablerow>
@@ -1399,7 +1399,7 @@ Creatures you control with toughness 2 or less have vigilance.</text>
     <set picURL="/Cape Flip.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UB</color>
     <manacost>1UB</manacost>
-    <type></type>
+    <type>Instant</type>
     <tablerow>0</tablerow>
     <text>You may shuffle any number of revealed cards from your hand back into your library as you cast Cape Flip. If you shuffled in at least one, Cape Flip costs {b} less to cast and you draw a card after its other effects.  
 Counter target spell. </text>
@@ -1466,7 +1466,7 @@ Horde 3 - If you control 3 more creatures, creatures you control have trample. <
     <color>W</color>
     <manacost>3WW</manacost>
     <type>Creature - Rhino Soldier</type>
-	<pt>4/4</pt>
+	<pt>3/4</pt>
     <tablerow>0</tablerow>
     <text>Vigilance
 Opponents may attack you with at most 3 creatures.
@@ -1870,17 +1870,6 @@ Whenever you cast an instant or sorcery, you may sacrifice Meek Saboteur. If you
 </card>
 
 <card>
-    <name>Pie-Thrower Runt</name>
-    <set picURL="/Pie-Thrower Runt.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>R</color>
-    <manacost>1R</manacost>
-    <type>Creature - Demon</type>
-	<pt>0/2</pt>
-    <tablerow>0</tablerow>
-    <text>{t}, sacrifice a token: Pie-Thrower Runt deals 2 damage to any target. If the token was a Food, gain 1 life.</text>
-</card>
-
-<card>
     <name>Well-Travelled Alpakon</name>
     <set picURL="/Well-Travelled Alpakon.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WG</color>
@@ -2244,7 +2233,7 @@ Flash, Menace</text>
     <tablerow>0</tablerow>
     <text>Therapy Whale costs {1} less for each card in you target opponent's hand.
 Flying
-When Therapy Whale enters, scry 1 and draw 2 cards. You may exile target instant or sorcery from your graveyard. If you do, copy it and cast the copy.</text>
+When Therapy Whale enters, scry 1 and draw a card. You may exile target instant or sorcery from your graveyard. If you do, copy it and cast the copy.</text>
 </card>
 
 <card>
@@ -2339,7 +2328,7 @@ When Composted Farmer enters, you may play an additional land until end of turn 
 	<pt>3/3</pt>
     <tablerow>0</tablerow>
     <text>When Wide-Stance Visionary enters, scry 1 or tap target creature.
-Whenever a creature ducks behind this one, both creatures get +1/+1 until end of turn. This one can block an additional creature until end of turn.</text>
+Whenever a creature ducks behind this one, both get +1/+1 until end of turn. This creature can block an additional creature until end of turn.</text>
 </card>
 
 <card>
@@ -2394,7 +2383,7 @@ Horde 3 - Unconfident War Elephant can't block unless you control 3 or more crea
     <name>Shroom Gator Randy</name>
     <set picURL="/Shroom Gator Randy.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>URG</color>
-    <manacost>{G/U}{R/G}</manacost>
+    <manacost>1{G/U}{R/G}</manacost>
     <type>Creature - Dwarf Reptile</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
@@ -2410,7 +2399,7 @@ Horde 3 - Unconfident War Elephant can't block unless you control 3 or more crea
     <type>Enchantment Creature - Cat Spirit</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
-    <text>Bestow {1}{w/b}
+    <text>Bestow {2}{w/b}
 If Ninth Life enters attached to a creature, target player mills 2 cards. 
 Enchanted creature gets +1/+1.</text>
 </card>
@@ -2484,12 +2473,14 @@ Whenever a creature ducks behind Olfactory Disrupter choose 1:
 <card>
     <name>Up-Front Mercenary</name>
     <set picURL="/Up-Front Mercenary.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>BR</color>
-    <manacost>2BR</manacost>
+    <color>B</color>
+    <manacost>2B</manacost>
     <type>Creature - Goblin Mercenary</type>
 	<pt>4/3</pt>
     <tablerow>0</tablerow>
-    <text>When Up-Front Mercenary enters, reveal any number of unrevealed cards from your hand. Up-Front Mercenary deals that much damage to target creature. Target opponent mills cards equal to the number of cards in your hand not revealed this way.</text>
+    <text>When Up-Front Mercenary enters, choose any number:
+- {r}: Reveal any number of unrevealed cards from your hand. Up-Front Mercenary deals that much damage to target creature. 
+- {b}: Target opponent mills cards equal to the number of unrevealed cards in your hand.</text>
 </card>
 
 <card>
@@ -2542,10 +2533,11 @@ Whenever a creature ducks behind Olfactory Disrupter choose 1:
     <color>U</color>
     <manacost>6U</manacost>
     <type>Creature - Bird Whale</type>
-	<pt>7/7</pt>
+	<pt>5/6</pt>
     <tablerow>0</tablerow>
     <text>Flying
-Whenever an ability of a creature you control targets Owhale, that creature gains flying until end of turn. 
+Play with the top card of your library revealed. 
+You may play cards from the top of your library. Whenever you do, target creature gains flying until end of turn. Untap it.
 Other creatures you control with flying get +1/+1. </text>
 </card>
 
@@ -3048,10 +3040,10 @@ Each player surveils 1.</text>
 <card>
     <name>Newborn Nid</name>
     <set picURL="/Newborn Nid.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>WB</color>
-    <manacost>1{W/B}</manacost>
+    <color>WU</color>
+    <manacost>1{W/U}</manacost>
     <type>Creature - Bird Spider</type>
-	<pt>2/1</pt>
+	<pt>1/1</pt>
     <tablerow>0</tablerow>
     <text>Flying
 When Newborn Nid enters, you gain 1 life.</text>
@@ -3060,14 +3052,13 @@ When Newborn Nid enters, you gain 1 life.</text>
 <card>
     <name>The Moment</name>
     <set picURL="/The Moment.full.jpg" picURLHq="" picURLSt="">DoD</set>
-    <color>WUB</color>
-    <manacost>{W/U}{W/U}{U/B}{U/B}</manacost>
+    <color>WU</color>
+    <manacost>2WU</manacost>
     <type>Enchantment Creature - Elemental Construct</type>
 	<pt>5/2</pt>
     <tablerow>0</tablerow>
     <text>Indestructible 
-As long as the number of cards in your hand is 2 or 4, The Moment is a creature and loses indestructible.
-Spells you control cost {1} less to cast.
+As long as the number of cards in your hand is 2 or 4, The Moment is a creature and loses indestructible and spells you control cost {1} less to cast.
 Whenever you cast your second spell each turn, draw a card.</text>
 </card>
 
@@ -3079,7 +3070,7 @@ Whenever you cast your second spell each turn, draw a card.</text>
     <type>Creature - Reptile Wizard</type>
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
-    <text>{t}, reveal an unrevealed card from your hand: Conspicuous Pyromaniac deals 1 damage to target opponent.
+    <text>{t}, reveal an unrevealed card from your hand: goad target creature. (Until your next turn it attacks each combat, and a different player if able.)
 {t}, discard a revealed card: Conspicuous Pyromaniac deals 2 damage to any target.</text>
 </card>
 
@@ -3091,7 +3082,8 @@ Whenever you cast your second spell each turn, draw a card.</text>
     <type>Creature - Frog</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
-    <text>Crazed Hopper must attack each combat if able.</text>
+    <text>Pop-up {1}{r/g}
+Crazed Hopper must attack each combat if able.</text>
 </card>
 
 <card>
@@ -3244,7 +3236,7 @@ When Flit-Cloud enters or deals combat damage to a player, untap target permanen
     <tablerow>0</tablerow>
     <text>Vigilance
 When Chest-Jutting Guard enters, it deals 2 damage to up to one target tapped creature.
-Horde 4 - if you control 4 or more creatures, Chest-Jutting Guard gets +1/+0.</text>
+Horde 4 - if you control 4 or more creatures, Chest-Jutting Guard gets +1/+1.</text>
 </card>
 
 <card>
@@ -3292,7 +3284,8 @@ Duck - return target creature from a graveyard to the battlefield under your con
     <tablerow>0</tablerow>
     <text>Transparent, Split Second
 Each player sacrifices each creature they control. Then they discard their entire hand and draw one card.
-Return up to one creature from your graveyard to the battlefield under your control.</text>
+Return up to one creature from your graveyard to the battlefield under your control.
+Exile Impending Despair.</text>
 </card>
 
 <card>
@@ -3646,7 +3639,7 @@ Duck - target creature Extentoad is ducking behind gains reach and +1/+1 until e
     <tablerow>0</tablerow>
     <text>Affinity for creatures with duck
 Prevent all damage dealt to creatures you control this turn.
-Make 3 1/1 green and white Alpaca creature tokens.</text>
+Make 3 1/1 green and white Alpaca Citizen creature tokens.</text>
 </card>
 
 <card>
@@ -3673,11 +3666,12 @@ Enchanted creature has +1/+1.</text>
 </card>
 
 <card>
-    <name>Naturalist Crystal</name>
-    <set picURL="/Naturalist Crystal.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <name>Crystal, Naturalist</name>
+    <set picURL="/Crystal, Naturalist.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WB</color>
     <manacost>2{W/B}</manacost>
-    <type>Creature - Rabbit</type>
+    <type>Legendary Creature - Rabbit</type>
+	<pt>1/4</pt>
     <tablerow>0</tablerow>
     <text>Whenever a creature enters under your control, gain 1 life.
 As long as your life total is 5 or more above your starting life total, creatures you control get +1/+1.</text>
@@ -3709,10 +3703,11 @@ When Darkest Heart exploits a creature, target opponent discards a card.
     <name>Never Too Late</name>
     <set picURL="/Never Too Late.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>W</color>
-    <manacost>W</manacost>
+    <manacost>1W</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
-    <text>Exile target blocked creature.</text>
+    <text>Exile target blocked creature.
+Flashback {3}{w}{w}</text>
 </card>
 
 <card>
@@ -3724,7 +3719,7 @@ When Darkest Heart exploits a creature, target opponent discards a card.
     <tablerow>0</tablerow>
     <text>Ward {1}, Equip {2}
 Equipped creature has ward {1}.
-{3}: Equipped creature can't be blocked until end of turn.</text>
+{2}: Equipped creature can't be blocked until end of turn.</text>
 </card>
 
 <card>
@@ -3905,7 +3900,125 @@ Whenever this creature deals combat damage to a player, proliferate or place a -
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Pop-up {r/g}
-Prevent the next X damage that would be dealt to target creature. It gains deathtouch and trample until end of turn. You lose X life. </text>
+Prevent the next X damage that would be dealt to target creature. It gains deathtouch and trample until end of turn. If X is 3 or more, you lose X life. </text>
+</card>
+
+<card>
+    <name>Knowledge Parasite</name>
+    <set picURL="/Knowledge Parasite.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>U</color>
+    <manacost>3U</manacost>
+    <type>Creature - Elemental Construct</type>
+	<pt>*/*</pt>
+    <tablerow>0</tablerow>
+    <text>Knowledge Parasite's power and toughness are each equal to the number of cards in the hand of the player with the most cards. 
+Whenever Knowledge Parasite deals combat damage, target player draws a card. 
+{1}{u}{u}: Tap target creature. </text>
+</card>
+
+<card>
+    <name>Unstable Hydra</name>
+    <set picURL="/Unstable Hydra.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>UR</color>
+    <manacost>UR</manacost>
+    <type>Enchantment Creature - Hydra Weird</type>
+	<pt>2/2</pt>
+    <tablerow>0</tablerow>
+    <text>Bestow {1}{u}{r}, Reveal a card
+Whenever you cast an instant or sorcery, Unstable Hydra or enchanted creature gets +1/+1 and must be blocked by an additional creature until end of turn.</text>
+</card>
+
+<card>
+    <name>Rebellious Cacophany</name>
+    <set picURL="/Rebellious Cacophany.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>WRG</color>
+    <manacost>RGW</manacost>
+    <type>Instant</type>
+    <tablerow>0</tablerow>
+    <text>Create a 1/1 green and white Rabbit Soldier token with Backup 1.
+Rivalstorm (Copy this spell for each spell an opponent has cast this turn.)</text>
+</card>
+
+<card>
+    <name>Forced Experiment</name>
+    <set picURL="/Forced Experiment.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>U</color>
+    <manacost>UU</manacost>
+    <type>Instant</type>
+    <tablerow>0</tablerow>
+    <text>Target opponent reveals a card. 
+Choose a revealed card from that opponent's hand. They cast it without paying its mana cost if able. Any time the card says "may", they must. Add {u}{u}{u}.
+Flashback {3}{u}{u}</text>
+</card>
+
+<card>
+    <name>Insistent Assistant</name>
+    <set picURL="/Insistent Assistant.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>R</color>
+    <manacost>3R</manacost>
+    <type>Creature - Reptile Scientist</type>
+	<pt>2/2</pt>
+    <tablerow>0</tablerow>
+    <text>Transparent, Prowess
+Whenever a player casts their second spell that turn, they may exile the top card of their library. If they do, they may cast it until end of turn.
+When Insistent Assistant enters, target opponent reveals a card.</text>
+</card>
+
+<card>
+    <name>Mental Tripwire</name>
+    <set picURL="/Mental Tripwire.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>U</color>
+    <manacost>6U</manacost>
+    <type>Sorcery</type>
+    <tablerow>0</tablerow>
+    <text>Mental Tripwire costs {1} less to cast for each card in the hand of the opponent it targets.
+Tap each creature target opponent controls.</text>
+</card>
+
+<card>
+    <name>Jealousy Flare</name>
+    <set picURL="/Jealousy Flare.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>R</color>
+    <manacost>3R</manacost>
+    <type>Instant</type>
+    <tablerow>0</tablerow>
+    <text>Jealousy Flare costs {3} less to cast if it's the only card in your hand.
+Make a Treasure for each card in target opponent's hand.</text>
+</card>
+
+<card>
+    <name>Gode the Gloating Goat</name>
+    <set picURL="/Gode the Gloating Goat.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>RG</color>
+    <manacost>2{R/G}</manacost>
+    <type>Creature - Goat Citizen</type>
+	<pt>3/1</pt>
+    <tablerow>0</tablerow>
+    <text>Duck - Goad target craeture. (It must attack each combat, and a player other than you if able.)</text>
+</card>
+
+<card>
+    <name>Ravenous Studies</name>
+    <set picURL="/Ravenous Studies.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>R</color>
+    <manacost>RRR</manacost>
+    <type>Instant</type>
+    <tablerow>0</tablerow>
+    <text>Exile the top card of your library. You may play it until the end of your next turn. When you do, add {r}.
+Rivalstorm (Copy this spell for each spell an opponent has cast this turn.)</text>
+</card>
+
+<card>
+    <name>Titan of the Grove</name>
+    <set picURL="/Titan of the Grove.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <color>WBG</color>
+    <manacost>3BGW</manacost>
+    <type>Legendary Creature - Elemental Giant</type>
+	<pt>5/5</pt>
+    <tablerow>0</tablerow>
+    <text>When Titan of the Grove enters, return up to 2 enchantments from your graveyard and attach/bestow them or put them on the battlefield.
+Backup 1, Backup 1
+Deathtouch, Lifelink</text>
 </card>
 
 </cards>
