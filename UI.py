@@ -25,7 +25,7 @@ if not done_init:
 
     metadata.current_execution_log_filepath = current_execution_log_filepath
 
-    with open(current_execution_log_filepath, 'x'):	
+    with open(current_execution_log_filepath, 'w+'):	
         datetime_string = datetime.now().strftime("%B %d, %Y at %H:%M")
         log_to_file(datetime_string)    
 

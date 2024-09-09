@@ -29,7 +29,7 @@ rarities_should_be_in_place = True
 
 # Set to True if you want a new log each time you run the program. 
 # ... if you want to can keep track of errors you've fixed over time.
-make_unique_program_run_log = False
+make_unique_program_run_log = True
 
 # Give updates about card errors and file accesses as the program runs.
 verbose_mode_cards = True
