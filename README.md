@@ -16,11 +16,14 @@ Opening *metadata.py* will allow you to configure ChickenSnake's behavior. The m
     1. Playtest card image output folder
     1. XML file (for Cockatrice's use)
     1. TXT file (for Draftmancer's use)
+    1. Log file (warnings, errors, etc.)
 1. Cockatrice Set settings
     1. Set name/code
     1. Release date/version number
 1. Draftmancer Draft settings
     1. For now just pack distribution. Digging into [Draftmancer's drafting syntax](https://draftmancer.com/cubeformat.html) isn't too hard if you wanna do something else entirely
+1. Card rendering settings
+1. Program running settings
 
 Credits
 =
