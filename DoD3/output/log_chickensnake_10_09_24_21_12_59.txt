@@ -1,8 +1,0 @@
-September 10, 2024 at 21:12
-Welcome to ChickenSnake, for fast custom playtest cards!
-[User input]: y
-
-Extracting card data from input file...
-No warnings about imported card data to report!
-
-Initializing image creation assets...

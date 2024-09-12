@@ -39,8 +39,6 @@ class CardImageInfo():
                 self.file_prefix = self.base_file_prefix
             self.filepath = ""
 
-set_symbol_card_image_info = CardImageInfo("set_symbol", "", "", should_be_modified=False, special_card_asset_name_mode=True)
-
 def get_color_string(csv_row: dict[str, str]) -> str:
     color_string = ""
     color_string += "W" if csv_row["Is White"] == "1" else ""
@@ -171,7 +169,7 @@ def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
     
 
     if len(frame_subtypes) > 1:
-        print(frame_subtypes)
+        # print(frame_subtypes)
         valid_sides = ["l", "r"] if len(frame_subtypes) == 2 else ["l", "m", "r"]
         return [CardImageInfo(frame_supertype, side, frame_subtype, should_be_modified=True) for side, frame_subtype in zip(valid_sides, frame_subtypes)]
     else:
@@ -192,6 +190,9 @@ def get_card_pt_image_info(card_data: Card) -> CardImageInfo:
         frame_subtype = "vehicle"
 
     return CardImageInfo("pt", "", frame_subtype, should_be_modified=False)
+
+def get_card_set_symbol_info(card_data: Card) -> CardImageInfo:
+    return CardImageInfo(f"set_symbol_{card_data.rarity_name}", "", "", should_be_modified=False, special_card_asset_name_mode=True)
 
 def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, image_assets: dict[CardImageInfo, Image]):
     num_cards_total = len(card_dict)
@@ -218,11 +219,10 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             #     card_image_total.alpha_composite(image_assets["m_"])
 
             if card_data.has_stats:
-                card_pt_info: CardImageInfo = get_card_pt_image_info(card_data)
-                card_image_total.alpha_composite(image_assets[card_pt_info.file_prefix])
+                card_image_total.alpha_composite(image_assets[get_card_pt_image_info(card_data).file_prefix])
 
             # Set Symbol
-            card_image_total.alpha_composite(image_assets[set_symbol_card_image_info.file_prefix])
+            card_image_total.alpha_composite(image_assets[get_card_set_symbol_info(card_data).file_prefix])
 
             # Title font config
             chosen_title_font = Fonts.font_title
@@ -331,7 +331,7 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
     image_prefixes  = [CardImageInfo(frame, side, color, should_be_modified=True) for frame in card_frame_type for side in ["l", "r"] for color in splittable_card_prefixes]
     image_prefixes += [CardImageInfo(frame_supertype, "", frame_subtype, should_be_modified=False) for frame_supertype in card_frame_type for frame_subtype in unsplittable_card_prefixes]
     image_prefixes += [CardImageInfo("pt", "", frame_subtype, should_be_modified=False) for frame_subtype in splittable_card_prefixes + unsplittable_card_prefixes + one_off_card_subtypes]
-    image_prefixes += [set_symbol_card_image_info]
+    image_prefixes += [CardImageInfo(f"set_symbol_{rarity}", "", "", should_be_modified=False, special_card_asset_name_mode=True) for rarity in ["common", "uncommon", "rare", "mythic"]]
 
     # If the card is one that needs masking and splitting, it's marked as such 
     image_suffix: str = "_base.png"
@@ -374,7 +374,10 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
                     masked_image.save(expected_image_filepath, quality=100)
                 else:
                     if metadata.verbose_mode_files:
-                        log_and_print(f"Generated file {base_image_filepath} already exists!", do_print=metadata.verbose_mode_files)
+                        log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=metadata.verbose_mode_files)
+                    loaded_image = Image.open(expected_image_filepath)
+                    resized_image: Image = loaded_image.resize(card_pixel_dims)
+                    resized_images[image_info.file_prefix] = resized_image
         except:
             raise ValueError(f"There was an issue accessing image: {expected_image_filepath}.\n \
                         You may need to redownload the Playtest_Base_Images folder.")

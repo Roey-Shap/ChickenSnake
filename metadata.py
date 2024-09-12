@@ -34,11 +34,10 @@ rarities_should_be_in_place = True
 make_unique_program_run_log = True
 # Set to True if you want the program to always regenerate the hybrid colors
 # and other card frames from the few base frames you have be default 
-always_regenerate_base_card_frames = True
+always_regenerate_base_card_frames = False
 
 # Give updates about card errors and file accesses as the program runs.
 verbose_mode_cards = True
-# @TODO: Doesn't currently do anything
 verbose_mode_files = False
 # @TODO: Doesn't currently do anything. Should warn about things like mana symbols being out of order and corrected. 
 # Maybe also templating issues?

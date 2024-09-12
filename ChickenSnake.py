@@ -8,14 +8,19 @@ from ascii_art import logo_art
 from UI import log_and_print
 
 # @TODO: 
-# Add set symbol to each card with correct symbol color
+## Card image generation
+# Make hybrid mask evenly split
+# Make gold cards still use correct color trim
+  # Download all 5 color trims
+  # Means we can also do this for colored artifacts
+# Get proper title font VVVVVVVVVVVVVVVVVVVVVV
+# Make stat corner use correct color VVVVVVVVVVVVVVVVVVV
+# Make it so purely hybrid cards aren't considered gold but multicolored cards are?
+# Add set symbol to each card with correct symbol color VVVVVVVVVVVVVVVVVVVVVVVVVVvv
 # Use flavor text
 # Use area-calculation of text to adjust text size
 # Also do this in title TAKING INTO ACCOUNT MANA SIZE (do cards ever make mana symbols smaller?)
 # Make playtest art autogenerate images based on type and mana cost
-# Get proper title font
-# Make stat corner use correct color
-# Make it so purely hybrid cards aren't considered gold but multicolored cards are?
 # Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
     # normal new lines? Can we assume that after "choose ..." there won't be any more abilities and just say that if we see
     # the phrase 'spree' or 'choose [any number/number N/one or more]' that we lock into not having anymore deliberate 
