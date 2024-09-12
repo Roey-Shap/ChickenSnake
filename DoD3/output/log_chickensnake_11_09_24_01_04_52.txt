@@ -1,0 +1,2666 @@
+September 11, 2024 at 01:04
+Welcome to ChickenSnake, for fast custom playtest cards!
+[User input]: y
+
+Extracting card data from input file...
+No warnings about imported card data to report!
+
+Initializing image creation assets...
+
+Generating card images...
+There was an issue with Sneaking Dile
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Secret Wrangler
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Ambitious Contortionist
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Secret-Gorger
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Clandestilla
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Fade to Mist
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Nimble Concealment
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Shaming Nymph
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Public Flogging
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Mounting Storm
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Storm of Tears
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Blundering Ninja
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Pure-Mind Trainee
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Branching Mutant
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Haughty Gamble
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Riling Pyrodevil
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Clumsy Secretary
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Tactless Show-Host
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Exposé
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Mind-Read
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Show of Power
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Obliging Confession
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Excitable Weird
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Celebratory Giant
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Stone-Glare Officer
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Headfirst Alpakon
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Pay in Confidence
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Preemptive Funeral
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Open Burial
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Exposed Metal
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Dead On Sight
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Kickback
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Evaporating Wish
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Revealing Flash
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Flash Fiend
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Public Display of Affection
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with The Chortle-Beast
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Law-Bind Eagle
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Brazen Hawk
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with War-Cry Roc
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Shrieking Vulture
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Swift-Swipe Sugarglider
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Death-Leap Messenger
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Thunder Chief
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Couragous Yaunling
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Nervous Mound-Worker
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Throw Under the Bus
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Prinoc, Outraged
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Soul-Weave
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Geist-Grove
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Imminent-Flame Crollock
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Feed With Security
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Mosh Raven
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Nauseating Teleport
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Blood-Vent Mage
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Oversee
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Rummaging Mapmaker
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Quickstep Medic
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Practical Spellcaster
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Harried Gravedigger
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Soul Sister
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Spirit-Pact Pegasus
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Allie's Cat
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Starfall Geist
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Calling Point
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Place Between Tides
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Shadow's Reflection
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Flamespire
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with The World-Quick
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Aphrodisic Entertainer
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Goated
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Lava-Geyser Ejectid
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Ruthless Headmaster
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Great-Wing Priestess
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Trickster Trago
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Skitterjill
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Stern Tracy
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Overcharged Spore Behemoth
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Lethargic Drakus
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Fiesty Rollick
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Dancefloor Dragger
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Deathmist Detonation
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Spirit Spear
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Incendiary Canary
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Terra-Reformist
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Juju Farmer
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Floral Fling
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Gravefling
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Tumorfling
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Tensionfling
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Conjuring the Masses
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Collective Wail
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Lifeforce Extraction
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with The Obsidian
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Terraformer Monk
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Granel, Lie-Torcher
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Slide In
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Force Behind
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Survival Instinct
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Pack Dog
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Cunning Mink
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Snapstrike Una
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Likeminded Tactician
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Relentless Fortification
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Stone-Tosser Golem
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Strength of the Age
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Illusory Forces
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with High-Ear Strike Captain
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Brute-Boxer Janth
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Encouraging Bixy
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Worldly Navi-Gator
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Crumblestorm
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Collective Cover
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Curihoust
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Scardiest Cat
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with The Second Wind
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Cape Flip
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Soul Sear
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Sniveling Snake
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Encouragement
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Overrun
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Active Duty Bonus
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with High-Brow Gatekeeper
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Tap-Dancing Heron
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Reinforcement Whale
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Carrion Bird
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Devoted Bombardier
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Oozing Oozer
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Free Spirit
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Manglevine
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Invasive Sproutkin
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Relentless Pursuit
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Future in Flames
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Dust Slice
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Openest Mind
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Invasive Denial
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Halt
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Absorb Shock
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Out
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Manashower
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Devil-Grin Captain
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Acceptance
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Postmortem Author
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Overexcite
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Plague Bearer
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Death-Defying Hookshot
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with The Missing Fragment
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Drakus of Volcanic Storms
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Divine Bullhorn
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Persistent Tuyon
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Ambitious Gambit
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Afterlife Leech
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Fuse-burners
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Enlisting Shadow
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Compulsive Maniac
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Meek Saboteur
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Well-Travelled Alpakon
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Mother Alpakon
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Frozen Dragon
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Frozen Dragon's Eye
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Hoarding Gobling
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Mossroamer
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Regrowl
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Viss, the Dauntless
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Call Out
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Flicker Bolt
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Spontaneous Bet
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Battlefield Confusion
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Void Dweller
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Birdcrank
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Earned Wings
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Stumbling Flight
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Feeding Wraith
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Revel in Might
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Diminishing Voices
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Deconstructor Agent
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Aisul, the Solitary Flame
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with March the Foothills
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Indecisive Threat
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Condescending Dismissal
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Unconfident Pute
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Burrowing Moledon
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Rallying Wimp
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Mirthful Stomping
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Scatterbomb
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Showcropper
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Therapy Whale
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Hallway Studier
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Library Shrieker
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Imposing Aura
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Feast of Waking Dreams
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Mob Momentum
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Hit the Ground Running
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Composted Farmer
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Wide-Stance Visionary
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Impression of Greed
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Plant Slowly
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Overgenerous Symbiote
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Unconfident War Elephant
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Shroom Gator Randy
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Ninth Life
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Reoccuring Bullying
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Turn Brave
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Dweeb Detector
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Red-Hot Hooves
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Final Day
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Olfactory Disrupter
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Up-Front Mercenary
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Lemme See!
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Nosey Officer
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Worldtree Adherent
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Inviting Shroomling
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Owhale
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Exploitative Liz
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Reattempt
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Renee, Regretful Traveller
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Brutal Honesty
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Honest Brutality
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Direct Bolt
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Mirru, One With Her Army
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Unashamed Thoughts
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Okal, Overgrown Gardener
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Enveloping Hills
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Grave-Gardener
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Ever-Raging Terrance
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Ancient Nestite
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Resis, Garden Assistant
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Spirit Circle
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Truth Crystal
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Flaminghost
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Goblidant
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Reharvest Engine
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Swelling Field
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Group Rebuttal
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with It That Arrives
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Glittering Starchild
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Snatch
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Gargantuan Nail Trap
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Whitehair Hare
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Looking Up To Bro
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Cheer Cedar
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Rhino Dan
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Rearming Station
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Hazardous Ballista
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Good Parenting
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Open Conversation
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Evident Scarring
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Wounded Tree
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Field Beast
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Verified Source
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Truth-Seeker Elf
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Corpse-Littered Battlefront
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Spellwhip
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Fiery Bite
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Feather Pollen
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Shudders From Below
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Newborn Nid
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with The Moment
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Conspicuous Pyromaniac
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Crazed Hopper
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Queen's Command
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Merciless Birth
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Rambunny
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Overt Vaporling
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Obvious Ambusher
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Brazen Confrontation
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with From a Mile Away
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Enveloping Arcana
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Infectious Mutagen
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Proud Fangirl
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Synthesis Hulk
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Flit-Cloud
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Chest-Jutting Guard
+'W_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'W_m'
+
+
+There was an issue with Bravening Crab
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Fumble-Finger Necromaniac
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Elder Warptree
+'c_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 158, in generate_card_images
+    card_image_total.alpha_composite(image_assets["c_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'c_'
+
+
+There was an issue with Impending Despir
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with The Puny Rise Up
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Slow-Moving Projectile
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Spirit of Growth
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Shade of Acceptance
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Forest of Eternal Autumn
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Cloud Ruins
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Dream Glade
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Rabbit Family Farm
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Boiling Labworks
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Icarus' Resting Place
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Foggy Beachfront
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Furnace of the Edge
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Ancient Tidepools
+'B_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'B_m'
+
+
+There was an issue with Territorial Toad
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Tawnty the Evidence-Burner
+'R_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'R_m'
+
+
+There was an issue with Assimilamorph
+'U_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'U_m'
+
+
+There was an issue with Nate and Tate
+'m_'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 166, in generate_card_images
+    card_image_total.alpha_composite(image_assets["m_"])
+                                     ~~~~~~~~~~~~^^^^^^
+KeyError: 'm_'
+
+
+There was an issue with Outgrow
+'G_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 163, in generate_card_images
+    card_bg: Image = image_assets[prefix]
+                     ~~~~~~~~~~~~^^^^^^^^
+KeyError: 'G_m'
+
+
+There was an issue with Twin-Stalk Spore

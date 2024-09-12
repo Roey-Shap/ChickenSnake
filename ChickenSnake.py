@@ -11,8 +11,41 @@ from UI import log_and_print
 # Add set symbol to each card with correct symbol color
 # Use flavor text
 # Use area-calculation of text to adjust text size
+# Also do this in title TAKING INTO ACCOUNT MANA SIZE (do cards ever make mana symbols smaller?)
 # Make playtest art autogenerate images based on type and mana cost
-# Make log file for errors
+# Get proper title font
+# Make stat corner use correct color
+# Make it so purely hybrid cards aren't considered gold but multicolored cards are?
+# Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
+    # normal new lines? Can we assume that after "choose ..." there won't be any more abilities and just say that if we see
+    # the phrase 'spree' or 'choose [any number/number N/one or more]' that we lock into not having anymore deliberate 
+    # newline extra line spacing?
+
+# Automatically generate and save the left/middle/right sides of the cards if they don't exist
+# (Not going to support tri-color cards for now)
+# Then apply those borders to the cards based on their type. The following are likely simple to start with:
+# (Normal, Artifact, Vehicle, Miracle, Tokens, Enchantments, Snow)
+# Border types downloaded (V by supported, X by unsupported):
+# X Normal
+# X Artifact
+# X Vehicle
+# X Arc-style tokens
+# X Miracle
+# X Fuse
+# X Planeswalkers (3/4 ability)
+# X Saga
+
+# Border types to download in order of priority:
+# Enchantments (Nyx)
+# Snow
+# Split
+# ------
+# Adventures
+# Level up
+# Flip (Kamigawa)
+# Class
+# Battle
+# Cases (Karlov Manor) (How to template that...)
 
 full_final_card_images_path = os.path.abspath(metadata.card_images_filepath)
 full_final_markdown_images_path = os.path.abspath(metadata.output_base_filepath)

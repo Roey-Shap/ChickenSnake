@@ -1,0 +1,1342 @@
+September 12, 2024 at 16:05
+Welcome to ChickenSnake, for fast custom playtest cards!
+[User input]: y
+
+Extracting card data from input file...
+No warnings about imported card data to report!
+
+Initializing image creation assets...
+
+Generating card images...
+There was an issue with Sneaking Dile
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Secret Wrangler
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Ambitious Contortionist
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Secret-Gorger
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Clandestilla
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Fade to Mist
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Nimble Concealment
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Shaming Nymph
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Public Flogging
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Mounting Storm
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Storm of Tears
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Blundering Ninja
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Pure-Mind Trainee
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Branching Mutant
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Haughty Gamble
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Riling Pyrodevil
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Clumsy Secretary
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Tactless Show-Host
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Exposé
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Mind-Read
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Show of Power
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Obliging Confession
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Excitable Weird
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Celebratory Giant
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Stone-Glare Officer
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Headfirst Alpakon
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Pay in Confidence
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Preemptive Funeral
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Open Burial
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Exposed Metal
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Dead On Sight
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Kickback
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Evaporating Wish
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Revealing Flash
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Flash Fiend
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Public Display of Affection
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with The Chortle-Beast
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Law-Bind Eagle
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Brazen Hawk
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with War-Cry Roc
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Shrieking Vulture
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Swift-Swipe Sugarglider
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Death-Leap Messenger
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Thunder Chief
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Couragous Yaunling
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Nervous Mound-Worker
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Throw Under the Bus
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Prinoc, Outraged
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Soul-Weave
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Geist-Grove
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Imminent-Flame Crollock
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Feed With Security
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Mosh Raven
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Nauseating Teleport
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Blood-Vent Mage
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Oversee
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Rummaging Mapmaker
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Quickstep Medic
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Practical Spellcaster
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Harried Gravedigger
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Soul Sister
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Spirit-Pact Pegasus
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Allie's Cat
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Starfall Geist
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Calling Point
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Place Between Tides
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Shadow's Reflection
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Flamespire
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with The World-Quick
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Aphrodisic Entertainer
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Goated
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Lava-Geyser Ejectid
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Ruthless Headmaster
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Great-Wing Priestess
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Trickster Trago
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Skitterjill
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Stern Tracy
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Overcharged Spore Behemoth
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Lethargic Drakus
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Fiesty Rollick
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Dancefloor Dragger
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Deathmist Detonation
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Spirit Spear
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Incendiary Canary
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Terra-Reformist
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Juju Farmer
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Floral Fling
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Gravefling
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Tumorfling
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Tensionfling
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Conjuring the Masses
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Collective Wail
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Lifeforce Extraction
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with The Obsidian
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Terraformer Monk
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Granel, Lie-Torcher
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Slide In
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Force Behind
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Survival Instinct
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Pack Dog
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Cunning Mink
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Snapstrike Una
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Likeminded Tactician
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Relentless Fortification
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Stone-Tosser Golem
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Strength of the Age
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Illusory Forces
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with High-Ear Strike Captain
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Brute-Boxer Janth
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Encouraging Bixy
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Worldly Navi-Gator
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Crumblestorm
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Collective Cover
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Curihoust
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Scardiest Cat
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with The Second Wind
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Cape Flip
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Soul Sear
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Sniveling Snake
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Encouragement
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Overrun
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Active Duty Bonus
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with High-Brow Gatekeeper
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Tap-Dancing Heron
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Reinforcement Whale
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Carrion Bird
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Devoted Bombardier
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Oozing Oozer
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Free Spirit
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Manglevine
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Invasive Sproutkin
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Relentless Pursuit
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Future in Flames
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Dust Slice
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Openest Mind
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Invasive Denial
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Halt
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Absorb Shock
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Out
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Manashower
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Devil-Grin Captain
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Acceptance
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Postmortem Author
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Overexcite
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Plague Bearer
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Death-Defying Hookshot
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with The Missing Fragment
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+
+There was an issue with Drakus of Volcanic Storms
+'list' object has no attribute 'file_prefix'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 198, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_border_info.file_prefix])
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'file_prefix'
+
+

@@ -3,7 +3,7 @@ import re
 import Fonts
 import metadata
 from UI import log_and_print
-
+from math_utils import flatten, strings_have_overlap, add_tuples
 
 font_symbols_map_init: dict[str, str] = \
 {
@@ -260,9 +260,6 @@ class LineSegment():
 
         return line_segments
 
-def flatten(xss):
-    return [x for xs in xss for x in xs]
-
 def draw_pip_color_background(c1: str, c2: str, 
                               pos: tuple[int, int], image: Image, 
                               font: ImageFont.FreeTypeFont):
@@ -274,9 +271,3 @@ def draw_pip_color_background(c1: str, c2: str,
     ImageDraw.Draw(image).text(
         pos, "J", color_code_map[c2.lower()], font
     )
-
-def strings_have_overlap(s1, s2):
-    return len(set(s1).intersection(set(s2))) > 0
-
-def add_tuples(t1: tuple[int, int], t2: tuple[int, int]) -> tuple[int, int]:
-    return (t1[0] + t2[0], t1[1] + t2[1])

@@ -1,0 +1,57 @@
+September 12, 2024 at 16:23
+Welcome to ChickenSnake, for fast custom playtest cards!
+[User input]: y
+
+Extracting card data from input file...
+No warnings about imported card data to report!
+
+Initializing image creation assets...
+
+Generating card images...
+Finished card 1/340
+Finished card 26/340
+There was an issue with Geist-Grove
+'enchantment_l_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 204, in generate_card_images
+    card_image_total.alpha_composite(image_assets[border_info.file_prefix])
+                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'enchantment_l_m'
+
+
+Finished card 51/340
+Finished card 76/340
+There was an issue with Slide In
+There was an issue saving the image for: Slide In
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 289, in generate_card_images
+    rgb_image.save(images_save_filepath + f"{card_data.name}.{CARD_PICTURE_FILE_FORMAT}", quality=100)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 2568, in save
+    save_handler(self, fp, filename)
+  File "C:\Python311\Lib\site-packages\PIL\JpegImagePlugin.py", line 813, in _save
+    ImageFile._save(im, fp, [("jpeg", (0, 0) + im.size, 0, rawmode)], bufsize)
+  File "C:\Python311\Lib\site-packages\PIL\ImageFile.py", line 549, in _save
+    _encode_tile(im, fp, tile, bufsize, fh)
+  File "C:\Python311\Lib\site-packages\PIL\ImageFile.py", line 576, in _encode_tile
+    errcode = encoder.encode_to_file(fh, bufsize)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 291, in generate_card_images
+    raise ValueError(f"There was an issue saving the image for: {card_data.name}")
+ValueError: There was an issue saving the image for: Slide In
+
+
+Finished card 101/340
+There was an issue with Relentless Fortification
+'normal_c'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 204, in generate_card_images
+    card_image_total.alpha_composite(image_assets[border_info.file_prefix])
+                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'normal_c'
+
+

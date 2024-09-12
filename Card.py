@@ -16,17 +16,28 @@ class Card():
         self.name = name.replace("?", "").strip() # Would honestly be better to properly clean names of filepath-illegal characters but whatevs
 
         self.colors = colors
-        self.is_gold = len(colors) >= 3
+        # self.is_gold = len(colors) >= 3
         self.is_colorless = len(colors) == 0
         self.colors_string = self.colors
-        if self.is_gold:
-            self.colors_string = "M"
-        elif self.is_colorless:
-            self.colors_string = ""
+        # if self.is_gold:
+        #     self.colors_string = "M"
+        # elif self.is_colorless:
+        #     self.colors_string = ""
 
+        self.converted_manacost = converted_manacost
         self.manacost = manacost
         self.raw_mana_cost_string = raw_mana_cost_string
-        self.converted_manacost = converted_manacost
+        self.split_mana_pips: list[str] = list(filter(None, [symbol.strip("{") for symbol in self.raw_mana_cost_string.split("}")]))
+        # Pure hybrid cards are those that can be played for only 2 or 3 colors and all of the pips are hybrid or whole of those colors
+        is_two_or_three_color = 2 <= len(self.colors) <= 3
+        has_only_those_colors = all(len(set(pip.strip('p/')).difference(set(self.colors))) == 0 for pip in self.split_mana_pips)
+        has_hybrid_pip = any(pip.find('/') != -1 for pip in self.split_mana_pips)
+        self.is_pure_hybrid = is_two_or_three_color and has_only_those_colors and has_hybrid_pip
+        self.is_gold = len(self.colors) >= 2 and not self.is_pure_hybrid
+        if self.is_gold:
+            self.colors_string = "M"
+        if self.is_colorless:
+            self.colors_string = ""
 
         self.supertype = supertype
         self.subtype = subtype

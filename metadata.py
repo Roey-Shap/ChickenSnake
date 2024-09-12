@@ -15,7 +15,8 @@ set_version_code = "1_0_1"
 release_date = "2024-09-08"
 
 
-# Settings
+### Settings ###
+# Card Image Visuals
 card_line_height_between_abilities = 1.4
 card_line_height_normal = 1.035
 
@@ -27,14 +28,18 @@ reference_card_name =  "~"
 # If you didn't have time to do rarities, just set this to False and you won't be warned about it!
 rarities_should_be_in_place = True
 
+# Asset loading 
 # Set to True if you want a new log each time you run the program. 
 # ... if you want to can keep track of errors you've fixed over time.
 make_unique_program_run_log = True
+# Set to True if you want the program to always regenerate the hybrid colors
+# and other card frames from the few base frames you have be default 
+always_regenerate_base_card_frames = True
 
 # Give updates about card errors and file accesses as the program runs.
 verbose_mode_cards = True
 # @TODO: Doesn't currently do anything
-verbose_mode_files = True
+verbose_mode_files = False
 # @TODO: Doesn't currently do anything. Should warn about things like mana symbols being out of order and corrected. 
 # Maybe also templating issues?
 warn_about_card_semantics_errors = True

@@ -1,0 +1,647 @@
+September 12, 2024 at 16:22
+Welcome to ChickenSnake, for fast custom playtest cards!
+[User input]: y
+
+Extracting card data from input file...
+No warnings about imported card data to report!
+
+Initializing image creation assets...
+
+Generating card images...
+There was an issue with Sneaking Dile
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Secret Wrangler
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Ambitious Contortionist
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Secret-Gorger
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Clandestilla
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Fade to Mist
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Nimble Concealment
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Shaming Nymph
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Public Flogging
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Mounting Storm
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Storm of Tears
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Blundering Ninja
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Pure-Mind Trainee
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Branching Mutant
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Haughty Gamble
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Riling Pyrodevil
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Clumsy Secretary
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Tactless Show-Host
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Exposé
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Mind-Read
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Show of Power
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Obliging Confession
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Excitable Weird
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Celebratory Giant
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Stone-Glare Officer
+'pt_W'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 219, in generate_card_images
+    card_image_total.alpha_composite(image_assets[card_pt_info.file_prefix])
+                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'pt_W'
+
+
+There was an issue with Headfirst Alpakon
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Pay in Confidence
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Preemptive Funeral
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Open Burial
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Exposed Metal
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Dead On Sight
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Kickback
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Evaporating Wish
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Revealing Flash
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Flash Fiend
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Public Display of Affection
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with The Chortle-Beast
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Law-Bind Eagle
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Brazen Hawk
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with War-Cry Roc
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Shrieking Vulture
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Swift-Swipe Sugarglider
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Death-Leap Messenger
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Thunder Chief
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Couragous Yaunling
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Nervous Mound-Worker
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Throw Under the Bus
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Prinoc, Outraged
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Soul-Weave
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Geist-Grove
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Imminent-Flame Crollock
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Feed With Security
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Mosh Raven
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Nauseating Teleport
+'should_be_modified' is an invalid keyword argument for zip()
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 202, in generate_card_images
+    card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 173, in get_card_image_border_info
+    return [CardImageInfo(frame_supertype, side, frame_subtype) for side, frame_subtype in zip(valid_sides, frame_subtypes, should_be_modified=True)]
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'should_be_modified' is an invalid keyword argument for zip()
+
+
+There was an issue with Blood-Vent Mage
+'CardImageInfo' object has no attribute 'size'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 222, in generate_card_images
+    card_image_total.alpha_composite(set_symbol_card_image_info)
+  File "C:\Python311\Lib\site-packages\PIL\Image.py", line 1877, in alpha_composite
+    overlay_crop_box = tuple(source) + im.size
+                                       ^^^^^^^
+AttributeError: 'CardImageInfo' object has no attribute 'size'
+
+
+There was an issue with Oversee
+'CardImageInfo' object has no attribute 'size'

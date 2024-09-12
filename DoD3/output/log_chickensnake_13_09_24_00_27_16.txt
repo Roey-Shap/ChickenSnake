@@ -1,0 +1,34 @@
+September 13, 2024 at 00:27
+Welcome to ChickenSnake, for fast custom playtest cards!
+[User input]: y
+
+Extracting card data from input file...
+No warnings about imported card data to report!
+
+Initializing image creation assets...
+
+Generating card images...
+Finished card 1/340
+Finished card 26/340
+There was an issue with Geist-Grove
+'enchantment_l_m'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 204, in generate_card_images
+    card_image_total.alpha_composite(image_assets[border_info.file_prefix])
+                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'enchantment_l_m'
+
+
+Finished card 51/340
+Finished card 76/340
+Finished card 101/340
+There was an issue with Relentless Fortification
+'normal_c'
+Traceback (most recent call last):
+  File "C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\CardData.py", line 204, in generate_card_images
+    card_image_total.alpha_composite(image_assets[border_info.file_prefix])
+                                     ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'normal_c'
+
+
+Finished card 126/340
