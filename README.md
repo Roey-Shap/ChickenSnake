@@ -8,6 +8,8 @@ The main thing you need to do is put your spreadsheet (.csv) in the same folder 
 <br>
 >python ChickenSnake.py
 
+You can see an example of a spreadsheet by finding the spreadsheet for a set I made in the *DoD3* folder.
+
 Opening *metadata.py* will allow you to configure ChickenSnake's behavior. The main things to control are:
 1. Where your input is taken
     1. Name of spreadsheet CSV file with card data
@@ -17,13 +19,14 @@ Opening *metadata.py* will allow you to configure ChickenSnake's behavior. The m
     1. XML file (for Cockatrice's use)
     1. TXT file (for Draftmancer's use)
     1. Log file (warnings, errors, etc.)
+
+Some other settings include:
 1. Cockatrice Set settings
-    1. Set name/code
-    1. Release date/version number
+    1. Set name/code, release date/version number, etc.
 1. Draftmancer Draft settings
     1. For now just pack distribution. Digging into [Draftmancer's drafting syntax](https://draftmancer.com/cubeformat.html) isn't too hard if you wanna do something else entirely
 1. Card rendering settings
-1. Program running settings
+1. Program execution settings
 
 Credits
 =
