@@ -5,6 +5,23 @@ import metadata
 from UI import log_and_print
 from math_utils import flatten, strings_have_overlap, add_tuples
 
+
+scryfall_hybrid_format = [
+    "w/u",
+    "w/b",
+    "b/r",
+    "b/g",
+    "u/b",
+    "u/r",
+    "r/g",
+    "r/w",
+    "g/w",
+    "g/u",
+]
+
+scryfall_hybrid_format += [prefix + "/" + color for color in "wubrg" for prefix in "c2"]
+scryfall_hybrid_format += [color + "/p" for color in "wubrgc"]
+
 font_symbols_map_init: dict[str, str] = \
 {
    "w/u": "A",
@@ -89,7 +106,7 @@ class LineSegment():
 
         # This'll be either base text font or the mana symbol font
         font = self.font
-        symbol_font_bg = Fonts.font_symbols_pip_background
+        symbol_font_bg = self.font_secondary #Fonts.font_symbols_pip_background
         if mana_cost_mode:
             font = Fonts.font_symbols_large
             symbol_font_bg = Fonts.font_symbols_large_pip_bg
@@ -116,7 +133,7 @@ class LineSegment():
                 c1 = 'c'
                 c2 = background_color.strip("2/")
             elif is_hybrid:
-                if self.text in hybrid_pips_with_non_wubrg_order_colors:
+                if self.text in hybrid_pips_with_non_wubrg_order_colors or self.text not in scryfall_hybrid_format:
                     c1, c2 = self.text[::-1].split('/')
                 else:
                     c1, c2 = self.text.split('/')
@@ -140,15 +157,18 @@ class LineSegment():
             if is_numeric:
                 symbol_string_pos_offset = (0, 0)
             if not is_hybrid:
-                symbol_string_pos_offset = (0, symbol_string_pos_offset[1])
+                symbol_string_pos_offset = (1 if mana_cost_mode else 0, 
+                                        symbol_string_pos_offset[1] + (-1 if not mana_cost_mode else 0))
+            else:
+                symbol_string_pos_offset = (0, 0)
             if not mana_cost_mode:
                 if is_numeric:
-                    symbol_string_pos_offset = (1, 0)
+                    symbol_string_pos_offset = (1, -0.5)
                 else:
                     if is_hybrid:
-                        symbol_string_pos_offset = (-0.5, 0)
+                        symbol_string_pos_offset = (-0.5, -0.5)
                     else:
-                        symbol_string_pos_offset = (1, 0)
+                        symbol_string_pos_offset = (1, -0.5)
 
             final_symbol_string_pos = add_tuples(absolute_pos, symbol_string_pos_offset)
             ImageDraw.Draw(image).text(
@@ -265,7 +285,7 @@ class LineSegment():
         for segment in line_segments:
             segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen * metadata.card_line_height_normal)
 
-        return line_segments, line_count > 9
+        return line_segments, line_count > max_line_count
 
 def draw_pip_color_background(c1: str, c2: str, 
                               pos: tuple[int, int], image: Image, 

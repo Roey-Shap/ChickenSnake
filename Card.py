@@ -1,3 +1,8 @@
+from LineSegment import hybrid_pips_with_non_wubrg_order_colors, font_symbols_map_init
+import metadata
+import UI
+from LineSegment import scryfall_hybrid_format
+
 class Card():
     def __init__(self,
                 name: str,
@@ -20,9 +25,23 @@ class Card():
         self.colors_string = self.colors
         self.converted_manacost = converted_manacost
         self.manacost = manacost
-
         self.raw_mana_cost_string = raw_mana_cost_string
         self.split_mana_pips: list[str] = list(filter(None, [symbol.strip("{") for symbol in self.raw_mana_cost_string.split("}")]))
+        found_manacost_error = False
+        order_checked_pips = []
+        for pip in self.split_mana_pips:
+            found_manacost_error = True
+            order_checked_pip = pip
+            flipped_pip = pip.lower()[::-1]
+            if '/' in pip and pip not in scryfall_hybrid_format:
+                order_checked_pip = flipped_pip
+                if metadata.warn_about_card_semantics_errors:
+                    # UI.log_and_print(f"{name}: {pip}", do_print=metadata.verbose_mode_cards)
+                    UI.log_and_print(f"Correcting manacost hybrid pip order: {pip}", do_print=metadata.verbose_mode_cards)
+            order_checked_pips.append("{" + order_checked_pip + "}")
+
+        self.draftmancer_cost = "".join(order_checked_pips).upper()
+
         # Pure hybrid cards are those that can be played for only 2 or 3 colors and all of the pips are hybrid or whole of those colors
         is_two_or_three_color = 2 <= len(self.colors) <= 3
         has_only_those_colors = all(set(pip.strip('p/')).issuperset(set(self.colors.lower())) for pip in filter(lambda pip: not pip.isnumeric(), self.split_mana_pips))
@@ -45,6 +64,7 @@ class Card():
         self.body_text = body_text
         self.flavor_text = flavor_text
         
+        self.found_manacost_error = found_manacost_error
 
     def get_type_string(self):
         final_string = self.supertype
@@ -64,7 +84,7 @@ class Card():
     f"""
     {{
         "name":  "{self.name}",
-        "mana_cost":  "{self.manacost}",
+        "mana_cost":  "{self.draftmancer_cost}",
         "type":  "{self.supertype}",
         "image_uris":  {{
                             "en":  "{uploaded_images_base_url}{self.name}.{card_picture_file_format}"

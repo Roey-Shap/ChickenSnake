@@ -31,13 +31,13 @@ rarities_should_be_in_place = True
 # Asset loading 
 # Set to True if you want a new log each time you run the program. 
 # ... if you want to can keep track of errors you've fixed over time.
-make_unique_program_run_log = True
+make_unique_program_run_log = False
 # Set to True if you want the program to always regenerate the hybrid colors
 # and other card frames from the few base frames you have be default 
 always_regenerate_base_card_frames = False
 
 # Give updates about card errors and file accesses as the program runs.
-verbose_mode_cards = True
+verbose_mode_cards = False
 verbose_mode_files = False
 # @TODO: Doesn't currently do anything. Should warn about things like mana symbols being out of order and corrected. 
 # Maybe also templating issues?
@@ -76,7 +76,7 @@ f"""
 output_base_filepath = base_filepath + output_folder_name + "\\"
 card_data_filepath = base_filepath + spreadsheet_file_name
 card_images_filepath = output_base_filepath + "Playtest_Images\\"
-card_image_creation_assets_filepath = base_filepath + "Playtest_Base_Images\\"
+card_image_creation_assets_filepath = ".\\Playtest_Base_Images\\"
 text_files_base_name = f"{set_longname}_{set_version_code}"
 log_filepath = output_base_filepath + "log_chickensnake.txt"
 # For Cockatrice

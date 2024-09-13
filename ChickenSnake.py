@@ -12,13 +12,10 @@ from UI import log_and_print
 # Add proper instructions for zero-to-set
 
 ## Card image generation                            
-# Make hybrid mask evenly split                     VVVVVVVVVVVVVVVVVVVVVV
 # Make gold cards still use correct color trim
   # Download all 5 color trims
   # Means we can also do this for colored artifacts
-# Use flavor text
-# Use area-calculation of text to adjust text size
-# Also do this in title TAKING INTO ACCOUNT MANA SIZE (do cards ever make mana symbols smaller?)
+# Use flavor text - make it italicized and in a smaller font
 # Make playtest art autogenerate images based on type and mana cost
 # Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
     # normal new lines? Can we assume that after "choose ..." there won't be any more abilities and just say that if we see

@@ -24,7 +24,7 @@
 [
     {
         "name":  "Sneaking Dile",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Sneaking Dile.jpg"
@@ -32,7 +32,7 @@
     },
     {
         "name":  "Secret Wrangler",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Secret Wrangler.jpg"
@@ -40,7 +40,7 @@
     },
     {
         "name":  "Ambitious Contortionist",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Ambitious Contortionist.jpg"
@@ -48,7 +48,7 @@
     },
     {
         "name":  "Secret-Gorger",
-        "mana_cost":  "3UU",
+        "mana_cost":  "{3}{U}{U}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Secret-Gorger.jpg"
@@ -56,7 +56,7 @@
     },
     {
         "name":  "Clandestilla",
-        "mana_cost":  "1{U/B}",
+        "mana_cost":  "{1}{U/B}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Clandestilla.jpg"
@@ -64,7 +64,7 @@
     },
     {
         "name":  "Fade to Mist",
-        "mana_cost":  "1UB",
+        "mana_cost":  "{1}{U}{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Fade to Mist.jpg"
@@ -80,7 +80,7 @@
     },
     {
         "name":  "Shaming Nymph",
-        "mana_cost":  "2{B/G}",
+        "mana_cost":  "{2}{B/G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Shaming Nymph.jpg"
@@ -88,7 +88,7 @@
     },
     {
         "name":  "Public Flogging",
-        "mana_cost":  "1B",
+        "mana_cost":  "{1}{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Public Flogging.jpg"
@@ -96,7 +96,7 @@
     },
     {
         "name":  "Mounting Storm",
-        "mana_cost":  "U",
+        "mana_cost":  "{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mounting Storm.jpg"
@@ -104,7 +104,7 @@
     },
     {
         "name":  "Storm of Tears",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Storm of Tears.jpg"
@@ -112,7 +112,7 @@
     },
     {
         "name":  "Blundering Ninja",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Blundering Ninja.jpg"
@@ -120,7 +120,7 @@
     },
     {
         "name":  "Pure-Mind Trainee",
-        "mana_cost":  "{U/W}",
+        "mana_cost":  "{W/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Pure-Mind Trainee.jpg"
@@ -128,7 +128,7 @@
     },
     {
         "name":  "Branching Mutant",
-        "mana_cost":  "1GU",
+        "mana_cost":  "{1}{G}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Branching Mutant.jpg"
@@ -136,7 +136,7 @@
     },
     {
         "name":  "Haughty Gamble",
-        "mana_cost":  "BR",
+        "mana_cost":  "{B}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Haughty Gamble.jpg"
@@ -144,7 +144,7 @@
     },
     {
         "name":  "Riling Pyrodevil",
-        "mana_cost":  "2R",
+        "mana_cost":  "{2}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Riling Pyrodevil.jpg"
@@ -152,7 +152,7 @@
     },
     {
         "name":  "Clumsy Secretary",
-        "mana_cost":  "1RR",
+        "mana_cost":  "{1}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Clumsy Secretary.jpg"
@@ -160,23 +160,23 @@
     },
     {
         "name":  "Tactless Show-Host",
-        "mana_cost":  "1{R/B}",
+        "mana_cost":  "{1}{B/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Tactless Show-Host.jpg"
                         }
     },
     {
-        "name":  "Exposé",
-        "mana_cost":  "1WU",
+        "name":  "Expose",
+        "mana_cost":  "{1}{W}{U}",
         "type":  "Enchantment",
         "image_uris":  {
-                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Exposé.jpg"
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Expose.jpg"
                         }
     },
     {
         "name":  "Mind-Read",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mind-Read.jpg"
@@ -184,7 +184,7 @@
     },
     {
         "name":  "Show of Power",
-        "mana_cost":  "G",
+        "mana_cost":  "{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Show of Power.jpg"
@@ -192,7 +192,7 @@
     },
     {
         "name":  "Obliging Confession",
-        "mana_cost":  "1RR",
+        "mana_cost":  "{1}{R}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Obliging Confession.jpg"
@@ -200,7 +200,7 @@
     },
     {
         "name":  "Excitable Weird",
-        "mana_cost":  "UR",
+        "mana_cost":  "{U}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Excitable Weird.jpg"
@@ -208,7 +208,7 @@
     },
     {
         "name":  "Celebratory Giant",
-        "mana_cost":  "3G",
+        "mana_cost":  "{3}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Celebratory Giant.jpg"
@@ -216,7 +216,7 @@
     },
     {
         "name":  "Stone-Glare Officer",
-        "mana_cost":  "2WW",
+        "mana_cost":  "{2}{W}{W}",
         "type":  "Artifact Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Stone-Glare Officer.jpg"
@@ -224,7 +224,7 @@
     },
     {
         "name":  "Headfirst Alpakon",
-        "mana_cost":  "1{R/W}",
+        "mana_cost":  "{1}{R/W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Headfirst Alpakon.jpg"
@@ -232,7 +232,7 @@
     },
     {
         "name":  "Pay in Confidence",
-        "mana_cost":  "1G",
+        "mana_cost":  "{1}{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Pay in Confidence.jpg"
@@ -248,7 +248,7 @@
     },
     {
         "name":  "Open Burial",
-        "mana_cost":  "6{B/G}{B/G}",
+        "mana_cost":  "{6}{B/G}{B/G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Open Burial.jpg"
@@ -256,7 +256,7 @@
     },
     {
         "name":  "Exposed Metal",
-        "mana_cost":  "1{B/G}",
+        "mana_cost":  "{1}{B/G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Exposed Metal.jpg"
@@ -264,7 +264,7 @@
     },
     {
         "name":  "Dead On Sight",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Dead On Sight.jpg"
@@ -272,7 +272,7 @@
     },
     {
         "name":  "Kickback",
-        "mana_cost":  "U",
+        "mana_cost":  "{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Kickback.jpg"
@@ -280,7 +280,7 @@
     },
     {
         "name":  "Evaporating Wish",
-        "mana_cost":  "2{U/R}{U/R}",
+        "mana_cost":  "{2}{U/R}{U/R}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Evaporating Wish.jpg"
@@ -288,7 +288,7 @@
     },
     {
         "name":  "Revealing Flash",
-        "mana_cost":  "W",
+        "mana_cost":  "{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Revealing Flash.jpg"
@@ -296,7 +296,7 @@
     },
     {
         "name":  "Flash Fiend",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Flash Fiend.jpg"
@@ -304,7 +304,7 @@
     },
     {
         "name":  "Public Display of Affection",
-        "mana_cost":  "2GW",
+        "mana_cost":  "{2}{G}{W}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Public Display of Affection.jpg"
@@ -312,7 +312,7 @@
     },
     {
         "name":  "The Chortle-Beast",
-        "mana_cost":  "4GG",
+        "mana_cost":  "{4}{G}{G}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/The Chortle-Beast.jpg"
@@ -320,7 +320,7 @@
     },
     {
         "name":  "Law-Bind Eagle",
-        "mana_cost":  "2WW",
+        "mana_cost":  "{2}{W}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Law-Bind Eagle.jpg"
@@ -328,7 +328,7 @@
     },
     {
         "name":  "Brazen Hawk",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Brazen Hawk.jpg"
@@ -336,7 +336,7 @@
     },
     {
         "name":  "War-Cry Roc",
-        "mana_cost":  "2R",
+        "mana_cost":  "{2}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/War-Cry Roc.jpg"
@@ -344,7 +344,7 @@
     },
     {
         "name":  "Shrieking Vulture",
-        "mana_cost":  "3B",
+        "mana_cost":  "{3}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Shrieking Vulture.jpg"
@@ -352,7 +352,7 @@
     },
     {
         "name":  "Swift-Swipe Sugarglider",
-        "mana_cost":  "2G",
+        "mana_cost":  "{2}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Swift-Swipe Sugarglider.jpg"
@@ -368,7 +368,7 @@
     },
     {
         "name":  "Thunder Chief",
-        "mana_cost":  "3RR",
+        "mana_cost":  "{3}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Thunder Chief.jpg"
@@ -376,7 +376,7 @@
     },
     {
         "name":  "Couragous Yaunling",
-        "mana_cost":  "1{G/W}{G/W}",
+        "mana_cost":  "{1}{G/W}{G/W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Couragous Yaunling.jpg"
@@ -384,7 +384,7 @@
     },
     {
         "name":  "Nervous Digger",
-        "mana_cost":  "2G",
+        "mana_cost":  "{2}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Nervous Digger.jpg"
@@ -392,7 +392,7 @@
     },
     {
         "name":  "Throw Under the Bus",
-        "mana_cost":  "BR",
+        "mana_cost":  "{B}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Throw Under the Bus.jpg"
@@ -400,7 +400,7 @@
     },
     {
         "name":  "Prinoc, Outraged",
-        "mana_cost":  "3UB",
+        "mana_cost":  "{3}{U}{B}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Prinoc, Outraged.jpg"
@@ -408,7 +408,7 @@
     },
     {
         "name":  "Soul-Weave",
-        "mana_cost":  "1{G/W}{G/W}",
+        "mana_cost":  "{1}{G/W}{G/W}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Soul-Weave.jpg"
@@ -424,7 +424,7 @@
     },
     {
         "name":  "Imminent-Flame Crollock",
-        "mana_cost":  "1RR",
+        "mana_cost":  "{1}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Imminent-Flame Crollock.jpg"
@@ -432,7 +432,7 @@
     },
     {
         "name":  "Feed With Security",
-        "mana_cost":  "2U",
+        "mana_cost":  "{2}{U}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Feed With Security.jpg"
@@ -440,7 +440,7 @@
     },
     {
         "name":  "Mosh Raven",
-        "mana_cost":  "B",
+        "mana_cost":  "{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mosh Raven.jpg"
@@ -448,7 +448,7 @@
     },
     {
         "name":  "Nauseating Teleport",
-        "mana_cost":  "U",
+        "mana_cost":  "{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Nauseating Teleport.jpg"
@@ -456,7 +456,7 @@
     },
     {
         "name":  "Blood-Vent Mage",
-        "mana_cost":  "3{U/R}",
+        "mana_cost":  "{3}{U/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Blood-Vent Mage.jpg"
@@ -472,7 +472,7 @@
     },
     {
         "name":  "Rummaging Mapmaker",
-        "mana_cost":  "1G",
+        "mana_cost":  "{1}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Rummaging Mapmaker.jpg"
@@ -480,7 +480,7 @@
     },
     {
         "name":  "Quickstep Medic",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Quickstep Medic.jpg"
@@ -488,7 +488,7 @@
     },
     {
         "name":  "Practical Spellcaster",
-        "mana_cost":  "1{U/R}{U/R}",
+        "mana_cost":  "{1}{U/R}{U/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Practical Spellcaster.jpg"
@@ -496,7 +496,7 @@
     },
     {
         "name":  "Harried Gravedigger",
-        "mana_cost":  "2{G/B}",
+        "mana_cost":  "{2}{B/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Harried Gravedigger.jpg"
@@ -504,7 +504,7 @@
     },
     {
         "name":  "Soul Sister",
-        "mana_cost":  "2W",
+        "mana_cost":  "{2}{W}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Soul Sister.jpg"
@@ -512,7 +512,7 @@
     },
     {
         "name":  "Spirit-Pact Pegasus",
-        "mana_cost":  "4WU",
+        "mana_cost":  "{4}{W}{U}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Spirit-Pact Pegasus.jpg"
@@ -520,7 +520,7 @@
     },
     {
         "name":  "Allie's Cat",
-        "mana_cost":  "W",
+        "mana_cost":  "{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Allie's Cat.jpg"
@@ -528,7 +528,7 @@
     },
     {
         "name":  "Starfall Geist",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Starfall Geist.jpg"
@@ -576,7 +576,7 @@
     },
     {
         "name":  "Aphrodisic Entertainer",
-        "mana_cost":  "GW",
+        "mana_cost":  "{G}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Aphrodisic Entertainer.jpg"
@@ -584,7 +584,7 @@
     },
     {
         "name":  "Goated",
-        "mana_cost":  "1{G/W}",
+        "mana_cost":  "{1}{G/W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Goated.jpg"
@@ -592,7 +592,7 @@
     },
     {
         "name":  "Lava-Geyser Ejectid",
-        "mana_cost":  "5R",
+        "mana_cost":  "{5}{R}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Lava-Geyser Ejectid.jpg"
@@ -600,7 +600,7 @@
     },
     {
         "name":  "Ruthless Headmaster",
-        "mana_cost":  "2UR",
+        "mana_cost":  "{2}{U}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Ruthless Headmaster.jpg"
@@ -608,7 +608,7 @@
     },
     {
         "name":  "Great-Wing Priestess",
-        "mana_cost":  "3W",
+        "mana_cost":  "{3}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Great-Wing Priestess.jpg"
@@ -616,7 +616,7 @@
     },
     {
         "name":  "Trickster Trago",
-        "mana_cost":  "4U",
+        "mana_cost":  "{4}{U}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Trickster Trago.jpg"
@@ -624,7 +624,7 @@
     },
     {
         "name":  "Skitterjill",
-        "mana_cost":  "W",
+        "mana_cost":  "{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Skitterjill.jpg"
@@ -632,7 +632,7 @@
     },
     {
         "name":  "Stern Tracy",
-        "mana_cost":  "WW",
+        "mana_cost":  "{W}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Stern Tracy.jpg"
@@ -640,7 +640,7 @@
     },
     {
         "name":  "Overcharged Spore Behemoth",
-        "mana_cost":  "5GG",
+        "mana_cost":  "{5}{G}{G}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Overcharged Spore Behemoth.jpg"
@@ -648,7 +648,7 @@
     },
     {
         "name":  "Lethargic Drakus",
-        "mana_cost":  "2R",
+        "mana_cost":  "{2}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Lethargic Drakus.jpg"
@@ -656,7 +656,7 @@
     },
     {
         "name":  "Fiesty Rollick",
-        "mana_cost":  "1R",
+        "mana_cost":  "{1}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Fiesty Rollick.jpg"
@@ -664,7 +664,7 @@
     },
     {
         "name":  "Dancefloor Dragger",
-        "mana_cost":  "R",
+        "mana_cost":  "{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Dancefloor Dragger.jpg"
@@ -672,7 +672,7 @@
     },
     {
         "name":  "Deathmist Detonation",
-        "mana_cost":  "2{R/B}",
+        "mana_cost":  "{2}{B/R}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Deathmist Detonation.jpg"
@@ -680,7 +680,7 @@
     },
     {
         "name":  "Spirit Spear",
-        "mana_cost":  "1{G/W}",
+        "mana_cost":  "{1}{G/W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Spirit Spear.jpg"
@@ -688,7 +688,7 @@
     },
     {
         "name":  "Incendiary Canary",
-        "mana_cost":  "1R",
+        "mana_cost":  "{1}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Incendiary Canary.jpg"
@@ -696,7 +696,7 @@
     },
     {
         "name":  "Terra-Reformist",
-        "mana_cost":  "RG",
+        "mana_cost":  "{R}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Terra-Reformist.jpg"
@@ -704,7 +704,7 @@
     },
     {
         "name":  "Juju Farmer",
-        "mana_cost":  "1G",
+        "mana_cost":  "{1}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Juju Farmer.jpg"
@@ -712,7 +712,7 @@
     },
     {
         "name":  "Floral Fling",
-        "mana_cost":  "RG",
+        "mana_cost":  "{R}{G}",
         "type":  "Instant ",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Floral Fling.jpg"
@@ -720,7 +720,7 @@
     },
     {
         "name":  "Gravefling",
-        "mana_cost":  "BG",
+        "mana_cost":  "{B}{G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Gravefling.jpg"
@@ -728,7 +728,7 @@
     },
     {
         "name":  "Tumorfling",
-        "mana_cost":  "UG",
+        "mana_cost":  "{U}{G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Tumorfling.jpg"
@@ -736,7 +736,7 @@
     },
     {
         "name":  "Tensionfling",
-        "mana_cost":  "UR",
+        "mana_cost":  "{U}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Tensionfling.jpg"
@@ -744,7 +744,7 @@
     },
     {
         "name":  "Conjuring the Masses",
-        "mana_cost":  "1WB",
+        "mana_cost":  "{1}{W}{B}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Conjuring the Masses.jpg"
@@ -752,7 +752,7 @@
     },
     {
         "name":  "Collective Wail",
-        "mana_cost":  "WB",
+        "mana_cost":  "{W}{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Collective Wail.jpg"
@@ -760,7 +760,7 @@
     },
     {
         "name":  "Lifeforce Extraction",
-        "mana_cost":  "1BG",
+        "mana_cost":  "{1}{B}{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Lifeforce Extraction.jpg"
@@ -768,7 +768,7 @@
     },
     {
         "name":  "The Obsidian",
-        "mana_cost":  "5",
+        "mana_cost":  "{5}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/The Obsidian.jpg"
@@ -776,7 +776,7 @@
     },
     {
         "name":  "Terraformer Monk",
-        "mana_cost":  "2{G/W}",
+        "mana_cost":  "{2}{G/W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Terraformer Monk.jpg"
@@ -784,7 +784,7 @@
     },
     {
         "name":  "Granel, Lie-Torcher",
-        "mana_cost":  "1RRWW",
+        "mana_cost":  "{1}{R}{R}{W}{W}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Granel, Lie-Torcher.jpg"
@@ -792,7 +792,7 @@
     },
     {
         "name":  "Slide In",
-        "mana_cost":  "2{R/G}{R/G}",
+        "mana_cost":  "{2}{R/G}{R/G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Slide In.jpg"
@@ -824,7 +824,7 @@
     },
     {
         "name":  "Cunning Mink",
-        "mana_cost":  "BB",
+        "mana_cost":  "{B}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Cunning Mink.jpg"
@@ -832,7 +832,7 @@
     },
     {
         "name":  "Snapstrike Una",
-        "mana_cost":  "3U",
+        "mana_cost":  "{3}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Snapstrike Una.jpg"
@@ -840,7 +840,7 @@
     },
     {
         "name":  "Likeminded Tactician",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Likeminded Tactician.jpg"
@@ -848,7 +848,7 @@
     },
     {
         "name":  "Relentless Fortification",
-        "mana_cost":  "2",
+        "mana_cost":  "{2}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Relentless Fortification.jpg"
@@ -856,7 +856,7 @@
     },
     {
         "name":  "Stone-Tosser Golem",
-        "mana_cost":  "3{2/G}",
+        "mana_cost":  "{3}{2/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Stone-Tosser Golem.jpg"
@@ -864,7 +864,7 @@
     },
     {
         "name":  "Strength of the Age",
-        "mana_cost":  "2WW",
+        "mana_cost":  "{2}{W}{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Strength of the Age.jpg"
@@ -872,7 +872,7 @@
     },
     {
         "name":  "Illusory Forces",
-        "mana_cost":  "1{W/B}",
+        "mana_cost":  "{1}{W/B}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Illusory Forces.jpg"
@@ -880,7 +880,7 @@
     },
     {
         "name":  "High-Ear Strike Captain",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/High-Ear Strike Captain.jpg"
@@ -888,7 +888,7 @@
     },
     {
         "name":  "Brute-Boxer Janth",
-        "mana_cost":  "2WW",
+        "mana_cost":  "{2}{W}{W}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Brute-Boxer Janth.jpg"
@@ -904,7 +904,7 @@
     },
     {
         "name":  "Worldly Navi-Gator",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Worldly Navi-Gator.jpg"
@@ -912,7 +912,7 @@
     },
     {
         "name":  "Crumblestorm",
-        "mana_cost":  "4WW",
+        "mana_cost":  "{4}{W}{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Crumblestorm.jpg"
@@ -920,7 +920,7 @@
     },
     {
         "name":  "Collective Cover",
-        "mana_cost":  "3W",
+        "mana_cost":  "{3}{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Collective Cover.jpg"
@@ -928,7 +928,7 @@
     },
     {
         "name":  "Curihoust",
-        "mana_cost":  "2W",
+        "mana_cost":  "{2}{W}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Curihoust.jpg"
@@ -936,7 +936,7 @@
     },
     {
         "name":  "Scardiest Cat",
-        "mana_cost":  "1{W/B}{W/B}",
+        "mana_cost":  "{1}{W/B}{W/B}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Scardiest Cat.jpg"
@@ -944,7 +944,7 @@
     },
     {
         "name":  "The Second Wind",
-        "mana_cost":  "2{W/U}{W/U}",
+        "mana_cost":  "{2}{W/U}{W/U}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/The Second Wind.jpg"
@@ -952,7 +952,7 @@
     },
     {
         "name":  "Cape Flip",
-        "mana_cost":  "1UB",
+        "mana_cost":  "{1}{U}{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Cape Flip.jpg"
@@ -960,7 +960,7 @@
     },
     {
         "name":  "Soul Sear",
-        "mana_cost":  "2R",
+        "mana_cost":  "{2}{R}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Soul Sear.jpg"
@@ -968,7 +968,7 @@
     },
     {
         "name":  "Sniveling Snake",
-        "mana_cost":  "1B",
+        "mana_cost":  "{1}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Sniveling Snake.jpg"
@@ -976,7 +976,7 @@
     },
     {
         "name":  "Encouragement",
-        "mana_cost":  "1{U/W}",
+        "mana_cost":  "{1}{W/U}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Encouragement.jpg"
@@ -984,7 +984,7 @@
     },
     {
         "name":  "Overrun",
-        "mana_cost":  "1{R/G}",
+        "mana_cost":  "{1}{R/G}",
         "type":  "Enchantment ",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Overrun.jpg"
@@ -992,7 +992,7 @@
     },
     {
         "name":  "Active Duty Bonus",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Active Duty Bonus.jpg"
@@ -1000,7 +1000,7 @@
     },
     {
         "name":  "High-Brow Gatekeeper",
-        "mana_cost":  "3WW",
+        "mana_cost":  "{3}{W}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/High-Brow Gatekeeper.jpg"
@@ -1008,7 +1008,7 @@
     },
     {
         "name":  "Tap-Dancing Heron",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Tap-Dancing Heron.jpg"
@@ -1016,7 +1016,7 @@
     },
     {
         "name":  "Reinforcement Whale",
-        "mana_cost":  "U",
+        "mana_cost":  "{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Reinforcement Whale.jpg"
@@ -1024,7 +1024,7 @@
     },
     {
         "name":  "Carrion Bird",
-        "mana_cost":  "1{R/B}",
+        "mana_cost":  "{1}{B/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Carrion Bird.jpg"
@@ -1032,7 +1032,7 @@
     },
     {
         "name":  "Devoted Bombardier",
-        "mana_cost":  "1RR",
+        "mana_cost":  "{1}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Devoted Bombardier.jpg"
@@ -1040,7 +1040,7 @@
     },
     {
         "name":  "Oozing Oozer",
-        "mana_cost":  "2{B/G}",
+        "mana_cost":  "{2}{B/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Oozing Oozer.jpg"
@@ -1048,7 +1048,7 @@
     },
     {
         "name":  "Free Spirit",
-        "mana_cost":  "2{U/W}",
+        "mana_cost":  "{2}{W/U}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Free Spirit.jpg"
@@ -1064,7 +1064,7 @@
     },
     {
         "name":  "Invasive Sproutkin",
-        "mana_cost":  "1G",
+        "mana_cost":  "{1}{G}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Invasive Sproutkin.jpg"
@@ -1072,7 +1072,7 @@
     },
     {
         "name":  "Relentless Pursuit",
-        "mana_cost":  "1WU",
+        "mana_cost":  "{1}{W}{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Relentless Pursuit.jpg"
@@ -1080,7 +1080,7 @@
     },
     {
         "name":  "Future in Flames",
-        "mana_cost":  "3R",
+        "mana_cost":  "{3}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Future in Flames.jpg"
@@ -1088,7 +1088,7 @@
     },
     {
         "name":  "Dust Slice",
-        "mana_cost":  "WWW",
+        "mana_cost":  "{W}{W}{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Dust Slice.jpg"
@@ -1096,7 +1096,7 @@
     },
     {
         "name":  "Openest Mind",
-        "mana_cost":  "UU",
+        "mana_cost":  "{U}{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Openest Mind.jpg"
@@ -1104,7 +1104,7 @@
     },
     {
         "name":  "Invasive Denial",
-        "mana_cost":  "1{W/U}",
+        "mana_cost":  "{1}{W/U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Invasive Denial.jpg"
@@ -1112,7 +1112,7 @@
     },
     {
         "name":  "Halt",
-        "mana_cost":  "U",
+        "mana_cost":  "{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Halt.jpg"
@@ -1136,7 +1136,7 @@
     },
     {
         "name":  "Manashower",
-        "mana_cost":  "1{G/R}",
+        "mana_cost":  "{1}{R/G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Manashower.jpg"
@@ -1144,7 +1144,7 @@
     },
     {
         "name":  "Devil-Grin Captain",
-        "mana_cost":  "2RR",
+        "mana_cost":  "{2}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Devil-Grin Captain.jpg"
@@ -1152,7 +1152,7 @@
     },
     {
         "name":  "Acceptance",
-        "mana_cost":  "1B",
+        "mana_cost":  "{1}{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Acceptance.jpg"
@@ -1160,7 +1160,7 @@
     },
     {
         "name":  "Postmortem Author",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Postmortem Author.jpg"
@@ -1168,7 +1168,7 @@
     },
     {
         "name":  "Overexcite",
-        "mana_cost":  "R",
+        "mana_cost":  "{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Overexcite.jpg"
@@ -1176,7 +1176,7 @@
     },
     {
         "name":  "Plague Bearer",
-        "mana_cost":  "1B{B/P}",
+        "mana_cost":  "{1}{B}{B/P}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Plague Bearer.jpg"
@@ -1184,7 +1184,7 @@
     },
     {
         "name":  "Death-Defying Hookshot",
-        "mana_cost":  "2{2/B}",
+        "mana_cost":  "{2}{2/B}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Death-Defying Hookshot.jpg"
@@ -1192,7 +1192,7 @@
     },
     {
         "name":  "The Missing Fragment",
-        "mana_cost":  "4WW",
+        "mana_cost":  "{4}{W}{W}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/The Missing Fragment.jpg"
@@ -1200,7 +1200,7 @@
     },
     {
         "name":  "Drakus of Volcanic Storms",
-        "mana_cost":  "6RR",
+        "mana_cost":  "{6}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Drakus of Volcanic Storms.jpg"
@@ -1208,7 +1208,7 @@
     },
     {
         "name":  "Divine Bullhorn",
-        "mana_cost":  "2",
+        "mana_cost":  "{2}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Divine Bullhorn.jpg"
@@ -1216,7 +1216,7 @@
     },
     {
         "name":  "Persistent Tuyon",
-        "mana_cost":  "3G",
+        "mana_cost":  "{3}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Persistent Tuyon.jpg"
@@ -1224,7 +1224,7 @@
     },
     {
         "name":  "Ambitious Gambit",
-        "mana_cost":  "2{G/R}",
+        "mana_cost":  "{2}{R/G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Ambitious Gambit.jpg"
@@ -1240,7 +1240,7 @@
     },
     {
         "name":  "Fuse-burners",
-        "mana_cost":  "RRR",
+        "mana_cost":  "{R}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Fuse-burners.jpg"
@@ -1248,7 +1248,7 @@
     },
     {
         "name":  "Enlisting Shadow",
-        "mana_cost":  "BR",
+        "mana_cost":  "{B}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Enlisting Shadow.jpg"
@@ -1256,7 +1256,7 @@
     },
     {
         "name":  "Compulsive Maniac",
-        "mana_cost":  "1R",
+        "mana_cost":  "{1}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Compulsive Maniac.jpg"
@@ -1264,7 +1264,7 @@
     },
     {
         "name":  "Meek Saboteur",
-        "mana_cost":  "RR",
+        "mana_cost":  "{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Meek Saboteur.jpg"
@@ -1280,7 +1280,7 @@
     },
     {
         "name":  "Mother Alpakon",
-        "mana_cost":  "X5{G/W}",
+        "mana_cost":  "{X}{5}{G/W}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mother Alpakon.jpg"
@@ -1288,7 +1288,7 @@
     },
     {
         "name":  "Frozen Dragon",
-        "mana_cost":  "3UU",
+        "mana_cost":  "{3}{U}{U}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Frozen Dragon.jpg"
@@ -1296,7 +1296,7 @@
     },
     {
         "name":  "Frozen Dragon's Eye",
-        "mana_cost":  "1{U/B}",
+        "mana_cost":  "{1}{U/B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Frozen Dragon's Eye.jpg"
@@ -1304,7 +1304,7 @@
     },
     {
         "name":  "Hoarding Gobling",
-        "mana_cost":  "1R",
+        "mana_cost":  "{1}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Hoarding Gobling.jpg"
@@ -1312,7 +1312,7 @@
     },
     {
         "name":  "Mossroamer",
-        "mana_cost":  "1{B/G}",
+        "mana_cost":  "{1}{B/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mossroamer.jpg"
@@ -1320,7 +1320,7 @@
     },
     {
         "name":  "Regrowl",
-        "mana_cost":  "2BG",
+        "mana_cost":  "{2}{B}{G}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Regrowl.jpg"
@@ -1328,7 +1328,7 @@
     },
     {
         "name":  "Viss, the Dauntless",
-        "mana_cost":  "2{R/W}{R/W}",
+        "mana_cost":  "{2}{R/W}{R/W}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Viss, the Dauntless.jpg"
@@ -1344,7 +1344,7 @@
     },
     {
         "name":  "Flicker Bolt",
-        "mana_cost":  "2{U/R}",
+        "mana_cost":  "{2}{U/R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Flicker Bolt.jpg"
@@ -1352,7 +1352,7 @@
     },
     {
         "name":  "Spontaneous Bet",
-        "mana_cost":  "RG",
+        "mana_cost":  "{R}{G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Spontaneous Bet.jpg"
@@ -1360,7 +1360,7 @@
     },
     {
         "name":  "Battlefield Confusion",
-        "mana_cost":  "RR",
+        "mana_cost":  "{R}{R}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Battlefield Confusion.jpg"
@@ -1368,7 +1368,7 @@
     },
     {
         "name":  "Void Dweller",
-        "mana_cost":  "4BB",
+        "mana_cost":  "{4}{B}{B}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Void Dweller.jpg"
@@ -1376,7 +1376,7 @@
     },
     {
         "name":  "Birdcrank",
-        "mana_cost":  "3{B/P}",
+        "mana_cost":  "{3}{B/P}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Birdcrank.jpg"
@@ -1384,7 +1384,7 @@
     },
     {
         "name":  "Earned Wings",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Earned Wings.jpg"
@@ -1392,7 +1392,7 @@
     },
     {
         "name":  "Stumbling Flight",
-        "mana_cost":  "2{W/B}",
+        "mana_cost":  "{2}{W/B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Stumbling Flight.jpg"
@@ -1400,7 +1400,7 @@
     },
     {
         "name":  "Feeding Wraith",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Feeding Wraith.jpg"
@@ -1408,7 +1408,7 @@
     },
     {
         "name":  "Revel in Might",
-        "mana_cost":  "5GG",
+        "mana_cost":  "{5}{G}{G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Revel in Might.jpg"
@@ -1416,7 +1416,7 @@
     },
     {
         "name":  "Diminishing Voices",
-        "mana_cost":  "B",
+        "mana_cost":  "{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Diminishing Voices.jpg"
@@ -1424,7 +1424,7 @@
     },
     {
         "name":  "Deconstructor Agent",
-        "mana_cost":  "1{U/R}",
+        "mana_cost":  "{1}{U/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Deconstructor Agent.jpg"
@@ -1432,7 +1432,7 @@
     },
     {
         "name":  "Aisul, the Solitary Flame",
-        "mana_cost":  "2BB",
+        "mana_cost":  "{2}{B}{B}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Aisul, the Solitary Flame.jpg"
@@ -1440,7 +1440,7 @@
     },
     {
         "name":  "March the Foothills",
-        "mana_cost":  "2GG",
+        "mana_cost":  "{2}{G}{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/March the Foothills.jpg"
@@ -1448,7 +1448,7 @@
     },
     {
         "name":  "Indecisive Threat",
-        "mana_cost":  "2BB",
+        "mana_cost":  "{2}{B}{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Indecisive Threat.jpg"
@@ -1456,7 +1456,7 @@
     },
     {
         "name":  "Condescending Dismissal",
-        "mana_cost":  "B",
+        "mana_cost":  "{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Condescending Dismissal.jpg"
@@ -1464,7 +1464,7 @@
     },
     {
         "name":  "Unconfident Pute",
-        "mana_cost":  "2{B/R}",
+        "mana_cost":  "{2}{B/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Unconfident Pute.jpg"
@@ -1472,7 +1472,7 @@
     },
     {
         "name":  "Burrowing Moledon",
-        "mana_cost":  "2R",
+        "mana_cost":  "{2}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Burrowing Moledon.jpg"
@@ -1480,7 +1480,7 @@
     },
     {
         "name":  "Rallying Wimp",
-        "mana_cost":  "WR",
+        "mana_cost":  "{W}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Rallying Wimp.jpg"
@@ -1488,7 +1488,7 @@
     },
     {
         "name":  "Mirthful Stomping",
-        "mana_cost":  "RG",
+        "mana_cost":  "{R}{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mirthful Stomping.jpg"
@@ -1496,7 +1496,7 @@
     },
     {
         "name":  "Scatterbomb",
-        "mana_cost":  "X{W/B}G",
+        "mana_cost":  "{X}{W/B}{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Scatterbomb.jpg"
@@ -1504,7 +1504,7 @@
     },
     {
         "name":  "Showcropper",
-        "mana_cost":  "2BB",
+        "mana_cost":  "{2}{B}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Showcropper.jpg"
@@ -1512,7 +1512,7 @@
     },
     {
         "name":  "Therapy Whale",
-        "mana_cost":  "6UU",
+        "mana_cost":  "{6}{U}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Therapy Whale.jpg"
@@ -1520,7 +1520,7 @@
     },
     {
         "name":  "Hallway Studier",
-        "mana_cost":  "2U",
+        "mana_cost":  "{2}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Hallway Studier.jpg"
@@ -1528,7 +1528,7 @@
     },
     {
         "name":  "Library Shrieker",
-        "mana_cost":  "2U",
+        "mana_cost":  "{2}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Library Shrieker.jpg"
@@ -1536,7 +1536,7 @@
     },
     {
         "name":  "Imposing Aura",
-        "mana_cost":  "2{U/B}",
+        "mana_cost":  "{2}{U/B}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Imposing Aura.jpg"
@@ -1544,7 +1544,7 @@
     },
     {
         "name":  "Feast of Waking Dreams",
-        "mana_cost":  "1UB",
+        "mana_cost":  "{1}{U}{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Feast of Waking Dreams.jpg"
@@ -1552,7 +1552,7 @@
     },
     {
         "name":  "Mob Momentum",
-        "mana_cost":  "2RR",
+        "mana_cost":  "{2}{R}{R}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mob Momentum.jpg"
@@ -1560,7 +1560,7 @@
     },
     {
         "name":  "Hit the Ground Running",
-        "mana_cost":  "2{R/G}",
+        "mana_cost":  "{2}{R/G}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Hit the Ground Running.jpg"
@@ -1568,7 +1568,7 @@
     },
     {
         "name":  "Composted Farmer",
-        "mana_cost":  "1{B/G}",
+        "mana_cost":  "{1}{B/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Composted Farmer.jpg"
@@ -1576,7 +1576,7 @@
     },
     {
         "name":  "Wide-Stance Visionary",
-        "mana_cost":  "2UG",
+        "mana_cost":  "{2}{U}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Wide-Stance Visionary.jpg"
@@ -1584,7 +1584,7 @@
     },
     {
         "name":  "Impression of Greed",
-        "mana_cost":  "3BB",
+        "mana_cost":  "{3}{B}{B}",
         "type":  "Legendary Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Impression of Greed.jpg"
@@ -1592,7 +1592,7 @@
     },
     {
         "name":  "Plant Slowly",
-        "mana_cost":  "2G",
+        "mana_cost":  "{2}{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Plant Slowly.jpg"
@@ -1600,7 +1600,7 @@
     },
     {
         "name":  "Overgenerous Symbiote",
-        "mana_cost":  "3{G/U}{G/U}",
+        "mana_cost":  "{3}{G/U}{G/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Overgenerous Symbiote.jpg"
@@ -1608,7 +1608,7 @@
     },
     {
         "name":  "Unconfident War Elephant",
-        "mana_cost":  "2G",
+        "mana_cost":  "{2}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Unconfident War Elephant.jpg"
@@ -1616,7 +1616,7 @@
     },
     {
         "name":  "Shroom Gator Randy",
-        "mana_cost":  "1{G/U}{R/G}",
+        "mana_cost":  "{1}{G/U}{R/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Shroom Gator Randy.jpg"
@@ -1632,7 +1632,7 @@
     },
     {
         "name":  "Reoccuring Bullying",
-        "mana_cost":  "2",
+        "mana_cost":  "{2}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Reoccuring Bullying.jpg"
@@ -1640,7 +1640,7 @@
     },
     {
         "name":  "Turn Brave",
-        "mana_cost":  "2",
+        "mana_cost":  "{2}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Turn Brave.jpg"
@@ -1648,7 +1648,7 @@
     },
     {
         "name":  "Dweeb Detector",
-        "mana_cost":  "2",
+        "mana_cost":  "{2}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Dweeb Detector.jpg"
@@ -1656,7 +1656,7 @@
     },
     {
         "name":  "Red-Hot Hooves",
-        "mana_cost":  "2{U/R}",
+        "mana_cost":  "{2}{U/R}",
         "type":  "Artifact Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Red-Hot Hooves.jpg"
@@ -1664,7 +1664,7 @@
     },
     {
         "name":  "Final Day",
-        "mana_cost":  "2WB",
+        "mana_cost":  "{2}{W}{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Final Day.jpg"
@@ -1672,7 +1672,7 @@
     },
     {
         "name":  "Olfactory Disrupter",
-        "mana_cost":  "RB",
+        "mana_cost":  "{R}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Olfactory Disrupter.jpg"
@@ -1680,7 +1680,7 @@
     },
     {
         "name":  "Up-Front Mercenary",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Up-Front Mercenary.jpg"
@@ -1688,7 +1688,7 @@
     },
     {
         "name":  "Lemme See!",
-        "mana_cost":  "B",
+        "mana_cost":  "{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Lemme See!.jpg"
@@ -1696,7 +1696,7 @@
     },
     {
         "name":  "Nosey Officer",
-        "mana_cost":  "3B",
+        "mana_cost":  "{3}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Nosey Officer.jpg"
@@ -1704,7 +1704,7 @@
     },
     {
         "name":  "Worldtree Adherent",
-        "mana_cost":  "2GG",
+        "mana_cost":  "{2}{G}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Worldtree Adherent.jpg"
@@ -1712,7 +1712,7 @@
     },
     {
         "name":  "Inviting Shroomling",
-        "mana_cost":  "1GG",
+        "mana_cost":  "{1}{G}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Inviting Shroomling.jpg"
@@ -1720,7 +1720,7 @@
     },
     {
         "name":  "Owhale",
-        "mana_cost":  "6U",
+        "mana_cost":  "{6}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Owhale.jpg"
@@ -1728,7 +1728,7 @@
     },
     {
         "name":  "Exploitative Liz",
-        "mana_cost":  "1UU",
+        "mana_cost":  "{1}{U}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Exploitative Liz.jpg"
@@ -1736,7 +1736,7 @@
     },
     {
         "name":  "Reattempt",
-        "mana_cost":  "UB",
+        "mana_cost":  "{U}{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Reattempt.jpg"
@@ -1744,7 +1744,7 @@
     },
     {
         "name":  "Renee, Regretful Traveller",
-        "mana_cost":  "BBB",
+        "mana_cost":  "{B}{B}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Renee, Regretful Traveller.jpg"
@@ -1752,7 +1752,7 @@
     },
     {
         "name":  "Brutal Honesty",
-        "mana_cost":  "3{W/U}{W/U}{W/U}",
+        "mana_cost":  "{3}{W/U}{W/U}{W/U}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Brutal Honesty.jpg"
@@ -1760,7 +1760,7 @@
     },
     {
         "name":  "Honest Brutality",
-        "mana_cost":  "1{B/R}",
+        "mana_cost":  "{1}{B/R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Honest Brutality.jpg"
@@ -1768,7 +1768,7 @@
     },
     {
         "name":  "Direct Bolt",
-        "mana_cost":  "R",
+        "mana_cost":  "{R}",
         "type":  "Instant ",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Direct Bolt.jpg"
@@ -1776,7 +1776,7 @@
     },
     {
         "name":  "Mirru, One With Her Army",
-        "mana_cost":  "2W{R/G}",
+        "mana_cost":  "{2}{W}{R/G}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mirru, One With Her Army.jpg"
@@ -1784,7 +1784,7 @@
     },
     {
         "name":  "Unashamed Thoughts",
-        "mana_cost":  "3{G/U}",
+        "mana_cost":  "{3}{G/U}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Unashamed Thoughts.jpg"
@@ -1792,7 +1792,7 @@
     },
     {
         "name":  "Okal, Overgrown Gardener",
-        "mana_cost":  "1GGG",
+        "mana_cost":  "{1}{G}{G}{G}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Okal, Overgrown Gardener.jpg"
@@ -1800,7 +1800,7 @@
     },
     {
         "name":  "Enveloping Hills",
-        "mana_cost":  "U{G/U}",
+        "mana_cost":  "{U}{G/U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Enveloping Hills.jpg"
@@ -1808,7 +1808,7 @@
     },
     {
         "name":  "Grave-Gardener",
-        "mana_cost":  "2BG",
+        "mana_cost":  "{2}{B}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Grave-Gardener.jpg"
@@ -1816,7 +1816,7 @@
     },
     {
         "name":  "Ever-Raging Terrance",
-        "mana_cost":  "1{B/R}",
+        "mana_cost":  "{1}{B/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Ever-Raging Terrance.jpg"
@@ -1824,7 +1824,7 @@
     },
     {
         "name":  "Ancient Nestite",
-        "mana_cost":  "2{W/U}",
+        "mana_cost":  "{2}{W/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Ancient Nestite.jpg"
@@ -1832,7 +1832,7 @@
     },
     {
         "name":  "Resis, Garden Assistant",
-        "mana_cost":  "1{G/W}",
+        "mana_cost":  "{1}{G/W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Resis, Garden Assistant.jpg"
@@ -1840,7 +1840,7 @@
     },
     {
         "name":  "Spirit Circle",
-        "mana_cost":  "2{W/B}",
+        "mana_cost":  "{2}{W/B}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Spirit Circle.jpg"
@@ -1848,7 +1848,7 @@
     },
     {
         "name":  "Truth Crystal",
-        "mana_cost":  "2U{B/W}",
+        "mana_cost":  "{2}{U}{W/B}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Truth Crystal.jpg"
@@ -1856,7 +1856,7 @@
     },
     {
         "name":  "Flaminghost",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Flaminghost.jpg"
@@ -1864,7 +1864,7 @@
     },
     {
         "name":  "Goblidant",
-        "mana_cost":  "2{B/R}",
+        "mana_cost":  "{2}{B/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Goblidant.jpg"
@@ -1872,7 +1872,7 @@
     },
     {
         "name":  "Reharvest Engine",
-        "mana_cost":  "3{B/G}",
+        "mana_cost":  "{3}{B/G}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Reharvest Engine.jpg"
@@ -1888,7 +1888,7 @@
     },
     {
         "name":  "Group Rebuttal",
-        "mana_cost":  "UG",
+        "mana_cost":  "{U}{G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Group Rebuttal.jpg"
@@ -1896,7 +1896,7 @@
     },
     {
         "name":  "It That Arrives",
-        "mana_cost":  "7{W/P}{B/P}",
+        "mana_cost":  "{7}{W/P}{B/P}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/It That Arrives.jpg"
@@ -1904,7 +1904,7 @@
     },
     {
         "name":  "Glittering Starchild",
-        "mana_cost":  "WBR",
+        "mana_cost":  "{W}{B}{R}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Glittering Starchild.jpg"
@@ -1920,7 +1920,7 @@
     },
     {
         "name":  "Gargantuan Nail Trap",
-        "mana_cost":  "4",
+        "mana_cost":  "{4}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Gargantuan Nail Trap.jpg"
@@ -1928,7 +1928,7 @@
     },
     {
         "name":  "Whitehair Hare",
-        "mana_cost":  "1WW",
+        "mana_cost":  "{1}{W}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Whitehair Hare.jpg"
@@ -1936,7 +1936,7 @@
     },
     {
         "name":  "Looking Up To Bro",
-        "mana_cost":  "W",
+        "mana_cost":  "{W}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Looking Up To Bro.jpg"
@@ -1944,7 +1944,7 @@
     },
     {
         "name":  "Cheer Cedar",
-        "mana_cost":  "2{G/U}",
+        "mana_cost":  "{2}{G/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Cheer Cedar.jpg"
@@ -1952,7 +1952,7 @@
     },
     {
         "name":  "Rhino Dan",
-        "mana_cost":  "3G",
+        "mana_cost":  "{3}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Rhino Dan.jpg"
@@ -1960,7 +1960,7 @@
     },
     {
         "name":  "Rearming Station",
-        "mana_cost":  "4",
+        "mana_cost":  "{4}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Rearming Station.jpg"
@@ -1968,7 +1968,7 @@
     },
     {
         "name":  "Hazardous Ballista",
-        "mana_cost":  "2",
+        "mana_cost":  "{2}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Hazardous Ballista.jpg"
@@ -1976,7 +1976,7 @@
     },
     {
         "name":  "Good Parenting",
-        "mana_cost":  "5{W/U}{G/U}",
+        "mana_cost":  "{5}{W/U}{G/U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Good Parenting.jpg"
@@ -1984,7 +1984,7 @@
     },
     {
         "name":  "Open Conversation",
-        "mana_cost":  "5{W/B}{W/B}",
+        "mana_cost":  "{5}{W/B}{W/B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Open Conversation.jpg"
@@ -1992,7 +1992,7 @@
     },
     {
         "name":  "Evident Scarring",
-        "mana_cost":  "1R",
+        "mana_cost":  "{1}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Evident Scarring.jpg"
@@ -2000,7 +2000,7 @@
     },
     {
         "name":  "Wounded Tree",
-        "mana_cost":  "2{B/G}{B/G}",
+        "mana_cost":  "{2}{B/G}{B/G}",
         "type":  "Land Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Wounded Tree.jpg"
@@ -2008,7 +2008,7 @@
     },
     {
         "name":  "Field Beast",
-        "mana_cost":  "6GG",
+        "mana_cost":  "{6}{G}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Field Beast.jpg"
@@ -2016,7 +2016,7 @@
     },
     {
         "name":  "Verified Source",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Verified Source.jpg"
@@ -2024,7 +2024,7 @@
     },
     {
         "name":  "Truth-Seeker Elf",
-        "mana_cost":  "1{G/R}",
+        "mana_cost":  "{1}{R/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Truth-Seeker Elf.jpg"
@@ -2040,7 +2040,7 @@
     },
     {
         "name":  "Spellwhip",
-        "mana_cost":  "U",
+        "mana_cost":  "{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Spellwhip.jpg"
@@ -2048,7 +2048,7 @@
     },
     {
         "name":  "Fiery Bite",
-        "mana_cost":  "R",
+        "mana_cost":  "{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Fiery Bite.jpg"
@@ -2056,7 +2056,7 @@
     },
     {
         "name":  "Feather Pollen",
-        "mana_cost":  "W",
+        "mana_cost":  "{W}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Feather Pollen.jpg"
@@ -2064,7 +2064,7 @@
     },
     {
         "name":  "Shudders From Below",
-        "mana_cost":  "G",
+        "mana_cost":  "{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Shudders From Below.jpg"
@@ -2072,7 +2072,7 @@
     },
     {
         "name":  "Newborn Nid",
-        "mana_cost":  "1{W/U}",
+        "mana_cost":  "{1}{W/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Newborn Nid.jpg"
@@ -2080,7 +2080,7 @@
     },
     {
         "name":  "The Moment",
-        "mana_cost":  "2WU",
+        "mana_cost":  "{2}{W}{U}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/The Moment.jpg"
@@ -2088,7 +2088,7 @@
     },
     {
         "name":  "Conspicuous Pyromaniac",
-        "mana_cost":  "R",
+        "mana_cost":  "{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Conspicuous Pyromaniac.jpg"
@@ -2104,7 +2104,7 @@
     },
     {
         "name":  "Queen's Command",
-        "mana_cost":  "2{W/P}{R/P}B",
+        "mana_cost":  "{2}{W/P}{R/P}{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Queen's Command.jpg"
@@ -2112,7 +2112,7 @@
     },
     {
         "name":  "Merciless Birth",
-        "mana_cost":  "2B",
+        "mana_cost":  "{2}{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Merciless Birth.jpg"
@@ -2128,7 +2128,7 @@
     },
     {
         "name":  "Overt Vaporling",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Overt Vaporling.jpg"
@@ -2136,7 +2136,7 @@
     },
     {
         "name":  "Obvious Ambusher",
-        "mana_cost":  "B",
+        "mana_cost":  "{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Obvious Ambusher.jpg"
@@ -2144,7 +2144,7 @@
     },
     {
         "name":  "Brazen Confrontation",
-        "mana_cost":  "GGG",
+        "mana_cost":  "{G}{G}{G}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Brazen Confrontation.jpg"
@@ -2152,7 +2152,7 @@
     },
     {
         "name":  "From a Mile Away",
-        "mana_cost":  "1UU",
+        "mana_cost":  "{1}{U}{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/From a Mile Away.jpg"
@@ -2160,7 +2160,7 @@
     },
     {
         "name":  "Enveloping Arcana",
-        "mana_cost":  "1{G/U}{G/U}",
+        "mana_cost":  "{1}{G/U}{G/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Enveloping Arcana.jpg"
@@ -2184,7 +2184,7 @@
     },
     {
         "name":  "Synthesis Hulk",
-        "mana_cost":  "4UG",
+        "mana_cost":  "{4}{U}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Synthesis Hulk.jpg"
@@ -2192,7 +2192,7 @@
     },
     {
         "name":  "Flit-Cloud",
-        "mana_cost":  "1U",
+        "mana_cost":  "{1}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Flit-Cloud.jpg"
@@ -2200,7 +2200,7 @@
     },
     {
         "name":  "Chest-Jutting Guard",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Chest-Jutting Guard.jpg"
@@ -2208,7 +2208,7 @@
     },
     {
         "name":  "Bravening Crab",
-        "mana_cost":  "3UU",
+        "mana_cost":  "{3}{U}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Bravening Crab.jpg"
@@ -2216,7 +2216,7 @@
     },
     {
         "name":  "Fumble-Finger Necromaniac",
-        "mana_cost":  "3B",
+        "mana_cost":  "{3}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Fumble-Finger Necromaniac.jpg"
@@ -2232,7 +2232,7 @@
     },
     {
         "name":  "Impending Despir",
-        "mana_cost":  "3BBB",
+        "mana_cost":  "{3}{B}{B}{B}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Impending Despir.jpg"
@@ -2240,7 +2240,7 @@
     },
     {
         "name":  "The Puny Rise Up",
-        "mana_cost":  "1{R/W}{R/G}",
+        "mana_cost":  "{1}{R/W}{R/G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/The Puny Rise Up.jpg"
@@ -2248,7 +2248,7 @@
     },
     {
         "name":  "Slow-Moving Projectile",
-        "mana_cost":  "RR",
+        "mana_cost":  "{R}{R}",
         "type":  "Enchantment",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Slow-Moving Projectile.jpg"
@@ -2256,7 +2256,7 @@
     },
     {
         "name":  "Spirit of Growth",
-        "mana_cost":  "4GGG",
+        "mana_cost":  "{4}{G}{G}{G}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Spirit of Growth.jpg"
@@ -2264,7 +2264,7 @@
     },
     {
         "name":  "Shade of Acceptance",
-        "mana_cost":  "2BB",
+        "mana_cost":  "{2}{B}{B}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Shade of Acceptance.jpg"
@@ -2344,7 +2344,7 @@
     },
     {
         "name":  "Territorial Toad",
-        "mana_cost":  "1{G/U}",
+        "mana_cost":  "{1}{G/U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Territorial Toad.jpg"
@@ -2352,7 +2352,7 @@
     },
     {
         "name":  "Tawnty the Evidence-Burner",
-        "mana_cost":  "2R",
+        "mana_cost":  "{2}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Tawnty the Evidence-Burner.jpg"
@@ -2360,7 +2360,7 @@
     },
     {
         "name":  "Assimilamorph",
-        "mana_cost":  "1UU",
+        "mana_cost":  "{1}{U}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Assimilamorph.jpg"
@@ -2368,7 +2368,7 @@
     },
     {
         "name":  "Nate and Tate",
-        "mana_cost":  "W{U/B}",
+        "mana_cost":  "{W}{U/B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Nate and Tate.jpg"
@@ -2376,7 +2376,7 @@
     },
     {
         "name":  "Outgrow",
-        "mana_cost":  "RG",
+        "mana_cost":  "{R}{G}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Outgrow.jpg"
@@ -2384,7 +2384,7 @@
     },
     {
         "name":  "Twin-Stalk Spore",
-        "mana_cost":  "3{B/G}",
+        "mana_cost":  "{3}{B/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Twin-Stalk Spore.jpg"
@@ -2392,7 +2392,7 @@
     },
     {
         "name":  "Collapsing Fortress",
-        "mana_cost":  "2{2/W}",
+        "mana_cost":  "{2}{2/W}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Collapsing Fortress.jpg"
@@ -2400,7 +2400,7 @@
     },
     {
         "name":  "Coltz, Jumpspark Mage",
-        "mana_cost":  "UURR",
+        "mana_cost":  "{U}{U}{R}{R}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Coltz, Jumpspark Mage.jpg"
@@ -2408,7 +2408,7 @@
     },
     {
         "name":  "Cache Dragon",
-        "mana_cost":  "4BR",
+        "mana_cost":  "{4}{B}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Cache Dragon.jpg"
@@ -2416,7 +2416,7 @@
     },
     {
         "name":  "Acrobatic Stunt",
-        "mana_cost":  "1{W/U}",
+        "mana_cost":  "{1}{W/U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Acrobatic Stunt.jpg"
@@ -2440,7 +2440,7 @@
     },
     {
         "name":  "Cocky Rooster",
-        "mana_cost":  "1{U/R}",
+        "mana_cost":  "{1}{U/R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Cocky Rooster.jpg"
@@ -2448,7 +2448,7 @@
     },
     {
         "name":  "A Good Cry",
-        "mana_cost":  "U",
+        "mana_cost":  "{U}",
         "type":  "Sorcery ",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/A Good Cry.jpg"
@@ -2464,7 +2464,7 @@
     },
     {
         "name":  "Extentoad",
-        "mana_cost":  "1G",
+        "mana_cost":  "{1}{G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Extentoad.jpg"
@@ -2472,7 +2472,7 @@
     },
     {
         "name":  "Daycare Grand Opening",
-        "mana_cost":  "3WG",
+        "mana_cost":  "{3}{W}{G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Daycare Grand Opening.jpg"
@@ -2480,7 +2480,7 @@
     },
     {
         "name":  "Political Divination",
-        "mana_cost":  "UU",
+        "mana_cost":  "{U}{U}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Political Divination.jpg"
@@ -2496,7 +2496,7 @@
     },
     {
         "name":  "Crystal, Naturalist",
-        "mana_cost":  "2{W/B}",
+        "mana_cost":  "{2}{W/B}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Crystal, Naturalist.jpg"
@@ -2504,7 +2504,7 @@
     },
     {
         "name":  "Darkest Heart",
-        "mana_cost":  "1B",
+        "mana_cost":  "{1}{B}",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Darkest Heart.jpg"
@@ -2520,7 +2520,7 @@
     },
     {
         "name":  "Never Too Late",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Never Too Late.jpg"
@@ -2528,7 +2528,7 @@
     },
     {
         "name":  "Silver-Thread Cloak",
-        "mana_cost":  "1",
+        "mana_cost":  "{1}",
         "type":  "Enchantment Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Silver-Thread Cloak.jpg"
@@ -2536,7 +2536,7 @@
     },
     {
         "name":  "Aggressor Captain",
-        "mana_cost":  "2RR",
+        "mana_cost":  "{2}{R}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Aggressor Captain.jpg"
@@ -2544,7 +2544,7 @@
     },
     {
         "name":  "Nomad Shade",
-        "mana_cost":  "1{W/B}",
+        "mana_cost":  "{1}{W/B}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Nomad Shade.jpg"
@@ -2552,7 +2552,7 @@
     },
     {
         "name":  "Precocious Bolt",
-        "mana_cost":  "1R",
+        "mana_cost":  "{1}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Precocious Bolt.jpg"
@@ -2560,7 +2560,7 @@
     },
     {
         "name":  "Determinate",
-        "mana_cost":  "B",
+        "mana_cost":  "{B}",
         "type":  "Instant ",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Determinate.jpg"
@@ -2568,7 +2568,7 @@
     },
     {
         "name":  "Father's Will",
-        "mana_cost":  "1{U/B}",
+        "mana_cost":  "{1}{U/B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Father's Will.jpg"
@@ -2576,7 +2576,7 @@
     },
     {
         "name":  "Conniving Pyromiggy",
-        "mana_cost":  "WR",
+        "mana_cost":  "{W}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Conniving Pyromiggy.jpg"
@@ -2584,7 +2584,7 @@
     },
     {
         "name":  "Mourning Morning",
-        "mana_cost":  "BB",
+        "mana_cost":  "{B}{B}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mourning Morning.jpg"
@@ -2592,7 +2592,7 @@
     },
     {
         "name":  "Humble",
-        "mana_cost":  "W",
+        "mana_cost":  "{W}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Humble.jpg"
@@ -2616,7 +2616,7 @@
     },
     {
         "name":  "Fearful Megafauna",
-        "mana_cost":  "4{G/R}",
+        "mana_cost":  "{4}{R/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Fearful Megafauna.jpg"
@@ -2624,7 +2624,7 @@
     },
     {
         "name":  "Absorb the Mist",
-        "mana_cost":  "G",
+        "mana_cost":  "{G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Absorb the Mist.jpg"
@@ -2632,7 +2632,7 @@
     },
     {
         "name":  "Make Amends",
-        "mana_cost":  "1W",
+        "mana_cost":  "{1}{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Make Amends.jpg"
@@ -2640,7 +2640,7 @@
     },
     {
         "name":  "Quad-Palm Jerry",
-        "mana_cost":  "4BB",
+        "mana_cost":  "{4}{B}{B}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Quad-Palm Jerry.jpg"
@@ -2648,7 +2648,7 @@
     },
     {
         "name":  "Storm-Seed Fairy",
-        "mana_cost":  "1UU",
+        "mana_cost":  "{1}{U}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Storm-Seed Fairy.jpg"
@@ -2656,7 +2656,7 @@
     },
     {
         "name":  "Grit Teeth",
-        "mana_cost":  "1{R/G}",
+        "mana_cost":  "{1}{R/G}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Grit Teeth.jpg"
@@ -2664,7 +2664,7 @@
     },
     {
         "name":  "Knowledge Parasite",
-        "mana_cost":  "3U",
+        "mana_cost":  "{3}{U}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Knowledge Parasite.jpg"
@@ -2672,7 +2672,7 @@
     },
     {
         "name":  "Unstable Hydra",
-        "mana_cost":  "UR",
+        "mana_cost":  "{U}{R}",
         "type":  "Enchantment Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Unstable Hydra.jpg"
@@ -2680,7 +2680,7 @@
     },
     {
         "name":  "Rebellious Cacophany",
-        "mana_cost":  "RGW",
+        "mana_cost":  "{R}{G}{W}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Rebellious Cacophany.jpg"
@@ -2688,7 +2688,7 @@
     },
     {
         "name":  "Forced Experiment",
-        "mana_cost":  "UU",
+        "mana_cost":  "{U}{U}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Forced Experiment.jpg"
@@ -2696,7 +2696,7 @@
     },
     {
         "name":  "Insistent Assistant",
-        "mana_cost":  "3R",
+        "mana_cost":  "{3}{R}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Insistent Assistant.jpg"
@@ -2704,7 +2704,7 @@
     },
     {
         "name":  "Mental Tripwire",
-        "mana_cost":  "6U",
+        "mana_cost":  "{6}{U}",
         "type":  "Sorcery",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Mental Tripwire.jpg"
@@ -2712,7 +2712,7 @@
     },
     {
         "name":  "Jealousy Flare",
-        "mana_cost":  "3R",
+        "mana_cost":  "{3}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Jealousy Flare.jpg"
@@ -2720,7 +2720,7 @@
     },
     {
         "name":  "Gode the Gloating Goat",
-        "mana_cost":  "2{R/G}",
+        "mana_cost":  "{2}{R/G}",
         "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Gode the Gloating Goat.jpg"
@@ -2728,7 +2728,7 @@
     },
     {
         "name":  "Ravenous Studies",
-        "mana_cost":  "RRR",
+        "mana_cost":  "{R}{R}{R}",
         "type":  "Instant",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Ravenous Studies.jpg"
@@ -2736,7 +2736,7 @@
     },
     {
         "name":  "Titan of the Grove",
-        "mana_cost":  "3BGW",
+        "mana_cost":  "{3}{B}{G}{W}",
         "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/Titan of the Grove.jpg"
@@ -2883,7 +2883,7 @@ Ambitious Contortionist
 Fade to Mist
 Pure-Mind Trainee
 Haughty Gamble
-Exposé
+Expose
 Stone-Glare Officer
 Evaporating Wish
 The Chortle-Beast

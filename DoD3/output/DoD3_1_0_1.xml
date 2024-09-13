@@ -225,14 +225,14 @@ Tactless Show-Host gets +2/+2 as long as it's attacking a player whose entire ha
 </card>
 
 <card>
-    <name>Exposé</name>
-    <set picURL="/Exposé.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <name>Expose</name>
+    <set picURL="/Expose.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>WU</color>
     <manacost>1WU</manacost>
     <type>Enchantment</type>
     <tablerow>0</tablerow>
-    <text>You choose two cards from target opponent's hand and they reveal them. Exile target revealed card in their hand until Exposé leaves the battlefield. (Then it returns to their hand.) 
-{4}: Sacrifice Exposé. Its controller draws a card. Any player may activate this ability. </text>
+    <text>You choose two cards from target opponent's hand and they reveal them. Exile target revealed card in their hand until Expose leaves the battlefield. (Then it returns to their hand.) 
+{4}: Sacrifice Expose. Its controller draws a card. Any player may activate this ability. </text>
 </card>
 
 <card>
@@ -242,7 +242,7 @@ Tactless Show-Host gets +2/+2 as long as it's attacking a player whose entire ha
     <manacost>1U</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
-    <text>Choose 1:
+    <text>Choose 1--
 - Target player reveals an unrevealed card from their hand and you draw a card.
 - Put target revealed card from a player's hand on the bottom of their library. They draw a card and reveal it.</text>
 </card>
@@ -338,7 +338,7 @@ Trample</text>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
     <text>As an additional cost to casting this spell, sacrifice a creature.
-Mill the top 4 cards of your library. Then choose one, where X is the sacrificed creature's mana value:
+Mill the top 4 cards of your library. Then choose one, where X is the sacrificed creature's mana value--
 - Cast a creature from among them with mana value at most X. 
 - Gain X life.</text>
 </card>
@@ -372,7 +372,7 @@ Return target creature from a graveyard under your control with a finality count
     <manacost>2B</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
-    <text>Choose 1-
+    <text>Choose 1--
 - Target opponent discards target revealed card and loses 1 life.
 - Destroy target creature with toughness 4 or less.</text>
 </card>
@@ -432,7 +432,7 @@ Cycling {1}{w}</text>
     <manacost>2GW</manacost>
     <type>Enchantment</type>
     <tablerow>0</tablerow>
-    <text>Whenever you reveal a card, choose 1 -
+    <text>Whenever you reveal a card, choose 1--
 - Populate.
 - Proliferate.</text>
 </card>
@@ -624,7 +624,7 @@ Whenever a creature dies the same turn it was dealt combat damage by Prinoc, dra
 	<pt>3/2</pt>
     <tablerow>0</tablerow>
     <text>When Imminent-Flame Crollock enters, it deals 3 damage to target creature.
-When Imminent-Flame Crollock dies, you may pay {r}{r} and choose 1- 
+When Imminent-Flame Crollock dies, you may pay {r}{r} and choose 1--
 - It deals 3 damage to any target and 1 damage to you.
 - Destroy target artifact. </text>
 </card>
@@ -1455,7 +1455,7 @@ Horde 3 - If you control 3 more creatures, creatures you control have trample. <
     <manacost>1W</manacost>
     <type>Sorcery</type>
     <tablerow>0</tablerow>
-    <text>Tap up to two target permanents target opponent controls. Choose 1, where X is the number of tapped creatures they control:
+    <text>Tap up to two target permanents target opponent controls. Choose 1, where X is the number of tapped creatures they control--
 - {r}: Make X treasures.
 - {u}: Draw half X cards, rounded down.</text>
 </card>
@@ -1952,7 +1952,7 @@ When Mossroamer enters, you may search your library for a basic land, put it ont
 	<pt>4/1</pt>
     <tablerow>0</tablerow>
     <text>Bestow {2}{b}{g}
-Regrowl may bestow creatures in your graveyard. When you do, as enchanted creature enters, it does so with a finality counter and you lose life equal to its mana cost.
+Regrowl may bestow creatures in your graveyard back to the battlefield. If you do, enchanted creature enters with a finality counter. Then you lose life equal to its mana cost.
 Landfall - Regrowl or enchanted creature gets +1/+1 and lifelink until end of turn.</text>
 </card>
 
@@ -2114,7 +2114,7 @@ Whenever Deconstructor Agent deals combat damage to a player, destroy target art
     <tablerow>0</tablerow>
     <text>When Aisul enters, you may sacrifice a creature you control and gain 3 life.
 Aisul gets -1/-1 for each other creature you control.
-When Aisul attacks alone, choose one or both:
+When Aisul attacks alone, choose one or both--
 - {r}: Aisul gains trample and gets +2/+0 until end of turn
 - {b}: Aisul gains lifelink and deathtouch until end of turn.</text>
 </card>
@@ -2147,7 +2147,7 @@ Creatures you control get +X/+X and haste until end of turn, where X is the numb
     <manacost>B</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
-    <text>Choose 1:
+    <text>Choose 1--
 - {u}: Put target nonland permanent at the bottom of its owner's library.
 - {g}: Destroy target creature or enchantment.</text>
 </card>
@@ -2465,7 +2465,7 @@ Crew 2</text>
 	<pt>1/3</pt>
     <tablerow>0</tablerow>
     <text>Whenever Olfactory Disrupter attacks, target creature can't block this turn.
-Whenever a creature ducks behind Olfactory Disrupter choose 1:
+Whenever a creature ducks behind Olfactory Disrupter choose 1--
 - Target opponent reveals an unrevealed card.
 - Put a -1/-1 counter on target creature.</text>
 </card>
@@ -2478,7 +2478,7 @@ Whenever a creature ducks behind Olfactory Disrupter choose 1:
     <type>Creature - Goblin Mercenary</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
-    <text>When Up-Front Mercenary enters, choose any number:
+    <text>When Up-Front Mercenary enters, choose any number--
 - {r}: Reveal any number of unrevealed cards from your hand. Up-Front Mercenary deals that much damage to target creature. 
 - {b}: Target opponent mills cards equal to the number of unrevealed cards in your hand.</text>
 </card>
@@ -2906,7 +2906,7 @@ Whenever a creature you control ducks behind Hazardous Ballista, Hazardous Balli
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Good Parenting costs {1} less to cast for each card in your hand you've revealed or Transparent permanent you control.
-Choose 1 - 
+Choose 1--
 - Distribute 4 +1/+1 counters on creatures you control.
 - Draw 3 cards.</text>
 </card>
@@ -3604,7 +3604,7 @@ If Triumphant Shout was kicked, that creature gets +3/+0 instead of +2/+0.</text
     <manacost>U</manacost>
     <type>Sorcery </type>
     <tablerow>0</tablerow>
-    <text>Choose 1:
+    <text>Choose 1--
 - Target creature gets -1/-1 until end of turn. Tap it. 
 - Target creature you control gets -2/-2 until end of turn and target creature gets -5/-5 until end of turn.</text>
 </card>
@@ -3866,7 +3866,7 @@ Whenever a spell or ability you don't control deals damage to Fearful Megafauna,
     <manacost>1W</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
-    <text>Choose 1-
+    <text>Choose 1--
 Pay {g}. Target player exiles target enchantment.
 Pay {1}. Gain 1 life for each enchantment on the battlefield.</text>
 </card>

@@ -111,17 +111,20 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 if metadata.replace_reference_string_with_cardname and len(metadata.reference_card_name) > 0:
                     body_text = body_text.replace(metadata.reference_card_name, name)
 
-                cards_dict[name] = Card(
+                loaded_card = Card(
                     name, colors, manacost, raw_mana_cost_string,
                     converted_manacost, supertype, subtype, rarity,
                     stats, body_text, flavor_text
                 )
+                cards_dict[name] = loaded_card
 
                 # Card data warnings
                 card_warning_messages = []
                 is_creature = supertype.find("Creature") != -1
                 if len(raw_mana_cost_string) == 0 and supertype.find("Land") == -1:
                     card_warning_messages.append("Missing a mana cost.")
+                if loaded_card.found_manacost_error:
+                    card_warning_messages.append("Had a manacost pip-order error.")
                 if len(supertype) == 0:
                     card_warning_messages.append("Missing a supertype.")
                 if is_creature and len(subtype) == 0:
@@ -299,15 +302,15 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # Then if that's less than 9 lines, go halfway between that and the last size, and so on (maybe add some max attempts parameter)
 
             pip_BG_size_factor = 0.9
-            total_card_body_text: str = card_data.body_text + ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
+            total_card_body_text: str = card_data.body_text #+ ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
             segments, went_over_line_limit = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(Fonts.font_body, Fonts.font_symbols, Fonts.get_symbol_font(Fonts.font_symbols_initial_size * pip_BG_size_factor)))
             segments: list[LineSegment] = segments
-            tries = 5
             current_font_size = Fonts.font_body_initial_size
             current_mana_font_size = Fonts.font_symbols_initial_size
             current_font_max, current_font_min = Fonts.font_body_initial_size, Fonts.font_body_min_size
             resized_text_font, resized_symbols_font = None, None
             body_text_too_large = went_over_line_limit
+            tries = 3
             if went_over_line_limit:
                 while tries > 0:
                     if body_text_too_large:
@@ -322,6 +325,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                     segments, body_text_too_large = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(resized_text_font, resized_symbols_font, Fonts.get_symbol_font(current_mana_font_size * pip_BG_size_factor)))
 
                     tries -= 1
+                    # print(card_data.name)
+                    # print(tries, body_text_too_large, current_font_max)
 
             for segment in segments:
                 segment.draw(card_image_total, (44, 445))

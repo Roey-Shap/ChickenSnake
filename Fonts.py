@@ -22,7 +22,7 @@ def get_string_size(text: str, font: ImageFont.ImageFont) -> tuple[float, float]
     return (string_bbox[2] - string_bbox[0], string_bbox[3] - string_bbox[1])
 
 font_body_initial_size = 23
-font_body_min_size = 16
+font_body_min_size = 18
 font_body  = ImageFont.truetype(body_text_font_name, font_body_initial_size)
 font_body_tiny = ImageFont.truetype(body_text_font_name, 18)
 
@@ -33,10 +33,10 @@ font_symbols_small = ImageFont.truetype(symbols_font_name, 20)
 font_symbols_pip_background = ImageFont.truetype(symbols_font_name, 21)
 font_symbols = ImageFont.truetype(symbols_font_name, 24)
 # 
-font_symbols_big_initial_size = 27
-font_symbols_large_pip_bg = ImageFont.truetype(symbols_font_name, font_symbols_big_initial_size * 24/27)
+font_symbols_big_initial_size = 25
+font_symbols_large_pip_bg = ImageFont.truetype(symbols_font_name, font_symbols_big_initial_size * 24/font_symbols_big_initial_size)
 font_symbols_large = ImageFont.truetype(symbols_font_name, font_symbols_big_initial_size)
-font_symbols_initial_size = 23
+font_symbols_initial_size = 21
 font_symbols_min_size = font_symbols_initial_size * font_body_min_size / font_body_initial_size
 font_symbols = get_symbol_font(font_symbols_initial_size)
 
