@@ -383,11 +383,11 @@
                         }
     },
     {
-        "name":  "Nervous Mound-Worker",
+        "name":  "Nervous Digger",
         "mana_cost":  "2G",
         "type":  "Creature",
         "image_uris":  {
-                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Nervous Mound-Worker.jpg"
+                            "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Nervous Digger.jpg"
                         }
     },
     {
@@ -1920,7 +1920,7 @@
     },
     {
         "name":  "Gargantuan Nail Trap",
-        "mana_cost":  "3",
+        "mana_cost":  "4",
         "type":  "Artifact",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Gargantuan Nail Trap.jpg"
@@ -2017,7 +2017,7 @@
     {
         "name":  "Verified Source",
         "mana_cost":  "1U",
-        "type":  "Instant",
+        "type":  "Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Verified Source.jpg"
                         }
@@ -2401,7 +2401,7 @@
     {
         "name":  "Coltz, Jumpspark Mage",
         "mana_cost":  "UURR",
-        "type":  "Legenary Creature",
+        "type":  "Legendary Creature",
         "image_uris":  {
                             "en":  "https://roey-shap.github.io/ChickenSnake/DoD3/Playtest_Images/Coltz, Jumpspark Mage.jpg"
                         }
@@ -2773,7 +2773,7 @@ War-Cry Roc
 Shrieking Vulture
 Swift-Swipe Sugarglider
 Death-Leap Messenger
-Nervous Mound-Worker
+Nervous Digger
 Feed With Security
 Mosh Raven
 Oversee

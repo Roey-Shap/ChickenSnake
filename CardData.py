@@ -18,6 +18,7 @@ C_WHITE = (255, 255, 255)
 # card_pixel_dims = (375, 523)
 card_pixel_dims = (500, 700)
 max_types_string_width_ratio = 357 / 500
+max_title_and_manacost_string_width_ratio = 415 / 500
 right_mana_border = int(card_pixel_dims[0] * 0.93)
 
 # font_body  = ImageFont.truetype(body_text_font_name, 13)
@@ -206,45 +207,51 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
             for border_info in card_border_info:
                 card_image_total.alpha_composite(image_assets[border_info.file_prefix])
-            
-            # if card_data.is_colorless:
-            #     card_image_total.alpha_composite(image_assets[])
-            # elif 1 <= len(card_data.colors_string) <= 2 and not card_data.is_gold:
-            #     card_colors = card_data.colors_string
-            #     # It's important to layer the middle part first so it can be covered up by the sides
-            #     for prefix in [card_colors[-1]+"_m", card_colors[0]+"_l", card_colors[-1]+"_r"]:
-            #         card_bg: Image = image_assets[prefix]
-            #         card_image_total.alpha_composite(card_bg)            
-            # else:
-            #     card_image_total.alpha_composite(image_assets["m_"])
 
+            # Power/Toughness
             if card_data.has_stats:
                 card_image_total.alpha_composite(image_assets[get_card_pt_image_info(card_data).file_prefix])
 
             # Set Symbol
             card_image_total.alpha_composite(image_assets[get_card_set_symbol_info(card_data).file_prefix])
 
-            # Title font config
+            # Name and Manacost #################################################
             chosen_title_font = Fonts.font_title
-            if len(card_data.name) + len(card_data.manacost) > 45:
-                chosen_title_font = Fonts.font_title_small
-
-            # Title
-            ImageDraw.Draw(card_image_total).text(
-                (40, 40), card_data.name, C_BLACK, font=chosen_title_font
-            )
+            chosen_manacost_font = Fonts.font_symbols_large
+            chosen_manacost_bg_font = Fonts.font_symbols_large_pip_bg
+            # Try up to five times to shrink the text based on the estimated size
 
             # Mana Cost
             debug_on = False # card_data.name == "Ancient Nestite"
-            mana_cost_segments: list[LineSegment] = LineSegment.split_text_for_symbols(
-                card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, debug_mode=debug_on, font_override=(Fonts.font_symbols_large, Fonts.font_symbols_large_pip_bg)
+            # First find the mana cost's width at the current font
+            mana_cost_segments, _ = LineSegment.split_text_for_symbols(
+                card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, 
+                debug_mode=debug_on, font_override=(chosen_manacost_font, chosen_manacost_bg_font)
             )
-            
+            mana_cost_segments: list[LineSegment] = mana_cost_segments
             # We assume each pip is the same width and draw them from left to right with manual offsets
             num_mana_pips = len(mana_cost_segments)
-            # if debug_on:
-                # log_and_print(num_mana_pips)
+            mana_pip_width = mana_cost_segments[0].dims[0] if num_mana_pips > 0 else 0
+            mana_cost_size = num_mana_pips
+            # When templating, we prefer to shrink the title before the mana cost.
+            # Therefore we'll try to fit the title in the space left by the manacost.
+            max_title_and_manacost_string_width_in_pixels = max_title_and_manacost_string_width_ratio * card_pixel_dims[0]
+            # We require at least one pip worth of space between the text and the pips
+            space_remaining_for_title = max_title_and_manacost_string_width_in_pixels - mana_pip_width
+            # Find the title font size
+            title_string_width, _ = Fonts.get_string_size(card_data.name, chosen_title_font)
+            if title_string_width > space_remaining_for_title:
+                current_title_width_to_space_ratio = space_remaining_for_title / title_string_width
+                chosen_title_font = Fonts.get_title_font(Fonts.font_title_initial_size * current_title_width_to_space_ratio)
+            
+            # Title
+            ImageDraw.Draw(card_image_total).text(
+                (40, 54), card_data.name, C_BLACK, font=chosen_title_font, anchor="lm"
+            )
+            # END Name and Manacost #################################################
 
+            if debug_on:
+                log_and_print(num_mana_pips)
             if num_mana_pips > 0:
                 mana_pip_width = mana_cost_segments[0].dims[0]
                 margin = 0 #int(mana_pip_width * 0.1)
@@ -252,7 +259,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 for i, segment in enumerate(mana_cost_segments):
                     segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), 40), absolute_draw_mode=True, mana_cost_mode=True)
 
-            # Types
+
+            # Types ##########################
             chosen_types_font = Fonts.font_types
             types_string = card_data.get_type_string()
             # Try up to five times to shrink the text based on the estimated size
@@ -271,13 +279,49 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 (40, 413), card_data.get_type_string(), C_BLACK, font=chosen_types_font, anchor="lm"
             )
 
-            # Body Text config
+            # Body Text ######################
+            # Config
             # Go through each line of text and convert it into a series of LineSegments - each with their own font, offset, and text
             # Then draw each of their texts on the card at their offset and with their font
 
-            segments: list[LineSegment] = LineSegment.split_text_for_symbols(
-                card_data.body_text, card_image_total, 420, 500
-            )
+            # To maximize utilized card space and potentially accomodate flavor text, we impose the following basic rules:
+            # Card text fits before flavor text fits
+            # Strive for at most 9 lines of body text, including flavor text.
+            # Now the method:
+            # Calculate how much space the body text'll take up with the flavor. It they take up more than the space
+            # between the top and where the stat box is (if it has one; otherwise until end of card), then
+            # calculate what proportion is needed to apply to the pips'/text's fonts.
+            # If you can't fit both in 9 lines, try again without the flavor text.
+
+            # How do we calculate the new proportion?
+            # For now a naive binary search approach will do. 
+            # If you took more than 9 lines, go between min font size (minFS) and current size.
+            # Then if that's less than 9 lines, go halfway between that and the last size, and so on (maybe add some max attempts parameter)
+
+            pip_BG_size_factor = 0.9
+            total_card_body_text: str = card_data.body_text + ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
+            segments, went_over_line_limit = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(Fonts.font_body, Fonts.font_symbols, Fonts.get_symbol_font(Fonts.font_symbols_initial_size * pip_BG_size_factor)))
+            segments: list[LineSegment] = segments
+            tries = 5
+            current_font_size = Fonts.font_body_initial_size
+            current_mana_font_size = Fonts.font_symbols_initial_size
+            current_font_max, current_font_min = Fonts.font_body_initial_size, Fonts.font_body_min_size
+            resized_text_font, resized_symbols_font = None, None
+            body_text_too_large = went_over_line_limit
+            if went_over_line_limit:
+                while tries > 0:
+                    if body_text_too_large:
+                        current_font_max = current_font_size
+                    else:
+                        current_font_min = current_font_size
+                    current_font_size = (current_font_min + current_font_max) / 2
+                    ratio_from_max_to_current = current_font_size / Fonts.font_body_initial_size
+                    current_mana_font_size = Fonts.font_symbols_initial_size * ratio_from_max_to_current
+                    resized_text_font = Fonts.get_body_font(current_font_size)
+                    resized_symbols_font = Fonts.get_symbol_font(current_mana_font_size)
+                    segments, body_text_too_large = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(resized_text_font, resized_symbols_font, Fonts.get_symbol_font(current_mana_font_size * pip_BG_size_factor)))
+
+                    tries -= 1
 
             for segment in segments:
                 segment.draw(card_image_total, (44, 445))

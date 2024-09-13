@@ -126,7 +126,7 @@ Target creature gets -4/-4 until end of turn. If its controller pays {3}, it get
     <type>Instant</type>
     <tablerow>0</tablerow>
     <text>Transparent
-Put target creature with mana value 3 on the top of its owner's library.
+Put target creature with mana value 3 or less on the top of its owner's library.
 Rivalstorm (Make a copy of this spell for each spell your opponent has cast before it this turn.)</text>
 </card>
 
@@ -484,7 +484,7 @@ Flying</text>
     <type>Creature - Bird</type>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
-    <text>Pop-up {3}{u}
+    <text>Pop-up {3}{r}
 War-Cry Roc's pop-cost is {1} less for each spell that's been cast this turn.
 Flying, Haste</text>
 </card>
@@ -557,8 +557,8 @@ Horde 5 - If you control 5 or more creatures, this creature has ward {1}.</text>
 </card>
 
 <card>
-    <name>Nervous Mound-Worker</name>
-    <set picURL="/Nervous Mound-Worker.full.jpg" picURLHq="" picURLSt="">DoD</set>
+    <name>Nervous Digger</name>
+    <set picURL="/Nervous Digger.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>G</color>
     <manacost>2G</manacost>
     <type>Creature -  Mole Citizen</type>
@@ -590,7 +590,7 @@ Target creature you control gets +X/+1 until end of turn, where X is the sacrifi
     <tablerow>0</tablerow>
     <text>Opponents reveal the first card they draw each turn. 
 Whenever an opponent reveals a card, Prinoc gets +2/+0 until end of turn.
-Whenever a creature dealt combat damage by Prinoc dies, draw a card.</text>
+Whenever a creature dies the same turn it was dealt combat damage by Prinoc, draw a card.</text>
 </card>
 
 <card>
@@ -878,7 +878,7 @@ If Goated was kicked, it has Rivalstorm. (Copy it for each spell an opponent has
 	<pt>5/4</pt>
     <tablerow>0</tablerow>
     <text>Flying, Trample
-Basic lands you control have, "Whenever you reveal a card from your hand, you may tap this land. If you do, it deals 1 damage to target permanent."</text>
+Basic lands you control have, "Whenever you reveal a card from your hand and this land is untapped, you may tap this land. If you do, it deals 1 damage to target permanent."</text>
 </card>
 
 <card>
@@ -926,7 +926,7 @@ Basic lands you control have, "Whenever you reveal a card from your hand, you ma
 	<pt>0/1</pt>
     <tablerow>0</tablerow>
     <text>Duck - Skitterjill gets +0/+1 until end of turn.
-Whenever a creature you control ducks, you gain 1 life.</text>
+Whenever a creature you control ducks and Skitterjill is untapped, you may tap Skitterjill. If you do, target permanent you control gains protection from the color of your choice. </text>
 </card>
 
 <card>
@@ -1590,8 +1590,8 @@ Exile target revealed card in their hand.</text>
     <manacost>3R</manacost>
     <type>Instant</type>
     <tablerow>0</tablerow>
-    <text>Exile the top 4 cards of your library. You may case them until the end of your next turn.
-You may cast Future in Flames as it is being scried or revealed from your hand or library.If you do, it costs {1} less to cast.</text>
+    <text>Exile the top 4 cards of your library. You may cast them until the end of your next turn.
+You may cast Future in Flames as it is being scried or revealed from your hand or library. If you do, it costs {1} less to cast.</text>
 </card>
 
 <card>
@@ -1841,7 +1841,7 @@ Fuse-burners gets -0/-1 for each time counter on it.</text>
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
     <text>Ninjitsu - Reveal a card, {b}{r}
-If you cast a creature during combat that was revealed for Enlisting Shadow's ninjitsu cost, you may have that creature enter attacking.</text>
+If you cast a creature during combat that was revealed for Enlisting Shadow's ninjitsu cost, you may have that creature enter tapped and attacking.</text>
 </card>
 
 <card>
@@ -1890,8 +1890,8 @@ This creature gets +1/+1 so long as you control at least 2 basic lands with diff
 	<pt>4/5</pt>
     <tablerow>0</tablerow>
     <text>Reach, Trample
-When Mother Alpaca enters, create X 0/1 colorless Alpaca creatures with "Duck - gain 1 life."
-Whenever a creature ducks behind Mother Alpaca, it gets +1/+0 until end of turn.</text>
+When Mother Alpakon enters, create X 0/1 colorless Alpaca creatures with "Duck - gain 1 life."
+Whenever a creature ducks behind Mother Alpakon, Mother Alpakon gets +1/+0 until end of turn.</text>
 </card>
 
 <card>
@@ -1964,7 +1964,7 @@ Landfall - Regrowl or enchanted creature gets +1/+1 and lifelink until end of tu
     <type>Legendary Creature - Warrior</type>
 	<pt>3/3</pt>
     <tablerow>0</tablerow>
-    <text>Flash, Backup
+    <text>Flash, Backup 1
 Persist, First Strike
 If Viss would be returned to the battlefield from the graveyard, it does so with a finality counter on it.</text>
 </card>
@@ -2254,7 +2254,7 @@ You may cast Hallway Studier as it's being scried.</text>
     <set picURL="/Library Shrieker.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>U</color>
     <manacost>2U</manacost>
-    <type>Creature - Citizen</type>
+    <type>Creature - Ghoul Citizen</type>
 	<pt>1/2</pt>
     <tablerow>0</tablerow>
     <text>Whenever you scry X, Library Shrieker gets +X/+X until end of turn.
@@ -2476,7 +2476,7 @@ Whenever a creature ducks behind Olfactory Disrupter choose 1:
     <color>B</color>
     <manacost>2B</manacost>
     <type>Creature - Goblin Mercenary</type>
-	<pt>4/3</pt>
+	<pt>2/2</pt>
     <tablerow>0</tablerow>
     <text>When Up-Front Mercenary enters, choose any number:
 - {r}: Reveal any number of unrevealed cards from your hand. Up-Front Mercenary deals that much damage to target creature. 
@@ -2512,7 +2512,7 @@ Whenever a creature ducks behind Olfactory Disrupter choose 1:
     <type>Creature - Reptile Cleric</type>
 	<pt>1/4</pt>
     <tablerow>0</tablerow>
-    <text>Landfall - if your devotion to green is at least 3, put a +1/+1 counter on target creature. Then if it's at least 6, you may attach an aura or creature with bestow from your hand to a creature you control.</text>
+    <text>Landfall - Whenever a land enters under your control, if your devotion to green is at least 3, put a +1/+1 counter on target creature. Then if it's at least 6, you may attach an aura or creature with bestow from your hand to a creature you control.</text>
 </card>
 
 <card>
@@ -2750,7 +2750,7 @@ Cycling {1}{b}</text>
     <set picURL="/Reharvest Engine.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>BG</color>
     <manacost>3{B/G}</manacost>
-    <type>Artifact - Vehicle</type>
+    <type>Artifact</type>
     <tablerow>0</tablerow>
     <text>Creatures can duck behind Reharvest Engine as though it had 4 toughness.
 The first time a creature ducks behind Reharvest Engine, you may search your graveyard for a land and put it onto the battlefield tapped.
@@ -2790,7 +2790,7 @@ Horde 3 - If you control 3 or more creatures, counter target spell instead. Then
     <tablerow>0</tablerow>
     <text>Transparent, Annihilator 1
 When It That Arrives enters, you may have target opponent sacrifice target creature they control. 
-Exile a card from your graveyard: Scry 1 for target player.
+Exile a card from your graveyard: Scry 1.
 Transparent creatures you control get +1/+1 and have trample.</text>
 </card>
 
@@ -2821,11 +2821,11 @@ When Glittering Starchild dies, add {w}, {b}, or {r}.</text>
     <name>Gargantuan Nail Trap</name>
     <set picURL="/Gargantuan Nail Trap.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color></color>
-    <manacost>3</manacost>
+    <manacost>4</manacost>
     <type>Artifact</type>
     <tablerow>0</tablerow>
-    <text>You may cast this card face down for {1}. Turn it face up at any time for {1}.
-When this artifact is turned face up, destroy target creature with trample or total power and toughness above 5.
+    <text>You may cast this card face down for {1}. Turn it face up on a later turn for {1}.
+When this card enters face up or is turned face up, destroy target creature with trample or total power and toughness above 5.
 {2}, sacrifice Gargantuan Nail Trap: Draw a card.</text>
 </card>
 
@@ -2838,7 +2838,7 @@ When this artifact is turned face up, destroy target creature with trample or to
 	<pt>2/2</pt>
     <tablerow>0</tablerow>
     <text>Duck - Populate and put a +1/+1 counter on Whitehair Hare.
-When Whitehair Hare enters, put a white 2/2 Rabbit creature token.</text>
+When Whitehair Hare enters, put a 2/2 white Rabbit creature token on the battlefield.</text>
 </card>
 
 <card>
@@ -2964,10 +2964,12 @@ Horde 4 - If you control 4 or more creatures, creatures you control get +1/+1 an
     <set picURL="/Verified Source.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>U</color>
     <manacost>1U</manacost>
-    <type>Instant</type>
+    <type>Creature - Spy</type>
+	<pt>1/1</pt>
     <tablerow>0</tablerow>
     <text>Transparent
-Scry 1, then draw a card.</text>
+When Verified Source enters, scry 1, then draw a card.
+Cycling {1}</text>
 </card>
 
 <card>
@@ -3403,7 +3405,7 @@ When Spirit of Acceptance or another creature you control dies, add {b} equal to
     <tablerow>0</tablerow>
     <text>Icarus' Resting Place enters tapped unless you return a land you control to your hand.
 {t}: Add {b} or {w}.
-{1}{w/b}, {t}, exile 2 cards from your graveyard: Create a 1/1 black and green Skeleton creature token with deathtouch.</text>
+{1}{w/b}, {t}, exile 2 cards from your graveyard: Create a 1/1 white and blacj Skeleton creature token with deathtouch.</text>
 </card>
 
 <card>
@@ -3488,7 +3490,7 @@ Whenever a creature ducks behind this creature, it becomes a copy of that creatu
 	<pt>1/1</pt>
     <tablerow>0</tablerow>
     <text>Duck - Scry 2.
-When Nate and Tat edies, make two 1/1 white Duck citizens with, "Duck - Scry 1."</text>
+When Nate and Tate dies, make two 1/1 white Duck citizens with, "Duck - Scry 1."</text>
 </card>
 
 <card>
@@ -3509,8 +3511,8 @@ When Nate and Tat edies, make two 1/1 white Duck citizens with, "Duck - Scry 1."
     <type>Creature - Fungus</type>
 	<pt>3/2</pt>
     <tablerow>0</tablerow>
-    <text>Duck - Create a 0/1 green Plant creature token or put a +1/+1 counter on target Plant or Spore you control.
-Indecisive Goon-Twins may duck behind two creatures simultaneously.</text>
+    <text>Duck - Create a 0/1 green Plant creature token or put a +1/+1 counter on target Plant or Fungus you control.
+Twin-Stalk Spore may duck behind two creatures simultaneously.</text>
 </card>
 
 <card>
@@ -3530,7 +3532,7 @@ When Surprisingly Effective Fort dies, tap target creature.</text>
     <set picURL="/Coltz, Jumpspark Mage.full.jpg" picURLHq="" picURLSt="">DoD</set>
     <color>UR</color>
     <manacost>UURR</manacost>
-    <type>Legenary Creature - Bird Wizard</type>
+    <type>Legendary Creature - Bird Wizard</type>
 	<pt>2/4</pt>
     <tablerow>0</tablerow>
     <text>Flying, Ward {1}
@@ -3745,6 +3747,7 @@ Whenever a creature you control attacks, creatures you control get +1/+0 until e
     <tablerow>0</tablerow>
     <text>Bestow {2}{w/b}
 When Nomad Shade enters, you may return target land you control or from your graveyard to your hand.
+Landfall - Whenever a land enters under your control and Nomad Shade is an aura, you may attach it to target creature.
 Enchanted creature gets +1/+1 and flying.
 Flying</text>
 </card>
@@ -3840,8 +3843,8 @@ Draw a card. If a creature you controlled died this turn, draw two cards instead
     <type>Creature - Deer</type>
 	<pt>4/4</pt>
     <tablerow>0</tablerow>
-    <text>Trample, Duck - Fearful Megafauna deals 2 damage to each creature.
-Whenever a spell or ability you don't control deals damage to Fearful Megafauna, you activate its duck ability and tap it.</text>
+    <text>Trample, Duck - Fearful Megafauna deals 2 damage to each other creature.
+Whenever a spell or ability you don't control deals damage to Fearful Megafauna, its duck ability activates. Tap it. </text>
 </card>
 
 <card>

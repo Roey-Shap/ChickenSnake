@@ -27,7 +27,7 @@ class Card():
         is_two_or_three_color = 2 <= len(self.colors) <= 3
         has_only_those_colors = all(set(pip.strip('p/')).issuperset(set(self.colors.lower())) for pip in filter(lambda pip: not pip.isnumeric(), self.split_mana_pips))
         has_hybrid_pip = any(pip.find('/') != -1 for pip in self.split_mana_pips)
-        self.is_pure_hybrid = is_two_or_three_color or len(self.colors) == 0 and has_only_those_colors and has_hybrid_pip
+        self.is_pure_hybrid = is_two_or_three_color and has_only_those_colors and (has_hybrid_pip or len(self.raw_mana_cost_string) == 0)
         self.is_gold = len(self.colors) >= 2 and not self.is_pure_hybrid
         if self.is_gold:
             self.colors_string = "M"

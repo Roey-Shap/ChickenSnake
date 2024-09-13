@@ -177,8 +177,8 @@ class LineSegment():
     @staticmethod
     def split_text_for_symbols(
         raw_text: str, image: ImageDraw.Image, 
-        max_width: int, max_height: int, small_text_mode: bool = False, 
-        debug_mode=False, font_override=None):
+        max_width: int, max_height: int, small_text_mode: bool=False, 
+        debug_mode=False, font_override=None, get_bounding_box_mode=False):
         # Split text into bracketed tokens and normal strings
         # log_and_print(rebracketed_newlines_replaced)
         # log_and_print()
@@ -198,7 +198,7 @@ class LineSegment():
         chosen_font_symbols_bg = Fonts.font_symbols_pip_background if not small_text_mode else Fonts.font_symbols_small_pip_background
 
         for raw_segment in tokenized_strings:
-            if line_count > max_line_count and not small_text_mode:
+            if line_count > max_line_count and not small_text_mode and not get_bounding_box_mode:
                 # log_and_print("===================")
                 # log_and_print("going small!")
                 # log_and_print("===================")
@@ -218,7 +218,14 @@ class LineSegment():
                 chosen_font = chosen_font_text
 
             if font_override:
-                chosen_font, chosen_font_symbols_bg = font_override
+                if get_bounding_box_mode:
+                    chosen_font, chosen_font_symbols_bg, chosen_font_symbols_ACTUAL_BACKGROUND = font_override
+                    if is_symbol:
+                        chosen_font = chosen_font_symbols_bg
+                        chosen_font_symbols_bg = chosen_font_symbols_ACTUAL_BACKGROUND
+                else:
+                    chosen_font, chosen_font_symbols_bg = font_override
+
 
             string_bbox = draw_context.multiline_textbbox(
                 (current_x_offset, 0), 
@@ -258,7 +265,7 @@ class LineSegment():
         for segment in line_segments:
             segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen * metadata.card_line_height_normal)
 
-        return line_segments
+        return line_segments, line_count > 9
 
 def draw_pip_color_background(c1: str, c2: str, 
                               pos: tuple[int, int], image: Image, 

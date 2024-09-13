@@ -8,15 +8,14 @@ from ascii_art import logo_art
 from UI import log_and_print
 
 # @TODO: 
-## Card image generation
-# Make hybrid mask evenly split
+## General
+# Add proper instructions for zero-to-set
+
+## Card image generation                            
+# Make hybrid mask evenly split                     VVVVVVVVVVVVVVVVVVVVVV
 # Make gold cards still use correct color trim
   # Download all 5 color trims
   # Means we can also do this for colored artifacts
-# Get proper title font VVVVVVVVVVVVVVVVVVVVVV
-# Make stat corner use correct color VVVVVVVVVVVVVVVVVVV
-# Make it so purely hybrid cards aren't considered gold but multicolored cards are?
-# Add set symbol to each card with correct symbol color VVVVVVVVVVVVVVVVVVVVVVVVVVvv
 # Use flavor text
 # Use area-calculation of text to adjust text size
 # Also do this in title TAKING INTO ACCOUNT MANA SIZE (do cards ever make mana symbols smaller?)
