@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<cards>
+<!-- 
+<card>
+    <name></name>
+    <set picURL=""></set>
+    <color></color>
+    <manacost></manacost>
+    <type>Token Creature — </type>
+    <pt>/</pt>
+    <tablerow>1</tablerow>
+    <text></text>
+    <token>1</token>
+</card>
+    -->
+
+<card>
+    <name>Plant</name>
+    <set picURL="/Plant.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>WG</color>
+    <manacost></manacost>
+    <type>Token Enchantment Creature - Plant </type>
+	<pt>0/1</pt>
+    <tablerow>0</tablerow>
+    <text></text>
+    <reverse-related>Courageous Yaunling</reverse-related>
+<reverse-related>Twin-Stalk Spore</reverse-related>
+</card>
+
+<card>
+    <name>Rabbit</name>
+    <set picURL="/Rabbit.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>W</color>
+    <manacost></manacost>
+    <type>Token Creature - Rabbit</type>
+	<pt>2/2</pt>
+    <tablerow>0</tablerow>
+    <text></text>
+    <reverse-related>Whitehair Hare</reverse-related>
+</card>
+
+<card>
+    <name>Spirit</name>
+    <set picURL="/Spirit.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>WB</color>
+    <manacost></manacost>
+    <type>Token Creature - Spirit</type>
+	<pt>1/1</pt>
+    <tablerow>0</tablerow>
+    <text></text>
+    <reverse-related>Conjuring the Masses</reverse-related>
+</card>
+
+<card>
+    <name>Boulder</name>
+    <set picURL="/Boulder.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color></color>
+    <manacost></manacost>
+    <type>Token Artifact Creature - Boulder</type>
+	<pt>0/3</pt>
+    <tablerow>0</tablerow>
+    <text>Defender</text>
+    <reverse-related>Relentless Fortification</reverse-related>
+<reverse-related>Stone-Tosser Golem</reverse-related>
+<reverse-related>Burrowing Moledon</reverse-related>
+<reverse-related>Cloud Ruins</reverse-related>
+</card>
+
+<card>
+    <name>Ooze</name>
+    <set picURL="/Ooze.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>WG</color>
+    <manacost></manacost>
+    <type>Token Creature - Ooze</type>
+	<pt>*/*</pt>
+    <tablerow>0</tablerow>
+    <text></text>
+    <reverse-related>Oozing Oozer</reverse-related>
+</card>
+
+<card>
+    <name>Outcast</name>
+    <set picURL="/Outcast.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color></color>
+    <manacost></manacost>
+    <type>Token Creature - Outcast</type>
+	<pt>1/1</pt>
+    <tablerow>0</tablerow>
+    <text>Deathtouch</text>
+    <reverse-related>Out</reverse-related>
+</card>
+
+<card>
+    <name>Reflection</name>
+    <set picURL="/Reflection.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>W</color>
+    <manacost></manacost>
+    <type>Token Creature - Reflection</type>
+	<pt>1/1</pt>
+    <tablerow>0</tablerow>
+    <text></text>
+    <reverse-related>The Missing Fragment</reverse-related>
+</card>
+
+<card>
+    <name>Rabbit Spider</name>
+    <set picURL="/Rabbit Spider.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>G</color>
+    <manacost></manacost>
+    <type>Token Creature - Rabbit Spider</type>
+	<pt>1/1</pt>
+    <tablerow>0</tablerow>
+    <text>Duck - target creature this is ducking behind gets +1/+0 until end of turn.</text>
+    <reverse-related>Scatterbomb</reverse-related>
+</card>
+
+<card>
+    <name>Dung</name>
+    <set picURL="/Dung.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color></color>
+    <manacost></manacost>
+    <type>Token Artifact</type>
+    <tablerow>0</tablerow>
+    <text>{t}, Sacrifice this artifact: Target creature can't attack this turn.</text>
+    <reverse-related>Reoccuring Bullying</reverse-related>
+</card>
+
+<card>
+    <name>Bird</name>
+    <set picURL="/Bird.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>WU</color>
+    <manacost></manacost>
+    <type>Token Creature - Bird</type>
+	<pt>1/1</pt>
+    <tablerow>0</tablerow>
+    <text>Flying</text>
+    <reverse-related>Ancient Nestite</reverse-related>
+</card>
+
+<card>
+    <name>Skeleton</name>
+    <set picURL="/Skeleton.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>WB</color>
+    <manacost></manacost>
+    <type>Token Creature - Skeleton</type>
+	<pt>1/1</pt>
+    <tablerow>0</tablerow>
+    <text>Deathtouch</text>
+    <reverse-related>Icarus' Resting Place</reverse-related>
+</card>
+
+<card>
+    <name>Trilobite</name>
+    <set picURL="/Trilobite.full.jpg" picURLHq="" picURLSt="">DOD</set>
+    <color>UB</color>
+    <manacost></manacost>
+    <type>Token Creature - Trilobite</type>
+	<pt>1/1</pt>
+    <tablerow>0</tablerow>
+    <text>When this creature dies, target opponent mills 2 cards.</text>
+    <reverse-related>Ancient Tidepools</reverse-related>
+</card>
+
+</cards>
+</cockatrice_carddatabase>

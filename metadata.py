@@ -11,7 +11,7 @@ import UI
 base_filepath = ".\\DoD3\\"
 output_folder_name = "output"
 spreadsheet_file_name = "MtG DoD Custom - Cards.csv"
-uploaded_images_base_url = "https://roey-shap.github.io/ChickenSnake/DoD3/output/Playtest_Images/"
+uploaded_images_base_url = "https://roey-shap.github.io/MtGDoD3/output/Playtest_Card_Images/"
 set_code = "DOD"
 set_longname = "DoD3"
 set_version_code = "1_0"  # MUST BE IN XX_XX format! Not more than 1 underscore!
