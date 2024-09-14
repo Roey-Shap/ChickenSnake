@@ -15,10 +15,12 @@ class Card():
                 rarity: str,
                 stats: tuple[int, int] | None,
                 body_text: str,
-                flavor_text: str
+                flavor_text: str,
+                is_token: bool
                 ) -> None:
 
         self.name = name.replace("?", "").strip() # Would honestly be better to properly clean names of filepath-illegal characters but whatevs
+        self.is_token = is_token
 
         self.colors = colors
         self.is_colorless = len(colors) == 0
@@ -29,17 +31,16 @@ class Card():
         self.split_mana_pips: list[str] = list(filter(None, [symbol.strip("{") for symbol in self.raw_mana_cost_string.split("}")]))
         found_manacost_error = False
         order_checked_pips = []
+        self.corrected_pips = []
         for pip in self.split_mana_pips:
-            found_manacost_error = True
             order_checked_pip = pip
             flipped_pip = pip.lower()[::-1]
             if '/' in pip and pip not in scryfall_hybrid_format:
                 order_checked_pip = flipped_pip
-                if metadata.warn_about_card_semantics_errors:
-                    # UI.log_and_print(f"{name}: {pip}", do_print=metadata.verbose_mode_cards)
-                    UI.log_and_print(f"Correcting manacost hybrid pip order: {pip}", do_print=metadata.verbose_mode_cards)
+                self.corrected_pips.append(pip)
+                found_manacost_error = True
             order_checked_pips.append("{" + order_checked_pip + "}")
-
+        
         self.draftmancer_cost = "".join(order_checked_pips).upper()
 
         # Pure hybrid cards are those that can be played for only 2 or 3 colors and all of the pips are hybrid or whole of those colors
@@ -56,6 +57,9 @@ class Card():
         self.supertype = supertype
         self.subtype = subtype
         self.rarity = rarity
+        self.is_rarity_missing = len(rarity) == 0
+        if self.is_rarity_missing:
+            self.rarity = "c"
         rarities = {"c": "common", "u": "uncommon", "r": "rare", "m": "mythic"}
         self.rarity_name = rarities[self.rarity]
 
@@ -65,6 +69,11 @@ class Card():
         self.flavor_text = flavor_text
         
         self.found_manacost_error = found_manacost_error
+        
+        self.related_card_names = []
+
+    def set_related_card_name(self, card_name: str) -> None:
+        self.related_card_names.append(card_name)
 
     def get_type_string(self):
         final_string = self.supertype
@@ -91,3 +100,6 @@ class Card():
                         }}
     }}"""
         return final_string
+
+    def get_related_cards_string(self) -> str:
+        return "\n".join(f"<reverse-related>{name}</reverse-related>" for name in self.related_card_names)

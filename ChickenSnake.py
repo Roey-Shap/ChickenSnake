@@ -6,10 +6,13 @@ import LineSegment
 import os
 from ascii_art import logo_art
 from UI import log_and_print
+import time
 
 # @TODO: 
 ## General
 # Add proper instructions for zero-to-set
+
+# FOR USE IN CODE: LONG DASH COPY-PASTE — as opposed to - —
 
 ## Card image generation                            
 # Make gold cards still use correct color trim
@@ -27,9 +30,9 @@ from UI import log_and_print
 # Then apply those borders to the cards based on their type. The following are likely simple to start with:
 # (Normal, Artifact, Vehicle, Miracle, Tokens, Enchantments, Snow)
 # Border types downloaded (V by supported, X by unsupported):
-# X Normal
-# X Artifact
-# X Vehicle
+# V Normal
+# V Artifact
+# V Vehicle
 # X Arc-style tokens
 # X Miracle
 # X Fuse
@@ -37,7 +40,6 @@ from UI import log_and_print
 # X Saga
 
 # Border types to download in order of priority:
-# Enchantments (Nyx)
 # Snow
 # Split
 # ------
@@ -52,7 +54,7 @@ full_final_card_images_path = os.path.abspath(metadata.card_images_filepath)
 full_final_markdown_images_path = os.path.abspath(metadata.output_base_filepath)
 
 header_string = \
-f"""<?xml version="{metadata.set_version_code}" encoding="UTF-8"?>
+f"""<?xml version="{metadata.set_version_code.replace("_", ".")}" encoding="UTF-8"?>
 <cockatrice_carddatabase version="3">
 <sets>
 <set>
@@ -65,19 +67,39 @@ f"""<?xml version="{metadata.set_version_code}" encoding="UTF-8"?>
 <cards>
 """
 
+header_string_tokens = \
+f"""<?xml version="{metadata.set_version_code.replace("_", ".")}" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<cards>
+<!-- 
+<card>
+    <name></name>
+    <set picURL=""></set>
+    <color></color>
+    <manacost></manacost>
+    <type>Token Creature — </type>
+    <pt>/</pt>
+    <tablerow>1</tablerow>
+    <text></text>
+    <token>1</token>
+</card>
+    -->
+"""
+
 closer_string = \
 f"""
 </cards>
 </cockatrice_carddatabase>
 """
 
+closer_string_tokens = \
+f"""
+</cards>
+</cockatrice_carddatabase>
+"""
+
 def main():
-    generated_output_folder = False
-    for generated_folder in [metadata.output_base_filepath, metadata.card_images_filepath]:
-        output_folder_exists = os.path.exists(generated_folder)
-        if not output_folder_exists:
-            os.mkdir(generated_folder)
-            generated_output_folder = True
+    generated_a_missing_folder: bool = metadata.do_log_file_init()
 
     print(logo_art)
     print("\n")
@@ -88,6 +110,7 @@ def main():
         "Do you also want to generate default card images? (y/n) >>> >>> "
     )
     log_to_file("[User input]: " + generate_card_images_input)
+    start_time = time.time()
 
     log_and_print("\nExtracting card data from input file...")
     cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(metadata.card_data_filepath)
@@ -95,10 +118,13 @@ def main():
     do_generate_card_images = generate_card_images_input.lower() in ["y", "yes"]
     if do_generate_card_images:
         log_and_print("\nInitializing image creation assets...")
-        image_assets = initialize_card_image_assets(metadata.card_image_creation_assets_filepath)
+        image_assets = initialize_card_image_assets({
+                    "pre-set": metadata.card_image_creation_assets_filepath,
+                    "generated": metadata.card_image_creation_assets_generated_filepath
+                    })
         
         log_and_print("\nGenerating card images...")
-        generate_card_images(cards_dict, metadata.card_images_filepath, image_assets)
+        generate_card_images(cards_dict, {"normal": metadata.card_images_filepath, "token": metadata.token_images_filepath}, image_assets)
         
         log_and_print("\nDone!") 
 
@@ -108,11 +134,15 @@ def main():
                                             metadata.draft_pack_settings_string, 
                                             metadata.uploaded_images_base_url, 
                                             card_rarities, cards_by_rarity)
-    generate_markdown_file(metadata.markdown_filepath, cards_dict, 
-                           header_string, closer_string, metadata.set_code)
+    generate_markdown_file({"normal": metadata.markdown_cards_filepath, "token": metadata.markdown_tokens_filepath}, 
+                            cards_dict, 
+                            {"normal": header_string, "token": header_string_tokens}, 
+                            {"normal": closer_string, "token": closer_string_tokens}, 
+                            metadata.set_code)
 
     log_and_print()
-    log_and_print("==============")
+    log_and_print("Program execution time: %.2f seconds" % (time.time() - start_time))
+    log_and_print("=========================================")
     if do_generate_card_images:
         log_and_print("Generated card images at:")
         log_and_print(">>>   " + full_final_card_images_path)
@@ -121,7 +151,7 @@ def main():
     log_and_print("Cockatrice set file (.xml) and Drafting file (.txt) generated at:")
     log_and_print(">>>   " + full_final_markdown_images_path)
     log_and_print("This entire program output has also been printed to a log file there.")
-    log_and_print("==============")
+    log_and_print("=========================================")
 
 
 if __name__ == "__main__":

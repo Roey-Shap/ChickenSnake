@@ -8,6 +8,7 @@ from LineSegment import hybrid_pips_with_non_wubrg_order_colors
 import metadata
 from UI import log_and_print
 import os.path
+import math_utils
 
 import traceback
 
@@ -15,6 +16,7 @@ CARD_PICTURE_FILE_FORMAT = "jpg"
 
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
+token_yoffset = 59
 # card_pixel_dims = (375, 523)
 card_pixel_dims = (500, 700)
 max_types_string_width_ratio = 357 / 500
@@ -27,7 +29,8 @@ right_mana_border = int(card_pixel_dims[0] * 0.93)
 
 class CardImageInfo():
         def __init__(self, frame_supertype: str, side: str, frame_subtype: str,
-                     should_be_modified=False, special_card_asset_name_mode=False) -> None:
+                     should_be_modified=False, special_card_asset_name_mode=False,
+                     special_card_modifier="") -> None:
             self.frame_supertype = frame_supertype
             self.side = side
             self.frame_subtype = frame_subtype
@@ -36,8 +39,14 @@ class CardImageInfo():
             single_underscore = "_" if not special_card_asset_name_mode else ""
             self.file_prefix = f"{self.frame_supertype}{single_underscore}{self.side}{extra_underscore}{self.frame_subtype}"
             self.base_file_prefix = f"{self.frame_supertype}_{self.frame_subtype}"
+            if special_card_modifier:
+                self.file_prefix = special_card_modifier + "_" + self.file_prefix
+                self.base_file_prefix = special_card_modifier + "_" + self.base_file_prefix
+                # self.file_prefix = special_card_modifier + "_" + self.file_prefix
+
             if not self.should_be_modified and not special_card_asset_name_mode:
                 self.file_prefix = self.base_file_prefix
+            
             self.filepath = ""
 
 def get_color_string(csv_row: dict[str, str]) -> str:
@@ -85,7 +94,6 @@ def reorder_mana_string(stripped_cost: str) -> str:
 
 def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
     cards_dict: dict[str, Card] = {}
-    saw_card_with_errors = False
     with open(card_data_filepath) as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
@@ -98,14 +106,13 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 supertype = row["Type"]
                 subtype = row["Subtype"]
                 rarity = row["Rarity"]
-
-                is_rarity_missing = len(rarity) == 0
-                if is_rarity_missing:
-                    rarity = "c"
+                is_token = row["Is Token"]
 
                 stats = get_power_toughness(row)
                 body_text = row["Desc"]
                 flavor_text = row["Flavor Text"]
+                related_card_names = row["Related Cards"].split(",")
+                related_card_names = [name.strip() for name in related_card_names]
 
                 # Replace placeholder name with card name
                 if metadata.replace_reference_string_with_cardname and len(metadata.reference_card_name) > 0:
@@ -114,42 +121,65 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 loaded_card = Card(
                     name, colors, manacost, raw_mana_cost_string,
                     converted_manacost, supertype, subtype, rarity,
-                    stats, body_text, flavor_text
+                    stats, body_text, flavor_text, is_token=="TRUE"
                 )
+                
+                for related_name in related_card_names:
+                    loaded_card.set_related_card_name(related_name)
                 cards_dict[name] = loaded_card
 
-                # Card data warnings
-                card_warning_messages = []
-                is_creature = supertype.find("Creature") != -1
-                if len(raw_mana_cost_string) == 0 and supertype.find("Land") == -1:
-                    card_warning_messages.append("Missing a mana cost.")
-                if loaded_card.found_manacost_error:
-                    card_warning_messages.append("Had a manacost pip-order error.")
-                if len(supertype) == 0:
-                    card_warning_messages.append("Missing a supertype.")
-                if is_creature and len(subtype) == 0:
-                    card_warning_messages.append("Missing a subtype.")
-                if is_creature and stats is None:
-                    card_warning_messages.append("Missing power/toughness.")
-                if metadata.rarities_should_be_in_place and is_rarity_missing:
-                    card_warning_messages.append("Missing rarity. Defaulting to COMMON.")
-                if len(card_warning_messages) > 0:
-                    if not metadata.verbose_mode_cards:
-                        if not saw_card_with_errors:
-                            print(">>>  You had warnings about imported card data! Check the log for more details.")
-                            saw_card_with_errors = True
-                    
-                    log_and_print(f"Warnings for '{name}':", do_print=metadata.verbose_mode_cards)
-                    for warning in card_warning_messages:
-                        log_and_print(">  " + warning, do_print=metadata.verbose_mode_cards)
-        if not saw_card_with_errors:
-            log_and_print("No warnings about imported card data to report!", do_print=metadata.verbose_mode_cards)
+    # Card data warnings
+    saw_card_with_errors: bool = False
+    card: Card
+    for card in cards_dict.values():
+        card_warning_messages = []
+        is_creature = card.supertype.find("Creature") != -1
+        if len(card.raw_mana_cost_string) == 0 and card.supertype.find("Land") == -1 and not card.is_token:
+            card_warning_messages.append("Missing a mana cost.")
+        if card.found_manacost_error and metadata.warn_about_card_semantics_errors:
+            card_warning_messages.append("Had a manacost pip-order error:")
+            for pip in card.corrected_pips:
+                card_warning_messages.append(f"   Correcting manacost hybrid pip order: {pip} -> {pip[::-1]}")
+        if len(card.supertype) == 0:
+            card_warning_messages.append("Missing a supertype.")
+        if is_creature and len(card.subtype) == 0:
+            card_warning_messages.append("Missing a subtype.")
+        if is_creature and card.stats is None:
+            card_warning_messages.append("Missing power/toughness.")
+        if metadata.rarities_should_be_in_place and card.is_rarity_missing and not card.is_token:
+            card_warning_messages.append("Missing rarity. Defaulting to COMMON.")
+        
+        non_existing_related_cards: list[str] = []
+        for related_card_name in card.related_card_names:
+            if not related_card_name:
+                continue
+            if related_card_name not in cards_dict:
+                non_existing_related_cards.append(related_card_name)
+                
+        if len(non_existing_related_cards) > 0:
+            newline_string = ",\n   "
+            card_warning_messages.append(f"There were cards you marked as related to this one that aren't in your database: \n   {newline_string.join(non_existing_related_cards)}")
+        
+        if len(card_warning_messages) > 0:
+            if not metadata.verbose_mode_cards:
+                if not saw_card_with_errors:
+                    print(">>>  You had warnings about imported card data! Check the log for more details.")
+                    saw_card_with_errors = True
+            
+            log_and_print(f"Warnings for '{card.name}':", do_print=metadata.verbose_mode_cards)
+            for warning in card_warning_messages:
+                log_and_print(">  " + warning, do_print=metadata.verbose_mode_cards)
+
+    if not saw_card_with_errors:
+        log_and_print("No warnings about imported card data to report!", do_print=metadata.verbose_mode_cards)
+
 
     return cards_dict
 
 def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
     frame_supertype = "normal"
     frame_subtypes = []
+    frame_modifier = "token" if card_data.is_token else ""
     # Note that the Card's color_string is just "M" if it's gold!
     # Just to test for now...
     num_colors = len(card_data.colors_string)
@@ -175,10 +205,10 @@ def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
     if len(frame_subtypes) > 1:
         # print(frame_subtypes)
         valid_sides = ["l", "r"] if len(frame_subtypes) == 2 else ["l", "m", "r"]
-        return [CardImageInfo(frame_supertype, side, frame_subtype, should_be_modified=True) for side, frame_subtype in zip(valid_sides, frame_subtypes)]
+        return [CardImageInfo(frame_supertype, side, frame_subtype, should_be_modified=True, special_card_modifier=frame_modifier) for side, frame_subtype in zip(valid_sides, frame_subtypes)]
     else:
         # You have exactly 1 subtype -> we don't need to combine card frames
-        return [CardImageInfo(frame_supertype, "", frame_subtypes[0], should_be_modified=False)]
+        return [CardImageInfo(frame_supertype, "", frame_subtypes[0], should_be_modified=False, special_card_modifier=frame_modifier)]
 
 def get_card_pt_image_info(card_data: Card) -> CardImageInfo:
     if card_data.is_colorless:
@@ -198,7 +228,7 @@ def get_card_pt_image_info(card_data: Card) -> CardImageInfo:
 def get_card_set_symbol_info(card_data: Card) -> CardImageInfo:
     return CardImageInfo(f"set_symbol_{card_data.rarity_name}", "", "", should_be_modified=False, special_card_asset_name_mode=True)
 
-def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, image_assets: dict[CardImageInfo, Image]):
+def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[str, str], image_assets: dict[CardImageInfo, Image]):
     num_cards_total = len(card_dict)
     current_card_index = 0
 
@@ -216,13 +246,14 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 card_image_total.alpha_composite(image_assets[get_card_pt_image_info(card_data).file_prefix])
 
             # Set Symbol
-            card_image_total.alpha_composite(image_assets[get_card_set_symbol_info(card_data).file_prefix])
+            card_image_total.alpha_composite(image_assets[get_card_set_symbol_info(card_data).file_prefix],
+                                            dest=(0, token_yoffset if card_data.is_token else 0))
 
             # Name and Manacost #################################################
             chosen_title_font = Fonts.font_title
             chosen_manacost_font = Fonts.font_symbols_large
             chosen_manacost_bg_font = Fonts.font_symbols_large_pip_bg
-            # Try up to five times to shrink the text based on the estimated size
+            # Try a few times to shrink the text based on the estimated size
 
             # Mana Cost
             debug_on = False # card_data.name == "Ancient Nestite"
@@ -248,8 +279,11 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 chosen_title_font = Fonts.get_title_font(Fonts.font_title_initial_size * current_title_width_to_space_ratio)
             
             # Title
+            title_color: tuple[int, int, int] = C_WHITE if card_data.is_token else C_BLACK
+            title_text: str = card_data.name.upper() if card_data.is_token else card_data.name
+            title_position: tuple[int, int] = math_utils.add_tuples((40, 54), (210, 1) if card_data.is_token else (0, 0))
             ImageDraw.Draw(card_image_total).text(
-                (40, 54), card_data.name, C_BLACK, font=chosen_title_font, anchor="lm"
+                title_position, title_text, title_color, font=chosen_title_font, anchor=("mm" if card_data.is_token else "lm")
             )
             # END Name and Manacost #################################################
 
@@ -278,8 +312,9 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # if len(types_string) > 36:
             #     chosen_types_font = Fonts.font_types_tiny
 
+            types_string_yoffset: float = 413 + (token_yoffset if card_data.is_token else 0)
             ImageDraw.Draw(card_image_total).text(
-                (40, 413), card_data.get_type_string(), C_BLACK, font=chosen_types_font, anchor="lm"
+                (40, types_string_yoffset), card_data.get_type_string(), C_BLACK, font=chosen_types_font, anchor="lm"
             )
 
             # Body Text ######################
@@ -328,8 +363,9 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                     # print(card_data.name)
                     # print(tries, body_text_too_large, current_font_max)
 
+            body_text_position: tuple[int, int] = math_utils.add_tuples((44, 445), (0, token_yoffset) if card_data.is_token else (0, 0))
             for segment in segments:
-                segment.draw(card_image_total, (44, 445))
+                segment.draw(card_image_total, body_text_position)
            
             if card_data.has_stats:
                 ImageDraw.Draw(card_image_total).text(
@@ -338,15 +374,14 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             
             rgb_image = card_image_total.convert("RGB")
             try:
-                rgb_image.save(images_save_filepath + f"{card_data.name}.{CARD_PICTURE_FILE_FORMAT}", quality=100)
+                corresponding_filepath: str = images_save_filepath["token" if card_data.is_token else "normal"]
+                rgb_image.save(corresponding_filepath + f"{card_data.name}.{CARD_PICTURE_FILE_FORMAT}", quality=100)
             except:
                 raise ValueError(f"There was an issue saving the image for: {card_data.name}")
 
             if metadata.verbose_mode_cards:
                 if current_card_index % 25 == 0:
                     log_and_print(f"Finished card {current_card_index+1}/{num_cards_total}")
-
-
 
             current_card_index += 1
         except Exception as e:
@@ -360,7 +395,7 @@ For now, this is just:
 For each normal card type frame, prepare half-frames of each color and card supertype.
 Save them all that the same size and the correct format for superimposing on one another.
 """
-def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
+def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, Image]:
     resized_images: dict[str, Image] = {}
     # There are certain image names we expect to see. Initialize that list first.
     # Some will be expected to have a left and right side for mixing (X/V)
@@ -376,9 +411,10 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
     unsplittable_card_prefixes = ["m", "artifact", "c"]
     card_frame_type = ["normal", "enchantment"] # "token", "miracle"
     one_off_card_subtypes = ["vehicle"]
+    special_card_modifiers = ["", "token"]
 
-    image_prefixes  = [CardImageInfo(frame, side, color, should_be_modified=True) for frame in card_frame_type for side in ["l", "r"] for color in splittable_card_prefixes]
-    image_prefixes += [CardImageInfo(frame_supertype, "", frame_subtype, should_be_modified=False) for frame_supertype in card_frame_type for frame_subtype in unsplittable_card_prefixes]
+    image_prefixes  = [CardImageInfo(frame, side, color, should_be_modified=True, special_card_modifier=modifier) for frame in card_frame_type for side in ["l", "r"] for color in splittable_card_prefixes for modifier in special_card_modifiers]
+    image_prefixes += [CardImageInfo(frame_supertype, "", frame_subtype, should_be_modified=False, special_card_modifier=modifier) for frame_supertype in card_frame_type for frame_subtype in unsplittable_card_prefixes for modifier in special_card_modifiers]
     image_prefixes += [CardImageInfo("pt", "", frame_subtype, should_be_modified=False) for frame_subtype in splittable_card_prefixes + unsplittable_card_prefixes + one_off_card_subtypes]
     image_prefixes += [CardImageInfo(f"set_symbol_{rarity}", "", "", should_be_modified=False, special_card_asset_name_mode=True) for rarity in ["common", "uncommon", "rare", "mythic"]]
 
@@ -387,8 +423,7 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
     hybrid_card_mask_image: Image = None
     hybrid_card_masks: dict[str, Image] = {}
     try:
-        # print("Accessing " + assets_filepath + "hybrid_card_mask.png")
-        hybrid_card_mask_image = Image.open(assets_filepath + "hybrid_card_mask.png")
+        hybrid_card_mask_image = Image.open(assets_filepath["pre-set"] + "hybrid_card_mask.png")
         hybrid_card_mask_image = hybrid_card_mask_image.resize(card_pixel_dims).convert("RGBA")
         hybrid_card_masks["l"] = hybrid_card_mask_image
         hybrid_card_masks["r"] = hybrid_card_mask_image.transpose(Image.FLIP_LEFT_RIGHT)
@@ -397,13 +432,14 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
 
     for prefix in image_prefixes:
         image_info: CardImageInfo = prefix
-        expected_image_filepath = assets_filepath + image_info.file_prefix + image_suffix
+        base_folder_path: str = assets_filepath["generated" if image_info.should_be_modified else "pre-set"]
+        expected_image_filepath = base_folder_path + image_info.file_prefix + image_suffix
         image_info.filepath = expected_image_filepath
         try:
             if not image_info.should_be_modified:
                 # If the image isn't to be modified to generate new card borders, it should exist
                 # ... and we just need to resize it and hold it in memory
-                # print(f"Accessing base file {expected_image_filepath}")
+                log_and_print(f"Accessing base file to simply load it into memory {expected_image_filepath}", do_print=metadata.verbose_mode_files)
                 base_image: Image = Image.open(expected_image_filepath)
                 resized_image: Image = base_image.resize(card_pixel_dims)
                 resized_images[image_info.file_prefix] = resized_image.convert("RGBA")
@@ -411,10 +447,10 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
                 # Here the image shouldn't necessarily exist because we need to generate it.
                 # We'll check if we already have:
                 was_image_generated: bool = os.path.isfile(expected_image_filepath)
-                base_image_filepath = assets_filepath + image_info.base_file_prefix + image_suffix
+                base_image_filepath = assets_filepath["pre-set"] + image_info.base_file_prefix + image_suffix
                 if not was_image_generated or metadata.always_regenerate_base_card_frames:
                     log_and_print(f"To-be-generated file {expected_image_filepath} doesn't exist. Generating...", do_print=metadata.verbose_mode_files)
-                    log_and_print(f"Accessing base file {base_image_filepath}", do_print=metadata.verbose_mode_files)
+                    log_and_print(f"Accessing base file {base_image_filepath} to mask it", do_print=metadata.verbose_mode_files)
                     base_image = Image.open(base_image_filepath)
                     resized_image: Image = base_image.resize(card_pixel_dims)
                     masked_image = ImageChops.multiply(resized_image, hybrid_card_masks[image_info.side])
@@ -422,8 +458,7 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
                     # Save the image so we don't need to generate it next time
                     masked_image.save(expected_image_filepath, quality=100)
                 else:
-                    if metadata.verbose_mode_files:
-                        log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=metadata.verbose_mode_files)
+                    log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=metadata.verbose_mode_files)
                     loaded_image = Image.open(expected_image_filepath)
                     resized_image: Image = loaded_image.resize(card_pixel_dims)
                     resized_images[image_info.file_prefix] = resized_image
@@ -432,20 +467,6 @@ def initialize_card_image_assets(assets_filepath: str) -> dict[str, Image]:
                         You may need to redownload the Playtest_Base_Images folder.")
 
     return resized_images
-
-    # image_color_prefixes = [f"{color}_{side}" for side in ["l", "m", "r"] for color in "WUBRG"] + ["c_pt_", "m_", "c_", "set_symbol_"]
-    # for prefix in image_color_prefixes:
-    #     image_name_suffix = prefix.lower() + "base.png"
-    #     image_filepath = assets_filepath + image_name_suffix
-    #     try:
-    #         base_image: Image = Image.open(image_filepath)
-    #         resized_image: Image = base_image.resize(card_pixel_dims)
-    #         resized_images[prefix] = resized_image.convert("RGBA")
-    #     except:
-    #         raise ValueError(f"There was an issue accessing image: {image_name_suffix}")
-
-    return resized_images
-
 
 def group_cards_by_rarity(card_rarities: list[str], cards_dict: dict[str: Card]):
     cards_by_rarity: dict[str, list[Card]] = {rarity[0].lower(): [] for rarity in card_rarities}
@@ -457,14 +478,18 @@ def group_cards_by_rarity(card_rarities: list[str], cards_dict: dict[str: Card])
             
     return cards_by_rarity
 
-def generate_markdown_file(markdown_filepath: str, 
+def generate_markdown_file(markdown_filepath: dict[str, str], 
                            cards_dict: dict[str: Card],
-                           header_string: str,
-                           closer_string: str,
+                           header_string: dict[str, str],
+                           closer_string: dict[str, str],
                            set_code: str):
-    with open(markdown_filepath, 'w') as markdown_file:
-        markdown_file.write(header_string)
+    # Make normal cards markdown
+    with open(markdown_filepath["normal"], 'w') as markdown_file:
+        markdown_file.write(header_string["normal"])
         for card in cards_dict.values():
+            if card.is_token:
+                continue
+
             markdown_file.write(
 f"""
 <card>
@@ -479,7 +504,33 @@ f"""
 """
     )
 
-        markdown_file.write(closer_string)
+        markdown_file.write(closer_string["normal"])
+
+    # Make tokens markdown
+    with open(markdown_filepath["token"], 'w') as markdown_file:
+        markdown_file.write(header_string["token"])
+        for card in cards_dict.values():
+            if not card.is_token:
+                continue
+
+            markdown_file.write(
+f"""
+<card>
+    <name>{card.name}</name>
+    <set picURL="{f"/{card.name}.full.{CARD_PICTURE_FILE_FORMAT}"}" picURLHq="" picURLSt="">{set_code}</set>
+    <color>{card.colors}</color>
+    <manacost>{card.manacost}</manacost>
+    <type>Token {card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.stats[0]}/{card.stats[1]}</pt>"}
+    <tablerow>0</tablerow>
+    <text>{card.body_text}</text>
+    {card.get_related_cards_string()}
+</card>
+"""
+    )
+
+        markdown_file.write(closer_string["token"])
+
+    
 
 def generate_draft_text_file(draft_text_filepath: str,
                              cards_dict: dict[str, Card],

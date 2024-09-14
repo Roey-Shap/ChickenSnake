@@ -1,711 +1,127 @@
-September 14, 2024 at 02:27
+September 15, 2024 at 01:00
 Welcome to ChickenSnake, for fast custom playtest cards!
 [User input]: y
 
 Extracting card data from input file...
-Warnings for 'Sneaking Dile':
->  Had a manacost pip-order error.
-Warnings for 'Secret Wrangler':
->  Had a manacost pip-order error.
-Warnings for 'Ambitious Contortionist ':
->  Had a manacost pip-order error.
-Warnings for 'Secret-Gorger':
->  Had a manacost pip-order error.
-Warnings for 'Clandestilla':
->  Had a manacost pip-order error.
-Warnings for 'Fade to Mist':
->  Had a manacost pip-order error.
-Warnings for 'Nimble Concealment':
->  Had a manacost pip-order error.
-Warnings for 'Shaming Nymph':
->  Had a manacost pip-order error.
-Warnings for 'Public Flogging':
->  Had a manacost pip-order error.
-Warnings for 'Mounting Storm':
->  Had a manacost pip-order error.
-Warnings for 'Storm of Tears':
->  Had a manacost pip-order error.
-Warnings for 'Blundering Ninja':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/w
-Warnings for 'Pure-Mind Trainee':
->  Had a manacost pip-order error.
-Warnings for 'Branching Mutant':
->  Had a manacost pip-order error.
-Warnings for 'Haughty Gamble':
->  Had a manacost pip-order error.
-Warnings for 'Riling Pyrodevil':
->  Had a manacost pip-order error.
-Warnings for 'Clumsy Secretary':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: r/b
-Warnings for 'Tactless Show-Host':
->  Had a manacost pip-order error.
-Warnings for 'Expose':
->  Had a manacost pip-order error.
-Warnings for 'Mind-Read':
->  Had a manacost pip-order error.
-Warnings for 'Show of Power':
->  Had a manacost pip-order error.
-Warnings for 'Obliging Confession':
->  Had a manacost pip-order error.
-Warnings for 'Excitable Weird':
->  Had a manacost pip-order error.
-Warnings for 'Celebratory Giant':
->  Had a manacost pip-order error.
-Warnings for 'Stone-Glare Officer':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Warnings for 'Headfirst Alpakon':
->  Had a manacost pip-order error.
-Warnings for 'Pay in Confidence':
->  Had a manacost pip-order error.
-Warnings for 'Preemptive Funeral':
->  Had a manacost pip-order error.
-Warnings for 'Open Burial':
->  Had a manacost pip-order error.
-Warnings for 'Exposed Metal':
->  Had a manacost pip-order error.
-Warnings for 'Dead On Sight':
->  Had a manacost pip-order error.
-Warnings for 'Kickback':
->  Had a manacost pip-order error.
-Warnings for 'Evaporating Wish':
->  Had a manacost pip-order error.
-Warnings for 'Revealing Flash':
->  Had a manacost pip-order error.
-Warnings for 'Flash Fiend':
->  Had a manacost pip-order error.
-Warnings for 'Public Display of Affection':
->  Had a manacost pip-order error.
-Warnings for 'The Chortle-Beast':
->  Had a manacost pip-order error.
-Warnings for 'Law-Bind Eagle':
->  Had a manacost pip-order error.
-Warnings for 'Brazen Hawk':
->  Had a manacost pip-order error.
-Warnings for 'War-Cry Roc':
->  Had a manacost pip-order error.
-Warnings for 'Shrieking Vulture':
->  Had a manacost pip-order error.
-Warnings for 'Swift-Swipe Sugarglider':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Warnings for 'Death-Leap Messenger':
->  Had a manacost pip-order error.
-Warnings for 'Thunder Chief':
->  Had a manacost pip-order error.
-Warnings for 'Couragous Yaunling':
->  Had a manacost pip-order error.
-Warnings for 'Nervous Digger':
->  Had a manacost pip-order error.
-Warnings for 'Throw Under the Bus':
->  Had a manacost pip-order error.
-Warnings for 'Prinoc, Outraged':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/g
-Correcting manacost hybrid pip order: w/g
-Warnings for 'Soul-Weave':
->  Had a manacost pip-order error.
-Warnings for 'Imminent-Flame Crollock':
->  Had a manacost pip-order error.
-Warnings for 'Feed With Security':
->  Had a manacost pip-order error.
-Warnings for 'Mosh Raven':
->  Had a manacost pip-order error.
-Warnings for 'Nauseating Teleport':
->  Had a manacost pip-order error.
-Warnings for 'Blood-Vent Mage':
->  Had a manacost pip-order error.
-Warnings for 'Oversee':
->  Had a manacost pip-order error.
-Warnings for 'Rummaging Mapmaker':
->  Had a manacost pip-order error.
-Warnings for 'Quickstep Medic':
->  Had a manacost pip-order error.
-Warnings for 'Practical Spellcaster':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: g/b
-Warnings for 'Harried Gravedigger':
->  Had a manacost pip-order error.
-Warnings for 'Soul Sister':
->  Had a manacost pip-order error.
-Warnings for 'Spirit-Pact Pegasus':
->  Had a manacost pip-order error.
-Warnings for 'Allie's Cat':
->  Had a manacost pip-order error.
-Warnings for 'Starfall Geist':
->  Had a manacost pip-order error.
-Warnings for 'Aphrodisic Entertainer':
->  Had a manacost pip-order error.
-Warnings for 'Goated':
->  Had a manacost pip-order error.
-Warnings for 'Lava-Geyser Ejectid':
->  Had a manacost pip-order error.
-Warnings for 'Ruthless Headmaster':
->  Had a manacost pip-order error.
-Warnings for 'Great-Wing Priestess':
->  Had a manacost pip-order error.
-Warnings for 'Trickster Trago':
->  Had a manacost pip-order error.
-Warnings for 'Skitterjill':
->  Had a manacost pip-order error.
-Warnings for 'Stern Tracy':
->  Had a manacost pip-order error.
-Warnings for 'Overcharged Spore Behemoth':
->  Had a manacost pip-order error.
-Warnings for 'Lethargic Drakus':
->  Had a manacost pip-order error.
-Warnings for 'Fiesty Rollick':
->  Had a manacost pip-order error.
-Warnings for 'Dancefloor Dragger':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: r/b
-Warnings for 'Deathmist Detonation':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/g
-Warnings for 'Spirit Spear':
->  Had a manacost pip-order error.
-Warnings for 'Incendiary Canary':
->  Had a manacost pip-order error.
-Warnings for 'Terra-Reformist':
->  Had a manacost pip-order error.
-Warnings for 'Juju Farmer':
->  Had a manacost pip-order error.
-Warnings for 'Floral Fling':
->  Had a manacost pip-order error.
-Warnings for 'Gravefling':
->  Had a manacost pip-order error.
-Warnings for 'Tumorfling':
->  Had a manacost pip-order error.
-Warnings for 'Tensionfling':
->  Had a manacost pip-order error.
-Warnings for 'Conjuring the Masses':
->  Had a manacost pip-order error.
-Warnings for 'Collective Wail':
->  Had a manacost pip-order error.
-Warnings for 'Lifeforce Extraction':
->  Had a manacost pip-order error.
-Warnings for 'The Obsidian':
->  Had a manacost pip-order error.
-Warnings for 'Terraformer Monk':
->  Had a manacost pip-order error.
-Warnings for 'Granel, Lie-Torcher':
->  Had a manacost pip-order error.
-Warnings for 'Slide In':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Force Behind':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/g
-Warnings for 'Survival Instinct':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Warnings for 'Pack Dog':
->  Had a manacost pip-order error.
-Warnings for 'Cunning Mink':
->  Had a manacost pip-order error.
-Warnings for 'Snapstrike Una':
->  Had a manacost pip-order error.
-Warnings for 'Likeminded Tactician':
->  Had a manacost pip-order error.
-Warnings for 'Relentless Fortification':
->  Had a manacost pip-order error.
-Warnings for 'Stone-Tosser Golem':
->  Had a manacost pip-order error.
-Warnings for 'Strength of the Age':
->  Had a manacost pip-order error.
-Warnings for 'Illusory Forces':
->  Had a manacost pip-order error.
-Warnings for 'High-Ear Strike Captain':
->  Had a manacost pip-order error.
-Warnings for 'Brute-Boxer Janth':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Warnings for 'Encouraging Bixy':
->  Had a manacost pip-order error.
-Warnings for 'Worldly Navi-Gator':
->  Had a manacost pip-order error.
-Warnings for 'Crumblestorm':
->  Had a manacost pip-order error.
-Warnings for 'Collective Cover':
->  Had a manacost pip-order error.
-Warnings for 'Curihoust':
->  Had a manacost pip-order error.
-Warnings for 'Scardiest Cat':
->  Had a manacost pip-order error.
-Warnings for 'The Second Wind':
->  Had a manacost pip-order error.
-Warnings for 'Cape Flip':
->  Had a manacost pip-order error.
-Warnings for 'Soul Sear':
->  Had a manacost pip-order error.
-Warnings for 'Sniveling Snake':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/w
-Warnings for 'Encouragement':
->  Had a manacost pip-order error.
-Warnings for 'Overrun':
->  Had a manacost pip-order error.
-Warnings for 'Active Duty Bonus':
->  Had a manacost pip-order error.
-Warnings for 'High-Brow Gatekeeper':
->  Had a manacost pip-order error.
-Warnings for 'Tap-Dancing Heron':
->  Had a manacost pip-order error.
-Warnings for 'Reinforcement Whale':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: r/b
-Warnings for 'Carrion Bird':
->  Had a manacost pip-order error.
-Warnings for 'Devoted Bombardier':
->  Had a manacost pip-order error.
-Warnings for 'Oozing Oozer':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/w
-Warnings for 'Free Spirit':
->  Had a manacost pip-order error.
-Warnings for 'Manglevine':
->  Had a manacost pip-order error.
-Warnings for 'Invasive Sproutkin':
->  Had a manacost pip-order error.
-Warnings for 'Relentless Pursuit':
->  Had a manacost pip-order error.
-Warnings for 'Future in Flames':
->  Had a manacost pip-order error.
-Warnings for 'Dust Slice':
->  Had a manacost pip-order error.
-Warnings for 'Openest Mind':
->  Had a manacost pip-order error.
-Warnings for 'Invasive Denial':
->  Had a manacost pip-order error.
-Warnings for 'Halt':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Absorb Shock':
->  Had a manacost pip-order error.
-Warnings for 'Out':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: g/r
-Warnings for 'Manashower':
->  Had a manacost pip-order error.
-Warnings for 'Devil-Grin Captain':
->  Had a manacost pip-order error.
-Warnings for 'Acceptance':
->  Had a manacost pip-order error.
-Warnings for 'Postmortem Author':
->  Had a manacost pip-order error.
-Warnings for 'Overexcite':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: p/b
-Warnings for 'Plague Bearer':
->  Had a manacost pip-order error.
-Warnings for 'Death-Defying Hookshot':
->  Had a manacost pip-order error.
-Warnings for 'The Missing Fragment':
->  Had a manacost pip-order error.
-Warnings for 'Drakus of Volcanic Storms':
->  Had a manacost pip-order error.
-Warnings for 'Divine Bullhorn':
->  Had a manacost pip-order error.
-Warnings for 'Persistent Tuyon':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: g/r
-Warnings for 'Ambitious Gambit':
->  Had a manacost pip-order error.
-Warnings for 'Afterlife Leech':
->  Had a manacost pip-order error.
-Warnings for 'Fuse-burners':
->  Had a manacost pip-order error.
-Warnings for 'Enlisting Shadow':
->  Had a manacost pip-order error.
-Warnings for 'Compulsive Maniac':
->  Had a manacost pip-order error.
-Warnings for 'Meek Saboteur':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/g
-Warnings for 'Well-Travelled Alpakon':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/g
-Warnings for 'Mother Alpakon':
->  Had a manacost pip-order error.
-Warnings for 'Frozen Dragon':
->  Had a manacost pip-order error.
-Warnings for 'Frozen Dragon's Eye':
->  Had a manacost pip-order error.
-Warnings for 'Hoarding Gobling':
->  Had a manacost pip-order error.
-Warnings for 'Mossroamer':
->  Had a manacost pip-order error.
-Warnings for 'Regrowl':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Correcting manacost hybrid pip order: w/r
-Warnings for 'Viss, the Dauntless':
->  Had a manacost pip-order error.
-Warnings for 'Call Out':
->  Had a manacost pip-order error.
-Warnings for 'Flicker Bolt':
->  Had a manacost pip-order error.
-Warnings for 'Spontaneous Bet':
->  Had a manacost pip-order error.
-Warnings for 'Battlefield Confusion':
->  Had a manacost pip-order error.
-Warnings for 'Void Dweller':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: p/b
-Warnings for 'Birdcrank':
->  Had a manacost pip-order error.
-Warnings for 'Earned Wings':
->  Had a manacost pip-order error.
-Warnings for 'Stumbling Flight':
->  Had a manacost pip-order error.
-Warnings for 'Feeding Wraith':
->  Had a manacost pip-order error.
-Warnings for 'Revel in Might':
->  Had a manacost pip-order error.
-Warnings for 'Diminishing Voices':
->  Had a manacost pip-order error.
-Warnings for 'Deconstructor Agent':
->  Had a manacost pip-order error.
-Warnings for 'Aisul, the Solitary Flame':
->  Had a manacost pip-order error.
-Warnings for 'March the Foothills':
->  Had a manacost pip-order error.
-Warnings for 'Indecisive Threat':
->  Had a manacost pip-order error.
-Warnings for 'Condescending Dismissal':
->  Had a manacost pip-order error.
-Warnings for 'Unconfident Pute':
->  Had a manacost pip-order error.
-Warnings for 'Burrowing Moledon':
->  Had a manacost pip-order error.
-Warnings for 'Rallying Wimp':
->  Had a manacost pip-order error.
-Warnings for 'Mirthful Stomping':
->  Had a manacost pip-order error.
-Warnings for 'Scatterbomb':
->  Had a manacost pip-order error.
-Warnings for 'Showcropper':
->  Had a manacost pip-order error.
-Warnings for 'Therapy Whale':
->  Had a manacost pip-order error.
-Warnings for 'Hallway Studier':
->  Had a manacost pip-order error.
-Warnings for 'Library Shrieker':
->  Had a manacost pip-order error.
-Warnings for 'Imposing Aura':
->  Had a manacost pip-order error.
-Warnings for 'Feast of Waking Dreams':
->  Had a manacost pip-order error.
-Warnings for 'Mob Momentum':
->  Had a manacost pip-order error.
-Warnings for 'Hit the Ground Running':
->  Had a manacost pip-order error.
-Warnings for 'Composted Farmer':
->  Had a manacost pip-order error.
-Warnings for 'Wide-Stance Visionary':
->  Had a manacost pip-order error.
-Warnings for 'Impression of Greed':
->  Had a manacost pip-order error.
-Warnings for 'Plant Slowly':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Overgenerous Symbiote':
->  Had a manacost pip-order error.
-Warnings for 'Unconfident War Elephant':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Shroom Gator Randy':
->  Had a manacost pip-order error.
-Warnings for 'Ninth Life':
->  Had a manacost pip-order error.
-Warnings for 'Reoccuring Bullying':
->  Had a manacost pip-order error.
-Warnings for 'Turn Brave':
->  Had a manacost pip-order error.
-Warnings for 'Dweeb Detector':
->  Had a manacost pip-order error.
-Warnings for 'Red-Hot Hooves':
->  Had a manacost pip-order error.
-Warnings for 'Final Day':
->  Had a manacost pip-order error.
-Warnings for 'Olfactory Disrupter':
->  Had a manacost pip-order error.
-Warnings for 'Up-Front Mercenary':
->  Had a manacost pip-order error.
-Warnings for 'Lemme See!':
->  Had a manacost pip-order error.
-Warnings for 'Nosey Officer':
->  Had a manacost pip-order error.
-Warnings for 'Worldtree Adherent':
->  Had a manacost pip-order error.
-Warnings for 'Inviting Shroomling':
->  Had a manacost pip-order error.
-Warnings for 'Owhale':
->  Had a manacost pip-order error.
-Warnings for 'Exploitative Liz':
->  Had a manacost pip-order error.
-Warnings for 'Reattempt':
->  Had a manacost pip-order error.
-Warnings for 'Renee, Regretful Traveller':
->  Had a manacost pip-order error.
-Warnings for 'Brutal Honesty':
->  Had a manacost pip-order error.
-Warnings for 'Honest Brutality':
->  Had a manacost pip-order error.
-Warnings for 'Direct Bolt':
->  Had a manacost pip-order error.
-Warnings for 'Mirru, One With Her Army':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Unashamed Thoughts':
->  Had a manacost pip-order error.
-Warnings for 'Okal, Overgrown Gardener':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Enveloping Hills':
->  Had a manacost pip-order error.
-Warnings for 'Grave-Gardener':
->  Had a manacost pip-order error.
-Warnings for 'Ever-Raging Terrance':
->  Had a manacost pip-order error.
-Warnings for 'Ancient Nestite':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/g
-Warnings for 'Resis, Garden Assistant':
->  Had a manacost pip-order error.
-Warnings for 'Spirit Circle':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: b/w
-Warnings for 'Truth Crystal':
->  Had a manacost pip-order error.
-Warnings for 'Flaminghost':
->  Had a manacost pip-order error.
-Warnings for 'Goblidant':
->  Had a manacost pip-order error.
-Warnings for 'Reharvest Engine':
->  Had a manacost pip-order error.
-Warnings for 'Group Rebuttal':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: p/w
-Correcting manacost hybrid pip order: p/b
-Warnings for 'It That Arrives':
->  Had a manacost pip-order error.
-Warnings for 'Glittering Starchild':
->  Had a manacost pip-order error.
-Warnings for 'Snatch':
->  Had a manacost pip-order error.
-Warnings for 'Gargantuan Nail Trap':
->  Had a manacost pip-order error.
-Warnings for 'Whitehair Hare':
->  Had a manacost pip-order error.
-Warnings for 'Looking Up To Bro':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Cheer Cedar':
->  Had a manacost pip-order error.
-Warnings for 'Rhino Dan':
->  Had a manacost pip-order error.
-Warnings for 'Rearming Station':
->  Had a manacost pip-order error.
-Warnings for 'Hazardous Ballista':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Good Parenting':
->  Had a manacost pip-order error.
-Warnings for 'Open Conversation':
->  Had a manacost pip-order error.
-Warnings for 'Evident Scarring':
->  Had a manacost pip-order error.
-Warnings for 'Wounded Tree':
->  Had a manacost pip-order error.
-Warnings for 'Field Beast':
->  Had a manacost pip-order error.
-Warnings for 'Verified Source':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: g/r
-Warnings for 'Truth-Seeker Elf':
->  Had a manacost pip-order error.
-Warnings for 'Spellwhip':
->  Had a manacost pip-order error.
-Warnings for 'Fiery Bite':
->  Had a manacost pip-order error.
-Warnings for 'Feather Pollen':
->  Had a manacost pip-order error.
-Warnings for 'Shudders From Below':
->  Had a manacost pip-order error.
-Warnings for 'Newborn Nid':
->  Had a manacost pip-order error.
-Warnings for 'The Moment':
->  Had a manacost pip-order error.
-Warnings for 'Conspicuous Pyromaniac':
->  Had a manacost pip-order error.
-Warnings for 'Crazed Hopper':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: p/w
-Correcting manacost hybrid pip order: p/r
-Warnings for 'Queen's Command':
->  Had a manacost pip-order error.
-Warnings for 'Merciless Birth':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Correcting manacost hybrid pip order: w/r
-Warnings for 'Rambunny':
->  Had a manacost pip-order error.
-Warnings for 'Overt Vaporling':
->  Had a manacost pip-order error.
-Warnings for 'Obvious Ambusher':
->  Had a manacost pip-order error.
-Warnings for 'Brazen Confrontation':
->  Had a manacost pip-order error.
-Warnings for 'From a Mile Away':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Enveloping Arcana':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/g
-Correcting manacost hybrid pip order: w/g
-Warnings for 'Infectious Mutagen':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Warnings for 'Proud Fangirl':
->  Had a manacost pip-order error.
-Warnings for 'Synthesis Hulk':
->  Had a manacost pip-order error.
-Warnings for 'Flit-Cloud':
->  Had a manacost pip-order error.
-Warnings for 'Chest-Jutting Guard':
->  Had a manacost pip-order error.
-Warnings for 'Bravening Crab':
->  Had a manacost pip-order error.
-Warnings for 'Fumble-Finger Necromaniac':
->  Had a manacost pip-order error.
-Warnings for 'Impending Despir':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: w/r
-Warnings for 'The Puny Rise Up':
->  Had a manacost pip-order error.
-Warnings for 'Slow-Moving Projectile':
->  Had a manacost pip-order error.
-Warnings for 'Spirit of Growth':
->  Had a manacost pip-order error.
-Warnings for 'Shade of Acceptance':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: u/g
-Warnings for 'Territorial Toad':
->  Had a manacost pip-order error.
-Warnings for 'Tawnty the Evidence-Burner':
->  Had a manacost pip-order error.
-Warnings for 'Assimilamorph':
->  Had a manacost pip-order error.
-Warnings for 'Nate and Tate':
->  Had a manacost pip-order error.
-Warnings for 'Outgrow':
->  Had a manacost pip-order error.
-Warnings for 'Twin-Stalk Spore':
->  Had a manacost pip-order error.
-Warnings for 'Collapsing Fortress':
->  Had a manacost pip-order error.
-Warnings for 'Coltz, Jumpspark Mage':
->  Had a manacost pip-order error.
-Warnings for 'Cache Dragon':
->  Had a manacost pip-order error.
-Warnings for 'Acrobatic Stunt':
->  Had a manacost pip-order error.
-Warnings for 'Intrusive Thoughts':
->  Had a manacost pip-order error.
-Warnings for 'Triumphant Shout':
->  Had a manacost pip-order error.
-Warnings for 'Cocky Rooster':
->  Had a manacost pip-order error.
-Warnings for 'A Good Cry':
->  Had a manacost pip-order error.
-Warnings for 'Extentoad':
->  Had a manacost pip-order error.
-Warnings for 'Daycare Grand Opening':
->  Had a manacost pip-order error.
-Warnings for 'Political Divination':
->  Had a manacost pip-order error.
-Warnings for 'Draining Relationship':
->  Had a manacost pip-order error.
-Warnings for 'Crystal, Naturalist':
->  Had a manacost pip-order error.
-Warnings for 'Darkest Heart':
->  Had a manacost pip-order error.
-Warnings for 'Let Go':
->  Had a manacost pip-order error.
-Warnings for 'Never Too Late':
->  Had a manacost pip-order error.
-Warnings for 'Silver-Thread Cloak':
->  Had a manacost pip-order error.
-Warnings for 'Aggressor Captain':
->  Had a manacost pip-order error.
-Warnings for 'Nomad Shade':
->  Had a manacost pip-order error.
-Warnings for 'Precocious Bolt':
->  Had a manacost pip-order error.
-Warnings for 'Determinate':
->  Had a manacost pip-order error.
-Warnings for 'Father's Will':
->  Had a manacost pip-order error.
-Warnings for 'Conniving Pyromiggy':
->  Had a manacost pip-order error.
-Warnings for 'Mourning Morning':
->  Had a manacost pip-order error.
-Warnings for 'Humble':
->  Had a manacost pip-order error.
-Warnings for 'Heel Swipe':
->  Had a manacost pip-order error.
-Warnings for 'Pick Off':
->  Had a manacost pip-order error.
-Correcting manacost hybrid pip order: g/r
-Warnings for 'Fearful Megafauna':
->  Had a manacost pip-order error.
-Warnings for 'Absorb the Mist':
->  Had a manacost pip-order error.
-Warnings for 'Make Amends':
->  Had a manacost pip-order error.
-Warnings for 'Quad-Palm Jerry':
->  Had a manacost pip-order error.
-Warnings for 'Storm-Seed Fairy':
->  Had a manacost pip-order error.
-Warnings for 'Grit Teeth':
->  Had a manacost pip-order error.
-Warnings for 'Knowledge Parasite':
->  Had a manacost pip-order error.
-Warnings for 'Unstable Hydra':
->  Had a manacost pip-order error.
-Warnings for 'Rebellious Cacophany':
->  Had a manacost pip-order error.
-Warnings for 'Forced Experiment':
->  Had a manacost pip-order error.
-Warnings for 'Insistent Assistant':
->  Had a manacost pip-order error.
-Warnings for 'Mental Tripwire':
->  Had a manacost pip-order error.
-Warnings for 'Jealousy Flare':
->  Had a manacost pip-order error.
-Warnings for 'Gode the Gloating Goat':
->  Had a manacost pip-order error.
-Warnings for 'Ravenous Studies':
->  Had a manacost pip-order error.
-Warnings for 'Titan of the Grove':
->  Had a manacost pip-order error.
+No warnings about imported card data to report!
 
 Initializing image creation assets...
+To-be-generated file .\Playtest_Base_Images_Generated\normal_l_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_l_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_l_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_l_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_l_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_l_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_l_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_l_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_l_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_g_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_l_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_g_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_r_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_r_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_r_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_r_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_r_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_r_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_r_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_r_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\normal_r_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\normal_g_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_normal_r_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_normal_g_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_l_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_l_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_l_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_l_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_l_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_l_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_l_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_l_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_l_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_g_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_l_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_g_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_r_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_r_w_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_w_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_r_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_r_u_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_u_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_r_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_r_b_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_b_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_r_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_r_r_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_r_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\enchantment_r_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\enchantment_g_base.png to mask it
+To-be-generated file .\Playtest_Base_Images_Generated\token_enchantment_r_g_base.png doesn't exist. Generating...
+Accessing base file .\Playtest_Base_Images\token_enchantment_g_base.png to mask it
+Accessing base file to simply load it into memory .\Playtest_Base_Images\normal_m_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\token_normal_m_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\normal_artifact_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\token_normal_artifact_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\normal_c_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\token_normal_c_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\enchantment_m_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\token_enchantment_m_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\enchantment_artifact_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\token_enchantment_artifact_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\enchantment_c_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\token_enchantment_c_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_w_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_u_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_b_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_r_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_g_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_m_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_artifact_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_c_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\pt_vehicle_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\set_symbol_common_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\set_symbol_uncommon_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\set_symbol_rare_base.png
+Accessing base file to simply load it into memory .\Playtest_Base_Images\set_symbol_mythic_base.png
 
 Generating card images...
 
 Done!
 
-==============
+Program execution time: 42.27 seconds
+=========================================
 Generated card images at:
->>>   C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\DoD3\output\Playtest_Images
+>>>   C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\DoD3\output\Playtest_Card_Images
 
 Cockatrice set file (.xml) and Drafting file (.txt) generated at:
 >>>   C:\Users\Roey Shapiro\Documents\AAB Backup\Programming\MtG\DoD3\output
 This entire program output has also been printed to a log file there.
-==============
+=========================================
