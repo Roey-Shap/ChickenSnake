@@ -9,7 +9,7 @@ import UI
 
 # File locations and names
 base_filepath = ".\\DoD3\\"
-output_folder_name = "output"
+output_filepath = "C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\MtGDoD3\\"
 spreadsheet_file_name = "MtG DoD Custom - Cards.csv"
 uploaded_images_base_url = "https://roey-shap.github.io/MtGDoD3/output/Playtest_Card_Images/"
 set_code = "DOD"
@@ -77,7 +77,7 @@ f"""
 ####################
 ### PRESET ZONE ###
 # You probably won't want (or need) to touch these.
-output_base_filepath = base_filepath + output_folder_name + "\\"
+output_base_filepath = output_filepath
 input_folder_name = "Inputs\\"
 card_data_filepath = ".\\" + input_folder_name + spreadsheet_file_name
 card_images_filepath = output_base_filepath + "Playtest_Card_Images\\"
@@ -96,8 +96,7 @@ current_execution_log_filepath = log_filepath
 
 def do_log_file_init() -> bool:
     generated_output_folder = False
-    for generated_folder in [base_filepath,
-                             output_base_filepath,
+    for generated_folder in [output_base_filepath,
                              card_image_creation_assets_generated_filepath, 
                              card_images_filepath, 
                              token_images_filepath,

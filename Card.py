@@ -78,7 +78,7 @@ class Card():
     def get_type_string(self):
         final_string = self.supertype
         if len(self.subtype) > 0:
-            final_string += " - " + self.subtype
+            final_string += " - " + self.subtype # — bugs Cockatrice out??
 
         return final_string
 

@@ -183,9 +183,9 @@ Reveal an unrevealed green card from your hand: target creature you control gets
 FALSE,Aphrodisic Entertainer,Creature,Rabbit Artisan,{g}{w},"First Strike
 Duck - Populate and add {w}. Tap target creature Aphrodisic Entertainer is ducking behind. Activate this ability targeting untapped creatures.
 Whenever a creature with power 2 or less enters under your control, untap Aphrodisic Entertainer.",3,1,r,,"Duck, populate, mana acceleration","Masss army, small creatures",2,"""Oh, look- oh, they're- yup, oh- wow, they're still- and now- wow. Impressive.""",,,FALSE,1,1,0,0,0,1,0,1,0,1,0,0,0,,TRUE,,$$,0,71
-FALSE,Goated,Instant,,{1}{g/w},"Kicker {3}{g/w}
-Create 2 1/1 red and green Goat creature tokens.
-If Goated was kicked, it has Rivalstorm. (Copy it for each spell an opponent has cast this turn.)",,,c,,Tokens,,2,,,,FALSE,1,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{1}$,1,72
+FALSE,Goated,Instant,,{3}{r/g},"Kicker {2}{r/g}
+Create 2 1/1 red and green Goat creature tokens with Backup 1.
+If Goated was kicked, it has Rivalstorm. (Copy it for each spell an opponent has cast this turn.)",,,r,,"Tokens, Backup, Rivalstorm, kicker",,4,,,,FALSE,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{3}$,3,72
 FALSE,Lava-Geyser Ejectid,Legendary Creature,Elemental,{5}{r},"Flying, Trample
 Basic lands you control have, ""Whenever you reveal a card from your hand and this land is untapped, you may tap this land. If you do, it deals 1 damage to target permanent.""",5,4,m,,"Burn, flying",self-reveal,6,,,,FALSE,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{5}$,5,73
 FALSE,Ruthless Headmaster,Creature,Wizard,{2}{u}{r},"Duck - target creature you control gains prowess until end of turn. Ruthless Headmaster gets +0/+1 until end of turn.
@@ -212,7 +212,7 @@ If an opponent lost life this turn, Deathmist Detonation does X damage to target
 FALSE,Spirit Spear,Instant,,{1}{w/g},"Destroy target enchantment.
 Horde 2 - target creature you control gains protection from a color of the targeted enchantment or colorless if it has no color.",,,c,,"Removal, Protection, Horde",Enchantments,2,,,,FALSE,1,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{1}$,1,84
 FALSE,Incendiary Canary,Creature,Bird,{1}{r},"Flying
-Backup
+Backup 1
 {r}, {t}, sacrifice this creature: it deals damage equal to its converted mana cost to target creature.",1,1,u,,"Backup, Burn, Flying",,2,,,,FALSE,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,85
 FALSE,Terra-Reformist,Creature,Human,{r}{g},"Whenever Terra-Reformist attacks, you may pay {r}{g}. If you do, search your library for a land and put it onto the battlefield tapped.",2,3,c,,"Ramp, Attacking, Searching",,2,"""Get off our land! We won't rest!
 ""We'll raise our hand! We'll grow a forest!""",,,FALSE,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,$$,0,86
@@ -298,9 +298,9 @@ When Send High has no time counters on it, sacrifice it and return the exiled pe
 FALSE,Encouragement,Sorcery,,{1}{u/w},Flicker each creature you control with backup.,,,c,,Flicker,Backup,2,,,,FALSE,1,1,1,0,0,0,0,1,0,0,0,1,0,,TRUE,,{1}$,1,124
 FALSE,Overrun,Enchantment ,,{1}{r/g},"Spells you control have trample. 
 Horde 3 - If you control 3 more creatures, creatures you control have trample. ",,,u,,Horde,,2,,,,FALSE,1,0,0,0,1,1,0,1,1,0,0,0,0,,TRUE,,{1}$,1,125
-FALSE,Active Duty Bonus,Sorcery,,{1}{w},"Tap up to two target permanents target opponent controls. Choose 1, where X is the number of tapped creatures they control--
+FALSE,Active Duty Bonus,Sorcery,,{2}{w},"Tap up to two target permanents target opponent controls. Choose 1, where X is the number of tapped creatures they control--
 - {r}: Make X treasures.
-- {u}: Draw half X cards, rounded down.",,,u,,"Tap, Tokens",Tap,2,,,,FALSE,1,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,126
+- {u}: Draw half X cards, rounded down.",,,u,,"Tap, Tokens",Tap,3,,,,FALSE,1,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{2}$,2,126
 FALSE,High-Brow Gatekeeper,Creature,Rhino Soldier,{3}{w}{w},"Vigilance
 Opponents may attack you with at most 3 creatures.
 Whenever a creature ducks behind High-Brow Gatekeeper, High-Brow Gatekeeper gets +1/+1 until end of turn.",3,4,r,,Vigilance,"Mass army, duck",5,,,,FALSE,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$$,3,127
@@ -383,10 +383,10 @@ FALSE,Postmortem Author,Enchantment Creature,Human Spirit,{2}{b},"At the beginni
 FALSE,Overexcite,Instant,,{r},"Each player exiles the top card of their library and may play it until end of turn.
 Overexcite deals 1 damage to target creature.
 Overload {2}{r} (You may cast this spell for its overload cost. If you do, replace each instance of ""target"" in its text with ""each"".)",,,c,,,,1,,Adding mana instead of dealing damage?,,FALSE,1,0,0,0,1,0,0,0,0,0,0,1,0,,FALSE,,$,0,166
-FALSE,Plague Bearer,Creature,Horror,{1}{b}{p/b},"Plague Bearer enters with two -1/-1 counters on it.
+FALSE,Plague Bearer,Creature,Horror,{1}{b}{p/b},"Lifelink
+Plague Bearer enters with two -1/-1 counters on it.
 At the beginning of your upkeep, put a -1/-1 counter on Plague Bearer or move one onto it from another creature you control.
-When Plague Bearer dies, distribute any -1/-1 counters on it among any number of target creatures.
-Creatures you control have lifelink.",5,5,r,,,,3,"He will bear this burden, through life, into death. For his queen.",,,FALSE,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$$,1,167
+When Plague Bearer dies, distribute any -1/-1 counters on it among any number of target creatures.",5,5,u,,,,3,"He will bear this burden, through life, into death. For his queen.",,,FALSE,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$$,1,167
 FALSE,Death-Defying Hookshot,Artifact,Equipment,{2}{2/b},"Flash
 When Death-Defying Hookshot enters, attach it to target creature you control. It gains undying until end of turn. 
 Equipped creature gets +1/+1.
@@ -437,7 +437,7 @@ This creature gets +1/+1 so long as you control at least 2 basic lands with diff
 TRUE,Simple Alpakon,Creature,Alpaca,{1},"Backup
 Sacrifice this creature: add one mana of any color and target creature gets +0/+1 until end of turn.",0,1,,,"Backup, ramp",,1,,,,FALSE,0,0,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1},1,184
 FALSE,Mother Alpakon,Legendary Creature,Alpaca Giant,{X}{5}{w/g},"Reach, Trample
-When Mother Alpakon enters, create X 0/1 colorless Alpaca creatures with ""Duck - gain 1 life.""
+When Mother Alpakon enters, create X 1/1 green and white Alpaca creature tokens with ""Duck - gain 1 life.""
 Whenever a creature ducks behind Mother Alpakon, Mother Alpakon gets +1/+0 until end of turn.",4,5,r,,"Backup, tokens, lifegain, ETB",Duck,6,,,,FALSE,1,1,0,0,0,1,0,1,0,1,0,0,0,,TRUE,,{5}$,5,185
 FALSE,Frozen Dragon,Legendary Creature,Dragon,{3}{u}{u},"Ward {1}
 Frozen Dragon enters tapped with two stun counters on it if it was cast.
@@ -487,7 +487,7 @@ When Feeding Wraith enters, destroy up to one target enchantment. If you do, mak
 FALSE,Revel in Might,Instant,,{5}{g}{g},"Revel in Might costs X less to cast, where X is the greatest power among creatures you control. 
 Target creature you control gains trample and +X/+0 until end of turn, and then fights up to two target creatures you don't control (simultaneously, as if they both blocked it). ",,,r,,"Pump, fight",Big creatures,7,,,,FALSE,1,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,{5}$$,5,206
 FALSE,Diminishing Voices,Instant,,{b},"Target creature gets -2/-2 until end of turn. 
-Horde 3 - If you control 3 or more creatures, target creature gets -5/-5 until end of turn instead.",,,c,,"Horde, removal",,1,,,,FALSE,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,207
+Grave Horde 3 - If there are 3 or more creatures in your graveyard, target creature gets -5/-5 until end of turn instead.",,,c,,"Grave Horde, removal",,1,,,,FALSE,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,207
 TRUE,Unwilling Prodigy,Creature,Human Artificer,{2}{r},"Whenever you cast an instant or sorcery spell, you may copy that spell and choose new targets for the copy. If you do, you may return Unwilling Prodigy to its owner's hand. If you don't, put a -1/-1 counter on it. ",3,2,,,Counters,Instants/Sorceries,3,,,,FALSE,0,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,208
 FALSE,Deconstructor Agent,Creature,Bird Goblin,{1}{u/r},"Duck - Tap target artifact. Deconstructor Agent gets +0/+1 until end of turn.
 Skulk (This creature cannot be blocked by creatures with greater power.)
@@ -503,7 +503,8 @@ TRUE,Razing Wind,Sorcery,,{3}{w},"Tap all artifacts and return any number of cre
 ",,,,,"bounce, tap, burn",,4,,,,FALSE,0,1,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{3}$,3,212
 FALSE,March the Foothills,Sorcery,,{2}{g}{g},"You may flicker target creature you control with mana cost 6 or less.
 Creatures you control get +X/+X and haste until end of turn, where X is the number of times creatures have entered the battlefield under you control this turn.",,,u,,"Flicker, Mass Army",Flicker,4,,,,FALSE,1,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,{2}$$,2,213
-FALSE,Indecisive Threat,Sorcery,,{2}{b}{b},Split the nonland permanents target opponent controls into two piles. They pick one. Destroy each permanent in the other.,,,r,,"Flicker, Mass removal, lifesloss",,4,,,,FALSE,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{2}$$,2,214
+FALSE,Indecisive Threat,Creature,Dog Mercenary,{2}{b}{b},"Indecisive Threat has +1/-1 if you control less creatures than the player with the most creatures. 
+When Indecisive threat dies, split the nonland permanents target opponent controls into two piles. They pick one. Destroy each permanent in the other.",3,3,r,,"Flicker, Mass removal, lifesloss",,4,,,,FALSE,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,214
 FALSE,Condescending Dismissal,Instant,,{b},"Choose 1--
 - {u}: Put target nonland permanent at the bottom of its owner's library.
 - {g}: Destroy target creature or enchantment.",,,c,,Removal,,1,,,,FALSE,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,215
@@ -516,7 +517,9 @@ Creatures you control with duck have haste.
 Whenever a creature with duck enters under your control, you may pay {1} and untap Rallying Wimp.",2,2,r,,Duck,Duck,2,,,,FALSE,1,1,0,0,1,0,0,1,0,1,0,0,0,,TRUE,,$$,0,218
 FALSE,Mirthful Stomping,Sorcery,,{r}{g},"Mirthful Stomping deals 3 damage to up to 2 target creatures your opponents control.
 Horde 4 - Mirthful Stomping deals 3 damage to up to 4 target creatures your opponents control instead.",,,r,,"Horde, Burn",,2,,,,FALSE,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,$$,0,219
-FALSE,Scatterbomb,Sorcery,,{X}{w/b}{g},"Make X 1/1 green Rabbit Spider creature tokens with ""Duck - target creature this is ducking behind gets +1/+0 until end of turn.""",,,r,,"Duck, Mass Army, Pump",,2,,,,FALSE,1,1,0,1,0,1,0,1,0,0,0,1,0,,TRUE,,$$,0,220
+FALSE,Scatterbomb,Sorcery,,{X}{w/b}{g},"Convoke
+Make X 1/1 green Rabbit Spider creature tokens with ""Duck - target creature this is ducking behind gets +1/+0 until end of turn.""
+For each two creatures that convoked this spell, put a +1/+1 counter on target creature you control. ",,,r,,"Duck, Mass Army, Pump",,2,,,,FALSE,1,1,0,1,0,1,0,1,0,0,0,1,0,,TRUE,,$$,0,220
 TRUE,Boulder Mine,Enchantment,Aura,{5},"Enchant Land
 Enchanted land has, ""{1}, {t}: Make a colorless 0/3 Boulder artifact creature token with defender.""",,,,,"Boulders, tap",,5,,,,FALSE,0,0,0,0,0,0,0,0,1,0,0,0,0,,TRUE,,{5},5,221
 TRUE,Cobble Animator,Creature,Dwarf Artificer,{3}{r},"{1}{r}: Until end of turn, target Boulder loses defender and assigns combat damage based on its toughness.",4,4,,,,"Boulders, Combat damage",4,,,,FALSE,0,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,222
@@ -533,7 +536,7 @@ When Hallway Studier enters, scry 2.
 You may cast Hallway Studier as it's being scried.",2,2,c,,"Ninjitsu, scry",Scry,3,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,226
 FALSE,Library Shrieker,Creature,Ghoul Citizen,{2}{u},"Whenever you scry X, Library Shrieker gets +X/+X until end of turn.
 Whenever a creature ducks behind Libarary Shrieker, you may return target creature to its owner's hand.
-{2}{u}: Scry 1.",1,2,m,,"Bounce, scry",Scry,3,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,227
+{2}{u}: Scry 1.",1,2,r,,"Bounce, scry",Scry,3,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,227
 FALSE,Imposing Aura,Enchantment,Aura,{2}{u/b},"Pop-up {2}{u}
 Enchant creature
 Enchanted creature gets +2/+2. To assign a creature to block enchanted creature, its controller must tap another creature they control.",,,c,,"Pop-up, pump",,3,,,,FALSE,1,0,1,1,0,0,0,1,1,0,0,0,0,,TRUE,,{2}$,2,228
@@ -553,7 +556,7 @@ Whenever Impression of Greed deals combat damage, defending player makes a Treas
 FALSE,Plant Slowly,Sorcery,,{2}{g},"As an additional cost to casting this spell, name a color. If you do not control a land that produces that color of mana, this spell costs {1} less to cast. 
 Search your library for a land that can produce mana of the chosen color and put it onto the battlefield tapped.  ",,,c,,"Ramp, Searching",,3,,,,FALSE,1,0,0,0,0,1,0,0,0,0,0,1,0,,TRUE,,{2}$,2,235
 FALSE,Overgenerous Symbiote,Creature,Plant Horse Goblin,{3}{u/g}{u/g},"Reach, Vigilance
-{1}: put a +1/+1 counter on Overgenerous Symbiote and draw a card. Any player may activate this ability and it costs {1} more to cast for each counter on this creature.",3,4,r,,"Card Acceleration, Counters",,5,,Clunky,,FALSE,1,0,1,0,0,1,0,1,0,1,0,0,0,,FALSE,,{3}$$,3,236
+{1}: put a +1/+1 counter on Overgenerous Symbiote and draw a card. Any player may activate this ability and it costs {1} more to cast for each counter on this creature.",3,4,r,,"Card Acceleration, Counters",,5,,,,FALSE,1,0,1,0,0,1,0,1,0,1,0,0,0,,TRUE,,{3}$$,3,236
 FALSE,Unconfident War Elephant,Creature,Elephant,{2}{g},"Haste, Trample
 Horde 3 - Unconfident War Elephant can't block unless you control 3 or more creatures or a creature has ducked behind it this turn.",4,4,c,,Duck,,3,"He can't always get out of the way, but he'll sure as heck try.",,,FALSE,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$,2,237
 FALSE,Shroom Gator Randy,Creature,Dwarf Reptile,{1}{u/g}{r/g},"Duck - Shroom Gator Randy gets +0/+1 until end of turn.
@@ -581,7 +584,7 @@ FALSE,Up-Front Mercenary,Creature,Goblin Mercenary,{2}{b},"When Up-Front Mercena
 - {b}: Target opponent mills cards equal to the number of unrevealed cards in your hand.",2,2,c,,"expose, Burn, Mill, ETB",,3,,,,FALSE,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{2}$,2,249
 TRUE,Too Much Information,Enchantment,,{3}{r/g},"Whenever an opponent reveals one or more unrevealed cards or discards one or more cards, Too Much Information deals half that damage rounded up to them.",,,r,,Burn,expose,4,,,,FALSE,0,0,0,0,1,1,0,1,1,0,0,0,0,,TRUE,,{3}$,3,250
 FALSE,Lemme See!,Sorcery,,{b},"Target opponent reveals two cards from their hand. They discard one of your choice. (If they only have one, they only reveal one).",,,c,,"expose, Discard",,1,,,,FALSE,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,251
-FALSE,Nosey Officer,Creature,Wolf Detective,{3}{b},"Whenever Nosey Officer attacks alone, you may pay {1}{b}. If you do, target player dicards a card.",4,4,c,,Discard,,4,,,,FALSE,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,252
+FALSE,Nosey Officer,Creature,Wolf Detective,{3}{b},"Whenever Nosey Officer attacks alone, you may pay {1}{b}. If you do, target player dicards a card.",3,3,c,,Discard,,4,,,,FALSE,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,252
 FALSE,Worldtree Adherent,Creature,Reptile Cleric,{2}{g}{g},"Landfall - Whenever a land enters under your control, if your devotion to green is at least 3, put a +1/+1 counter on target creature. Then if it's at least 6, you may attach an aura or creature with bestow from your hand to a creature you control.",1,4,c,,"Landfall, Counters, Bestow, Auras",Devotion,4,,,,FALSE,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{2}$$,2,253
 FALSE,Inviting Shroomling,Creature,Dwarf Spore,{1}{g}{g},"Whenever a creature you control ducks, add {g}.
 {1}{g}: Inviting Shroomling can block an additional creature until end of turn.",2,2,u,,"Ramp, blocking",Duck,3,,,,FALSE,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{1}$$,1,254
@@ -613,7 +616,7 @@ Horde 6 - If you control 6 or more creatures, creatures you control get +1/+1 an
 FALSE,Unashamed Thoughts,Enchantment,,{3}{u/g},"Cards you control have Transparent. The first time you reveal a card each turn, draw a card.",,,r,,Transparent ,Transparent,4,"""No more secrets,"" he decided.",,,FALSE,1,0,1,0,0,1,0,1,1,0,0,0,0,,TRUE,,{3}$,3,266
 FALSE,"Okal, Overgrown Gardener",Legendary Creature,Rabbit Cleric,{1}{g}{g}{g},"When Okal enters, search your library for up to two lands. Put up to one in your hand and up to one on the battlefield tapped.
 Okal's power and toughness are each equal to the number of lands you control. 
-Landfall - Proliferate, then populate.",*,*,m,,"Ramp, landfall, proliferate, ETB, populate","Ramp, counters",4,,,,FALSE,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{1}$$$,1,267
+Landfall - Put a +1/+1 counter on target creature you control. Then proliferate.",*,*,m,,"Ramp, landfall, proliferate, ETB, populate","Ramp, counters",4,,,,FALSE,1,0,0,0,0,1,0,0,0,1,0,0,0,,TRUE,,{1}$$$,1,267
 FALSE,Enveloping Hills,Instant,,{u}{u/g},"Counter target spell. 
 Landfall - if you played a land this turn, this spell can't be countered.",,,u,,Landfall,,2,,,,FALSE,1,0,1,0,0,1,0,1,0,0,0,1,0,,TRUE,,$$,0,268
 FALSE,Grave-Gardener,Creature,Reptile,{2}{b}{g},"Whenever one or more +1/+1 counters would be put on a creature you control, you may exile a card from your graveyard and put that many counters plus one instead.",4,4,c,,Counters,"Graveyard, counters",4,,Doesn't really fit with an theme except g/b.,,FALSE,1,0,0,1,0,1,0,1,0,1,0,0,0,,FALSE,,{2}$$,2,269
@@ -816,12 +819,12 @@ FALSE,The Puny Rise Up,Instant,,{1}{w/r}{r/g},Creatures you control with toughne
 TRUE,Over-Successful Bake Sale,Instant,,{w}{w}{g}{g},"Until end of turn, whenever a creature you control deals combat damage to a player, proliferate. Creatures you control get +1/+1 and protection from instants until end of turn.
 Horde 6 - creatures you control gain indestructible until end of turn.",,,,,"Pump, protection, proliferate, horde","Attacking, Combat damage",4,"""I need 50 CCs of lemonade, STAT!""",,,FALSE,0,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,$$$$,0,364
 FALSE,Slow-Moving Projectile,Enchantment,,{r}{r},"When Slow-Moving Projectile enters, it deals 4 damage to target permanent.
-At the beginning of your upkeep, put a time counter on Slow-Moving Projectie. If it has a time counter on it, it deals 2 damage to target permanent. Then if it has two or more, sacrifice it.",,,u,,"Counters, burn",,2,,,,FALSE,1,0,0,0,1,0,0,0,1,0,0,0,0,,TRUE,,$$,0,365
+At the beginning of your upkeep, Slow-Moving Projectile deals 2 damage to target permanent. Put a time counter on it, then sacrifice it if it has two or more.",,,u,,"Counters, burn",,2,,,,FALSE,1,0,0,0,1,0,0,0,1,0,0,0,0,,TRUE,,$$,0,365
 FALSE,Spirit of Growth,Enchantment Creature,Beast Construct,{4}{g}{g}{g},"When Spirit of Growth enters or dies, draw a card.
 Whenever an ability of a creature you control targets Spirit of Growth, put a +1/+1 counter on that creature.
 {4}{g}{g}: Untap all creatures you control.",8,8,m,,"Card acceleration, counters, pump, untap",Duck,7,You can't find it until you feel it.,,,FALSE,1,0,0,0,0,1,0,0,1,1,0,0,0,,TRUE,,{4}$$$,4,366
-FALSE,Shade of Acceptance,Enchantment Creature,Shade Construct,{2}{b}{b},"Lifelink, Shadow
-When Spirit of Acceptance or another creature you control dies, add {b} equal to that creature's toughness.",3,5,m,,"Lifegain, ramp","Mass army, dying",4,Wanting means nothing if you don't face the music.,,,FALSE,1,0,0,1,0,0,0,0,1,1,0,0,0,,TRUE,,{2}$$,2,367
+FALSE,Shade of Acceptance,Enchantment Creature,Shade Construct,{2}{b}{b},"Lifelink, Flying
+When Spirit of Acceptance or another creature you control dies, add {b} equal to that creature's toughness.",3,5,r,,"Lifegain, ramp","Mass army, dying",4,Wanting means nothing if you don't face the music.,,,FALSE,1,0,0,1,0,0,0,0,1,1,0,0,0,,TRUE,,{2}$$,2,367
 TRUE,Draft of Forethought,Enchantment Creature,Reflection Construct,{3}{u}{u},"Flying
 Whenever you search or look at cards in your library, untap target permanent you control.
 {2}{u}: Scry 2.",4,4,,,"Flying, untap",Searching,5,Loving yourself means having a plan - even if that plan is no plan.,,,FALSE,0,0,1,0,0,0,0,0,1,1,0,0,0,,TRUE,,{3}$$,3,368
@@ -853,7 +856,7 @@ FALSE,Dream Glade,Land,,,"Dream Glade enters tapped unless you return a land you
 {b/g}, {t}, Exile 2 cards from your graveyard: Target creature you control gains hexproof until end of turn.",,,r,b/g,"Tokens, bounce, duck",,0,,,,FALSE,1,0,0,1,0,1,0,1,0,0,0,0,1,,TRUE,,,0,378
 FALSE,Rabbit Family Farm,Land,,,"Rabbit Family Farm enters tapped unless you return a land you control to your hand.
 {t}: Add {w} or {g}.
-{2}{w/g}: Make a 1/1 white and green Rabbit creature token.",,,r,w/g,"Tokens, bounce",,0,,,,FALSE,1,1,0,0,0,1,0,1,0,0,0,0,1,,TRUE,,,0,379
+{2}{w/g}: Make a 1/1 white and green Rabbit Citizen creature token.",,,r,w/g,"Tokens, bounce",,0,,,,FALSE,1,1,0,0,0,1,0,1,0,0,0,0,1,,TRUE,,,0,379
 FALSE,Boiling Labworks,Land,,,"Boiling Labworks enters tapped unless you return a land you control to your hand.
 {t}: Add {u} or {r}.
 {1}{u/r}, {t}: Target creature you control gains prowess until end of turn. Boiling Labworks deals 1 damage to you.",,,r,u/r,"Prowess, bounce",,0,,,,FALSE,1,0,1,0,1,0,0,1,0,0,0,0,1,,TRUE,,,0,380
@@ -925,15 +928,15 @@ Duck - target creature Extentoad is ducking behind gains reach and +1/+1 until e
 TRUE,Big-Arm Larry,Creature,Larry,{1}{r}{r},"Trample
 Duck - return up to one target creature you control to its owner's hand. Target creature Big-Arm Larry is ducking behind gets +1/+1 until end of turn.",3,2,,,"Duck, bounce, pump",,3,,,,FALSE,0,0,0,0,1,0,0,0,0,0,0,1,0,,TRUE,,{1}$$,1,409
 FALSE,Daycare Grand Opening,Instant,,{3}{w}{g},"Affinity for creatures with duck
-Prevent all damage dealt to creatures you control this turn.
-Make 3 1/1 green and white Alpaca Citizen creature tokens.",,,r,,"Tokens, protection",Duck,5,,,,FALSE,1,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{3}$$,3,410
+Prevent all damage that would be dealt to creatures you control this turn.
+Make 3 1/1 green and white Alpaca creature tokens with ""Duck - gain 1 life.""",,,r,,"Tokens, protection",Duck,5,,,,FALSE,1,1,0,0,0,1,0,1,0,0,0,1,0,,TRUE,,{3}$$,3,410
 FALSE,Political Divination,Sorcery,,{u}{u},"Target opponent separates the top three cards of your library into two piles. Put one pile into your hand and the other onto the bottom of your library in a random order.
 Horde 3 - If you control at least 3 creatures, add {u}.",,,u,,Card acceleration,,2,"""The council has ordained.""",,,FALSE,1,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,$$,0,411
 TRUE,Consider the Future,Sorcery,,{u}{b},"Scry 3 for target player, then draw a card.",,,,,"Card acceleration, scry, searching",,2,,,,FALSE,0,0,1,1,0,0,0,1,1,0,0,0,0,,TRUE,,$$,0,412
 FALSE,Draining Relationship,Enchantment,Aura,{w/b}{w/b},"Enchant creature
 Whenever enchanted creature attacks, defending player loses 1 life and you gain 1 life.
 Enchanted creature has +1/+1.",,,r,,"Pump, lifegain, lifeloss",,2,,,,FALSE,1,1,0,1,0,0,0,1,0,1,0,0,0,,TRUE,,$$,0,413
-FALSE,"Crystal, Naturalist",Legendary Creature,Rabbit,{2}{w/b},"Whenever a creature enters under your control, gain 1 life.
+FALSE,"Crystal, Naturalist",Legendary Creature,Rabbit,{2}{w/b},"Whenever a creature enters under your graveyard, gain 1 life.
 As long as your life total is 5 or more above your starting life total, creatures you control get +1/+1.",1,4,u,,"Lifegain, pump","Lifegain, ETB",3,,,,FALSE,1,1,0,1,0,0,0,1,0,0,1,0,0,,TRUE,,{2}$,2,414
 TRUE,Chigerous' Helm,Artifact,Equipment,{2}{2/w},,,,,,,,3,,,,FALSE,0,1,0,0,0,0,0,0,0,0,1,0,0,,TRUE,,{2}$,2,415
 TRUE,Renee's Jetpack,Artifact,Equipment,{2}{w/r},"Equip {1}
@@ -976,7 +979,7 @@ TRUE,Eager Combatant,Creature,Human Warrior,{1}{w/r}{w/r},"When Eager Combatant 
 Haste, Duck - target creature this creature is ducking behind gets +1/+0 and gains haste until end of turn.",3,1,,,"Duck, pump, tap",expose,3,,,,FALSE,0,1,0,0,1,0,0,1,0,1,1,0,0,,TRUE,,{1}$$,1,433
 TRUE,Jeck in the Box,Artifact Creature,Construct,{1},"When Jeck in the Box is revealed from your hand, you may pay {1}. If you do, you may cast it (you still need to pay its other costs).
 Modular 1",0,0,,,"Counters, modular",expose ,1,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,1,0,,TRUE,,{1},1,434
-FALSE,Determinate,Instant ,,{b},"The next time target creature or artifact would die or be destroyed this turn, tap it instead.",,,c,,"Protection, tap",Dying,1,,,,FALSE,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,435
+FALSE,Determinate,Instant ,,{b},"The next time target creature or artifact would die or be destroyed this turn, instead tap it and remove all damage from it. ",,,c,,"Protection, tap",Dying,1,,,,FALSE,1,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,$,0,435
 TRUE,Stack the Odds,Sorcery,,{1}{b},"You may play Stack the Odds as though it had flash if it is your opponent's main phase and the stack is empty.
 Look at the top 4 cards of your library and put them back in any order.",,,,,Searching,,2,,,,FALSE,0,0,0,1,0,0,0,0,0,0,0,1,0,,TRUE,,{1}$,1,436
 TRUE,Focus Sprint,Instant,,{2}{b},"Look at your library. Do not change the order of any cards in it.
@@ -1014,8 +1017,8 @@ FALSE,Absorb the Mist,Instant,,{g},"Spree -
 TRUE,Afterlife Connoisseur,Creature,Gremlin,{2}{r/g},"Haste
 Whenever Afterlife Connoisseur deals damage to target enchantment or its controller, destroy that enchantment. ",2,2,c,,,,3,,,,FALSE,0,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{2}$,2,460
 FALSE,Make Amends,Instant,,{1}{w},"Choose 1--
-Pay {g}. Target player exiles target enchantment.
-Pay {1}. Gain 1 life for each enchantment on the battlefield.",,,c,,"Removal, lifegain",Enchantments,2,,"""Pay …"" Standardize the templating on the ""choose 1"" cards. Should probably be ""pay for 1 or more""",,FALSE,1,1,0,0,0,0,0,0,0,1,0,0,0,,FALSE,,{1}$,1,461
+- {g}: Target player exiles target enchantment.
+- {1}: Gain 1 life for each enchantment on the battlefield.",,,c,,"Removal, lifegain",Enchantments,2,,,,FALSE,1,1,0,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,461
 FALSE,Quad-Palm Jerry,Creature,Cyclops,{4}{b}{b},"Quad-Palm Jerry can block an additional creature.
 {t}, sacrifice a creature with toughness 3 or less: Quad-Palm Jerry deals 2 damage to any target.",5,5,u,,"Burn, Tap, Blocking, Sacrifice",Small creatures,6,,,,FALSE,1,0,0,1,0,0,0,0,0,1,0,0,0,,TRUE,,{4}$$,4,462
 FALSE,Storm-Seed Fairy,Creature,Fairy,{1}{u}{u},"Flying 
@@ -1039,10 +1042,10 @@ Whenever Knowledge Parasite deals combat damage, target player draws a card.
 {1}{u}{u}: Tap target creature. ",*,*,u,,Tap,"Draw, opponent draw",4,,,,FALSE,1,0,1,0,0,0,0,0,1,1,0,0,0,,TRUE,,{3}$,3,469
 FALSE,Unstable Hydra,Enchantment Creature,Hydra Weird,{u}{r},"Bestow {1}{u}{r}, Reveal a card
 Whenever you cast an instant or sorcery, Unstable Hydra or enchanted creature gets +1/+1 and must be blocked by an additional creature until end of turn.",2,2,r,,Expose,"Attacking, instants and sorceries",2,,,,FALSE,1,0,1,0,1,0,0,1,0,0,0,1,0,,TRUE,,$$,0,470
-FALSE,Rebellious Cacophany,Instant,,{r}{g}{w},"Create a 1/1 green and white Rabbit Soldier token with Backup 1.
-Rivalstorm (Copy this spell for each spell an opponent has cast this turn.)",,,r,,"Tokens, backup, rivalstorm",,3,,,,FALSE,1,1,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,$$$,0,471
+TRUE,Rebellious Cacophany,Instant,,{r}{g}{w},"Create a 1/1 white and red Rabbit Soldier token with Backup 1.
+Rivalstorm (Copy this spell for each spell an opponent has cast this turn.)",,,r,,"Tokens, backup, rivalstorm",,3,,,,FALSE,0,1,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,$$$,0,471
 FALSE,Forced Experiment,Instant,,{u}{u},"Target opponent reveals a card. 
-Choose a revealed card from that opponent's hand. They cast it without paying its mana cost if able. Any time the card says ""may"", they must. Add {u}{u}{u}.
+Choose a revealed card from that opponent's hand. They cast it without paying its mana cost if able and any time the card says ""may"", they must. Add {u} for each spell they've cast this turn.
 Flashback {3}{u}{u}",,,r,,"Reveal, flashback, mana acceleration",Reveal,2,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,$$,0,472
 FALSE,Insistent Assistant,Creature,Reptile Scientist,{3}{r},"Transparent, Prowess
 Whenever a player casts their second spell that turn, they may exile the top card of their library. If they do, they may cast it until end of turn.
@@ -1051,7 +1054,7 @@ FALSE,Mental Tripwire,Sorcery,,{6}{u},"Mental Tripwire costs {1} less to cast fo
 Tap each creature target opponent controls.",,,u,,Tap,Opponent draw,7,A gluttonous mind is unprepared and unvigilant.,,,FALSE,1,0,1,0,0,0,0,0,0,0,0,1,0,,TRUE,,{6}$,6,474
 FALSE,Jealousy Flare,Instant,,{3}{r},"Jealousy Flare costs {3} less to cast if it's the only card in your hand.
 Make a Treasure for each card in target opponent's hand.",,,r,,"Treasures, tokens",Opponent draw,4,,,,FALSE,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,475
-FALSE,Gode the Gloating Goat,Creature,Goat Citizen,{2}{r/g},"Duck - Goad target craeture. (It must attack each combat, and a player other than you if able.)",3,1,c,,"Goad, duck",,3,,,,FALSE,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{2}$,2,476
+FALSE,Gode the Gloating Goat,Creature,Goat Citizen,{2}{r/g},"Duck - Goad target creature. (It must attack each combat, and a player other than you if able.)",3,1,c,,"Goad, duck",,3,,,,FALSE,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{2}$,2,476
 FALSE,Ravenous Studies,Instant,,{r}{r}{r},"Exile the top card of your library. You may play it until the end of your next turn. When you do, add {r}.
 Rivalstorm (Copy this spell for each spell an opponent has cast this turn.)",,,r,,"Card acceleration, rivalstorm",,3,,,,FALSE,1,0,0,0,1,0,0,0,0,1,0,0,0,,TRUE,,$$$,0,477
 FALSE,Titan of the Grove,Legendary Creature,Elemental Giant,{3}{b}{g}{w},"When Titan of the Grove enters, return up to 2 enchantments from your graveyard and attach/bestow them or put them on the battlefield.
@@ -1062,28 +1065,36 @@ The Raze can't be countered.
 Players can't gain life.
 Whenever The Raze attacks, you may pay {r}{r}. It deals 1 damage to all creatures; prevent the damage to yours if you paid.",4,4,m,,"Burn, transparent","Lifegain, counter_spell",4,,,,FALSE,1,0,0,0,1,1,0,1,1,1,0,0,0,,TRUE,,$$$$,0,479
 FALSE,Plant,Enchantment Creature,Plant ,,,0,1,,g/w,,,0,,,"Courageous Yaunling, Twin-Stalk Spore",TRUE,1,1,0,0,0,1,0,1,0,1,0,0,0,,FALSE,,,0,480
-FALSE,Rabbit,Creature,Rabbit,,Backup 1,1,1,,g/w,,,0,,,Rebellious Cacophany,TRUE,1,1,0,0,0,1,0,1,0,1,0,0,0,,FALSE,,,0,481
+FALSE,Goat,Creature,Goat,,Backup 1,1,1,,r/w,,,0,,,Goated,TRUE,1,1,0,0,1,0,0,1,0,1,0,0,0,,FALSE,,,0,481
 FALSE,Spirit,Creature,Spirit,,,1,1,,b/w,,,0,,,Conjuring the Masses,TRUE,1,1,0,1,0,0,0,1,0,1,1,0,0,,FALSE,,,0,482
 FALSE,Boulder,Artifact Creature,Boulder,,Defender,0,3,,c,,,0,,,"Relentless Fortification, Stone-Tosser Golem, Burrowing Moledon, Cloud Ruins",TRUE,1,0,0,0,0,0,1,0,0,1,0,0,0,,FALSE,,,0,483
-FALSE,Rabbit,Creature,Rabbit,,,1,1,,g/w,,,0,,,Rabbit Family Farm,TRUE,1,1,0,0,0,1,0,1,0,1,0,0,0,,FALSE,,,0,484
+FALSE,Rabbit Citizen,Creature,Rabbit,,,1,1,,g/w,,,0,,,Rabbit Family Farm,TRUE,1,1,0,0,0,1,0,1,0,1,0,0,0,,FALSE,,,0,484
 FALSE,Ooze,Creature,Ooze,,,*,*,,g/w,,,0,,,Oozing Oozer,TRUE,1,1,0,0,0,1,0,1,0,1,0,0,0,,FALSE,,,0,485
 FALSE,Outcast,Creature,Outcast,,Deathtouch,1,1,,c,,,0,,,Out,TRUE,1,0,0,0,0,0,1,0,0,1,0,0,0,,FALSE,,,0,486
 FALSE,Reflection,Creature,Reflection,,,1,1,,w,,,0,,,The Missing Fragment,TRUE,1,1,0,0,0,0,0,0,0,0,1,0,0,,FALSE,,,0,487
 FALSE,Rabbit Spider,Creature,Rabbit Spider,,Duck - target creature this is ducking behind gets +1/+0 until end of turn.,1,1,,g,,,0,,,Scatterbomb,TRUE,1,0,0,0,0,1,0,0,0,1,0,0,0,,FALSE,,,0,488
 FALSE,Dung,Artifact,,,"{t}, Sacrifice this artifact: Target creature can't attack this turn.",,,,c,,,0,,,Reoccuring Bullying,TRUE,1,0,0,0,0,0,1,0,0,1,0,0,0,,FALSE,,,0,489
-FALSE,Bird,Creature,Bird,,Flying,1,1,,u/w,,,0,,,Ancient Nestite,TRUE,1,1,1,0,0,0,0,1,0,1,0,0,0,,FALSE,,,0,490
+FALSE,Bird,Creature,Bird,,Flying,1,1,,u/w,,,0,,,"Ancient Nestite, Unfocused Summoner",TRUE,1,1,1,0,0,0,0,1,0,1,0,0,0,,FALSE,,,0,490
 FALSE,Rabbit,Creature,Rabbit,,,2,2,,w,,,0,,,Whitehair Hare,TRUE,1,1,0,0,0,0,0,0,0,1,0,0,0,,FALSE,,,0,491
 FALSE,Skeleton,Creature,Skeleton,,Deathtouch,1,1,,b/w,,,0,,,Icarus' Resting Place,TRUE,1,1,0,1,0,0,0,1,0,1,0,0,0,,FALSE,,,0,492
 FALSE,Trilobite,Creature,Trilobite,,"When this creature dies, target opponent mills 2 cards.",1,1,,u/b,,,0,,,Ancient Tidepools,TRUE,1,0,1,1,0,0,0,1,0,1,0,0,0,,FALSE,,,0,493
-FALSE,Alpaca Citizen,Creature,Alpaca Citizen,,Backup 1,1,1,,w/g,,,0,,,Daycare Grand Opening,TRUE,0,1,0,0,0,1,0,1,0,0,0,0,0,,FALSE,,,0,494
-FALSE,,,,,,,,,g/w,,,0,,,,TRUE,0,1,0,0,0,1,0,1,0,0,0,0,0,,TRUE,,,0,495
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,496
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,497
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,498
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,499
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,500
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,501
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,502
+FALSE,Alpaca,Creature,Alpaca,,Duck - gain 1 life.,1,1,,w/g,,,0,,,"Daycare Grand Opening, Mother Alpakon",TRUE,1,1,0,0,0,1,0,1,0,0,0,1,0,,FALSE,,,0,494
+FALSE,Vitriolic Ritual,Sorcery,,{5}{r}{r},"Create a 4/4 red Dragon creature token with flying. 
+Rivalstorm (Copy this spell for each spell an opponent cast this turn.)",,,r,,,,7,,,,FALSE,1,0,0,0,1,0,0,0,0,1,1,0,0,,TRUE,,{5}$$,5,495
+FALSE,Crumblemite Barrier,Artifact Creature,Insect Wall,{2}{w/g},"Whenever Crumblemite Barrier blocks, put a -1/-1 counter on it. Create a 0/1 colorless Insect artifact creature token with, ""This creature gets +2/+0 as long as it's blocking.""",0,2,u,,,,3,,,,FALSE,1,1,0,0,0,1,0,1,0,1,1,0,0,,TRUE,,{2}$,2,496
+FALSE,Crumblemite,Artifact Creature,Insect,,This creature gets +2/+0 as long as it's blocking. ,0,1,,c,,,0,,,,TRUE,1,0,0,0,0,0,1,0,0,1,0,0,0,,TRUE,,,0,497
+FALSE,Unfocused Summoner,Creature,Bird Wizard,{1}{u},"Ward - {1}, Reveal a card
+At the beginning of your endstep, if an opponent has not cast a spell this turn, make a 1/1 blue and white Bird creature token with flying. ",1,2,u,,"Token, reveal",,2,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,498
+FALSE,"Thriso, One With Water",Legendary Creature,Human Warrior,{1}{u}{u},"Double Strike, Ward - Return a permanent to your hand
+Fluid - Each time a creature enters or leaves the battlefield, Thriso gets +1/+1 until end of turn. ",1,3,m,,"Double strike, ward","Bounce, ETB",3,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$$,1,499
+FALSE,Prompting Emu,Creature,Bird Giant,{4}{u/g},"Ward - Cast a spell
+When Prompting Emu enters, return target nonland permanent to its owner's hand. ",3,3,c,,,,5,,,,FALSE,1,0,1,0,0,1,0,1,0,0,0,1,0,,TRUE,,{4}$,4,500
+FALSE,Not Quite Myself,Instant,,{3}{u},"Make a token that's a copy of target creature you control.
+Flashback {3}{u}{u}",,,r,,,,4,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{3}$,3,501
+FALSE,"Lonkru, Self-Coronated",Legendary Creature,Dwarf,{2}{b},"Bow Down - Whenever Lonkru attacks alone, tap X untapped creatures you control. He gets +X/+X until end of turn.
+At the beginning of your upkeep, pay {2}{b}. If you don't, creatures other than Lonkru you control don't untap in that upkeep.
+Sacrifice two creatures: Lonkru gains double strike until end of turn.
+",1,2,m,,"Double strike, tap, sacrifice",,3,,,,FALSE,0,0,0,1,0,0,0,0,0,0,0,0,0,,TRUE,,{2}$,2,502
 FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,503
 FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,504
 FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,505

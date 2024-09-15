@@ -10,6 +10,7 @@ import time
 
 # @TODO: 
 ## General
+# Figure out how tokens work in cockatrice - the file is there but doesn't work properly (?)
 # Add proper instructions for zero-to-set
 
 # FOR USE IN CODE: LONG DASH COPY-PASTE — as opposed to - —
@@ -77,7 +78,7 @@ f"""<?xml version="{metadata.set_version_code.replace("_", ".")}" encoding="UTF-
     <set picURL=""></set>
     <color></color>
     <manacost></manacost>
-    <type>Token Creature — </type>
+    <type>Token Creature - </type>
     <pt>/</pt>
     <tablerow>1</tablerow>
     <text></text>
@@ -107,7 +108,7 @@ def main():
     
     generate_card_images_input: str = get_user_input(
         yes_no_input_check, 
-        "Do you also want to generate default card images? (y/n) >>> >>> "
+        "Do you also want to generate playtest card images? (y/n) >>> >>> "
     )
     log_to_file("[User input]: " + generate_card_images_input)
     start_time = time.time()

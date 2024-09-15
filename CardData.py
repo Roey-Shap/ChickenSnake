@@ -545,12 +545,21 @@ def generate_draft_text_file(draft_text_filepath: str,
         # Declaring custom cards
         draft_text_file.write("[CustomCards]\n[")        
 
-        num_cards_total = len(cards_dict)
+        num_non_token_cards = 0
+        for card in cards_dict.values():
+            if not card.is_token:
+                num_non_token_cards += 1
 
-        for i, card in enumerate(cards_dict.values()):
+        i: int = 0
+        for card in cards_dict.values():
+            if card.is_token:
+                continue
+
             draft_text_file.write(card.get_draft_text_rep(uploaded_images_base_url, CARD_PICTURE_FILE_FORMAT))
-            if i < num_cards_total - 1:
+            if i < num_non_token_cards - 1:
                 draft_text_file.write(",")
+
+            i += 1
         draft_text_file.write("\n]\n")
 
         # Writing in cards sorted by rarity
@@ -558,5 +567,6 @@ def generate_draft_text_file(draft_text_filepath: str,
             draft_text_file.write("[" + rarity + "]\n")
             rarity_code: str = rarity[0].lower()
             for card in cards_by_rarity[rarity_code]:
-                draft_text_file.write(card.name + "\n")
+                if not card.is_token:
+                    draft_text_file.write(card.name + "\n")
 
