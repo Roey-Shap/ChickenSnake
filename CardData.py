@@ -338,30 +338,42 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
 
             pip_BG_size_factor = 0.9
             total_card_body_text: str = card_data.body_text #+ ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
-            segments, went_over_line_limit = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(Fonts.font_body, Fonts.font_symbols, Fonts.get_symbol_font(Fonts.font_symbols_initial_size * pip_BG_size_factor)))
+            segments, went_over_line_limit = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(Fonts.font_body, Fonts.font_body_italic, Fonts.font_symbols, Fonts.get_symbol_font(Fonts.font_symbols_initial_size * pip_BG_size_factor)))
             segments: list[LineSegment] = segments
             current_font_size = Fonts.font_body_initial_size
             current_mana_font_size = Fonts.font_symbols_initial_size
-            current_font_max, current_font_min = Fonts.font_body_initial_size, Fonts.font_body_min_size
+            current_font_max, current_font_min = Fonts.font_body_max_size, Fonts.font_body_min_size
             resized_text_font, resized_symbols_font = None, None
             body_text_too_large = went_over_line_limit
-            tries = 3
+            tries = 5
+            # we could also try making text larger than normal, but so long as the initial text size is reasonable we don't need to
+            # for now this just corrects for too-large bodies of text
             if went_over_line_limit:
+                if metadata.warn_about_card_semantics_errors:
+                    log_and_print(f"{card_data.name}'s text is too large for default font size. Resizing...", do_print=metadata.verbose_mode_cards)
                 while tries > 0:
+                    # print(body_text_too_large)
                     if body_text_too_large:
                         current_font_max = current_font_size
                     else:
                         current_font_min = current_font_size
+
                     current_font_size = (current_font_min + current_font_max) / 2
-                    ratio_from_max_to_current = current_font_size / Fonts.font_body_initial_size
+
+                    ratio_from_max_to_current = current_font_size / Fonts.font_body_max_size
                     current_mana_font_size = Fonts.font_symbols_initial_size * ratio_from_max_to_current
+                    
                     resized_text_font = Fonts.get_body_font(current_font_size)
+                    resized_italic_font = Fonts.get_body_font(current_font_size, italic=True)
                     resized_symbols_font = Fonts.get_symbol_font(current_mana_font_size)
-                    segments, body_text_too_large = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(resized_text_font, resized_symbols_font, Fonts.get_symbol_font(current_mana_font_size * pip_BG_size_factor)))
+                    segments, body_text_too_large = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(resized_text_font, resized_italic_font, resized_symbols_font, Fonts.get_symbol_font(current_mana_font_size * pip_BG_size_factor)))
 
                     tries -= 1
                     # print(card_data.name)
-                    # print(tries, body_text_too_large, current_font_max)
+                    # print(tries, body_text_too_large, current_font_max, current_font_min, current_font_size)
+
+            if body_text_too_large and metadata.warn_about_card_semantics_errors:
+                log_and_print(f"{card_data.name}'s text was too large to fit properly.", do_print=metadata.verbose_mode_cards)
 
             body_text_position: tuple[int, int] = math_utils.add_tuples((44, 445), (0, token_yoffset) if card_data.is_token else (0, 0))
             for segment in segments:

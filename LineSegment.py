@@ -210,7 +210,7 @@ class LineSegment():
         current_x_offset = 0
         line_count = 1
         max_line_count = 9
-
+        in_italic_mode: bool = False
         draw_context = ImageDraw.Draw(image)
 
         chosen_font_text = Fonts.font_body if not small_text_mode else Fonts.font_body_tiny
@@ -225,8 +225,12 @@ class LineSegment():
                 return LineSegment.split_text_for_symbols(raw_text, image, max_width, max_height, small_text_mode=True)
 
             is_symbol = re.match(r"[{}]", raw_segment)
+            if '(' in raw_segment:
+                in_italic_mode = True
+
             string_bbox = None
             chosen_font = None
+            chosen_font_italic = None
             parsed_text = ""
             # if debug_mode:
             #     log_and_print(raw_segment)
@@ -237,12 +241,16 @@ class LineSegment():
                 parsed_text = raw_segment.replace("&", "")
                 chosen_font = chosen_font_text
 
+            # UGLY HACK! But we're ok with it...! In the spirit of quick and dirty iterations and playtesting... or something..
             if font_override:
                 if get_bounding_box_mode:
-                    chosen_font, chosen_font_symbols_bg, chosen_font_symbols_ACTUAL_BACKGROUND = font_override
+                    chosen_font, chosen_font_italic, chosen_font_symbols_bg, chosen_font_symbols_ACTUAL_BACKGROUND = font_override
                     if is_symbol:
                         chosen_font = chosen_font_symbols_bg
                         chosen_font_symbols_bg = chosen_font_symbols_ACTUAL_BACKGROUND
+                    else: # this segment contains only normal text
+                        if in_italic_mode:
+                            chosen_font = chosen_font_italic
                 else:
                     chosen_font, chosen_font_symbols_bg = font_override
 
@@ -281,6 +289,9 @@ class LineSegment():
             if '&' in raw_segment:
                 current_x_offset = 0
                 line_count += metadata.card_line_height_between_abilities
+            
+            if ")" in raw_segment:
+                in_italic_mode = False
             
         for segment in line_segments:
             segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen * metadata.card_line_height_normal)

@@ -11,7 +11,7 @@ import UI
 base_filepath = ".\\DoD3\\"
 output_filepath = "C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\MtGDoD3\\"
 spreadsheet_file_name = "MtG DoD Custom - Cards.csv"
-uploaded_images_base_url = "https://roey-shap.github.io/MtGDoD3/output/Playtest_Card_Images/"
+uploaded_images_base_url = "https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/"
 set_code = "DOD"
 set_longname = "DoD3"
 set_version_code = "1_0"  # MUST BE IN XX_XX format! Not more than 1 underscore!
@@ -45,7 +45,7 @@ verbose_mode_cards = False
 verbose_mode_files = False
 # @TODO: Should warn about things like mana symbols being out of order and corrected. 
 # Maybe also templating issues?
-warn_about_card_semantics_errors = False
+warn_about_card_semantics_errors = True
 
 # Determines how often certain pack types appear in Draftmancer's drafts. 
 # This is a typical distribution for MtG packs in the wild.
