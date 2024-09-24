@@ -1,17 +1,22 @@
+import os
+import time
+
 import metadata
 from CardData import *
 from Card import Card 
 from UI import *
 import LineSegment
-import os
+
 from ascii_art import logo_art
 from UI import log_and_print
-import time
 
 # @TODO: 
 ## General
-# Figure out how tokens work in cockatrice - the file is there but doesn't work properly (?)
+# Follow this link https://github.com/Cockatrice/Cockatrice/wiki/Custom-Cards-&-Sets for
+# proper markdown data formatting
 # Add proper instructions for zero-to-set
+
+# https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/!name!.jpg
 
 # FOR USE IN CODE: LONG DASH COPY-PASTE — as opposed to - —
 
@@ -34,7 +39,7 @@ import time
 # V Normal
 # V Artifact
 # V Vehicle
-# X Arc-style tokens
+# V Arc-style tokens
 # X Miracle
 # X Fuse
 # X Planeswalkers (3/4 ability)
@@ -51,56 +56,60 @@ import time
 # Battle
 # Cases (Karlov Manor) (How to template that...)
 
-full_final_card_images_path = os.path.abspath(metadata.card_images_filepath)
-full_final_markdown_images_path = os.path.abspath(metadata.output_base_filepath)
-
-header_string = \
-f"""<?xml version="{metadata.set_version_code.replace("_", ".")}" encoding="UTF-8"?>
-<cockatrice_carddatabase version="3">
-<sets>
-<set>
-<name>{metadata.set_code}</name>
-<longname>{metadata.set_longname}</longname>
-<releasedate>{metadata.release_date}</releasedate>
-<settype>Custom</settype>
-</set>
-</sets>
-<cards>
-"""
-
-header_string_tokens = \
-f"""<?xml version="{metadata.set_version_code.replace("_", ".")}" encoding="UTF-8"?>
-<cockatrice_carddatabase version="3">
-<cards>
-<!-- 
-<card>
-    <name></name>
-    <set picURL=""></set>
-    <color></color>
-    <manacost></manacost>
-    <type>Token Creature - </type>
-    <pt>/</pt>
-    <tablerow>1</tablerow>
-    <text></text>
-    <token>1</token>
-</card>
-    -->
-"""
-
-closer_string = \
-f"""
-</cards>
-</cockatrice_carddatabase>
-"""
-
-closer_string_tokens = \
-f"""
-</cards>
-</cockatrice_carddatabase>
-"""
-
 def main():
-    generated_a_missing_folder: bool = metadata.do_log_file_init()
+    metadata.settings_final_configs = metadata.get_user_settings()
+    generated_a_missing_folder: bool = metadata.initialize_metadata()
+
+    full_final_card_images_path = os.path.abspath(metadata.settings_final_configs["card_images_filepath"])
+    full_final_markdown_images_path = os.path.abspath(metadata.settings_final_configs["output_base_filepath"])
+
+    metadata_set_code = metadata.settings_data_obj["file_settings"]["set_code"]
+    adjusted_version_code = metadata.settings_data_obj["file_settings"]["set_version_code"].replace("_", ".")
+
+    header_string = \
+    f"""<?xml version="{adjusted_version_code}" encoding="UTF-8"?>
+    <cockatrice_carddatabase version="3">
+    <sets>
+    <set>
+    <name>{metadata_set_code}</name>
+    <longname>{metadata.settings_data_obj["file_settings"]["set_longname"]}</longname>
+    <releasedate>{metadata.settings_data_obj["file_settings"]["release_date"]}</releasedate>
+    <settype>Custom</settype>
+    </set>
+    </sets>
+    <cards>
+    """
+
+    header_string_tokens = \
+    f"""<?xml version="{metadata_set_code}" encoding="UTF-8"?>
+    <cockatrice_carddatabase version="3">
+    <cards>
+    <!-- 
+    <card>
+        <name></name>
+        <set picURL=""></set>
+        <color></color>
+        <manacost></manacost>
+        <type>Token Creature - </type>
+        <pt>/</pt>
+        <tablerow>1</tablerow>
+        <text></text>
+        <token>1</token>
+    </card>
+        -->
+    """
+
+    closer_string = \
+    f"""
+    </cards>
+    </cockatrice_carddatabase>
+    """
+
+    closer_string_tokens = \
+    f"""
+    </cards>
+    </cockatrice_carddatabase>
+    """
 
     print(logo_art)
     print("\n")
@@ -114,32 +123,36 @@ def main():
     start_time = time.time()
 
     log_and_print("\nExtracting card data from input file...")
-    cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(metadata.card_data_filepath)
+    cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(metadata.settings_final_configs["card_data_filepath"])
 
     do_generate_card_images = generate_card_images_input.lower() in ["y", "yes"]
     if do_generate_card_images:
         log_and_print("\nInitializing image creation assets...")
         image_assets = initialize_card_image_assets({
-                    "pre-set": metadata.card_image_creation_assets_filepath,
-                    "generated": metadata.card_image_creation_assets_generated_filepath
+                    "pre-set": metadata.settings_final_configs["card_image_creation_assets_filepath"],
+                    "generated": metadata.settings_final_configs["card_image_creation_assets_generated_filepath"]
                     })
         
         log_and_print("\nGenerating card images...")
-        generate_card_images(cards_dict, {"normal": metadata.card_images_filepath, "token": metadata.token_images_filepath}, image_assets)
+        generate_card_images(cards_dict, 
+                            {"normal": metadata.settings_final_configs["card_images_filepath"], 
+                            "token": metadata.settings_final_configs["token_images_filepath"]}, 
+                            image_assets)
         
         log_and_print("\nDone!") 
 
     card_rarities = ["Common", "Uncommon", "Rare", "Mythic"]
     cards_by_rarity = group_cards_by_rarity(card_rarities, cards_dict)
-    generate_draft_text_file(metadata.draft_text_filepath, cards_dict, 
+    generate_draft_text_file(metadata.settings_final_configs["draft_text_filepath"], cards_dict, 
                                             metadata.draft_pack_settings_string, 
-                                            metadata.uploaded_images_base_url, 
+                                            metadata.settings_data_obj["file_settings"]["uploaded_images_base_url"], 
                                             card_rarities, cards_by_rarity)
-    generate_markdown_file({"normal": metadata.markdown_cards_filepath, "token": metadata.markdown_tokens_filepath}, 
+    generate_markdown_file({"normal": metadata.settings_final_configs["markdown_cards_filepath"], 
+                            "token": metadata.settings_final_configs["markdown_tokens_filepath"]}, 
                             cards_dict, 
                             {"normal": header_string, "token": header_string_tokens}, 
                             {"normal": closer_string, "token": closer_string_tokens}, 
-                            metadata.set_code)
+                            metadata.settings_data_obj["file_settings"]["set_code"])
 
     log_and_print()
     log_and_print("Program execution time: %.2f seconds" % (time.time() - start_time))
@@ -153,6 +166,8 @@ def main():
     log_and_print(">>>   " + full_final_markdown_images_path)
     log_and_print("This entire program output has also been printed to a log file there.")
     log_and_print("=========================================")
+
+    _ = input("Press enter to close this window.")
 
 
 if __name__ == "__main__":

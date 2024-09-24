@@ -2,9 +2,8 @@ import csv
 from Card import Card
 from PIL import Image, ImageFont, ImageDraw, ImageTk, ImageChops
 from Fonts import body_text_font_name, symbols_font_name
-from LineSegment import LineSegment
+from LineSegment import LineSegment, hybrid_pips_with_non_wubrg_order_colors
 import Fonts
-from LineSegment import hybrid_pips_with_non_wubrg_order_colors
 import metadata
 from UI import log_and_print
 import os.path
@@ -93,11 +92,15 @@ def reorder_mana_string(stripped_cost: str) -> str:
         return stripped_cost
 
 def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
+    verbose_mode_cards = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_cards"]
+
     cards_dict: dict[str, Card] = {}
     with open(card_data_filepath) as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
-            if row["Is Card"] == "1":
+            is_valid_nontoken_card = row["Is Card"] == "1"
+            is_valid_card: bool = is_valid_nontoken_card or row["Is Token"] == "TRUE"
+            if is_valid_card:
                 name = row["Name"]
                 colors = get_color_string(row)
                 raw_mana_cost_string = row["Cost"]
@@ -115,8 +118,9 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 related_card_names = [name.strip() for name in related_card_names]
 
                 # Replace placeholder name with card name
-                if metadata.replace_reference_string_with_cardname and len(metadata.reference_card_name) > 0:
-                    body_text = body_text.replace(metadata.reference_card_name, name)
+                semantics_settings = metadata.settings_data_obj["card_semantics_settings"]
+                if semantics_settings["replace_reference_string_with_cardname"] and len(semantics_settings["reference_card_name"]) > 0:
+                    body_text = body_text.replace(semantics_settings["reference_card_name"], name)
 
                 loaded_card = Card(
                     name, colors, manacost, raw_mana_cost_string,
@@ -136,7 +140,7 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
         is_creature = card.supertype.find("Creature") != -1
         if len(card.raw_mana_cost_string) == 0 and card.supertype.find("Land") == -1 and not card.is_token:
             card_warning_messages.append("Missing a mana cost.")
-        if card.found_manacost_error and metadata.warn_about_card_semantics_errors:
+        if card.found_manacost_error and metadata.settings_data_obj["card_semantics_settings"]["warn_about_card_semantics_errors"]:
             card_warning_messages.append("Had a manacost pip-order error:")
             for pip in card.corrected_pips:
                 card_warning_messages.append(f"   Correcting manacost hybrid pip order: {pip} -> {pip[::-1]}")
@@ -146,14 +150,14 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
             card_warning_messages.append("Missing a subtype.")
         if is_creature and card.stats is None:
             card_warning_messages.append("Missing power/toughness.")
-        if metadata.rarities_should_be_in_place and card.is_rarity_missing and not card.is_token:
+        if metadata.settings_data_obj["card_semantics_settings"]["rarities_should_be_in_place"] and card.is_rarity_missing and not card.is_token:
             card_warning_messages.append("Missing rarity. Defaulting to COMMON.")
         
         non_existing_related_cards: list[str] = []
         for related_card_name in card.related_card_names:
             if not related_card_name:
                 continue
-            if related_card_name not in cards_dict:
+            if related_card_name.lower() not in [key.lower() for key in cards_dict]:
                 non_existing_related_cards.append(related_card_name)
                 
         if len(non_existing_related_cards) > 0:
@@ -161,17 +165,17 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
             card_warning_messages.append(f"There were cards you marked as related to this one that aren't in your database: \n   {newline_string.join(non_existing_related_cards)}")
         
         if len(card_warning_messages) > 0:
-            if not metadata.verbose_mode_cards:
+            if not verbose_mode_cards:
                 if not saw_card_with_errors:
                     print(">>>  You had warnings about imported card data! Check the log for more details.")
                     saw_card_with_errors = True
             
-            log_and_print(f"Warnings for '{card.name}':", do_print=metadata.verbose_mode_cards)
+            log_and_print(f"Warnings for '{card.name}':", do_print=verbose_mode_cards)
             for warning in card_warning_messages:
-                log_and_print(">  " + warning, do_print=metadata.verbose_mode_cards)
+                log_and_print(">  " + warning, do_print=verbose_mode_cards)
 
     if not saw_card_with_errors:
-        log_and_print("No warnings about imported card data to report!", do_print=metadata.verbose_mode_cards)
+        log_and_print("No warnings about imported card data to report!", do_print=verbose_mode_cards)
 
 
     return cards_dict
@@ -229,6 +233,9 @@ def get_card_set_symbol_info(card_data: Card) -> CardImageInfo:
     return CardImageInfo(f"set_symbol_{card_data.rarity_name}", "", "", should_be_modified=False, special_card_asset_name_mode=True)
 
 def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[str, str], image_assets: dict[CardImageInfo, Image]):
+    verbose_mode_cards = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_cards"]
+    warn_about_card_semantics_errors = metadata.settings_data_obj["card_semantics_settings"]["warn_about_card_semantics_errors"]
+
     num_cards_total = len(card_dict)
     current_card_index = 0
 
@@ -349,8 +356,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             # we could also try making text larger than normal, but so long as the initial text size is reasonable we don't need to
             # for now this just corrects for too-large bodies of text
             if went_over_line_limit:
-                if metadata.warn_about_card_semantics_errors:
-                    log_and_print(f"{card_data.name}'s text is too large for default font size. Resizing...", do_print=metadata.verbose_mode_cards)
+                if warn_about_card_semantics_errors:
+                    log_and_print(f"{card_data.name}'s text is too large for default font size. Resizing...", do_print=verbose_mode_cards)
                 while tries > 0:
                     # print(body_text_too_large)
                     if body_text_too_large:
@@ -372,8 +379,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
                     # print(card_data.name)
                     # print(tries, body_text_too_large, current_font_max, current_font_min, current_font_size)
 
-            if body_text_too_large and metadata.warn_about_card_semantics_errors:
-                log_and_print(f"{card_data.name}'s text was too large to fit properly.", do_print=metadata.verbose_mode_cards)
+            if body_text_too_large and warn_about_card_semantics_errors:
+                log_and_print(f"{card_data.name}'s text was too large to fit properly.", do_print=verbose_mode_cards)
 
             body_text_position: tuple[int, int] = math_utils.add_tuples((44, 445), (0, token_yoffset) if card_data.is_token else (0, 0))
             for segment in segments:
@@ -391,7 +398,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             except:
                 raise ValueError(f"There was an issue saving the image for: {card_data.name}")
 
-            if metadata.verbose_mode_cards:
+            if verbose_mode_cards:
                 if current_card_index % 25 == 0:
                     log_and_print(f"Finished card {current_card_index+1}/{num_cards_total}")
 
@@ -409,6 +416,7 @@ Save them all that the same size and the correct format for superimposing on one
 """
 def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, Image]:
     resized_images: dict[str, Image] = {}
+    verbose_mode_files = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_files"]
     # There are certain image names we expect to see. Initialize that list first.
     # Some will be expected to have a left and right side for mixing (X/V)
     # V Normal              | WUBRGM
@@ -451,7 +459,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
             if not image_info.should_be_modified:
                 # If the image isn't to be modified to generate new card borders, it should exist
                 # ... and we just need to resize it and hold it in memory
-                log_and_print(f"Accessing base file to simply load it into memory {expected_image_filepath}", do_print=metadata.verbose_mode_files)
+                log_and_print(f"Accessing base file to simply load it into memory {expected_image_filepath}", do_print=verbose_mode_files)
                 base_image: Image = Image.open(expected_image_filepath)
                 resized_image: Image = base_image.resize(card_pixel_dims)
                 resized_images[image_info.file_prefix] = resized_image.convert("RGBA")
@@ -460,9 +468,9 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 # We'll check if we already have:
                 was_image_generated: bool = os.path.isfile(expected_image_filepath)
                 base_image_filepath = assets_filepath["pre-set"] + image_info.base_file_prefix + image_suffix
-                if not was_image_generated or metadata.always_regenerate_base_card_frames:
-                    log_and_print(f"To-be-generated file {expected_image_filepath} doesn't exist. Generating...", do_print=metadata.verbose_mode_files)
-                    log_and_print(f"Accessing base file {base_image_filepath} to mask it", do_print=metadata.verbose_mode_files)
+                if not was_image_generated or metadata.settings_data_obj["asset_loading_settings"]["always_regenerate_base_card_frames"]:
+                    log_and_print(f"To-be-generated file {expected_image_filepath} doesn't exist. Generating...", do_print=verbose_mode_files)
+                    log_and_print(f"Accessing base file {base_image_filepath} to mask it", do_print=verbose_mode_files)
                     base_image = Image.open(base_image_filepath)
                     resized_image: Image = base_image.resize(card_pixel_dims)
                     masked_image = ImageChops.multiply(resized_image, hybrid_card_masks[image_info.side])
@@ -470,7 +478,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                     # Save the image so we don't need to generate it next time
                     masked_image.save(expected_image_filepath, quality=100)
                 else:
-                    log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=metadata.verbose_mode_files)
+                    log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=verbose_mode_files)
                     loaded_image = Image.open(expected_image_filepath)
                     resized_image: Image = loaded_image.resize(card_pixel_dims)
                     resized_images[image_info.file_prefix] = resized_image

@@ -288,13 +288,13 @@ class LineSegment():
             # Account for in-text newlines
             if '&' in raw_segment:
                 current_x_offset = 0
-                line_count += metadata.card_line_height_between_abilities
+                line_count += metadata.settings_data_obj["card_image_settings"]["card_line_height_between_abilities"]
             
             if ")" in raw_segment:
                 in_italic_mode = False
             
         for segment in line_segments:
-            segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen * metadata.card_line_height_normal)
+            segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen * metadata.settings_data_obj["card_image_settings"]["card_line_height_normal"])
 
         return line_segments, line_count > max_line_count
 

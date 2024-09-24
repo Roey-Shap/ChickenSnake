@@ -1,0 +1,52 @@
+/*
+====================================================================
+Welcome to the metadata! (It's like settings. But fancier!)
+Confused on how to use these? The README.md file might help!
+====================================================================
+*/
+
+{
+    "file_settings":
+    {
+        "output_filepath": "C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\TEST_OUTPUT_FOLDER\\",
+        "spreadsheet_file_name": "MtG DoD Custom - Cards.csv",
+    
+        "uploaded_images_base_url": "https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/",
+        "set_code": "ABC",//"DOD",
+        "set_longname": "LONGNAME_1_2-3!!",
+        "set_version_code": "1_0",
+        // Version code must be in XX_XX format! Exactly 1 underscore!
+        // i.e. 12_0 is ok, 12_123 is ok,  1_ is not, 123 is not, and 1_2_3 is not.
+        "release_date": "2024-09-08"
+    },
+    "card_image_settings":
+    {
+        "card_line_height_between_abilities": 1.4,
+        "card_line_height_normal": 1.035
+    },
+    // It's typical to see a special placeholder name in test cards where one hasn't been decided yet.
+    // The one I always see is tilde (~). Another common one is CARDNAME. Chose whatever you'd like!
+    "card_semantics_settings":
+    {
+        "replace_reference_string_with_cardname": true,
+        "reference_card_name":  "~",
+        // If you didn't have time to do rarities, just set this to false and you won't be warned about it!
+        "rarities_should_be_in_place": true,
+        // Give updates about card errors and file accesses as the program runs.
+        "verbose_mode_cards": false,
+        "verbose_mode_files": false,
+        // Turning this off makes warnings not appear at ALL, even in the program log
+        // @TODO: Should warn about things like mana symbols being out of order and corrected. 
+        // Maybe also templating issues?
+        "warn_about_card_semantics_errors": true
+    },
+    "asset_loading_settings":
+    {
+        // Set to true if you want a new log each time you run the program...
+        // ... so you can keep track of errors you've fixed over time.
+        "make_unique_program_run_log": false,
+        // Set to true if you want the program to always regenerate the hybrid color borders
+        // and other card frames from the few base frames 
+        "always_regenerate_base_card_frames": false
+    }
+}

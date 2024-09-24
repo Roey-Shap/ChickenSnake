@@ -2,7 +2,7 @@ from contextlib import redirect_stdout
 import metadata
 
 def log_to_file(text):
-    with open(metadata.current_execution_log_filepath, 'a') as f:
+    with open(metadata.get_current_execution_log_filepath(), 'a') as f:
         with redirect_stdout(f):
             print(text)
 
