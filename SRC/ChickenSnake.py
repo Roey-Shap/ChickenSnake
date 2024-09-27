@@ -82,7 +82,7 @@ def main():
         """
 
         header_string_tokens = \
-        f"""<?xml version="{metadata_set_code}" encoding="UTF-8"?>
+        f"""<?xml version="{adjusted_version_code}" encoding="UTF-8"?>
         <cockatrice_carddatabase version="3">
         <cards>
         <!-- 
