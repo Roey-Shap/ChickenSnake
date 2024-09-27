@@ -12,8 +12,9 @@ import json_minify
 # File locations and names
 settings_data_obj = {
     "file_settings": {
-        "output_filepath": ".\\Outputs\\", #"C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\MtGDoD3\\"
-        "spreadsheet_file_name": "MtG DoD Custom - Cards.csv",
+        "output_filepath": ".\\Outputs\\",
+        "input_filepath": ".\\Inputs\\",
+        "spreadsheet_file_name": "Cards.csv",
         "uploaded_images_base_url": "https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/",
         "set_code": "SET",
         "set_longname": "SetLongName",
@@ -98,11 +99,9 @@ def update_final_configuration_settings(settings_data_local):
     file_settings = settings_data_local["file_settings"]
     output_base_filepath = file_settings["output_filepath"]
     text_files_base_name = f"{file_settings['set_longname']}_{file_settings['set_version_code']}"
-    input_folder_name = ".\\Inputs\\"
     settings_preset = {
         "output_base_filepath": output_base_filepath,
-        "input_folder_name": input_folder_name,
-        "card_data_filepath": ".\\" + input_folder_name + file_settings["spreadsheet_file_name"],
+        "card_data_filepath": file_settings["input_filepath"] + file_settings["spreadsheet_file_name"],
         "card_images_filepath": output_base_filepath + f"Playtest_Card_Images_{file_settings['set_longname']}\\",
         "token_images_filepath": output_base_filepath + f"Playtest_Token_Images_{file_settings['set_longname']}\\",
         "card_image_creation_assets_filepath": ".\\Playtest_Base_Images\\",
@@ -160,37 +159,14 @@ def get_user_settings():
             current_execution_log_filepath.removesuffix(".txt") + datetime.now().strftime("_%d_%m_%y_%H_%M_%S.txt")
         
     return settings_final_configs
-        # print("DOING")
-        # print(settings_final_configs["current_execution_log_filepath"])
-
-        # print()
-        # print(settings_final_configs)
-        # for key in settings_object_local:
-        #     settings_data_obj[key] = 
-
-        # ####################
-        # ### PRESET ZONE ###
-        # # You probably won't want (or need) to touch these.
-        # output_base_filepath = output_filepath
-        # input_folder_name = ".\\Inputs\\"
-        # card_data_filepath = ".\\" + input_folder_name + spreadsheet_file_name
-        # card_images_filepath = output_base_filepath + "Playtest_Card_Images\\"
-        # token_images_filepath = output_base_filepath + "Playtest_Token_Images\\"
-        # card_image_creation_assets_filepath = ".\\Playtest_Base_Images\\"
-        # card_image_creation_assets_generated_filepath = ".\\Playtest_Base_Images_Generated\\"
-        # text_files_base_name = f"{set_longname}_{set_version_code}"
-        # log_filepath = output_base_filepath + "log_chickensnake.txt"
-
-        # # For Cockatrice
-        # markdown_cards_filepath = output_base_filepath + f"{text_files_base_name}_cards.xml"
-        # markdown_tokens_filepath = output_base_filepath + f"{text_files_base_name}_tokens.xml"
-        # # For Draftmancer
-        # draft_text_filepath = output_base_filepath + f"{text_files_base_name}.txt"
-        # current_execution_log_filepath = log_filepath
 
 def initialize_metadata() -> bool:
     # then we generate any missing directories or files
     generated_output_folder = False
+    
+    if not os.path.exists(settings_final_configs["card_data_filepath"]):
+        raise ValueError("Error: Input filepath doesn't exist. Check spreadsheet and input folder names.")
+
     for generated_folder in [settings_final_configs["output_base_filepath"],
                              settings_final_configs["card_image_creation_assets_generated_filepath"], 
                              settings_final_configs["card_images_filepath"], 

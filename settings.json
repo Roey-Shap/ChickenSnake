@@ -11,9 +11,10 @@ Welcome to the metadata! (It's like settings. But fancier!)
     "file_settings":
     {
         // The output filepath. Make this whatever you want.
-        "output_filepath": ".\\",
+        "output_filepath": ".\\Outputs\\",
+        "input_filepath": ".\\Inputs\\",
         // The name of the card data file to be put into the Inputs folder.
-        "spreadsheet_file_name": "SPREADSHEET_NAME.csv",
+        "spreadsheet_file_name": "Cards.csv",
     
         // The URL that your card images will be pulled from.
         // --> Cockatrice can pull from this URL and download your cards on the 

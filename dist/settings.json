@@ -1,33 +1,56 @@
 /*
 ====================================================================
 Welcome to the metadata! (It's like settings. But fancier!)
-Confused on how to use these? The README.md file might help!
 ====================================================================
 */
 
 {
+    /*
+    The main settings to change. Determine where your files are saved to and all sorts of set information.
+    */
     "file_settings":
     {
-        "output_filepath": "C:\\Users\\Roey Shapiro\\Documents\\AAB Backup\\Programming\\TEST_OUTPUT_FOLDER\\",
-        "spreadsheet_file_name": "MtG DoD Custom - Cards.csv",
+        // The output filepath. Make this whatever you want.
+        "output_filepath": "C:\\Users\\Roey Shapiro\\Desktop\\My Outputs_3\\",
+        "input_filepath": ".\\Inputs\\",
+        // The name of the card data file to be put into the Inputs folder.
+        "spreadsheet_file_name": "Cards.csv",
     
+        // The URL that your card images will be pulled from.
+        // --> Cockatrice can pull from this URL and download your cards on the 
+        // fly so your friends don't need to constantly download the updated card images.
+        // --> Draftmancer can use it to display the card images while drafting.
         "uploaded_images_base_url": "https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/",
-        "set_code": "ABC",//"DOD",
-        "set_longname": "LONGNAME_1_2-3!!",
+        // The set code. Typically 3 characters long. For example, Duskmourn's code is DSK.
+        "set_code": "TEST",
+        // Just a name. Put whatever you want here.
+        "set_longname": "SET_LONGNAME",
+        // Your set's version number. In theory can be used in Cockatrice to differentiate between different versions
+        // of the same set, but I wouldn't recommend it.
+        // --- Version code must be in XX_XX format! ---
+        // Exactly 1 underscore! i.e. 12_0 is ok, 12_123 is ok,  1_ is not, 123 is not, and 1_2_3 is not.
         "set_version_code": "1_0",
-        // Version code must be in XX_XX format! Exactly 1 underscore!
-        // i.e. 12_0 is ok, 12_123 is ok,  1_ is not, 123 is not, and 1_2_3 is not.
+        // Also just a number. You can sort by release date in Cockatrice, so please use YYYY-MM-DD format.
         "release_date": "2024-09-08"
     },
+
+    /*
+    Alter the way card images are generated.
+    Line spacings, pip sizes, etc.
+    */
     "card_image_settings":
     {
         "card_line_height_between_abilities": 1.4,
         "card_line_height_normal": 1.035
     },
-    // It's typical to see a special placeholder name in test cards where one hasn't been decided yet.
-    // The one I always see is tilde (~). Another common one is CARDNAME. Chose whatever you'd like!
+
     "card_semantics_settings":
     {
+        // Controls whether or not to replace a special character with the card's actual name.
+        // It's typical to see a special placeholder name in test cards where one hasn't been decided yet.
+        // The one I always see is tilde (~). Another common one is CARDNAME. Chose whatever you'd like!
+        // For example, if I put "~ enters with a +1/+1 counter." on the spreadsheet and name my card "Dude", the final result
+        // will be an image with body text "Dude enters with a +1/+1 counter."
         "replace_reference_string_with_cardname": true,
         "reference_card_name":  "~",
         // If you didn't have time to do rarities, just set this to false and you won't be warned about it!
