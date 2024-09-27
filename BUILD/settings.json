@@ -11,7 +11,7 @@ Welcome to the metadata! (It's like settings. But fancier!)
     "file_settings":
     {
         // The output filepath. Make this whatever you want.
-        "output_filepath": "C:\\Users\\Roey Shapiro\\Desktop\\My Outputs_3\\",
+        "output_filepath": ".\\Outputs\\",
         "input_filepath": ".\\Inputs\\",
         // The name of the card data file to be put into the Inputs folder.
         "spreadsheet_file_name": "Cards.csv",

@@ -1,7 +1,10 @@
-ChickenSnake
+ChickenSnake 🥚🐍
 =
 ChickenSnake is a scrappy script to convert **spreadsheets** of custom MtG cards into images and metadata for **[Cockatrice](https://cockatrice.github.io/)** and **[Draftmancer](https://draftmancer.com/)** to use.
 
+<img src="./mtg_example.png" width="100%" height="100%">
+
+ 
 Usage
 =
 The only thing you'll need is a spreadsheet of custom card data.
