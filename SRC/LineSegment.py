@@ -78,6 +78,8 @@ color_code_map: dict[str: tuple[int, int, int]] = \
 C_PIP_BG = '#'
 CHAR_PIP_BG = 'H'
 
+MAX_LINE_COUNT = 9
+
 class LineSegment():
     def __init__(self, text: str, 
                  font: ImageFont, offset: tuple[int, int],
@@ -209,7 +211,7 @@ class LineSegment():
         max_lineheight_seen = 0
         current_x_offset = 0
         line_count = 1
-        max_line_count = 9
+        num_literal_lines = 0
         in_italic_mode: bool = False
         draw_context = ImageDraw.Draw(image)
 
@@ -218,7 +220,7 @@ class LineSegment():
         chosen_font_symbols_bg = Fonts.font_symbols_pip_background if not small_text_mode else Fonts.font_symbols_small_pip_background
 
         for raw_segment in tokenized_strings:
-            if line_count > max_line_count and not small_text_mode and not get_bounding_box_mode:
+            if line_count > MAX_LINE_COUNT and not small_text_mode and not get_bounding_box_mode:
                 # log_and_print("===================")
                 # log_and_print("going small!")
                 # log_and_print("===================")
@@ -262,17 +264,26 @@ class LineSegment():
             )
 
             string_width = string_bbox[2] - string_bbox[0]
-            string_height = string_bbox[3] - string_bbox[1]
+            # string_height = string_bbox[3] - string_bbox[1]
             # log_and_print(string_width)
 
-            if not is_symbol:
-                max_lineheight_seen = max(max_lineheight_seen, string_height)
+            
+            lineheight_char_bbox = draw_context.multiline_textbbox(
+                (current_x_offset, 0), "A", chosen_font
+            )
+            string_height = lineheight_char_bbox[3] - lineheight_char_bbox[1]
+
+            max_lineheight_seen = max(string_height, string_height)
+
+            # if not is_symbol:
+            #     max_lineheight_seen = max(max_lineheight_seen, string_height)
 
             adding_word_overruns = current_x_offset + string_width > max_width
             if adding_word_overruns:
                 # log_and_print("OVERUN")
                 current_x_offset = 0
-                line_count += 1                
+                line_count += 1     
+                num_literal_lines += 1           
 
             new_segment: LineSegment = LineSegment(
                 parsed_text.replace("&", ""), chosen_font, 
@@ -293,10 +304,13 @@ class LineSegment():
             if ")" in raw_segment:
                 in_italic_mode = False
             
+        lowest_char_y = 0
         for segment in line_segments:
-            segment.offset = (segment.offset[0], segment.offset[1] * max_lineheight_seen * metadata.settings_data_obj["card_image_settings"]["card_line_height_normal"])
+            final_text_y = segment.offset[1] * max_lineheight_seen * metadata.settings_data_obj["card_image_settings"]["card_line_height_normal"]
+            segment.offset = (segment.offset[0], final_text_y)
+            lowest_char_y = max(final_text_y, lowest_char_y)
 
-        return line_segments, line_count > max_line_count
+        return line_segments, lowest_char_y + max_lineheight_seen > max_height, num_literal_lines > MAX_LINE_COUNT
 
 def draw_pip_color_background(c1: str, c2: str, 
                               pos: tuple[int, int], image: Image, 

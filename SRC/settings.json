@@ -40,8 +40,8 @@ Welcome to the metadata! (It's like settings. But fancier!)
     */
     "card_image_settings":
     {
-        "card_line_height_between_abilities": 1.4,
-        "card_line_height_normal": 1.035
+        "card_line_height_between_abilities": 1.45,
+        "card_line_height_normal": 1.15
     },
 
     "card_semantics_settings":

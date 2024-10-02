@@ -10,50 +10,42 @@ import LineSegment
 from ascii_art import logo_art
 from UI import log_and_print
 
-# @TODO: 
-## General
-# Follow this link https://github.com/Cockatrice/Cockatrice/wiki/Custom-Cards-&-Sets for
-# proper markdown data formatting
-# Add proper instructions for zero-to-set
+# @TODO:
+# Support most common other card types:
+    # Miracle, Planeswalker, Saga, Adventure, Fuse/Split, Battle
+# Italics:
+    # Special character to toggle italics: *
+    # Flavor text:
+        # 
+    # Other ideas:
+        # Include providing a list of recognized words like Landfall, Battalion, etc. and
+        # words to give reminder text for (and the corresponding reminder text.)
+# Images:
+    # Make playtest art autogenerate images based on type and mana cost
+# Specific color trim
+  # Download all 5 color trims
+  # Means we can also do this for colored artifacts
 
-# https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/!name!.jpg
+# Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
+    # normal new lines?
+
+
 
 # FOR USE IN CODE: LONG DASH COPY-PASTE — as opposed to - —
 
 ## Card image generation                            
-# Make gold cards still use correct color trim
-  # Download all 5 color trims
-  # Means we can also do this for colored artifacts
 # Use flavor text - make it italicized and in a smaller font
-# Make playtest art autogenerate images based on type and mana cost
-# Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
-    # normal new lines? Can we assume that after "choose ..." there won't be any more abilities and just say that if we see
-    # the phrase 'spree' or 'choose [any number/number N/one or more]' that we lock into not having anymore deliberate 
-    # newline extra line spacing?
 
-# Automatically generate and save the left/middle/right sides of the cards if they don't exist
-# (Not going to support tri-color cards for now)
-# Then apply those borders to the cards based on their type. The following are likely simple to start with:
-# (Normal, Artifact, Vehicle, Miracle, Tokens, Enchantments, Snow)
-# Border types downloaded (V by supported, X by unsupported):
-# V Normal
-# V Artifact
-# V Vehicle
-# V Arc-style tokens
-# X Miracle
-# X Fuse
-# X Planeswalkers (3/4 ability)
-# X Saga
 
-# Border types to download in order of priority:
+
+
+# Other border types
 # Snow
 # Split
 # ------
-# Adventures
 # Level up
 # Flip (Kamigawa)
 # Class
-# Battle
 # Cases (Karlov Manor) (How to template that...)
 
 def main():

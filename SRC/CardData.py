@@ -265,7 +265,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             # Mana Cost
             debug_on = False # card_data.name == "Ancient Nestite"
             # First find the mana cost's width at the current font
-            mana_cost_segments, _ = LineSegment.split_text_for_symbols(
+            mana_cost_segments, _, _= LineSegment.split_text_for_symbols(
                 card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, 
                 debug_mode=debug_on, font_override=(chosen_manacost_font, chosen_manacost_bg_font)
             )
@@ -345,20 +345,23 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
 
             pip_BG_size_factor = 0.9
             total_card_body_text: str = card_data.body_text #+ ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
-            segments, went_over_line_limit = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(Fonts.font_body, Fonts.font_body_italic, Fonts.font_symbols, Fonts.get_symbol_font(Fonts.font_symbols_initial_size * pip_BG_size_factor)))
+            max_body_text_width = 420
+            max_body_text_height = 185
+            segments, went_over_line_limit, _ = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, max_body_text_width, max_body_text_height, get_bounding_box_mode=True, font_override=(Fonts.font_body, Fonts.font_body_italic, Fonts.font_symbols, Fonts.get_symbol_font(Fonts.font_symbols_initial_size * pip_BG_size_factor)))
             segments: list[LineSegment] = segments
             current_font_size = Fonts.font_body_initial_size
             current_mana_font_size = Fonts.font_symbols_initial_size
             current_font_max, current_font_min = Fonts.font_body_max_size, Fonts.font_body_min_size
             resized_text_font, resized_symbols_font = None, None
             body_text_too_large = went_over_line_limit
-            tries = 5
+            more_than_max_lines = False
+            tries = 8
             # we could also try making text larger than normal, but so long as the initial text size is reasonable we don't need to
             # for now this just corrects for too-large bodies of text
             if went_over_line_limit:
                 if warn_about_card_semantics_errors:
                     log_and_print(f"{card_data.name}'s text is too large for default font size. Resizing...", do_print=verbose_mode_cards)
-                while tries > 0:
+                while tries > 1 or (tries == 1 and body_text_too_large):
                     # print(body_text_too_large)
                     if body_text_too_large:
                         current_font_max = current_font_size
@@ -373,14 +376,14 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
                     resized_text_font = Fonts.get_body_font(current_font_size)
                     resized_italic_font = Fonts.get_body_font(current_font_size, italic=True)
                     resized_symbols_font = Fonts.get_symbol_font(current_mana_font_size)
-                    segments, body_text_too_large = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, 420, 500, get_bounding_box_mode=True, font_override=(resized_text_font, resized_italic_font, resized_symbols_font, Fonts.get_symbol_font(current_mana_font_size * pip_BG_size_factor)))
+                    segments, body_text_too_large, more_than_max_lines = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, max_body_text_width, max_body_text_height, get_bounding_box_mode=True, font_override=(resized_text_font, resized_italic_font, resized_symbols_font, Fonts.get_symbol_font(current_mana_font_size * pip_BG_size_factor)))
 
                     tries -= 1
                     # print(card_data.name)
-                    # print(tries, body_text_too_large, current_font_max, current_font_min, current_font_size)
+                    # print(f"{tries: <5}, {body_text_too_large: <5}, {current_font_max: <5}, {current_font_min: <5}, {current_font_size: <5}")
 
-            if body_text_too_large and warn_about_card_semantics_errors:
-                log_and_print(f"{card_data.name}'s text was too large to fit properly.", do_print=verbose_mode_cards)
+            if more_than_max_lines and warn_about_card_semantics_errors:
+                log_and_print(f"{card_data.name}'s text was was more than {LineSegment.MAX_LINE_COUNT} even at the smallest font.", do_print=verbose_mode_cards)
 
             body_text_position: tuple[int, int] = math_utils.add_tuples((44, 445), (0, token_yoffset) if card_data.is_token else (0, 0))
             for segment in segments:
