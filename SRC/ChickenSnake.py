@@ -33,12 +33,6 @@ from UI import log_and_print
 
 # FOR USE IN CODE: LONG DASH COPY-PASTE — as opposed to - —
 
-## Card image generation                            
-# Use flavor text - make it italicized and in a smaller font
-
-
-
-
 # Other border types
 # Snow
 # Split
@@ -46,7 +40,8 @@ from UI import log_and_print
 # Level up
 # Flip (Kamigawa)
 # Class
-# Cases (Karlov Manor) (How to template that...)
+# Cases (Karlov Manor)
+
 
 def main():
     try:
@@ -59,58 +54,22 @@ def main():
         metadata_set_code = metadata.settings_data_obj["file_settings"]["set_code"]
         adjusted_version_code = metadata.settings_data_obj["file_settings"]["set_version_code"].replace("_", ".")
 
-        header_string = \
-        f"""<?xml version="{adjusted_version_code}" encoding="UTF-8"?>
-        <cockatrice_carddatabase version="3">
-        <sets>
-        <set>
-        <name>{metadata_set_code}</name>
-        <longname>{metadata.settings_data_obj["file_settings"]["set_longname"]}</longname>
-        <releasedate>{metadata.settings_data_obj["file_settings"]["release_date"]}</releasedate>
-        <settype>Custom</settype>
-        </set>
-        </sets>
-        <cards>
-        """
+        header_string, header_string_tokens = CardData.get_markdown_file_header_strings(
+                        adjusted_version_code,
+                        metadata_set_code,
+                        metadata.settings_data_obj["file_settings"]["set_longname"],
+                        metadata.settings_data_obj["file_settings"]["release_date"]
+                        )
 
-        header_string_tokens = \
-        f"""<?xml version="{adjusted_version_code}" encoding="UTF-8"?>
-        <cockatrice_carddatabase version="3">
-        <cards>
-        <!-- 
-        <card>
-            <name></name>
-            <set picURL=""></set>
-            <color></color>
-            <manacost></manacost>
-            <type>Token Creature - </type>
-            <pt>/</pt>
-            <tablerow>1</tablerow>
-            <text></text>
-            <token>1</token>
-        </card>
-            -->
-        """
-
-        closer_string = \
-        f"""
-        </cards>
-        </cockatrice_carddatabase>
-        """
-
-        closer_string_tokens = \
-        f"""
-        </cards>
-        </cockatrice_carddatabase>
-        """
-
+        # Intro to user
         print(logo_art)
         print("\n")
         log_and_print("Welcome to ChickenSnake, for fast custom playtest cards!")
         
+        # Prompt user to generate card images
         generate_card_images_input: str = get_user_input(
             yes_no_input_check, 
-            "Do you also want to generate playtest card images? (y/n) >>> >>> "
+            "Do you also want to generate playtest card images? >-  (y/n)  -----> "
         )
         log_to_file("[User input]: " + generate_card_images_input)
         start_time = time.time()
@@ -118,8 +77,8 @@ def main():
         log_and_print("\nExtracting card data from input file...")
         cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(metadata.settings_final_configs["card_data_filepath"])
 
-        do_generate_card_images = generate_card_images_input.lower() in ["y", "yes"]
-        if do_generate_card_images:
+        user_requested_card_images = generate_card_images_input.lower() in ["y", "yes"]
+        if user_requested_card_images:
             log_and_print("\nInitializing image creation assets...")
             image_assets = initialize_card_image_assets({
                         "pre-set": metadata.settings_final_configs["card_image_creation_assets_filepath"],
@@ -137,20 +96,22 @@ def main():
         card_rarities = ["Common", "Uncommon", "Rare", "Mythic"]
         cards_by_rarity = group_cards_by_rarity(card_rarities, cards_dict)
         generate_draft_text_file(metadata.settings_final_configs["draft_text_filepath"], cards_dict, 
-                                                metadata.draft_pack_settings_string, 
-                                                metadata.settings_data_obj["file_settings"]["uploaded_images_base_url"], 
-                                                card_rarities, cards_by_rarity)
+                                 metadata.draft_pack_settings_string, 
+                                 metadata.settings_data_obj["file_settings"]["uploaded_images_base_url"], 
+                                 card_rarities, cards_by_rarity)
         generate_markdown_file({"normal": metadata.settings_final_configs["markdown_cards_filepath"], 
                                 "token": metadata.settings_final_configs["markdown_tokens_filepath"]}, 
                                 cards_dict, 
                                 {"normal": header_string, "token": header_string_tokens}, 
-                                {"normal": closer_string, "token": closer_string_tokens}, 
+                                {"normal": CardData.markdown_closer_string_normal, "token": CardData.markdown_closer_string_tokens}, 
                                 metadata.settings_data_obj["file_settings"]["set_code"])
 
         log_and_print()
+        log_and_print()
+        log_and_print()
         log_and_print("Program execution time: %.2f seconds" % (time.time() - start_time))
-        log_and_print("=========================================")
-        if do_generate_card_images:
+        log_and_print()
+        if user_requested_card_images:
             log_and_print("Generated card images at:")
             log_and_print(">>>   " + full_final_card_images_path)
             log_and_print()
@@ -158,7 +119,7 @@ def main():
         log_and_print("Cockatrice set file (.xml) and Drafting file (.txt) generated at:")
         log_and_print(">>>   " + full_final_markdown_images_path)
         log_and_print("This entire program output has also been printed to a log file there.")
-        log_and_print("=========================================")
+        log_and_print()
     except Exception as e:
         equals_str = "==========================="
         print(equals_str)

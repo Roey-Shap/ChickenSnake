@@ -1,54 +1,72 @@
 import csv
-from Card import Card
+import traceback
+import os.path
+
 from PIL import Image, ImageFont, ImageDraw, ImageTk, ImageChops
+
+from Card import Card
 from Fonts import body_text_font_name, symbols_font_name
 from LineSegment import LineSegment, hybrid_pips_with_non_wubrg_order_colors
 import Fonts
 import metadata
 from UI import log_and_print
-import os.path
 import math_utils
 
-import traceback
 
 CARD_PICTURE_FILE_FORMAT = "jpg"
 
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
 token_yoffset = 59
-# card_pixel_dims = (375, 523)
 card_pixel_dims = (500, 700)
 max_types_string_width_ratio = 357 / 500
 max_title_and_manacost_string_width_ratio = 415 / 500
 right_mana_border = int(card_pixel_dims[0] * 0.93)
 
-# font_body  = ImageFont.truetype(body_text_font_name, 13)
-# font_body_tiny = ImageFont.truetype(body_text_font_name, 11)
-# font_body_large  = ImageFont.truetype(body_text_font_name, 15)
+markdown_closer_string_normal = \
+f"""
+</cards>
+</cockatrice_carddatabase>
+"""
+
+markdown_closer_string_tokens = \
+f"""
+</cards>
+</cockatrice_carddatabase>
+"""
 
 class CardImageInfo():
-        def __init__(self, frame_supertype: str, side: str, frame_subtype: str,
-                     should_be_modified=False, special_card_asset_name_mode=False,
-                     special_card_modifier="") -> None:
-            self.frame_supertype = frame_supertype
-            self.side = side
-            self.frame_subtype = frame_subtype
-            self.should_be_modified = should_be_modified
-            extra_underscore = "_" if len(self.side) > 0 else ""
-            single_underscore = "_" if not special_card_asset_name_mode else ""
-            self.file_prefix = f"{self.frame_supertype}{single_underscore}{self.side}{extra_underscore}{self.frame_subtype}"
-            self.base_file_prefix = f"{self.frame_supertype}_{self.frame_subtype}"
-            if special_card_modifier:
-                self.file_prefix = special_card_modifier + "_" + self.file_prefix
-                self.base_file_prefix = special_card_modifier + "_" + self.base_file_prefix
-                # self.file_prefix = special_card_modifier + "_" + self.file_prefix
+    """
+    A CardImageInfo object holds information about an image which is a component of building up card images.
+    For example, half of a blue border, or a colorless power/toughness box image.
+    """
+    def __init__(self, frame_supertype: str, side: str, frame_subtype: str,
+                    should_be_modified=False, special_card_asset_name_mode=False,
+                    special_card_modifier="") -> None:
+        self.frame_supertype = frame_supertype
+        self.side = side
+        self.frame_subtype = frame_subtype
+        self.should_be_modified = should_be_modified
+        # TODO: This whole underscore business is super messy
+        extra_underscore = "_" if len(self.side) > 0 else ""
+        single_underscore = "_" if not special_card_asset_name_mode else ""
+        self.file_prefix = f"{self.frame_supertype}{single_underscore}{self.side}{extra_underscore}{self.frame_subtype}"
+        self.base_file_prefix = f"{self.frame_supertype}_{self.frame_subtype}"
+        if special_card_modifier:
+            self.file_prefix = special_card_modifier + "_" + self.file_prefix
+            self.base_file_prefix = special_card_modifier + "_" + self.base_file_prefix
+            # self.file_prefix = special_card_modifier + "_" + self.file_prefix
 
-            if not self.should_be_modified and not special_card_asset_name_mode:
-                self.file_prefix = self.base_file_prefix
-            
-            self.filepath = ""
+        if not self.should_be_modified and not special_card_asset_name_mode:
+            self.file_prefix = self.base_file_prefix
+        
+        self.filepath = ""
 
-def get_color_string(csv_row: dict[str, str]) -> str:
+def get_color_string_from_csv_row(csv_row: dict[str, str]) -> str:
+    """
+    Returns:
+        str: A string of up to five colors or the empty string if the card is colorless.
+    """
     color_string = ""
     color_string += "W" if csv_row["Is White"] == "1" else ""
     color_string += "U" if csv_row["Is Blue"] == "1" else ""
@@ -58,7 +76,11 @@ def get_color_string(csv_row: dict[str, str]) -> str:
 
     return color_string
 
-def get_power_toughness(csv_row: dict[str, str]) -> tuple[int|str, int|str] | None:
+def get_power_toughness_from_csv_row(csv_row: dict[str, str]) -> tuple[int|str, int|str] | None:
+    """
+    Tries to return a tuple with the power/toughness of the card, accomodating *-power/toughness cards.
+    Note that if one or more of the values is blank or can't be interpreted as an int, you'll get None.
+    """
     power_string = csv_row["Power"]
     toughness_string = csv_row["Toughness"]
     try:
@@ -77,6 +99,11 @@ def get_power_toughness(csv_row: dict[str, str]) -> tuple[int|str, int|str] | No
         return None
 
 def get_mana_cost_string(raw_mana_cost: str) -> str:
+    """
+    Returns:
+        str: A Cockatrice/Draftmancer-standardized string representing the mana cost of a card. Uses UPPERCASE, properly
+        orders hybrid pips, and puts everything back with {brackets}.
+    """
     tokens = raw_mana_cost.split('{')
     stripped = [s.removesuffix('}').upper() for s in tokens if len(s) > 0]
     hybrid = ["{" + reorder_mana_string(s) + "}" if '/' in s else s for s in stripped]
@@ -85,6 +112,9 @@ def get_mana_cost_string(raw_mana_cost: str) -> str:
     return joined
 
 def reorder_mana_string(stripped_cost: str) -> str:
+    """
+    Reorders the colors in a single hybrid pip to be Scryfall-standardized.
+    """
     if stripped_cost.lower() in hybrid_pips_with_non_wubrg_order_colors or "p" in stripped_cost.lower():
         first, second = stripped_cost.split('/')
         return second + '/' + first
@@ -92,9 +122,16 @@ def reorder_mana_string(stripped_cost: str) -> str:
         return stripped_cost
 
 def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
+    """
+    Gives a dictionary of cardname-Card data pairs (ChickenSnake's representation of a card, anyway) by reading
+    data from the given full filepath of a CSV spreadsheet file. 
+    """
     verbose_mode_cards = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_cards"]
+    semantics_settings = metadata.settings_data_obj["card_semantics_settings"]
+    reference_card_name = semantics_settings["reference_card_name"]
 
     cards_dict: dict[str, Card] = {}
+
     with open(card_data_filepath) as file:
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
@@ -102,7 +139,7 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
             is_valid_card: bool = is_valid_nontoken_card or row["Is Token"] == "TRUE"
             if is_valid_card:
                 name = row["Name"]
-                colors = get_color_string(row)
+                colors = get_color_string_from_csv_row(row)
                 raw_mana_cost_string = row["Cost"]
                 manacost = get_mana_cost_string(raw_mana_cost_string)
                 converted_manacost = row["CMC"]
@@ -111,16 +148,15 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 rarity = row["Rarity"]
                 is_token = row["Is Token"]
 
-                stats = get_power_toughness(row)
+                stats = get_power_toughness_from_csv_row(row)
                 body_text = row["Desc"]
                 flavor_text = row["Flavor Text"]
                 related_card_names = row["Related Cards"].split(",")
                 related_card_names = [name.strip() for name in related_card_names]
 
                 # Replace placeholder name with card name
-                semantics_settings = metadata.settings_data_obj["card_semantics_settings"]
-                if semantics_settings["replace_reference_string_with_cardname"] and len(semantics_settings["reference_card_name"]) > 0:
-                    body_text = body_text.replace(semantics_settings["reference_card_name"], name)
+                if semantics_settings["replace_reference_string_with_cardname"] and len(reference_card_name) > 0:
+                    body_text = body_text.replace(reference_card_name, name)
 
                 loaded_card = Card(
                     name, colors, manacost, raw_mana_cost_string,
@@ -128,8 +164,10 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                     stats, body_text, flavor_text, is_token=="TRUE"
                 )
                 
+                # Find which cards mention this one (if this card is a token, for example)
                 for related_name in related_card_names:
                     loaded_card.set_related_card_name(related_name)
+
                 cards_dict[name] = loaded_card
 
     # Card data warnings
@@ -181,6 +219,9 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
     return cards_dict
 
 def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
+    """
+    Gives a list of images (in CardImageInfo object form) that a card will need for its image to be generated.
+    """
     frame_supertype = "normal"
     frame_subtypes = []
     frame_modifier = "token" if card_data.is_token else ""
@@ -215,6 +256,9 @@ def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
         return [CardImageInfo(frame_supertype, "", frame_subtypes[0], should_be_modified=False, special_card_modifier=frame_modifier)]
 
 def get_card_pt_image_info(card_data: Card) -> CardImageInfo:
+    """
+    Gives the image (in CardImageInfo representation) for a card's power/toughness
+    """
     if card_data.is_colorless:
         frame_subtype = "c"
     elif len(card_data.colors_string) > 1:
@@ -230,6 +274,9 @@ def get_card_pt_image_info(card_data: Card) -> CardImageInfo:
     return CardImageInfo("pt", "", frame_subtype, should_be_modified=False)
 
 def get_card_set_symbol_info(card_data: Card) -> CardImageInfo:
+    """
+    Gives the image (in CardImageInfo representation) for a card's set symbol based on the card's rarity.
+    """
     return CardImageInfo(f"set_symbol_{card_data.rarity_name}", "", "", should_be_modified=False, special_card_asset_name_mode=True)
 
 def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[str, str], image_assets: dict[CardImageInfo, Image]):
@@ -263,7 +310,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             # Try a few times to shrink the text based on the estimated size
 
             # Mana Cost
-            debug_on = False # card_data.name == "Ancient Nestite"
+            debug_on = False
             # First find the mana cost's width at the current font
             mana_cost_segments, _, _= LineSegment.split_text_for_symbols(
                 card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, 
@@ -271,6 +318,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             )
             mana_cost_segments: list[LineSegment] = mana_cost_segments
             # We assume each pip is the same width and draw them from left to right with manual offsets
+            # TODO: Adjust for larger pips (hybrid ones)
             num_mana_pips = len(mana_cost_segments)
             mana_pip_width = mana_cost_segments[0].dims[0] if num_mana_pips > 0 else 0
             mana_cost_size = num_mana_pips
@@ -292,10 +340,11 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             ImageDraw.Draw(card_image_total).text(
                 title_position, title_text, title_color, font=chosen_title_font, anchor=("mm" if card_data.is_token else "lm")
             )
-            # END Name and Manacost #################################################
+            # END Name and mana cost #################################################
 
             if debug_on:
                 log_and_print(num_mana_pips)
+            
             if num_mana_pips > 0:
                 mana_pip_width = mana_cost_segments[0].dims[0]
                 margin = 0 #int(mana_pip_width * 0.1)
@@ -307,17 +356,12 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             # Types ##########################
             chosen_types_font = Fonts.font_types
             types_string = card_data.get_type_string()
-            # Try up to five times to shrink the text based on the estimated size
+
             types_string_width, _ = Fonts.get_string_size(types_string, chosen_types_font)
             max_types_string_width_in_pixels = max_types_string_width_ratio * card_pixel_dims[0]
             if types_string_width > max_types_string_width_in_pixels:
                 current_types_width_to_max_width_ratio = max_types_string_width_in_pixels / types_string_width
                 chosen_types_font = Fonts.get_title_font(Fonts.font_types_initial_size * current_types_width_to_max_width_ratio)
-
-            # if len(types_string) > 29:
-            #     chosen_types_font = Fonts.font_types_small
-            # if len(types_string) > 36:
-            #     chosen_types_font = Fonts.font_types_tiny
 
             types_string_yoffset: float = 413 + (token_yoffset if card_data.is_token else 0)
             ImageDraw.Draw(card_image_total).text(
@@ -331,8 +375,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
 
             # To maximize utilized card space and potentially accomodate flavor text, we impose the following basic rules:
             # Card text fits before flavor text fits
-            # Strive for at most 9 lines of body text, including flavor text.
-            # Now the method:
+            # Strive for at most 9 lines of body text, not including flavor text.
+            # Now the method: TODO Make a better one to accomodate for flavor text that won't be blocked by the power/toughness
             # Calculate how much space the body text'll take up with the flavor. It they take up more than the space
             # between the top and where the stat box is (if it has one; otherwise until end of card), then
             # calculate what proportion is needed to apply to the pips'/text's fonts.
@@ -341,7 +385,11 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             # How do we calculate the new proportion?
             # For now a naive binary search approach will do. 
             # If you took more than 9 lines, go between min font size (minFS) and current size.
-            # Then if that's less than 9 lines, go halfway between that and the last size, and so on (maybe add some max attempts parameter)
+            # Then if that's less than 9 lines, go halfway between that and the last size, and so on until some MAX_ATTEMPTS.
+
+            # TODO: Just pass in the font's name and size. That way the mana symbols can be appropriately sized
+            # within the circle, and hybrid pips can be made a corresponding larger size.
+            # This mostly involves changes to the LineSegment class.
 
             pip_BG_size_factor = 0.9
             total_card_body_text: str = card_data.body_text #+ ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
@@ -356,7 +404,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             body_text_too_large = went_over_line_limit
             more_than_max_lines = False
             tries = 8
-            # we could also try making text larger than normal, but so long as the initial text size is reasonable we don't need to
+
+            # TODO: we could also try making text larger than normal, but so long as the initial text size is reasonable we don't need to
             # for now this just corrects for too-large bodies of text
             if went_over_line_limit:
                 if warn_about_card_semantics_errors:
@@ -412,12 +461,17 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             log_and_print(traceback.format_exc())
             log_and_print()
 
-"""
-For now, this is just:
-For each normal card type frame, prepare half-frames of each color and card supertype.
-Save them all that the same size and the correct format for superimposing on one another.
-"""
 def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, Image]:
+    """
+    Initializes a bunch of card images from a few base images.
+    That is, it resizes each to be at same size, masks colored borders halfway to make hybrid cards later,
+    and saves these images to be used later so we don't need to invoke this heavy operation every time
+    ChickenSnake is run.
+
+    For now, this is just:
+    For each normal card type frame, prepare half-frames of each color and card supertype.
+    Save them all that the same size and the correct format for superimposing on one another.
+    """
     resized_images: dict[str, Image] = {}
     verbose_mode_files = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_files"]
     # There are certain image names we expect to see. Initialize that list first.
@@ -501,11 +555,52 @@ def group_cards_by_rarity(card_rarities: list[str], cards_dict: dict[str: Card])
             
     return cards_by_rarity
 
+def get_markdown_file_header_strings(version_code, set_code, set_longname, release_date):
+    header_string = \
+f"""<?xml version="{version_code}" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<sets>
+<set>
+<name>{set_code}</name>
+<longname>{set_longname}</longname>
+<releasedate>{release_date}</releasedate>
+<settype>Custom</settype>
+</set>
+</sets>
+<cards>
+"""
+
+    header_string_tokens = \
+f"""<?xml version="{version_code}" encoding="UTF-8"?>
+<cockatrice_carddatabase version="3">
+<cards>
+<!-- 
+<card>
+    <name></name>
+    <set picURL=""></set>
+    <color></color>
+    <manacost></manacost>
+    <type>Token Creature - </type>
+    <pt>/</pt>
+    <tablerow>1</tablerow>
+    <text></text>
+    <token>1</token>
+</card>
+    -->
+"""
+
+    return header_string, header_string_tokens
+
 def generate_markdown_file(markdown_filepath: dict[str, str], 
                            cards_dict: dict[str: Card],
                            header_string: dict[str, str],
                            closer_string: dict[str, str],
                            set_code: str):
+    """
+    Generates the files used by Cockatrice to represent its cards.
+    They're Markdown (XML) files that store everything needed to play with a card,
+    even if you don't have a pretty image to represent it.
+    """
     # Make normal cards markdown
     with open(markdown_filepath["normal"], 'w') as markdown_file:
         markdown_file.write(header_string["normal"])
@@ -561,6 +656,11 @@ def generate_draft_text_file(draft_text_filepath: str,
                              uploaded_images_base_url: str,
                              card_rarities: list[str],
                              cards_by_rarity: dict[str: list[Card]]):
+    """
+    Generates a text file for Draftmancer to use in drafting.
+    Defines basic rarity parameters based on those in the user-defined settings, lists 
+    the cards sorted by rarity, and gives each one an image URL to display from while drafting.
+    """
     with open(draft_text_filepath, 'w') as draft_text_file:
         # Write custom pack settings
         draft_text_file.write(draft_pack_settings_string)
@@ -579,6 +679,7 @@ def generate_draft_text_file(draft_text_filepath: str,
                 continue
 
             draft_text_file.write(card.get_draft_text_rep(uploaded_images_base_url, CARD_PICTURE_FILE_FORMAT))
+            # Add a comma at the end of each line that isn't the last one
             if i < num_non_token_cards - 1:
                 draft_text_file.write(",")
 
