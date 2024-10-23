@@ -18,9 +18,16 @@ from UI import log_and_print
     # Flavor text:
         # 
     # Other ideas:
-        # Include providing a list of recognized words like Landfall, Battalion, etc. and
+        # Include a list of recognized words like Landfall, Battalion, etc. and
         # words to give reminder text for (and the corresponding reminder text.)
 # Images:
+    # URLs: Using Cockatrice formatting so that a single output folder
+    #       can be defined and each set will get its own folder:
+    #       https://roey-shap.github.io/MtGDoD3/!setname_lower!/Playtest_Card_Images/!name!.jpg
+    # Draftmancer:
+    #       >> Then we need an option for "use custom Draftmancer link": true/false
+    #       https://roey-shap.github.io/MtGDoD3/<insert the setname>/<insert card name>
+    # Print the link that they need at the end of the log and say so
     # Make playtest art autogenerate images based on type and mana cost
 # Specific color trim
   # Download all 5 color trims
@@ -54,7 +61,7 @@ def main():
         metadata_set_code = metadata.settings_data_obj["file_settings"]["set_code"]
         adjusted_version_code = metadata.settings_data_obj["file_settings"]["set_version_code"].replace("_", ".")
 
-        header_string, header_string_tokens = CardData.get_markdown_file_header_strings(
+        header_string, header_string_tokens = get_markdown_file_header_strings(
                         adjusted_version_code,
                         metadata_set_code,
                         metadata.settings_data_obj["file_settings"]["set_longname"],
@@ -87,8 +94,7 @@ def main():
             
             log_and_print("\nGenerating card images...")
             generate_card_images(cards_dict, 
-                                {"normal": metadata.settings_final_configs["card_images_filepath"], 
-                                "token": metadata.settings_final_configs["token_images_filepath"]}, 
+                                metadata.settings_final_configs["card_images_filepath"], 
                                 image_assets)
             
             log_and_print("\nDone!") 
@@ -97,13 +103,13 @@ def main():
         cards_by_rarity = group_cards_by_rarity(card_rarities, cards_dict)
         generate_draft_text_file(metadata.settings_final_configs["draft_text_filepath"], cards_dict, 
                                  metadata.draft_pack_settings_string, 
-                                 metadata.settings_data_obj["file_settings"]["uploaded_images_base_url"], 
+                                 metadata.settings_final_configs["card_images_url_final_base"], 
                                  card_rarities, cards_by_rarity)
         generate_markdown_file({"normal": metadata.settings_final_configs["markdown_cards_filepath"], 
                                 "token": metadata.settings_final_configs["markdown_tokens_filepath"]}, 
                                 cards_dict, 
                                 {"normal": header_string, "token": header_string_tokens}, 
-                                {"normal": CardData.markdown_closer_string_normal, "token": CardData.markdown_closer_string_tokens}, 
+                                {"normal": markdown_closer_string_normal, "token": markdown_closer_string_tokens}, 
                                 metadata.settings_data_obj["file_settings"]["set_code"])
 
         log_and_print()
@@ -113,12 +119,14 @@ def main():
         log_and_print()
         if user_requested_card_images:
             log_and_print("Generated card images at:")
-            log_and_print(">>>   " + full_final_card_images_path)
+            log_and_print("      " + full_final_card_images_path)
             log_and_print()
 
-        log_and_print("Cockatrice set file (.xml) and Drafting file (.txt) generated at:")
-        log_and_print(">>>   " + full_final_markdown_images_path)
-        log_and_print("This entire program output has also been printed to a log file there.")
+        log_and_print("Cockatrice set files (.xml) and Drafting file (.txt) generated at:")
+        log_and_print("      " + full_final_markdown_images_path)
+        log_and_print("\nCopy and paste this URL as a 'Card Source' in Cockatrice to download your images on the fly:")
+        log_and_print("      " + metadata.settings_final_configs["cockatrice_card_images_url"])
+        log_and_print("\nThis entire program output has also been printed to a log file there.")
         log_and_print()
     except Exception as e:
         equals_str = "==========================="

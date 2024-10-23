@@ -1,8 +1,8 @@
 Not Fleshed Out,Name,Type,Subtype,Cost,Desc,Power,Toughness,Rarity,Custom Color,"""Does""","""Cares About""",CMC,Flavor Text,NOTES,Related Cards,Is Token,Is Card,Is White,Is Blue,Is Black,Is Red,Is Green,Is Colorless,Is Gold,Is Enchantment,Is Creature,Is Artifact,Is Instant/Sorcery,Is Land,,Notes are Empty,,CMC (replace non-numeric tokens),CMC (numberic extraction),
-FALSE,Example Card 1,Creature,Thing,{1}{u},A creature! Its body text goes here.,,,,,,,2,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,1
-FALSE,Example Card 2 ,Enchantment Creature,Another Thing,{w/b},This one is hybrid... Ooh! And automatically got an enchantment frame!,,,,,,,1,,,,FALSE,1,1,0,1,0,0,0,1,1,1,0,0,0,,TRUE,,$,0,2
-FALSE,Example Card 3,Artifact,,{4}{r}{g},Gold artifact. Nice.,,,,,,,6,,,,FALSE,1,0,0,0,1,1,0,1,0,0,1,0,0,,TRUE,,{4}$$,4,3
-FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,4
+FALSE,Example Card 1,Creature,Thing,{1}{u},A creature! Its body text goes here.,1,2,,,,,2,,,,FALSE,1,0,1,0,0,0,0,0,0,1,0,0,0,,TRUE,,{1}$,1,1
+FALSE,Example Card 2 ,Enchantment Creature,Another Thing,{w/b},This one is hybrid... Ooh! And automatically got an enchantment frame!,1,1,,,,,1,,,,FALSE,1,1,0,1,0,0,0,1,1,1,0,0,0,,TRUE,,$,0,2
+FALSE,Example Card 3,Enchantment,,{4}{r}{g},Gold! Nice.,,,,,,,6,,,,FALSE,1,0,0,0,1,1,0,1,1,0,0,0,0,,TRUE,,{4}$$,4,3
+FALSE,Example Card 4,Artifact,,{4},Artifact's gonna do what an artifact's gonna do.,,,,,,,4,,,,FALSE,1,0,0,0,0,0,1,0,0,0,1,0,0,,TRUE,,{4},4,4
 FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,5
 FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,6
 FALSE,,,,,,,,,,,,0,,,,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,7

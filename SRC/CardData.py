@@ -17,6 +17,8 @@ CARD_PICTURE_FILE_FORMAT = "jpg"
 
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
+# TODO Make these percentages of the card dimensions
+# (These offsets appear a few times throughout the file)
 token_yoffset = 59
 card_pixel_dims = (500, 700)
 max_types_string_width_ratio = 357 / 500
@@ -279,7 +281,7 @@ def get_card_set_symbol_info(card_data: Card) -> CardImageInfo:
     """
     return CardImageInfo(f"set_symbol_{card_data.rarity_name}", "", "", should_be_modified=False, special_card_asset_name_mode=True)
 
-def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[str, str], image_assets: dict[CardImageInfo, Image]):
+def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, image_assets: dict[CardImageInfo, Image]):
     verbose_mode_cards = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_cards"]
     warn_about_card_semantics_errors = metadata.settings_data_obj["card_semantics_settings"]["warn_about_card_semantics_errors"]
 
@@ -445,7 +447,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: dict[
             
             rgb_image = card_image_total.convert("RGB")
             try:
-                corresponding_filepath: str = images_save_filepath["token" if card_data.is_token else "normal"]
+                corresponding_filepath: str = images_save_filepath
                 rgb_image.save(corresponding_filepath + f"{card_data.name}.{CARD_PICTURE_FILE_FORMAT}", quality=100)
             except:
                 raise ValueError(f"There was an issue saving the image for: {card_data.name}")
@@ -679,6 +681,7 @@ def generate_draft_text_file(draft_text_filepath: str,
                 continue
 
             draft_text_file.write(card.get_draft_text_rep(uploaded_images_base_url, CARD_PICTURE_FILE_FORMAT))
+            
             # Add a comma at the end of each line that isn't the last one
             if i < num_non_token_cards - 1:
                 draft_text_file.write(",")

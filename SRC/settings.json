@@ -10,7 +10,9 @@ Welcome to the metadata! (It's like settings. But fancier!)
     */
     "file_settings":
     {
-        // The output filepath. Make this whatever you want.
+        // The output filepath. Make this whatever you want - but I recommended to
+        // make it where you want all of your sets to go. Then ChickenSnake can
+        // generate a folder with your set's name there for easy Github access if you want.
         "output_filepath": ".\\Outputs\\",
         "input_filepath": ".\\Inputs\\",
         // The name of the card data file to be put into the Inputs folder.
@@ -20,7 +22,7 @@ Welcome to the metadata! (It's like settings. But fancier!)
         // --> Cockatrice can pull from this URL and download your cards on the 
         // fly so your friends don't need to constantly download the updated card images.
         // --> Draftmancer can use it to display the card images while drafting.
-        "uploaded_images_base_url": "https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/",
+        "uploaded_images_base_url": "https://roey-shap.github.io/MtGDoD3/",
         // The set code. Typically 3 characters long. For example, Duskmourn's code is DSK.
         "set_code": "TEST",
         // Just a name. Put whatever you want here.
@@ -31,7 +33,7 @@ Welcome to the metadata! (It's like settings. But fancier!)
         // Exactly 1 underscore! i.e. 12_0 is ok, 12_123 is ok,  1_ is not, 123 is not, and 1_2_3 is not.
         "set_version_code": "1_0",
         // Also just a number. You can sort by release date in Cockatrice, so please use YYYY-MM-DD format.
-        "release_date": "2024-09-08"
+        "release_date": "2024-10-22"
     },
 
     /*

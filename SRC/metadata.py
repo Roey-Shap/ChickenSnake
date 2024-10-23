@@ -15,7 +15,8 @@ settings_data_obj = {
         "output_filepath": ".\\Outputs\\",
         "input_filepath": ".\\Inputs\\",
         "spreadsheet_file_name": "Cards.csv",
-        "uploaded_images_base_url": "https://roey-shap.github.io/MtGDoD3/Playtest_Card_Images/",
+        "uploaded_images_base_url": "https://roey-shap.github.io/MtGDoD3/",
+        # "use_custom_draftmancer_link": False,
         "set_code": "SET",
         "set_longname": "SetLongName",
         "set_version_code": "1_0",  # MUST BE IN XX_XX format! Not more than 1 underscore!
@@ -92,25 +93,27 @@ f"""
 }}
 """
 
-####################
-### PRESET ZONE ###
-# You probably won't want (or need) to touch these.
+
 def update_final_configuration_settings(settings_data_local):
     file_settings = settings_data_local["file_settings"]
-    output_base_filepath = file_settings["output_filepath"]
+    set_name_prefix = file_settings['set_longname'].lower()
+    output_base_filepath = f"{file_settings['output_filepath']}{set_name_prefix}\\"
     text_files_base_name = f"{file_settings['set_longname']}_{file_settings['set_version_code']}"
+    card_image_subfolder_suffix = "Playtest_Card_Images"
     settings_preset = {
         "output_base_filepath": output_base_filepath,
         "card_data_filepath": file_settings["input_filepath"] + file_settings["spreadsheet_file_name"],
-        "card_images_filepath": output_base_filepath + f"Playtest_Card_Images_{file_settings['set_longname']}\\",
-        "token_images_filepath": output_base_filepath + f"Playtest_Token_Images_{file_settings['set_longname']}\\",
+        "card_images_filepath": f"{output_base_filepath}{card_image_subfolder_suffix}\\",
+        # "token_images_filepath": output_base_filepath + f"Playtest_Token_Images_{file_settings['set_longname']}\\",
         "card_image_creation_assets_filepath": ".\\Playtest_Base_Images\\",
         "card_image_creation_assets_generated_filepath": ".\\Playtest_Base_Images_Generated\\",
         "text_files_base_name": text_files_base_name,
         "log_filepath": output_base_filepath + "log_chickensnake.txt",
+        "card_images_url_final_base": f"{file_settings['uploaded_images_base_url']}{set_name_prefix}/{card_image_subfolder_suffix}/",
         # For Cockatrice
-        "markdown_cards_filepath": output_base_filepath + f"{text_files_base_name}_cards.xml",
-        "markdown_tokens_filepath": output_base_filepath + f"{text_files_base_name}_tokens.xml",
+        "markdown_cards_filepath": f"{output_base_filepath}{text_files_base_name}_cards.xml",
+        "markdown_tokens_filepath": f"{output_base_filepath}{text_files_base_name}_tokens.xml",
+        "cockatrice_card_images_url": f"{file_settings['uploaded_images_base_url']}!setname_lower!/{card_image_subfolder_suffix}/!name!.jpg",
         # For Draftmancer
         "draft_text_filepath": output_base_filepath + f"{text_files_base_name}.txt",
     }
@@ -165,12 +168,11 @@ def initialize_metadata() -> bool:
     generated_output_folder = False
     
     if not os.path.exists(settings_final_configs["card_data_filepath"]):
-        raise ValueError("Error: Input filepath doesn't exist. Check spreadsheet and input folder names.")
+        raise ValueError("Error: Card spreadsheet filepath doesn't exist. Check spreadsheet and input folder names.")
 
     for generated_folder in [settings_final_configs["output_base_filepath"],
                              settings_final_configs["card_image_creation_assets_generated_filepath"], 
                              settings_final_configs["card_images_filepath"], 
-                             settings_final_configs["token_images_filepath"],
                              ]:
         output_folder_exists = os.path.exists(generated_folder)
         if not output_folder_exists:
