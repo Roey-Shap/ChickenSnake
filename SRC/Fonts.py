@@ -53,4 +53,4 @@ font_types = ImageFont.truetype(title_text_font_name, font_types_initial_size)
 font_types_small = ImageFont.truetype(title_text_font_name, 20)
 font_types_tiny = ImageFont.truetype(title_text_font_name, 18)
 
-font_stats = ImageFont.truetype(body_text_font_name, 30)
+font_stats = ImageFont.truetype(title_text_font_name, 27)

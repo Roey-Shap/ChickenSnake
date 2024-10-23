@@ -16,19 +16,14 @@ from UI import log_and_print
 # Italics:
     # Special character to toggle italics: *
     # Flavor text:
-        # 
+        # Make space for it on the card
     # Other ideas:
         # Include a list of recognized words like Landfall, Battalion, etc. and
         # words to give reminder text for (and the corresponding reminder text.)
 # Images:
-    # URLs: Using Cockatrice formatting so that a single output folder
-    #       can be defined and each set will get its own folder:
-    #       https://roey-shap.github.io/MtGDoD3/!setname_lower!/Playtest_Card_Images/!name!.jpg
-    # Draftmancer:
-    #       >> Then we need an option for "use custom Draftmancer link": true/false
-    #       https://roey-shap.github.io/MtGDoD3/<insert the setname>/<insert card name>
-    # Print the link that they need at the end of the log and say so
     # Make playtest art autogenerate images based on type and mana cost
+    # Clean up how font size is passed into the LineSegment class
+        # Allows making hybrid pips larger than normal ones
 # Specific color trim
   # Download all 5 color trims
   # Means we can also do this for colored artifacts

@@ -442,7 +442,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
            
             if card_data.has_stats:
                 ImageDraw.Draw(card_image_total).text(
-                    (433, 643), card_data.get_stats_string(), C_BLACK, Fonts.font_stats, anchor="mm"
+                    (433, 645), card_data.get_stats_string(), C_BLACK, Fonts.font_stats, anchor="mm"
                 )
             
             rgb_image = card_image_total.convert("RGB")
@@ -681,7 +681,7 @@ def generate_draft_text_file(draft_text_filepath: str,
                 continue
 
             draft_text_file.write(card.get_draft_text_rep(uploaded_images_base_url, CARD_PICTURE_FILE_FORMAT))
-            
+
             # Add a comma at the end of each line that isn't the last one
             if i < num_non_token_cards - 1:
                 draft_text_file.write(",")
