@@ -13,7 +13,7 @@ Welcome to the metadata! (It's like settings. But fancier!)
         // The output filepath. Make this whatever you want - but I recommended to
         // make it where you want all of your sets to go. Then ChickenSnake can
         // generate a folder with your set's name there for easy Github access if you want.
-        "output_filepath": ".\\Outputs\\",
+        "output_filepath": ".\\",
         "input_filepath": ".\\Inputs\\",
         // The name of the card data file to be put into the Inputs folder.
         "spreadsheet_file_name": "Cards.csv",
@@ -72,6 +72,6 @@ Welcome to the metadata! (It's like settings. But fancier!)
         "make_unique_program_run_log": false,
         // Set to true if you want the program to always regenerate the hybrid color borders
         // and other card frames from the few base frames 
-        "always_regenerate_base_card_frames": false
+        "always_regenerate_base_card_frames": true
     }
 }

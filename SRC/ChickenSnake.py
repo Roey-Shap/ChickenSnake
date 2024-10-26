@@ -12,7 +12,7 @@ from UI import log_and_print
 
 # @TODO:
 # Support most common other card types:
-    # Miracle, Planeswalker, Saga, Adventure, Fuse/Split, Battle
+    # Planeswalker, Saga, Adventure, Fuse/Split, Battle
 # Italics:
     # Special character to toggle italics: *
     # Flavor text:
@@ -30,10 +30,6 @@ from UI import log_and_print
 
 # Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
     # normal new lines?
-
-
-
-# FOR USE IN CODE: LONG DASH COPY-PASTE — as opposed to - —
 
 # Other border types
 # Snow
@@ -124,7 +120,7 @@ def main():
         log_and_print("\nThis entire program output has also been printed to a log file there.")
         log_and_print()
     except Exception as e:
-        equals_str = "==========================="
+        equals_str = "============================================="
         print(equals_str)
         print(traceback.format_exc())
         print(equals_str)

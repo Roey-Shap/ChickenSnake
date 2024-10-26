@@ -25,6 +25,19 @@ max_types_string_width_ratio = 357 / 500
 max_title_and_manacost_string_width_ratio = 415 / 500
 right_mana_border = int(card_pixel_dims[0] * 0.93)
 
+title_offset_base_pixels = (40, 54)
+token_title_offset_pixels = (210, 1)
+types_string_offset_pixels = 413
+body_text_offset = (card_pixel_dims[0] * (44 / 500), card_pixel_dims[1] * (445 / 700))
+manacost_yoffset_pixels = 40
+
+pip_BG_size_factor = 0.9
+max_body_text_width = 0.84 * card_pixel_dims[0] #420
+max_body_text_height = 0.264 * card_pixel_dims[1] # 185
+max_mana_cost_text_width = round(card_pixel_dims[0] * 420 / 500)
+max_mana_cost_text_height = round(card_pixel_dims[1] * 500 / 700)
+
+
 markdown_closer_string_normal = \
 f"""
 </cards>
@@ -44,11 +57,12 @@ class CardImageInfo():
     """
     def __init__(self, frame_supertype: str, side: str, frame_subtype: str,
                     should_be_modified=False, special_card_asset_name_mode=False,
-                    special_card_modifier="") -> None:
+                    special_card_modifier="", position_on_card=(0, 0)) -> None:
         self.frame_supertype = frame_supertype
         self.side = side
         self.frame_subtype = frame_subtype
         self.should_be_modified = should_be_modified
+        self.position_on_card = (position_on_card[0], position_on_card[1]) # Copy the tuple
         # TODO: This whole underscore business is super messy
         extra_underscore = "_" if len(self.side) > 0 else ""
         single_underscore = "_" if not special_card_asset_name_mode else ""
@@ -148,13 +162,13 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 supertype = row["Type"]
                 subtype = row["Subtype"]
                 rarity = row["Rarity"]
-                is_token = row["Is Token"]
+                is_token = row["Is Token"] == "TRUE"
 
                 stats = get_power_toughness_from_csv_row(row)
                 body_text = row["Desc"]
                 flavor_text = row["Flavor Text"]
                 related_card_names = row["Related Cards"].split(",")
-                related_card_names = [name.strip() for name in related_card_names]
+                related_card_names = [name.strip() for name in related_card_names if len(name) > 0]
 
                 # Replace placeholder name with card name
                 if semantics_settings["replace_reference_string_with_cardname"] and len(reference_card_name) > 0:
@@ -163,14 +177,26 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 loaded_card = Card(
                     name, colors, manacost, raw_mana_cost_string,
                     converted_manacost, supertype, subtype, rarity,
-                    stats, body_text, flavor_text, is_token=="TRUE"
+                    stats, body_text, flavor_text, is_token
                 )
+                
+                if row["Is Adventure"] == "TRUE":
+                    loaded_card.set_as_adventure(True)
                 
                 # Find which cards mention this one (if this card is a token, for example)
                 for related_name in related_card_names:
                     loaded_card.set_related_card_name(related_name)
 
                 cards_dict[name] = loaded_card
+
+    for card in cards_dict.values():
+        found_related_nontoken_card = False
+        for related_card in card.related_card_names:
+            related_card_data = cards_dict[related_card]
+            if not related_card_data.is_token:
+                found_related_nontoken_card = True
+                card.related_nontoken_pair_card = related_card_data
+                break
 
     # Card data warnings
     saw_card_with_errors: bool = False
@@ -224,11 +250,11 @@ def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
     """
     Gives a list of images (in CardImageInfo object form) that a card will need for its image to be generated.
     """
-    frame_supertype = "normal"
+    frame_supertypes = ["normal"]
     frame_subtypes = []
     frame_modifier = "token" if card_data.is_token else ""
     # Note that the Card's color_string is just "M" if it's gold!
-    # Just to test for now...
+    # ... just to test for now...
     num_colors = len(card_data.colors_string)
     if num_colors >= 3 or card_data.colors_string.lower() == "m":
         frame_subtypes = ["m"]
@@ -246,16 +272,31 @@ def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
     # Later me problem.
 
     if card_data.supertype.find("Enchantment") != -1:
-        frame_supertype = "enchantment"
-    
+        frame_supertypes[0] = "enchantment"
+    if card_data.is_miracle:
+        frame_supertypes.append("miracle")
+    if card_data.is_adventure:
+        frame_supertypes = ["adventureleft"]
+    elif card_data.related_nontoken_pair_card:
+        if card_data.related_nontoken_pair_card.is_adventure:
+            frame_supertypes.append("adventureright")
 
+    infos: list[CardImageInfo] = []
     if len(frame_subtypes) > 1:
         # print(frame_subtypes)
         valid_sides = ["l", "r"] if len(frame_subtypes) == 2 else ["l", "m", "r"]
-        return [CardImageInfo(frame_supertype, side, frame_subtype, should_be_modified=True, special_card_modifier=frame_modifier) for side, frame_subtype in zip(valid_sides, frame_subtypes)]
+        infos = [CardImageInfo(frame_supertype, side, frame_subtype, should_be_modified=True, special_card_modifier=frame_modifier) for side, frame_subtype in zip(valid_sides, frame_subtypes) for frame_supertype in frame_supertypes]
     else:
         # You have exactly 1 subtype -> we don't need to combine card frames
-        return [CardImageInfo(frame_supertype, "", frame_subtypes[0], should_be_modified=False, special_card_modifier=frame_modifier)]
+        infos = [CardImageInfo(frame_supertype, "", frame_subtypes[0], should_be_modified=False, special_card_modifier=frame_modifier) for frame_supertype in frame_supertypes]
+
+    for i, info in enumerate(infos):
+        if "adventureleft" in info.file_prefix:
+            infos[i].position_on_card = (0.045, 0.625)
+        elif "adventureright" in info.file_prefix:
+            infos[i].position_on_card = (0.495, 0.625)
+
+    return infos
 
 def get_card_pt_image_info(card_data: Card) -> CardImageInfo:
     """
@@ -289,13 +330,30 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
     current_card_index = 0
 
     for card_data in card_dict.values():
+        related_adventure_spell_data = None # If you're an adventure spell for example, to store the base card
+
+        if card_data.is_adventure:
+            continue
+
         try:
+            # TODO: If this is an adventure card, go into each section below and accomodate for the second card.
+            if len(card_data.related_card_names) == 1 and card_dict[card_data.related_card_names[0]].is_adventure:
+                related_adventure_spell_data = card_dict[card_data.related_card_names[0]]
+
             card_image_total = Image.new(mode="RGB", size=card_pixel_dims, color=C_WHITE).convert("RGBA")
 
             # Card Base
             card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
             for border_info in card_border_info:
-                card_image_total.alpha_composite(image_assets[border_info.file_prefix])
+                pos = math_utils.multiply_tuples(border_info.position_on_card, card_pixel_dims)
+                card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=(round(pos[0]), round(pos[1])))
+
+            if related_adventure_spell_data:
+                adventure_border_info: list[CardImageInfo] = get_card_image_border_info(related_adventure_spell_data)
+                for border_info in adventure_border_info:
+                    pos =  math_utils.multiply_tuples(border_info.position_on_card, card_pixel_dims)
+                    card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=(round(pos[0]), round(pos[1])))
+
 
             # Power/Toughness
             if card_data.has_stats:
@@ -315,7 +373,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             debug_on = False
             # First find the mana cost's width at the current font
             mana_cost_segments, _, _= LineSegment.split_text_for_symbols(
-                card_data.raw_mana_cost_string.lower(), card_image_total, 420, 500, 
+                card_data.raw_mana_cost_string.lower(), card_image_total, max_mana_cost_text_width, max_mana_cost_text_height, 
                 debug_mode=debug_on, font_override=(chosen_manacost_font, chosen_manacost_bg_font)
             )
             mana_cost_segments: list[LineSegment] = mana_cost_segments
@@ -338,7 +396,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # Title
             title_color: tuple[int, int, int] = C_WHITE if card_data.is_token else C_BLACK
             title_text: str = card_data.name.upper() if card_data.is_token else card_data.name
-            title_position: tuple[int, int] = math_utils.add_tuples((40, 54), (210, 1) if card_data.is_token else (0, 0))
+            title_position: tuple[int, int] = math_utils.add_tuples(title_offset_base_pixels, token_title_offset_pixels if card_data.is_token else (0, 0))
             ImageDraw.Draw(card_image_total).text(
                 title_position, title_text, title_color, font=chosen_title_font, anchor=("mm" if card_data.is_token else "lm")
             )
@@ -352,8 +410,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 margin = 0 #int(mana_pip_width * 0.1)
                 left_mana_border = right_mana_border - (mana_pip_width * num_mana_pips) - (margin * (num_mana_pips-1))
                 for i, segment in enumerate(mana_cost_segments):
-                    segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), 40), absolute_draw_mode=True, mana_cost_mode=True)
-
+                    segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), manacost_yoffset_pixels), absolute_draw_mode=True, mana_cost_mode=True)
 
             # Types ##########################
             chosen_types_font = Fonts.font_types
@@ -365,7 +422,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 current_types_width_to_max_width_ratio = max_types_string_width_in_pixels / types_string_width
                 chosen_types_font = Fonts.get_title_font(Fonts.font_types_initial_size * current_types_width_to_max_width_ratio)
 
-            types_string_yoffset: float = 413 + (token_yoffset if card_data.is_token else 0)
+            types_string_yoffset: float = types_string_offset_pixels + (token_yoffset if card_data.is_token else 0)
             ImageDraw.Draw(card_image_total).text(
                 (40, types_string_yoffset), card_data.get_type_string(), C_BLACK, font=chosen_types_font, anchor="lm"
             )
@@ -393,10 +450,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # within the circle, and hybrid pips can be made a corresponding larger size.
             # This mostly involves changes to the LineSegment class.
 
-            pip_BG_size_factor = 0.9
+            
             total_card_body_text: str = card_data.body_text #+ ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
-            max_body_text_width = 420
-            max_body_text_height = 185
             segments, went_over_line_limit, _ = LineSegment.split_text_for_symbols(total_card_body_text, card_image_total, max_body_text_width, max_body_text_height, get_bounding_box_mode=True, font_override=(Fonts.font_body, Fonts.font_body_italic, Fonts.font_symbols, Fonts.get_symbol_font(Fonts.font_symbols_initial_size * pip_BG_size_factor)))
             segments: list[LineSegment] = segments
             current_font_size = Fonts.font_body_initial_size
@@ -436,7 +491,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             if more_than_max_lines and warn_about_card_semantics_errors:
                 log_and_print(f"{card_data.name}'s text was was more than {LineSegment.MAX_LINE_COUNT} even at the smallest font.", do_print=verbose_mode_cards)
 
-            body_text_position: tuple[int, int] = math_utils.add_tuples((44, 445), (0, token_yoffset) if card_data.is_token else (0, 0))
+            body_text_position: tuple[int, int] = math_utils.add_tuples(body_text_offset, (0, token_yoffset) if card_data.is_token else (0, 0))
             for segment in segments:
                 segment.draw(card_image_total, body_text_position)
            
@@ -488,12 +543,24 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
 
     splittable_card_prefixes = ["w", "u", "b", "r", "g"]
     unsplittable_card_prefixes = ["m", "artifact", "c"]
-    card_frame_type = ["normal", "enchantment"] # "token", "miracle"
+    card_frame_type = ["normal", "enchantment"]
+    splittable_overlays = ["miracle"]
+    unsplittable_overlays = ["miracle"]
+    adventure_image_data = ["adventureleft", "adventureright"]
     one_off_card_subtypes = ["vehicle"]
     special_card_modifiers = ["", "token"]
 
     image_prefixes  = [CardImageInfo(frame, side, color, should_be_modified=True, special_card_modifier=modifier) for frame in card_frame_type for side in ["l", "r"] for color in splittable_card_prefixes for modifier in special_card_modifiers]
     image_prefixes += [CardImageInfo(frame_supertype, "", frame_subtype, should_be_modified=False, special_card_modifier=modifier) for frame_supertype in card_frame_type for frame_subtype in unsplittable_card_prefixes for modifier in special_card_modifiers]
+    
+    # Generic overlays 
+    image_prefixes += [CardImageInfo(frame_supertype, side, frame_subtype, should_be_modified=True) for frame_supertype in splittable_overlays for side in ["l", "r"] for frame_subtype in splittable_card_prefixes]
+    image_prefixes += [CardImageInfo(frame_supertype, "", frame_subtype, should_be_modified=False) for frame_supertype in unsplittable_overlays for frame_subtype in unsplittable_card_prefixes]
+    
+    # Adventures
+    image_prefixes += [CardImageInfo(frame_supertype, side, frame_subtype, should_be_modified=True) for frame_subtype in splittable_card_prefixes for side in ["l", "r"] for frame_supertype in adventure_image_data]
+    image_prefixes += [CardImageInfo(frame_supertype, "", frame_subtype, should_be_modified=False) for frame_subtype in unsplittable_card_prefixes for frame_supertype in adventure_image_data]
+
     image_prefixes += [CardImageInfo("pt", "", frame_subtype, should_be_modified=False) for frame_subtype in splittable_card_prefixes + unsplittable_card_prefixes + one_off_card_subtypes]
     image_prefixes += [CardImageInfo(f"set_symbol_{rarity}", "", "", should_be_modified=False, special_card_asset_name_mode=True) for rarity in ["common", "uncommon", "rare", "mythic"]]
 
@@ -504,8 +571,17 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     try:
         hybrid_card_mask_image = Image.open(assets_filepath["pre-set"] + "hybrid_card_mask.png")
         hybrid_card_mask_image = hybrid_card_mask_image.resize(card_pixel_dims).convert("RGBA")
+        # Adventure pages mask
+        _factor = 1
+        adventure_pixel_dims: tuple[int, int] = (round(card_pixel_dims[0] * 0.9197 * 0.5 * _factor), round(card_pixel_dims[1] * 0.32 * _factor))
+        print(adventure_pixel_dims)
+        hybrid_adventure_mask_image = hybrid_card_mask_image.resize(adventure_pixel_dims)
+
         hybrid_card_masks["l"] = hybrid_card_mask_image
         hybrid_card_masks["r"] = hybrid_card_mask_image.transpose(Image.FLIP_LEFT_RIGHT)
+        hybrid_card_masks["l_adventure"] = hybrid_adventure_mask_image
+        hybrid_card_masks["r_adventure"] = hybrid_adventure_mask_image.transpose(Image.FLIP_LEFT_RIGHT)
+
     except:
         raise ValueError("There was a problem accessing the transparency mask.")
 
@@ -520,7 +596,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 # ... and we just need to resize it and hold it in memory
                 log_and_print(f"Accessing base file to simply load it into memory {expected_image_filepath}", do_print=verbose_mode_files)
                 base_image: Image = Image.open(expected_image_filepath)
-                resized_image: Image = base_image.resize(card_pixel_dims)
+                resized_image = base_image.resize(adventure_pixel_dims if "adventure" in prefix.file_prefix else card_pixel_dims)
                 resized_images[image_info.file_prefix] = resized_image.convert("RGBA")
             else:
                 # Here the image shouldn't necessarily exist because we need to generate it.
@@ -531,8 +607,16 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                     log_and_print(f"To-be-generated file {expected_image_filepath} doesn't exist. Generating...", do_print=verbose_mode_files)
                     log_and_print(f"Accessing base file {base_image_filepath} to mask it", do_print=verbose_mode_files)
                     base_image = Image.open(base_image_filepath)
-                    resized_image: Image = base_image.resize(card_pixel_dims)
-                    masked_image = ImageChops.multiply(resized_image, hybrid_card_masks[image_info.side])
+                    resized_image: Image = None
+                    if "adventure" in prefix.file_prefix:
+                        print(prefix.file_prefix)
+                        hybrid_mask = hybrid_card_masks[f"{image_info.side}_adventure"]
+                        resized_image = base_image.resize(adventure_pixel_dims)
+                    else:
+                        hybrid_mask = hybrid_card_masks[image_info.side]
+                        resized_image: Image = base_image.resize(card_pixel_dims)
+                        
+                    masked_image = ImageChops.multiply(resized_image, hybrid_mask)
                     resized_images[image_info.file_prefix] = masked_image
                     # Save the image so we don't need to generate it next time
                     masked_image.save(expected_image_filepath, quality=100)

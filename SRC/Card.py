@@ -21,6 +21,7 @@ class Card():
 
         self.name = name.replace("?", "").strip() # Would honestly be better to properly clean names of filepath-illegal characters but whatevs
         self.is_token = is_token
+        self.is_adventure = False
 
         self.colors = colors
         self.is_colorless = len(colors) == 0
@@ -66,14 +67,20 @@ class Card():
         self.stats = stats
         self.has_stats = self.stats is not None
         self.body_text = body_text
+        self.is_miracle = "miracle" in body_text.lower()  # Obviously isn't always accurate but it's good enough for keeping iteration time low
+
         self.flavor_text = flavor_text
         
         self.found_manacost_error = found_manacost_error
         
-        self.related_card_names = []
+        self.related_card_names: list[str] = []
+        self.related_nontoken_pair_card: Card | None = None
 
     def set_related_card_name(self, card_name: str) -> None:
         self.related_card_names.append(card_name)
+    
+    def set_as_adventure(self, is_adventure: bool) -> None:
+        self.is_adventure = is_adventure
 
     def get_type_string(self):
         final_string = self.supertype
