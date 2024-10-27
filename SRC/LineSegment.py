@@ -1,10 +1,10 @@
 from PIL import Image, ImageFont, ImageDraw, ImageTk
 import re
+
 import Fonts
 import metadata
 from UI import log_and_print
-from math_utils import flatten, strings_have_overlap, add_tuples
-
+from math_utils import flatten, strings_have_overlap, add_tuples, scale_tuple
 
 scryfall_hybrid_format = [
     "w/u",
@@ -84,6 +84,7 @@ class LineSegment():
     def __init__(self, text: str, 
                  font: ImageFont, offset: tuple[int, int],
                  is_symbol: bool, dims: tuple[int, int],
+                 font_name: str,
                  color: tuple[int, int, int]=(0, 0, 0)):
         self.text = text
         self.font = font
@@ -95,6 +96,7 @@ class LineSegment():
         self.spacing = 2
         if self.is_symbol and '/' in self.text and self.text not in font_symbols_map:
             self.text = self.text[::-1]
+        self.font_name = font_name
 
     def set_secondary_font(self, font):
         self.font_secondary = font
@@ -114,15 +116,20 @@ class LineSegment():
             symbol_font_bg = Fonts.font_symbols_large_pip_bg
 
         if self.is_symbol:
-            if mana_cost_mode:
-                bg_offset_position = add_tuples(absolute_pos, (-2, 2))
-                draw_pip_color_background(C_PIP_BG, C_PIP_BG, bg_offset_position, image, symbol_font_bg)
-
             is_phyrexian = 'p' in self.text
             is_hybrid = '/' in self.text
             is_two_hybrid = '2' in self.text and is_hybrid
             is_numeric = self.text.isdecimal()
-            color_text = self.text 
+            color_text = self.text
+
+            if is_hybrid: 
+                font = Fonts.get_font(self.font_name, font.size * Fonts.HYBRID_PIP_SIZE_FACTOR)
+                symbol_font_bg = Fonts.get_font(self.font_name, symbol_font_bg.size * Fonts.HYBRID_PIP_SIZE_FACTOR)
+
+            if mana_cost_mode:
+                bg_offset_position = add_tuples(absolute_pos, (-2, 2))
+                draw_pip_color_background(C_PIP_BG, C_PIP_BG, bg_offset_position, image, symbol_font_bg)
+             
             # If the text is tap, colorless, or 'X', make the background colorless
             if strings_have_overlap("xct", self.text.lower()) or self.text.isdecimal():
                 color_text = 'c'
@@ -172,7 +179,8 @@ class LineSegment():
                     else:
                         symbol_string_pos_offset = (1, -0.5)
 
-            final_symbol_string_pos = add_tuples(absolute_pos, symbol_string_pos_offset)
+            scaled_offset = scale_tuple(symbol_string_pos_offset, font.size / (Fonts.font_body_initial_size if not self.is_symbol else Fonts.font_symbols_initial_size))
+            final_symbol_string_pos = add_tuples(absolute_pos, scaled_offset)
             ImageDraw.Draw(image).text(
                 final_symbol_string_pos, symbol_string, self.color, font, spacing=self.spacing
             )
@@ -199,8 +207,10 @@ class LineSegment():
     @staticmethod
     def split_text_for_symbols(
         raw_text: str, image: ImageDraw.Image, 
-        max_width: int, max_height: int, small_text_mode: bool=False, 
-        debug_mode=False, font_override=None, get_bounding_box_mode=False):
+        max_width: int, max_height: int, 
+        font_name_text, font_name_mana, font_size_text, font_size_mana,
+        font_name_italic=Fonts.body_text_italic_font_name,
+        debug_mode=False):
         # Split text into bracketed tokens and normal strings
         # log_and_print(rebracketed_newlines_replaced)
         # log_and_print()
@@ -215,16 +225,21 @@ class LineSegment():
         in_italic_mode: bool = False
         draw_context = ImageDraw.Draw(image)
 
-        chosen_font_text = Fonts.font_body if not small_text_mode else Fonts.font_body_tiny
-        chosen_font_symbols = Fonts.font_symbols if not small_text_mode else Fonts.font_symbols_small
-        chosen_font_symbols_bg = Fonts.font_symbols_pip_background if not small_text_mode else Fonts.font_symbols_small_pip_background
+        font_text       = Fonts.get_font(font_name_text, font_size_text)
+        font_mana       = Fonts.get_font(font_name_mana, font_size_mana)
+        font_mana_bg    = Fonts.get_font(font_name_mana, font_size_mana * 24 / 25) 
+        font_italic     = Fonts.get_font(font_name_italic, font_size_text)
+        
+        # chosen_font_text = Fonts.font_body if not small_text_mode else Fonts.font_body_tiny
+        # chosen_font_symbols = Fonts.font_symbols if not small_text_mode else Fonts.font_symbols_small
+        # chosen_font_symbols_bg = Fonts.font_symbols_pip_background if not small_text_mode else Fonts.font_symbols_small_pip_background
 
         for raw_segment in tokenized_strings:
-            if line_count > MAX_LINE_COUNT and not small_text_mode and not get_bounding_box_mode:
-                # log_and_print("===================")
-                # log_and_print("going small!")
-                # log_and_print("===================")
-                return LineSegment.split_text_for_symbols(raw_text, image, max_width, max_height, small_text_mode=True)
+        #     if line_count > MAX_LINE_COUNT and not small_text_mode and not get_bounding_box_mode:
+        #         # log_and_print("===================")
+        #         # log_and_print("going small!")
+        #         # log_and_print("===================")
+        #         return LineSegment.split_text_for_symbols(raw_text, image, max_width, max_height, small_text_mode=True)
 
             is_symbol = re.match(r"[{}]", raw_segment)
             if '(' in raw_segment:
@@ -233,28 +248,39 @@ class LineSegment():
             string_bbox = None
             chosen_font = None
             chosen_font_italic = None
+            chosen_font_name = "NO FONT"
             parsed_text = ""
             # if debug_mode:
             #     log_and_print(raw_segment)
             if is_symbol:
                 parsed_text = raw_segment.strip(r"{}")
-                chosen_font = chosen_font_symbols
             else:
                 parsed_text = raw_segment.replace("&", "")
-                chosen_font = chosen_font_text
+            
+            # I know the conditions are repeated but those have to do with parsing and these are for fonts
+            if is_symbol:
+                chosen_font = font_mana
+                chosen_font_name = font_name_mana
+            elif in_italic_mode:
+                chosen_font = font_italic
+                chosen_font_name = font_name_italic
+            else:
+                chosen_font = font_text
+                chosen_font_name = font_name_text
+                
 
-            # UGLY HACK! But we're ok with it...! In the spirit of quick and dirty iterations and playtesting... or something..
-            if font_override:
-                if get_bounding_box_mode:
-                    chosen_font, chosen_font_italic, chosen_font_symbols_bg, chosen_font_symbols_ACTUAL_BACKGROUND = font_override
-                    if is_symbol:
-                        chosen_font = chosen_font_symbols_bg
-                        chosen_font_symbols_bg = chosen_font_symbols_ACTUAL_BACKGROUND
-                    else: # this segment contains only normal text
-                        if in_italic_mode:
-                            chosen_font = chosen_font_italic
-                else:
-                    chosen_font, chosen_font_symbols_bg = font_override
+            # We have returned to fix Le Ugly Hack!!
+            # if font_override:
+            #     if get_bounding_box_mode:
+            #         chosen_font, chosen_font_italic, chosen_font_symbols_bg, chosen_font_symbols_ACTUAL_BACKGROUND = font_override
+            #         if is_symbol:
+            #             chosen_font = chosen_font_symbols_bg
+            #             chosen_font_symbols_bg = chosen_font_symbols_ACTUAL_BACKGROUND
+            #         else: # this segment contains only normal text
+            #             if in_italic_mode:
+            #                 chosen_font = chosen_font_italic
+            #     else:
+            #         chosen_font, chosen_font_symbols_bg = font_override
 
 
             string_bbox = draw_context.multiline_textbbox(
@@ -264,12 +290,9 @@ class LineSegment():
             )
 
             string_width = string_bbox[2] - string_bbox[0]
-            # string_height = string_bbox[3] - string_bbox[1]
-            # log_and_print(string_width)
-
             
             lineheight_char_bbox = draw_context.multiline_textbbox(
-                (current_x_offset, 0), "A", chosen_font
+                (current_x_offset, 0), CHAR_PIP_BG if is_symbol else "A", chosen_font
             )
             string_height = lineheight_char_bbox[3] - lineheight_char_bbox[1]
 
@@ -286,11 +309,11 @@ class LineSegment():
                 num_literal_lines += 1           
 
             new_segment: LineSegment = LineSegment(
-                parsed_text.replace("&", ""), chosen_font, 
+                parsed_text.replace("&", ""), chosen_font,
                 (current_x_offset, line_count-1), is_symbol,
-                (string_width, string_height)
+                (string_width, string_height), chosen_font_name
             )
-            new_segment.set_secondary_font(chosen_font_symbols_bg)
+            new_segment.set_secondary_font(font_mana_bg)
 
             line_segments.append(new_segment)
 

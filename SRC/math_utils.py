@@ -9,3 +9,6 @@ def add_tuples(t1: tuple[int, int], t2: tuple[int, int]) -> tuple[int, int]:
 
 def multiply_tuples(t1: tuple[float, float], t2: tuple[float, float]) -> tuple[float, float]:
     return (t1[0] * t2[0], t1[1] * t2[1])
+
+def scale_tuple(t: tuple[float, float], s: float):
+    return (t[0] * s, t[1] * s)
