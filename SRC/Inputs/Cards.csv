@@ -3,7 +3,7 @@ FALSE,Example Card 1,Creature,Thing,{1}{u},A creature! Its body text goes here.,
 FALSE,Example Card 2 ,Enchantment Creature,Another Thing,{w/b},This one is hybrid... Ooh! And automatically got an enchantment frame!,1,1,,,,,1,,,,FALSE,FALSE,1,1,0,1,0,0,0,1,1,1,0,0,0,,TRUE,,$,0,2
 FALSE,Travelling Man,Creature,Human,{4}{r}{g},Gold! (Italics!!),5,5,,,,,6,,,The Man's Adventure,FALSE,FALSE,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,{4}$$,4,3
 FALSE,Example Card 4,Artifact,,{4},Artifact's gonna do what an artifact's gonna do.,,,,,,,4,,,,FALSE,FALSE,1,0,0,0,0,0,1,0,0,0,1,0,0,,TRUE,,{4},4,4
-FALSE,The Man's Adventure,Instant,,{3}{r/g},A hybrid adventure!? (He's on an adventure...!),,,,,,,4,,,,TRUE,FALSE,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{3}$,3,5
+FALSE,The Man's Adventure,Instant,Adventure,{3}{r/g},A hybrid adventure!? (He's on an adventure...!),,,,,,,4,,,,TRUE,FALSE,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{3}$,3,5
 FALSE,,,,,,,,,,,,0,,,,FALSE,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,6
 FALSE,,,,,,,,,,,,0,,,,FALSE,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,7
 FALSE,,,,,,,,,,,,0,,,,FALSE,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,8

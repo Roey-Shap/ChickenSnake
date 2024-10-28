@@ -1,0 +1,74 @@
+
+[Settings]
+{
+    "layouts": {
+        "Rare": {
+            "weight": 7,
+            "slots": {
+                "Common": 10,
+                "Uncommon": 3,
+                "Rare": 1
+            }
+        },
+        "Mythic": {
+            "weight": 1,
+            "slots": {
+                "Common": 10,
+                "Uncommon": 3,
+                "Mythic": 1
+            }
+        }
+    }
+}
+[CustomCards]
+[
+    {
+        "name":  "Example Card 1",
+        "mana_cost":  "{1}{U}",
+        "type":  "Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/MtGDoD3/set_longname/Playtest_Card_Images/Example Card 1.jpg"
+                        }
+    },
+    {
+        "name":  "Example Card 2",
+        "mana_cost":  "{W/B}",
+        "type":  "Enchantment Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/MtGDoD3/set_longname/Playtest_Card_Images/Example Card 2.jpg"
+                        }
+    },
+    {
+        "name":  "Travelling Man",
+        "mana_cost":  "{4}{R}{G}",
+        "type":  "Creature",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/MtGDoD3/set_longname/Playtest_Card_Images/Travelling Man.jpg"
+                        }
+    },
+    {
+        "name":  "Example Card 4",
+        "mana_cost":  "{4}",
+        "type":  "Artifact",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/MtGDoD3/set_longname/Playtest_Card_Images/Example Card 4.jpg"
+                        }
+    },
+    {
+        "name":  "The Man's Adventure",
+        "mana_cost":  "{3}{R/G}",
+        "type":  "Instant",
+        "image_uris":  {
+                            "en":  "https://roey-shap.github.io/MtGDoD3/set_longname/Playtest_Card_Images/The Man's Adventure.jpg"
+                        }
+    }
+]
+[Common]
+Example Card 1
+Example Card 2
+Travelling Man
+Example Card 4
+The Man's Adventure
+[Uncommon]
+[Rare]
+[Mythic]

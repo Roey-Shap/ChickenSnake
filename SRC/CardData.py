@@ -21,26 +21,35 @@ C_WHITE = (255, 255, 255)
 # (These offsets appear a few times throughout the file)
 token_yoffset = 59
 card_pixel_dims = (500, 700)
-max_types_string_width_ratio = 357 / 500
+MAX_TYPES_STRING_WIDTH_IN_PIXELS = card_pixel_dims[0] * (360 / 500)
 MAX_TITLE_AND_MANACOST_STRING_WIDTH_RATIO = 415 / 500
 MAX_TITLE_AND_MANACOST_STRING_WIDTH_IN_PIXELS = MAX_TITLE_AND_MANACOST_STRING_WIDTH_RATIO * card_pixel_dims[0]
 CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD = round(card_pixel_dims[0] * 0.93)
 CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE = round(card_pixel_dims[0] * 0.475)
 
-TITLE_OFFSET_BASE_PIXELS = (40, 54)
-TOKEN_TITLE_OFFSET_PIXELS = (210, 1)
-TITLE_OFFSET_BASE_ADVENTURE_PIXELS = (40, 460)
+TITLE_OFFSET_BASE_PIXELS = (card_pixel_dims[0] * 40 / 500, card_pixel_dims[1] * 54 / 700)
+TOKEN_TITLE_OFFSET_PIXELS = (card_pixel_dims[0] * 210 / 500, card_pixel_dims[1] * 1 / 700)
+TITLE_OFFSET_BASE_ADVENTURE_PIXELS = (card_pixel_dims[0] * 35 / 500, card_pixel_dims[1] * 460 / 700)
 types_string_offset_pixels = round(card_pixel_dims[1] * 413 / 700)
-body_text_offset = (card_pixel_dims[0] * (44 / 500), card_pixel_dims[1] * (445 / 700))
+
+BODY_TEXT_OFFSET_NORMAL_CARD = (card_pixel_dims[0] * (44 / 500), card_pixel_dims[1] * (445 / 700))
+BODY_TEXT_MAX_WIDTH_NORMAL_CARD = 0.84 * card_pixel_dims[0] #420
+BODY_TEXT_MAX_HEIGHT_NORMAL_CARD = 0.264 * card_pixel_dims[1] # 185
+
+BODY_TEXT_OFFSET_ADVENTURE_LEFT = (card_pixel_dims[0] * 35 / 500, card_pixel_dims[1] * (510 / 700))
+BODY_TEXT_OFFSET_ADVENTURE_RIGHT = math_utils.add_tuples(BODY_TEXT_OFFSET_ADVENTURE_LEFT, (round(0.45 * card_pixel_dims[0]), card_pixel_dims[1] * (-60 / 700)))
+BODY_TEXT_MAX_WIDTH_ADVENTURE  = round(0.45 * card_pixel_dims[0])
+BODY_TEXT_MAX_HEIGHT_ADVENTURE = round(0.13 * card_pixel_dims[1])
+
+MAX_TYPES_STRINGS_WIDTH_ADVENTURE_IN_PIXELS = BODY_TEXT_MAX_WIDTH_ADVENTURE
+
 MANACOST_YOFFSET_PIXELS = round(card_pixel_dims[1] * 40 / 700)
 MANACOST_YOFFSET_PIXELS_ADVENTURE = round(card_pixel_dims[1] * 450 / 700)
 
-pip_BG_size_factor = 0.9
-max_body_text_width = 0.84 * card_pixel_dims[0] #420
-max_body_text_height = 0.264 * card_pixel_dims[1] # 185
 max_mana_cost_text_width = round(card_pixel_dims[0] * 420 / 500)
 max_mana_cost_text_height = round(card_pixel_dims[1] * 500 / 700)
 
+CARD_IMAGE_POWER_TOUGHNESS_POSITION = (card_pixel_dims[0] * 433 / 500, card_pixel_dims[1] * 645 / 700)
 
 markdown_closer_string_normal = \
 f"""
@@ -330,7 +339,7 @@ def get_card_set_symbol_info(card_data: Card) -> CardImageInfo:
     """
     return CardImageInfo(f"set_symbol_{card_data.rarity_name}", "", "", should_be_modified=False, special_card_asset_name_mode=True)
 
-def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_cost_text_width, max_mana_cost_height,
+def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_cost_text_width, max_mana_cost_text_height,
                                         text_font_size, mana_font_size, title_position_offset,
                                         total_mana_cost_and_title_width,
                                         adventure_mode=False, debug_mode=False):
@@ -355,8 +364,8 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_co
     title_string_width, _ = Fonts.get_string_size(card_data.name, chosen_title_font)
     if title_string_width > space_remaining_for_title:
         current_title_width_to_space_ratio = space_remaining_for_title / title_string_width
-        print(current_title_width_to_space_ratio)
-        print(card_data.name)
+        # print(current_title_width_to_space_ratio)
+        # print(card_data.name)
         chosen_title_font = Fonts.get_title_font(text_font_size * current_title_width_to_space_ratio)
     
     # Title
@@ -374,6 +383,120 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_co
         _yoffset: int = MANACOST_YOFFSET_PIXELS_ADVENTURE if adventure_mode else MANACOST_YOFFSET_PIXELS
         for i, segment in enumerate(mana_cost_segments):
             segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), _yoffset), absolute_draw_mode=True, mana_cost_mode=True)
+
+
+def card_image_draw_body_text(card_data, card_image_total,
+                              warn_about_card_semantics_errors=False, verbose_mode_cards=False):
+    # Go through each line of text and convert it into a series of LineSegments - each with their own font, offset, and text
+    # Then draw each of their texts on the card at their offset and with their font
+
+    # To maximize utilized card space and potentially accomodate flavor text, we impose the following basic rules:
+    # Card text fits before flavor text fits
+    # Strive for at most 9 lines of body text, not including flavor text.
+    # Now the method: TODO Make a better one to accomodate for flavor text that won't be blocked by the power/toughness
+    # Calculate how much space the body text'll take up with the flavor. It they take up more than the space
+    # between the top and where the stat box is (if it has one; otherwise until end of card), then
+    # calculate what proportion is needed to apply to the pips'/text's fonts.
+    # If you can't fit both in 9 lines, try again without the flavor text.
+
+    # How do we calculate the new proportion?
+    # For now a naive binary search approach will do. 
+    # If you took more than 9 lines, go between min font size (minFS) and current size.
+    # Then if that's less than 9 lines, go halfway between that and the last size, and so on until some MAX_ATTEMPTS.
+
+    # TODO: Just pass in the font's name and size. That way the mana symbols can be appropriately sized
+    # within the circle, and hybrid pips can be made a corresponding larger size.
+    # This mostly involves changes to the LineSegment class.
+
+    is_adventure_right = card_data.related_nontoken_pair_card is not None
+    is_adventure_left = card_data.is_adventure
+    adventure_mode = is_adventure_left or is_adventure_right
+    _font_size_factor = Fonts.ADVENTURE_FONT_SIZE_FACTOR if adventure_mode else 1
+
+    max_text_width = BODY_TEXT_MAX_WIDTH_ADVENTURE if adventure_mode else BODY_TEXT_MAX_WIDTH_NORMAL_CARD
+    max_text_height = BODY_TEXT_MAX_HEIGHT_ADVENTURE if adventure_mode else BODY_TEXT_MAX_HEIGHT_NORMAL_CARD
+
+    text_font_size = Fonts.font_title_initial_size
+    mana_font_size = Fonts.font_symbols_initial_size
+
+    total_card_body_text: str = card_data.body_text #+ ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
+    segments, went_over_line_limit, _ = LineSegment.split_text_for_symbols(
+                        total_card_body_text, card_image_total, 
+                        max_text_width, max_text_height, 
+                        Fonts.body_text_font_name, Fonts.symbols_font_name, 
+                        text_font_size * _font_size_factor, mana_font_size * _font_size_factor
+                        )
+    segments: list[LineSegment] = segments # For type hinting :,-)
+    current_font_size = text_font_size
+    current_mana_font_size = Fonts.font_symbols_initial_size
+    current_font_max, current_font_min = Fonts.font_body_max_size, Fonts.font_body_min_size
+
+    body_text_too_large = went_over_line_limit
+    tries = 8
+    more_than_max_lines = False
+
+    # TODO: we could also try making text larger than normal, but so long as the initial text size is reasonable we don't need to
+    # for now this just corrects for too-large bodies of text
+    if went_over_line_limit:
+        if warn_about_card_semantics_errors:
+            log_and_print(f"{card_data.name}'s text is too large for default font size. Resizing...", do_print=verbose_mode_cards)
+        while tries > 1 or (tries == 1 and body_text_too_large):
+            # print(body_text_too_large)
+            if body_text_too_large:
+                current_font_max = current_font_size
+            else:
+                current_font_min = current_font_size
+
+            current_font_size = (current_font_min + current_font_max) / 2
+
+            ratio_from_max_to_current = current_font_size / Fonts.font_body_max_size
+            current_mana_font_size = Fonts.font_symbols_initial_size * ratio_from_max_to_current
+            
+            segments, body_text_too_large, more_than_max_lines = LineSegment.split_text_for_symbols(
+                    total_card_body_text, card_image_total, 
+                    BODY_TEXT_MAX_WIDTH_NORMAL_CARD, BODY_TEXT_MAX_HEIGHT_NORMAL_CARD, 
+                    Fonts.body_text_font_name, Fonts.symbols_font_name, 
+                    current_font_size * _font_size_factor, current_mana_font_size * _font_size_factor
+                    )
+
+            tries -= 1
+            # print(card_data.name)
+            # print(f"{tries: <5}, {body_text_too_large: <5}, {current_font_max: <5}, {current_font_min: <5}, {current_font_size: <5}")
+
+    if more_than_max_lines and warn_about_card_semantics_errors:
+        log_and_print(f"{card_data.name}'s text was was more than {LineSegment.MAX_LINE_COUNT} even at the smallest font.", do_print=verbose_mode_cards)
+
+    body_text_position: tuple[int, int] = math_utils.add_tuples(BODY_TEXT_OFFSET_NORMAL_CARD, (0, token_yoffset) if card_data.is_token else (0, 0))
+    if is_adventure_left:
+        body_text_position = BODY_TEXT_OFFSET_ADVENTURE_LEFT
+    elif is_adventure_right:
+        body_text_position = BODY_TEXT_OFFSET_ADVENTURE_RIGHT
+
+    for segment in segments:
+        print(card_data.name)
+        segment.draw(card_image_total, body_text_position)
+
+def card_image_draw_types_text(card_data: Card, card_image_total, adventure_mode=False):
+    _font = Fonts.get_title_font(Fonts.font_types_initial_size * (Fonts.ADVENTURE_FONT_SIZE_FACTOR if adventure_mode else 1))
+    _max_types_string_width = MAX_TYPES_STRINGS_WIDTH_ADVENTURE_IN_PIXELS if adventure_mode else MAX_TYPES_STRING_WIDTH_IN_PIXELS
+
+    types_string = card_data.get_type_string()
+
+    types_string_width, _ = Fonts.get_string_size(types_string, _font)
+    print(f"Name: {card_data.name} | Width: {types_string_width}")
+    if types_string_width > _max_types_string_width:
+        current_types_width_to_max_width_ratio = _max_types_string_width / types_string_width
+        _font = Fonts.get_title_font(_font.size * current_types_width_to_max_width_ratio)
+
+    types_string_xoffset = (card_pixel_dims[0] * 40 / 500)
+    types_string_yoffset: float = types_string_offset_pixels + (token_yoffset if card_data.is_token else 0)
+    if adventure_mode:
+        types_string_xoffset = (card_pixel_dims[0] * 37 / 500)
+        types_string_yoffset = round(card_pixel_dims[1] * 490 / 700)
+        
+    ImageDraw.Draw(card_image_total).text(
+        (types_string_xoffset, types_string_yoffset), card_data.get_type_string(), C_WHITE if adventure_mode else C_BLACK, font=_font, anchor="lm"
+    )
 
 def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, image_assets: dict[CardImageInfo, Image]):
     verbose_mode_cards = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_cards"]
@@ -436,110 +559,33 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                                                 max_mana_cost_text_width, max_mana_cost_text_height, 
                                                 Fonts.font_title_initial_size * Fonts.ADVENTURE_FONT_SIZE_FACTOR, 
                                                 Fonts.font_symbols_big_initial_size * Fonts.ADVENTURE_FONT_SIZE_FACTOR,
-                                                TITLE_OFFSET_BASE_ADVENTURE_PIXELS, round(0.45 * card_pixel_dims[0]),
+                                                TITLE_OFFSET_BASE_ADVENTURE_PIXELS, round(0.35 * card_pixel_dims[0]),
                                                 adventure_mode=True)
 
             # END Name and mana cost #################################################
 
             # Types ##########################
-            chosen_types_font = Fonts.font_types
-            types_string = card_data.get_type_string()
+            card_image_draw_types_text(card_data, card_image_total)
+            if related_adventure_spell_data:
+                card_image_draw_types_text(related_adventure_spell_data, card_image_total, adventure_mode=True)
 
-            types_string_width, _ = Fonts.get_string_size(types_string, chosen_types_font)
-            max_types_string_width_in_pixels = max_types_string_width_ratio * card_pixel_dims[0]
-            if types_string_width > max_types_string_width_in_pixels:
-                current_types_width_to_max_width_ratio = max_types_string_width_in_pixels / types_string_width
-                chosen_types_font = Fonts.get_title_font(Fonts.font_types_initial_size * current_types_width_to_max_width_ratio)
-
-            types_string_yoffset: float = types_string_offset_pixels + (token_yoffset if card_data.is_token else 0)
-            ImageDraw.Draw(card_image_total).text(
-                (40, types_string_yoffset), card_data.get_type_string(), C_BLACK, font=chosen_types_font, anchor="lm"
-            )
-
-            # Body Text ######################
-            # Config
-            # Go through each line of text and convert it into a series of LineSegments - each with their own font, offset, and text
-            # Then draw each of their texts on the card at their offset and with their font
-
-            # To maximize utilized card space and potentially accomodate flavor text, we impose the following basic rules:
-            # Card text fits before flavor text fits
-            # Strive for at most 9 lines of body text, not including flavor text.
-            # Now the method: TODO Make a better one to accomodate for flavor text that won't be blocked by the power/toughness
-            # Calculate how much space the body text'll take up with the flavor. It they take up more than the space
-            # between the top and where the stat box is (if it has one; otherwise until end of card), then
-            # calculate what proportion is needed to apply to the pips'/text's fonts.
-            # If you can't fit both in 9 lines, try again without the flavor text.
-
-            # How do we calculate the new proportion?
-            # For now a naive binary search approach will do. 
-            # If you took more than 9 lines, go between min font size (minFS) and current size.
-            # Then if that's less than 9 lines, go halfway between that and the last size, and so on until some MAX_ATTEMPTS.
-
-            # TODO: Just pass in the font's name and size. That way the mana symbols can be appropriately sized
-            # within the circle, and hybrid pips can be made a corresponding larger size.
-            # This mostly involves changes to the LineSegment class.
-
-            
-            total_card_body_text: str = card_data.body_text #+ ("\n" + card_data.flavor_text if len(card_data.flavor_text) > 0 else "")
-            segments, went_over_line_limit, _ = LineSegment.split_text_for_symbols(
-                                total_card_body_text, card_image_total, 
-                                max_body_text_width, max_body_text_height, 
-                                Fonts.body_text_font_name, Fonts.symbols_font_name, 
-                                Fonts.font_body_initial_size, Fonts.font_symbols_initial_size
-                                )
-            segments: list[LineSegment] = segments # For type hinting :,-)
-            current_font_size = Fonts.font_body_initial_size
-            current_mana_font_size = Fonts.font_symbols_initial_size
-            current_font_max, current_font_min = Fonts.font_body_max_size, Fonts.font_body_min_size
-            resized_text_font, resized_symbols_font = None, None
-            body_text_too_large = went_over_line_limit
-            more_than_max_lines = False
-            tries = 8
-
-            # TODO: we could also try making text larger than normal, but so long as the initial text size is reasonable we don't need to
-            # for now this just corrects for too-large bodies of text
-            if went_over_line_limit:
-                if warn_about_card_semantics_errors:
-                    log_and_print(f"{card_data.name}'s text is too large for default font size. Resizing...", do_print=verbose_mode_cards)
-                while tries > 1 or (tries == 1 and body_text_too_large):
-                    # print(body_text_too_large)
-                    if body_text_too_large:
-                        current_font_max = current_font_size
-                    else:
-                        current_font_min = current_font_size
-
-                    current_font_size = (current_font_min + current_font_max) / 2
-
-                    ratio_from_max_to_current = current_font_size / Fonts.font_body_max_size
-                    current_mana_font_size = Fonts.font_symbols_initial_size * ratio_from_max_to_current
+            # Body text
+            card_image_draw_body_text(card_data, card_image_total,
+                              warn_about_card_semantics_errors=warn_about_card_semantics_errors, verbose_mode_cards=verbose_mode_cards)
+            if related_adventure_spell_data:
+                card_image_draw_body_text(related_adventure_spell_data, card_image_total,
+                    warn_about_card_semantics_errors=warn_about_card_semantics_errors, verbose_mode_cards=verbose_mode_cards)
+                
                     
-                    # resized_text_font = Fonts.get_body_font(current_font_size)
-                    # resized_italic_font = Fonts.get_body_font(current_font_size, italic=True)
-                    # resized_symbols_font = Fonts.get_symbol_font(current_mana_font_size)
-                    segments, body_text_too_large, more_than_max_lines = LineSegment.split_text_for_symbols(
-                            total_card_body_text, card_image_total, 
-                            max_body_text_width, max_body_text_height, 
-                            Fonts.body_text_font_name, Fonts.symbols_font_name, 
-                            Fonts.font_body_initial_size, Fonts.font_symbols_initial_size
-                            )
 
-                    tries -= 1
-                    # print(card_data.name)
-                    # print(f"{tries: <5}, {body_text_too_large: <5}, {current_font_max: <5}, {current_font_min: <5}, {current_font_size: <5}")
-
-            if more_than_max_lines and warn_about_card_semantics_errors:
-                log_and_print(f"{card_data.name}'s text was was more than {LineSegment.MAX_LINE_COUNT} even at the smallest font.", do_print=verbose_mode_cards)
-
-            body_text_position: tuple[int, int] = math_utils.add_tuples(body_text_offset, (0, token_yoffset) if card_data.is_token else (0, 0))
-            for segment in segments:
-                segment.draw(card_image_total, body_text_position)
-           
+            # Draw power/toughness or analogous stat (loyalty, defense, etc.)
             if card_data.has_stats:
                 ImageDraw.Draw(card_image_total).text(
-                    (433, 645), card_data.get_stats_string(), C_BLACK, Fonts.font_stats, anchor="mm"
+                    CARD_IMAGE_POWER_TOUGHNESS_POSITION, card_data.get_stats_string(), C_BLACK, Fonts.font_stats, anchor="mm"
                 )
             
             rgb_image = card_image_total.convert("RGB")
+
             try:
                 corresponding_filepath: str = images_save_filepath
                 rgb_image.save(corresponding_filepath + f"{card_data.name}.{CARD_PICTURE_FILE_FORMAT}", quality=100)

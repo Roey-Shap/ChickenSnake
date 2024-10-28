@@ -290,6 +290,8 @@ class LineSegment():
             )
 
             string_width = string_bbox[2] - string_bbox[0]
+            if '/' in parsed_text:
+                string_width *= Fonts.HYBRID_PIP_SIZE_FACTOR
             
             lineheight_char_bbox = draw_context.multiline_textbbox(
                 (current_x_offset, 0), CHAR_PIP_BG if is_symbol else "A", chosen_font
@@ -301,7 +303,7 @@ class LineSegment():
             # if not is_symbol:
             #     max_lineheight_seen = max(max_lineheight_seen, string_height)
 
-            adding_word_overruns = current_x_offset + string_width > max_width
+            adding_word_overruns = (current_x_offset + string_width) > max_width
             if adding_word_overruns:
                 # log_and_print("OVERUN")
                 current_x_offset = 0

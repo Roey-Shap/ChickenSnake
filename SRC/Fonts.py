@@ -25,7 +25,7 @@ def get_string_size(text: str, font: ImageFont.ImageFont) -> tuple[float, float]
 def get_font(font_name: str, font_size: float) -> ImageFont.ImageFont:
     return ImageFont.truetype(font_name, font_size)
 
-ADVENTURE_FONT_SIZE_FACTOR = 0.9
+ADVENTURE_FONT_SIZE_FACTOR = 0.8
 HYBRID_PIP_SIZE_FACTOR = 1.15
 
 font_body_initial_size = 23
