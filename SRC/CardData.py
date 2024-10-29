@@ -21,11 +21,11 @@ C_WHITE = (255, 255, 255)
 # (These offsets appear a few times throughout the file)
 token_yoffset = 59
 card_pixel_dims = (500, 700)
-MAX_TYPES_STRING_WIDTH_IN_PIXELS = card_pixel_dims[0] * (360 / 500)
+MAX_TYPES_STRING_WIDTH_IN_PIXELS = card_pixel_dims[0] * (355 / 500)
 MAX_TITLE_AND_MANACOST_STRING_WIDTH_RATIO = 415 / 500
 MAX_TITLE_AND_MANACOST_STRING_WIDTH_IN_PIXELS = MAX_TITLE_AND_MANACOST_STRING_WIDTH_RATIO * card_pixel_dims[0]
 CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD = round(card_pixel_dims[0] * 0.93)
-CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE = round(card_pixel_dims[0] * 0.475)
+CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE = round(card_pixel_dims[0] * 0.49)
 
 TITLE_OFFSET_BASE_PIXELS = (card_pixel_dims[0] * 40 / 500, card_pixel_dims[1] * 54 / 700)
 TOKEN_TITLE_OFFSET_PIXELS = (card_pixel_dims[0] * 210 / 500, card_pixel_dims[1] * 1 / 700)
@@ -44,7 +44,7 @@ BODY_TEXT_MAX_HEIGHT_ADVENTURE = round(0.13 * card_pixel_dims[1])
 MAX_TYPES_STRINGS_WIDTH_ADVENTURE_IN_PIXELS = BODY_TEXT_MAX_WIDTH_ADVENTURE
 
 MANACOST_YOFFSET_PIXELS = round(card_pixel_dims[1] * 40 / 700)
-MANACOST_YOFFSET_PIXELS_ADVENTURE = round(card_pixel_dims[1] * 450 / 700)
+MANACOST_YOFFSET_PIXELS_ADVENTURE = round(card_pixel_dims[1] * 445 / 700)
 
 max_mana_cost_text_width = round(card_pixel_dims[0] * 420 / 500)
 max_mana_cost_text_height = round(card_pixel_dims[1] * 500 / 700)
@@ -345,14 +345,14 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_co
                                         adventure_mode=False, debug_mode=False):
     # First find the mana cost's width at the current font
     mana_cost_segments, _, _= LineSegment.split_text_for_symbols(
-        card_data.raw_mana_cost_string.lower(), card_image_total, max_mana_cost_text_width, max_mana_cost_text_height,
+        card_data.raw_mana_cost_string.lower(), card_image_total, 10000, 10000,
         Fonts.title_text_font_name, Fonts.symbols_font_name, text_font_size, mana_font_size
     )
     mana_cost_segments: list[LineSegment] = mana_cost_segments
     # We assume each pip is the same width and draw them from left to right with manual offsets
     # TODO: Adjust for larger pips (hybrid ones)
     num_mana_pips = len(mana_cost_segments)
-    mana_pip_width = mana_cost_segments[0].dims[0] if num_mana_pips > 0 else 0
+    mana_pip_width = mana_cost_segments[0].dims[0]
     mana_cost_size = mana_pip_width * num_mana_pips
     # When templating, we prefer to shrink the title before the mana cost.
     # Therefore we'll try to fit the title in the space left by the manacost.
@@ -377,12 +377,15 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_co
     )
     
     _right_border = CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE if adventure_mode else CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD
-    if num_mana_pips > 0:
+    if num_mana_pips > 0:    
         margin = 0 #int(mana_pip_width * 0.1)
         left_mana_border = _right_border - (mana_pip_width * num_mana_pips) - (margin * (num_mana_pips-1))
         _yoffset: int = MANACOST_YOFFSET_PIXELS_ADVENTURE if adventure_mode else MANACOST_YOFFSET_PIXELS
+        _total_manacost_width_drawn: float = 0
         for i, segment in enumerate(mana_cost_segments):
-            segment.draw(card_image_total, (left_mana_border + ((mana_pip_width + margin) * i), _yoffset), absolute_draw_mode=True, mana_cost_mode=True)
+            segment.draw(card_image_total, ((left_mana_border + _total_manacost_width_drawn), _yoffset), absolute_draw_mode=True, mana_cost_mode=True)
+            _total_manacost_width_drawn += segment.dims[0]
+            print(segment.dims[0])
 
 
 def card_image_draw_body_text(card_data, card_image_total,
@@ -675,6 +678,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
         expected_image_filepath = base_folder_path + image_info.file_prefix + image_suffix
         image_info.filepath = expected_image_filepath
         try:
+            is_adventure_card_image: bool = "adventure" in prefix.file_prefix
             if not image_info.should_be_modified:
                 # If the image isn't to be modified to generate new card borders, it should exist
                 # ... and we just need to resize it and hold it in memory
@@ -688,12 +692,12 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 was_image_generated: bool = os.path.isfile(expected_image_filepath)
                 base_image_filepath = assets_filepath["pre-set"] + image_info.base_file_prefix + image_suffix
                 if not was_image_generated or metadata.settings_data_obj["asset_loading_settings"]["always_regenerate_base_card_frames"]:
+                    print(f"WAS NOT GENERATED ALREADY: {expected_image_filepath}")
                     log_and_print(f"To-be-generated file {expected_image_filepath} doesn't exist. Generating...", do_print=verbose_mode_files)
                     log_and_print(f"Accessing base file {base_image_filepath} to mask it", do_print=verbose_mode_files)
                     base_image = Image.open(base_image_filepath)
                     resized_image: Image = None
-                    if "adventure" in prefix.file_prefix:
-                        # print(prefix.file_prefix)
+                    if is_adventure_card_image:
                         hybrid_mask = hybrid_card_masks[f"{image_info.side}_adventure"]
                         resized_image = base_image.resize(adventure_pixel_dims)
                     else:
@@ -707,7 +711,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 else:
                     log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=verbose_mode_files)
                     loaded_image = Image.open(expected_image_filepath)
-                    resized_image: Image = loaded_image.resize(card_pixel_dims)
+                    resized_image: Image = loaded_image.resize(adventure_pixel_dims if is_adventure_card_image else card_pixel_dims)
                     resized_images[image_info.file_prefix] = resized_image
         except:
             raise ValueError(f"There was an issue accessing image: {expected_image_filepath}.\n \

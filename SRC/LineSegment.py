@@ -111,9 +111,9 @@ class LineSegment():
         # This'll be either base text font or the mana symbol font
         font = self.font
         symbol_font_bg = self.font_secondary #Fonts.font_symbols_pip_background
-        if mana_cost_mode:
-            font = Fonts.font_symbols_large
-            symbol_font_bg = Fonts.font_symbols_large_pip_bg
+        # if mana_cost_mode:
+        #     font = Fonts.font_symbols_large
+        #     symbol_font_bg = Fonts.font_symbols_large_pip_bg
 
         if self.is_symbol:
             is_phyrexian = 'p' in self.text
@@ -157,6 +157,7 @@ class LineSegment():
                 symbol_string = font_symbols_map[self.text]
             elif is_numeric or strings_have_overlap("tx", self.text.lower()):
                 symbol_string = self.text
+                font = Fonts.get_font(self.font_name, self.font.size * 1.15)
             elif not strings_have_overlap('wubrg', self.text.lower()):
                 symbol_string = font_symbols_map[color_text]
             else:
@@ -164,7 +165,7 @@ class LineSegment():
 
             symbol_string_pos_offset = (-1, -1)
             if is_numeric:
-                symbol_string_pos_offset = (0, 0)
+                symbol_string_pos_offset = (0, -1.7)
             if not is_hybrid:
                 symbol_string_pos_offset = (1 if mana_cost_mode else 0, 
                                         symbol_string_pos_offset[1] + (-1 if not mana_cost_mode else 0))
@@ -267,28 +268,14 @@ class LineSegment():
             else:
                 chosen_font = font_text
                 chosen_font_name = font_name_text
-                
 
-            # We have returned to fix Le Ugly Hack!!
-            # if font_override:
-            #     if get_bounding_box_mode:
-            #         chosen_font, chosen_font_italic, chosen_font_symbols_bg, chosen_font_symbols_ACTUAL_BACKGROUND = font_override
-            #         if is_symbol:
-            #             chosen_font = chosen_font_symbols_bg
-            #             chosen_font_symbols_bg = chosen_font_symbols_ACTUAL_BACKGROUND
-            #         else: # this segment contains only normal text
-            #             if in_italic_mode:
-            #                 chosen_font = chosen_font_italic
-            #     else:
-            #         chosen_font, chosen_font_symbols_bg = font_override
-
-
+            # Getting segment dimensions
             string_bbox = draw_context.multiline_textbbox(
                 (current_x_offset, 0), 
                 CHAR_PIP_BG if is_symbol else parsed_text,
                 chosen_font
             )
-
+        
             string_width = string_bbox[2] - string_bbox[0]
             if '/' in parsed_text:
                 string_width *= Fonts.HYBRID_PIP_SIZE_FACTOR
@@ -298,6 +285,7 @@ class LineSegment():
             )
             string_height = lineheight_char_bbox[3] - lineheight_char_bbox[1]
 
+            
             max_lineheight_seen = max(string_height, string_height)
 
             # if not is_symbol:

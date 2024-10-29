@@ -72,6 +72,6 @@ Welcome to the metadata! (It's like settings. But fancier!)
         "make_unique_program_run_log": false,
         // Set to true if you want the program to always regenerate the hybrid color borders
         // and other card frames from the few base frames 
-        "always_regenerate_base_card_frames": true
+        "always_regenerate_base_card_frames": false
     }
 }
