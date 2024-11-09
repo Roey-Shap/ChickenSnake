@@ -11,29 +11,25 @@ from ascii_art import logo_art
 from UI import log_and_print
 
 # @TODO:
+# Right now:
+############
+
 # Support most common other card types:
-    # Planeswalker, Saga, Adventure, Fuse/Split, Battle
+    # Planeswalker, Saga, Fuse/Split
 # Italics:
-    # Special character to toggle italics: *
     # Flavor text:
         # Make space for it on the card
     # Other ideas:
-        # Include a list of recognized words like Landfall, Battalion, etc. and
-        # words to give reminder text for (and the corresponding reminder text.)
+        # Words to automatically include reminder text for (is that feasible? Where should it go? Always at the end of the paragraph?)
 # Images:
     # Make playtest art autogenerate images based on type and mana cost
-    # Clean up how font size is passed into the LineSegment class
-        # Allows making hybrid pips larger than normal ones
 # Specific color trim
-  # Download all 5 color trims
-  # Means we can also do this for colored artifacts
 
 # Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
     # normal new lines?
 
 # Other border types
 # Snow
-# Split
 # ------
 # Level up
 # Flip (Kamigawa)
@@ -75,20 +71,23 @@ def main():
         log_and_print("\nExtracting card data from input file...")
         cards_dict: dict[str, Card] = get_card_data_from_spreadsheet(metadata.settings_final_configs["card_data_filepath"])
 
+        log_and_print("\nExtracting keyword data from keywords JSON file...")
+        metadata.get_keywords_from_file()
+
         user_requested_card_images = generate_card_images_input.lower() in ["y", "yes"]
         if user_requested_card_images:
-            log_and_print("\nInitializing image creation assets...")
+            log_and_print("Initializing image creation assets...")
             image_assets = initialize_card_image_assets({
                         "pre-set": metadata.settings_final_configs["card_image_creation_assets_filepath"],
                         "generated": metadata.settings_final_configs["card_image_creation_assets_generated_filepath"]
                         })
             
-            log_and_print("\nGenerating card images...")
-            generate_card_images(cards_dict, 
+            log_and_print("Generating card images...")
+            generate_card_images(cards_dict,
                                 metadata.settings_final_configs["card_images_filepath"], 
                                 image_assets)
             
-            log_and_print("\nDone!") 
+            log_and_print(f"\nDone! In %.2f seconds." % (time.time() - start_time))
 
         card_rarities = ["Common", "Uncommon", "Rare", "Mythic"]
         cards_by_rarity = group_cards_by_rarity(card_rarities, cards_dict)
@@ -104,9 +103,6 @@ def main():
                                 metadata.settings_data_obj["file_settings"]["set_code"])
 
         log_and_print()
-        log_and_print()
-        log_and_print()
-        log_and_print("Program execution time: %.2f seconds" % (time.time() - start_time))
         log_and_print()
         if user_requested_card_images:
             log_and_print("Generated card images at:")

@@ -78,6 +78,7 @@ color_code_map: dict[str: tuple[int, int, int]] = \
 C_PIP_BG = '#'
 CHAR_PIP_BG = 'H'
 
+NEWLINE_TOKENIZING_CHAR = '&'
 MAX_LINE_COUNT = 9
 
 class LineSegment():
@@ -194,7 +195,12 @@ class LineSegment():
     def tokenize_card_text(raw_text: str, debug_mode=False) -> list[str]:
         # if debug_mode:
         #     log_and_print(raw_text)
-        rebracketed_newlines_replaced = (raw_text.replace("{", "<{").replace("}", "}>").replace('\n', "&#").split("#"))
+        _italic_char = metadata.settings_data_obj["card_semantics_settings"]["italics_toggle_character"]
+        # Now we search for keyword abilities at the beginning of a line and surround it with the italic toggle character
+        preprocessed_text = re.sub(r"(^|\n)(" + metadata.KEYWORDS_REGEX_OR_STRING + ")", r"\1" + _italic_char + r"\2"+ _italic_char, raw_text)
+
+        rebracketed_newlines_replaced = (preprocessed_text.replace("{", "<{").replace("}", "}>").replace(_italic_char, f"<{_italic_char}>").replace('\n', f"{NEWLINE_TOKENIZING_CHAR}#").split("#"))
+
         # if debug_mode:
         #     log_and_print(rebracketed_newlines_replaced)
         newlines_split = flatten([re.split(r"[<>]", split_piece) for split_piece in rebracketed_newlines_replaced])
@@ -236,27 +242,30 @@ class LineSegment():
         # chosen_font_symbols_bg = Fonts.font_symbols_pip_background if not small_text_mode else Fonts.font_symbols_small_pip_background
 
         for raw_segment in tokenized_strings:
-        #     if line_count > MAX_LINE_COUNT and not small_text_mode and not get_bounding_box_mode:
-        #         # log_and_print("===================")
-        #         # log_and_print("going small!")
-        #         # log_and_print("===================")
-        #         return LineSegment.split_text_for_symbols(raw_text, image, max_width, max_height, small_text_mode=True)
-
             is_symbol = re.match(r"[{}]", raw_segment)
+            _italic_char = metadata.settings_data_obj["card_semantics_settings"]["italics_toggle_character"]
+            _is_italic_toggle = _italic_char in raw_segment
+            # the tokenizing process guarantees that any token that contains an italic toggle character is only that character
+            if _is_italic_toggle:
+                in_italic_mode = not in_italic_mode
+                raw_segment = ""
+
             if '(' in raw_segment:
-                in_italic_mode = True
+                in_italic_mode = not in_italic_mode #True
 
             string_bbox = None
             chosen_font = None
             chosen_font_italic = None
             chosen_font_name = "NO FONT"
             parsed_text = ""
-            # if debug_mode:
-            #     log_and_print(raw_segment)
+
+            if debug_mode:
+                log_and_print(raw_segment)
+            
             if is_symbol:
                 parsed_text = raw_segment.strip(r"{}")
             else:
-                parsed_text = raw_segment.replace("&", "")
+                parsed_text = raw_segment.replace(NEWLINE_TOKENIZING_CHAR, "")
             
             # I know the conditions are repeated but those have to do with parsing and these are for fonts
             if is_symbol:
@@ -299,7 +308,7 @@ class LineSegment():
                 num_literal_lines += 1           
 
             new_segment: LineSegment = LineSegment(
-                parsed_text.replace("&", ""), chosen_font,
+                parsed_text.replace(NEWLINE_TOKENIZING_CHAR, ""), chosen_font,
                 (current_x_offset, line_count-1), is_symbol,
                 (string_width, string_height), chosen_font_name
             )
@@ -310,12 +319,12 @@ class LineSegment():
             current_x_offset += string_width
 
             # Account for in-text newlines
-            if '&' in raw_segment:
+            if NEWLINE_TOKENIZING_CHAR in raw_segment:
                 current_x_offset = 0
                 line_count += metadata.settings_data_obj["card_image_settings"]["card_line_height_between_abilities"]
             
             if ")" in raw_segment:
-                in_italic_mode = False
+                in_italic_mode = not in_italic_mode #False
             
         lowest_char_y = 0
         for segment in line_segments:

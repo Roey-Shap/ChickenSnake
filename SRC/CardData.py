@@ -105,7 +105,7 @@ def get_color_string_from_csv_row(csv_row: dict[str, str]) -> str:
 
     return color_string
 
-def get_power_toughness_from_csv_row(csv_row: dict[str, str]) -> tuple[int|str, int|str] | None:
+def get_power_toughness_from_csv_row(csv_row: dict[str, str]) -> tuple[int|str, int|str] | int | str | None:
     """
     Tries to return a tuple with the power/toughness of the card, accomodating *-power/toughness cards.
     Note that if one or more of the values is blank or can't be interpreted as an int, you'll get None.
@@ -113,10 +113,14 @@ def get_power_toughness_from_csv_row(csv_row: dict[str, str]) -> tuple[int|str, 
     power_string = csv_row["Power"]
     toughness_string = csv_row["Toughness"]
     try:
+        power_len = len(power_string)
+        tough_len = len(toughness_string)
         if power_string == "*":
             power = "*"
         else:
             power = int(power_string)
+            if tough_len == 0:
+                return power
         
         if toughness_string == "*":
             toughness = "*"
@@ -180,12 +184,18 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 stats = get_power_toughness_from_csv_row(row)
                 body_text = row["Desc"]
                 flavor_text = row["Flavor Text"]
-                related_card_names = row["Related Cards"].split(",")
+                related_card_names = row["Related Cards"].split(",") # @TODO change this delimeter. Some cardnames have ","
                 related_card_names = [name.strip() for name in related_card_names if len(name) > 0]
 
                 # Replace placeholder name with card name
+                _replacement_name = name
+                _can_shorten_name = "," in name
+                _replacement_name_short = name.split(",")[0] if _can_shorten_name else None
                 if semantics_settings["replace_reference_string_with_cardname"] and len(reference_card_name) > 0:
-                    body_text = body_text.replace(reference_card_name, name)
+                    if semantics_settings["shortened_reference_card_name_when_able"] and _can_shorten_name:
+                        _replacement_name = _replacement_name_short
+                        
+                    body_text = body_text.replace(reference_card_name, _replacement_name)
 
                 loaded_card = Card(
                     name, colors, manacost, raw_mana_cost_string,
@@ -195,6 +205,10 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 
                 if row["Is Adventure"] == "TRUE":
                     loaded_card.set_as_adventure(True)
+
+                if _can_shorten_name:
+                    loaded_card.set_short_name(_replacement_name_short)
+
                 
                 # Find which cards mention this one (if this card is a token, for example)
                 for related_name in related_card_names:
@@ -216,19 +230,31 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
     card: Card
     for card in cards_dict.values():
         card_warning_messages = []
-        is_creature = card.supertype.find("Creature") != -1
-        if len(card.raw_mana_cost_string) == 0 and card.supertype.find("Land") == -1 and not card.is_token:
+        is_creature = card.search_for_supertype_string("creature")
+        is_land = card.search_for_supertype_string("land")
+        is_battle = card.search_for_supertype_string("battle")
+        is_planeswalker = card.search_for_supertype_string("planeswalker")
+        if len(card.raw_mana_cost_string) == 0 and is_land and not card.is_token:
             card_warning_messages.append("Missing a mana cost.")
+
         if card.found_manacost_error and metadata.settings_data_obj["card_semantics_settings"]["warn_about_card_semantics_errors"]:
             card_warning_messages.append("Had a manacost pip-order error:")
             for pip in card.corrected_pips:
                 card_warning_messages.append(f"   Correcting manacost hybrid pip order: {pip} -> {pip[::-1]}")
+
         if len(card.supertype) == 0:
             card_warning_messages.append("Missing a supertype.")
-        if is_creature and len(card.subtype) == 0:
+        if (is_creature or is_battle or is_planeswalker) and len(card.subtype) == 0:
             card_warning_messages.append("Missing a subtype.")
-        if is_creature and card.stats is None:
+        if is_creature and not card.stats_are_power_toughness:
             card_warning_messages.append("Missing power/toughness.")
+
+        if (card.stats_are_power_toughness or not card.has_stats) and (is_battle or is_planeswalker):
+            _reason_for_stat_problem = "without stats" if not card.has_stats else "with power/toughness"
+            _supertype_string = "Battle" if is_battle else "Planeswalker"
+            _counter_type = "defense" if is_battle else "loyalty"
+            card_warning_messages.append(f"{_supertype_string} is {_reason_for_stat_problem}. Leave only one of power/toughness as its {_counter_type}.")
+                
         if metadata.settings_data_obj["card_semantics_settings"]["rarities_should_be_in_place"] and card.is_rarity_missing and not card.is_token:
             card_warning_messages.append("Missing rarity. Defaulting to COMMON.")
         
@@ -319,6 +345,9 @@ def get_card_pt_image_info(card_data: Card) -> CardImageInfo:
     """
     Gives the image (in CardImageInfo representation) for a card's power/toughness
     """
+    if not card_data.stats_are_power_toughness:
+        return CardImageInfo("defense", "", "", should_be_modified=False, special_card_asset_name_mode=True)
+
     if card_data.is_colorless:
         frame_subtype = "c"
     elif len(card_data.colors_string) > 1:
@@ -385,8 +414,6 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_co
         for i, segment in enumerate(mana_cost_segments):
             segment.draw(card_image_total, ((left_mana_border + _total_manacost_width_drawn), _yoffset), absolute_draw_mode=True, mana_cost_mode=True)
             _total_manacost_width_drawn += segment.dims[0]
-            print(segment.dims[0])
-
 
 def card_image_draw_body_text(card_data, card_image_total,
                               warn_about_card_semantics_errors=False, verbose_mode_cards=False):
@@ -406,10 +433,6 @@ def card_image_draw_body_text(card_data, card_image_total,
     # For now a naive binary search approach will do. 
     # If you took more than 9 lines, go between min font size (minFS) and current size.
     # Then if that's less than 9 lines, go halfway between that and the last size, and so on until some MAX_ATTEMPTS.
-
-    # TODO: Just pass in the font's name and size. That way the mana symbols can be appropriately sized
-    # within the circle, and hybrid pips can be made a corresponding larger size.
-    # This mostly involves changes to the LineSegment class.
 
     is_adventure_right = card_data.related_nontoken_pair_card is not None
     is_adventure_left = card_data.is_adventure
@@ -476,7 +499,6 @@ def card_image_draw_body_text(card_data, card_image_total,
         body_text_position = BODY_TEXT_OFFSET_ADVENTURE_RIGHT
 
     for segment in segments:
-        print(card_data.name)
         segment.draw(card_image_total, body_text_position)
 
 def card_image_draw_types_text(card_data: Card, card_image_total, adventure_mode=False):
@@ -486,7 +508,7 @@ def card_image_draw_types_text(card_data: Card, card_image_total, adventure_mode
     types_string = card_data.get_type_string()
 
     types_string_width, _ = Fonts.get_string_size(types_string, _font)
-    print(f"Name: {card_data.name} | Width: {types_string_width}")
+    # print(f"Name: {card_data.name} | Width: {types_string_width}")
     if types_string_width > _max_types_string_width:
         current_types_width_to_max_width_ratio = _max_types_string_width / types_string_width
         _font = Fonts.get_title_font(_font.size * current_types_width_to_max_width_ratio)
@@ -579,12 +601,13 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 card_image_draw_body_text(related_adventure_spell_data, card_image_total,
                     warn_about_card_semantics_errors=warn_about_card_semantics_errors, verbose_mode_cards=verbose_mode_cards)
                 
-                    
-
             # Draw power/toughness or analogous stat (loyalty, defense, etc.)
             if card_data.has_stats:
+                _stats_color = C_BLACK if card_data.stats_are_power_toughness else C_WHITE
+                _stats_position = math_utils.add_tuples(CARD_IMAGE_POWER_TOUGHNESS_POSITION,
+                                        (0, 0) if card_data.stats_are_power_toughness else (-3  * card_pixel_dims[0]/500, 0)) 
                 ImageDraw.Draw(card_image_total).text(
-                    CARD_IMAGE_POWER_TOUGHNESS_POSITION, card_data.get_stats_string(), C_BLACK, Fonts.font_stats, anchor="mm"
+                    _stats_position, card_data.get_stats_string(), _stats_color, Fonts.font_stats, anchor="mm"
                 )
             
             rgb_image = card_image_total.convert("RGB")
@@ -651,6 +674,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
 
     image_prefixes += [CardImageInfo("pt", "", frame_subtype, should_be_modified=False) for frame_subtype in splittable_card_prefixes + unsplittable_card_prefixes + one_off_card_subtypes]
     image_prefixes += [CardImageInfo(f"set_symbol_{rarity}", "", "", should_be_modified=False, special_card_asset_name_mode=True) for rarity in ["common", "uncommon", "rare", "mythic"]]
+    image_prefixes += [CardImageInfo("defense", "", "", should_be_modified=False, special_card_asset_name_mode=True)]
 
     # If the card is one that needs masking and splitting, it's marked as such 
     image_suffix: str = "_base.png"
@@ -692,7 +716,6 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 was_image_generated: bool = os.path.isfile(expected_image_filepath)
                 base_image_filepath = assets_filepath["pre-set"] + image_info.base_file_prefix + image_suffix
                 if not was_image_generated or metadata.settings_data_obj["asset_loading_settings"]["always_regenerate_base_card_frames"]:
-                    print(f"WAS NOT GENERATED ALREADY: {expected_image_filepath}")
                     log_and_print(f"To-be-generated file {expected_image_filepath} doesn't exist. Generating...", do_print=verbose_mode_files)
                     log_and_print(f"Accessing base file {base_image_filepath} to mask it", do_print=verbose_mode_files)
                     base_image = Image.open(base_image_filepath)
@@ -789,7 +812,7 @@ f"""
     <set picURL="{f"/{card.name}.full.{CARD_PICTURE_FILE_FORMAT}"}" picURLHq="" picURLSt="">{set_code}</set>
     <color>{card.colors}</color>
     <manacost>{card.manacost}</manacost>
-    <type>{card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.stats[0]}/{card.stats[1]}</pt>"}
+    <type>{card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.get_stats_string()}</pt>"}
     <tablerow>0</tablerow>
     <text>{card.body_text}</text>
 </card>
@@ -812,7 +835,7 @@ f"""
     <set picURL="{f"/{card.name}.full.{CARD_PICTURE_FILE_FORMAT}"}" picURLHq="" picURLSt="">{set_code}</set>
     <color>{card.colors}</color>
     <manacost>{card.manacost}</manacost>
-    <type>Token {card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.stats[0]}/{card.stats[1]}</pt>"}
+    <type>Token {card.get_type_string()}</type>{"" if card.stats is None else f"{chr(10) + chr(9)}<pt>{card.get_stats_string()}</pt>"}
     <tablerow>0</tablerow>
     <text>{card.body_text}</text>
     {card.get_related_cards_string()}

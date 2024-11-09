@@ -32,6 +32,10 @@ settings_data_obj = {
         # The one I always see is tilde (~). Another common one is CARDNAME. Chose whatever you'd like!
         "replace_reference_string_with_cardname": True,
         "reference_card_name":  "~",
+        "shortened_reference_card_name_when_able": True,
+
+        "italics_toggle_character": "@",
+        
         # If you didn't have time to do rarities, just set this to False and you won't be warned about it!
         "rarities_should_be_in_place": True,
         "verbose_mode_cards": False,
@@ -93,6 +97,8 @@ f"""
 }}
 """
 
+KEYWORDS_DICT: dict[str: list[str]] = {}
+KEYWORDS_REGEX_OR_STRING: str = ""
 
 def update_final_configuration_settings(settings_data_local):
     file_settings = settings_data_local["file_settings"]
@@ -121,6 +127,20 @@ def update_final_configuration_settings(settings_data_local):
     settings_preset["current_execution_log_filepath"] = settings_preset["log_filepath"]   
 
     return settings_preset
+
+def get_keywords_from_file():
+    keywords_object_local = None
+    with open('./Keywords.json') as keywords_file:
+        raw_json_string = "".join(keywords_file.readlines())
+        minified = json_minify.json_minify(raw_json_string)
+        keywords_object_local = json.loads(minified)
+
+    if keywords_object_local is None:
+        raise FileNotFoundError("**WARNING: Your keywords file is missing. Keyword highlighting won't work properly. Please redownload the files.**")
+
+    KEYWORDS_DICT = keywords_object_local["data"]
+    global KEYWORDS_REGEX_OR_STRING
+    KEYWORDS_REGEX_OR_STRING = "|".join(KEYWORDS_DICT["abilityWords"])    
 
 # Use the default settings to build the final configuration initially
 settings_final_configs = update_final_configuration_settings(settings_data_obj)

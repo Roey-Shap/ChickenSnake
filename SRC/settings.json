@@ -55,6 +55,17 @@ Welcome to the metadata! (It's like settings. But fancier!)
         // will be an image with body text "Dude enters with a +1/+1 counter."
         "replace_reference_string_with_cardname": true,
         "reference_card_name":  "~",
+        // Controls whether a name can be inserted as a shortened version.
+        // For example, "Dude, the Epic Guy", with the text "~ enters tapped." on the spreadsheet
+        // will become just "Dude enters with tapped." and not "Dude, the Epic Guy enters tapped."
+        // This is only relevant if replace_reference_string_with_cardname is enabled and the card name 
+        // is of the format "<shortname>, <rest of title>" (i.e. comma-separated)
+        "shortened_reference_card_name_when_able" : true,
+
+        // If you just want to make text italic in the middle of body text, use this symbol
+        // (Parenthesis automatically toggle italics on and off for reminder text, so be careful mixing.)
+        "italics_toggle_character": "@",
+
         // If you didn't have time to do rarities, just set this to false and you won't be warned about it!
         "rarities_should_be_in_place": true,
         // Give updates about card errors and file accesses as the program runs.

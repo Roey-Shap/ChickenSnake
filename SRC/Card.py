@@ -20,6 +20,8 @@ class Card():
                 ) -> None:
 
         self.name = name.replace("?", "").strip() # Would honestly be better to properly clean names of filepath-illegal characters but whatevs
+        self.short_name = None
+        
         self.is_token = is_token
         self.is_adventure = False
 
@@ -66,6 +68,7 @@ class Card():
 
         self.stats = stats
         self.has_stats = self.stats is not None
+        self.stats_are_power_toughness = isinstance(self.stats, tuple) if self.has_stats else False
         self.body_text = body_text
         self.is_miracle = "miracle" in body_text.lower()  # Obviously isn't always accurate but it's good enough for keeping iteration time low
 
@@ -81,6 +84,9 @@ class Card():
     
     def set_as_adventure(self, is_adventure: bool) -> None:
         self.is_adventure = is_adventure
+    
+    def set_short_name(self, short_name: str) -> None:
+        self.short_name = short_name
 
     def get_type_string(self):
         final_string = self.supertype
@@ -89,9 +95,15 @@ class Card():
 
         return final_string
 
-    def get_stats_string(self):
-        star_char = "="
-        power     = star_char if self.stats == "*" else self.stats[0] 
+    def search_for_supertype_string(self, supertype: str) -> bool:
+        return self.supertype.lower().find(supertype.lower()) != -1
+
+    def get_stats_string(self) -> str:
+        if not self.stats_are_power_toughness:
+            return f"{self.stats}"
+            
+        star_char = "="     # We're using a font that doesn't necessary have * as the star character
+        power     = star_char if self.stats == "*" else self.stats[0]
         toughness = star_char if self.stats == "*" else self.stats[1]
         return f"{power}/{toughness}"
 
