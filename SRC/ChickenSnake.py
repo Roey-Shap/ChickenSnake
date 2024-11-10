@@ -14,6 +14,15 @@ from UI import log_and_print
 # Right now:
 ############
 
+
+# Updating spreadsheet to have Adventure-related cards point back to the original card
+    # So then you could have double-faced adventures, for example:
+    # A is a creature with an adventure (and is this marked as an adventure base), B. B points to A in its related cards.
+    # A also has an alternate side, C, which also has an adventure, D. 
+    # C points to A as well and is marked as a backface and an adventure base. D points to C.
+    # Double-faced tokens are supported this way as well:
+        # Suppose A is a card that refers to token T. T is marked as a token and points to A.
+        # S is the backface of T; it's marked as a backface and a token and points to T.
 # Support most common other card types:
     # Planeswalker, Saga, Fuse/Split
 # Italics:
@@ -23,10 +32,11 @@ from UI import log_and_print
         # Words to automatically include reminder text for (is that feasible? Where should it go? Always at the end of the paragraph?)
 # Images:
     # Make playtest art autogenerate images based on type and mana cost
+    # But also allow images to be pulled from for specific cards
 # Specific color trim
 
 # Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like
-    # normal new lines?
+    # normal new lines? Seems like they actually just get normal newlines on official MtG cards.
 
 # Other border types
 # Snow

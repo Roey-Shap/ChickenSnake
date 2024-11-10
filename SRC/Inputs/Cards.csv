@@ -1,13 +1,13 @@
 Not Fleshed Out,Name,Type,Subtype,Cost,Desc,Power,Toughness,Rarity,Custom Color,"""Does""","""Cares About""",CMC,Flavor Text,NOTES,Related Cards,Is Adventure,Is Token,Is Card,Is White,Is Blue,Is Black,Is Red,Is Green,Is Colorless,Is Gold,Is Enchantment,Is Creature,Is Artifact,Is Instant/Sorcery,Is Land,,Notes are Empty,,CMC (replace non-numeric tokens),CMC (numberic extraction),
 FALSE,Generic Solider,Creature,Soldier,{1}{w/r},Battalion - This keyword was automatically italicized! (Text in parenthesis is also automatically italic.),1,2,,,,,2,,,,FALSE,FALSE,1,1,0,0,1,0,0,1,0,1,0,0,0,,TRUE,,{1}$,1,1
-FALSE,Spooky Spirit Cat,Enchantment Creature,Spirit Cat,{g/b},"Adapt 1 {w/b}
-This card automatically got an enchantment frame.",1,1,,,,,1,,,,FALSE,FALSE,1,0,0,1,0,1,0,1,1,1,0,0,0,,TRUE,,$,0,2
-FALSE,Travelling Man,Creature,Human,{4}{r}{g},A gold card.,5,5,,,,,6,,,Orb,FALSE,FALSE,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,{4}$$,4,3
+FALSE,Spooky Spirit Cat,Enchantment Creature,Spirit Cat,{g/b},"Adapt 1 {g/b}
+This card automatically got an enchantment frame.",1,1,u,,,,1,,,,FALSE,FALSE,1,0,0,1,0,1,0,1,1,1,0,0,0,,TRUE,,$,0,2
+FALSE,Travelling Man,Creature,Human,{4}{r}{g},A gold card.,5,5,r,,,,6,,,"The Man's Adventure",FALSE,FALSE,1,0,0,0,1,1,0,1,0,1,0,0,0,,TRUE,,{4}$$,4,3
 FALSE,The Man's Adventure,Instant,Adventure,{3}{r/g},And an adventure!,,,,,,,4,,,,TRUE,FALSE,1,0,0,0,1,1,0,1,0,0,0,1,0,,TRUE,,{3}$,3,4
 FALSE,Orb,Artifact,,{4},"Supports lots of text!
 Artifact's gonna do what an artifact's gonna do. And this one has lots of text. It's complicated. Like, really complicated, so it's a good thing, too. I mean, seriously, this is ridiculous.
-Power-creep? More like text creep, amirite? Guys? ... (But nobody came.)
-But then there was @even more@ text and you can add italics wherever you want with a special character yo!",,,,,,,4,,,,FALSE,FALSE,1,0,0,0,0,0,1,0,0,0,1,0,0,,TRUE,,{4},4,5
+Power creep? More like text creep, amirite? Guys? ... (But nobody came.)
+But then there was @even more@ text and you can add italics wherever you want with a special character yo!",,,m,,,,4,,,,FALSE,FALSE,1,0,0,0,0,0,1,0,0,0,1,0,0,,TRUE,,{4},4,5
 FALSE,,,,,,,,,,,,0,,,,FALSE,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,6
 FALSE,,,,,,,,,,,,0,,,,FALSE,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,7
 FALSE,,,,,,,,,,,,0,,,,FALSE,FALSE,0,0,0,0,0,0,0,0,0,0,0,0,0,,TRUE,,,0,8
