@@ -72,8 +72,6 @@ Welcome to the metadata! (It's like settings. But fancier!)
         "verbose_mode_cards": false,
         "verbose_mode_files": false,
         // Turning this off makes warnings not appear at ALL, even in the program log
-        // @TODO: Should warn about things like mana symbols being out of order and corrected. 
-        // Maybe also templating issues?
         "warn_about_card_semantics_errors": true
     },
     "asset_loading_settings":

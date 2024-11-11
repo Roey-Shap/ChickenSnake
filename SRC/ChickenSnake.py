@@ -13,6 +13,11 @@ from UI import log_and_print
 # @TODO:
 # Right now:
 ############
+# Adding some card images under certain categories for random card generation
+# Making random card images. 
+# Add a random creature if it's a creature
+# Add one or two random creatures or large effects if it's a sorcery of instant
+# Add small effects based on mana cost
 
 
 # Updating spreadsheet to have Adventure-related cards point back to the original card

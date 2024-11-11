@@ -111,10 +111,7 @@ class LineSegment():
 
         # This'll be either base text font or the mana symbol font
         font = self.font
-        symbol_font_bg = self.font_secondary #Fonts.font_symbols_pip_background
-        # if mana_cost_mode:
-        #     font = Fonts.font_symbols_large
-        #     symbol_font_bg = Fonts.font_symbols_large_pip_bg
+        symbol_font_bg = self.font_secondary
 
         if self.is_symbol:
             is_phyrexian = 'p' in self.text
@@ -168,13 +165,13 @@ class LineSegment():
             if is_numeric:
                 symbol_string_pos_offset = (0, -1.7)
             if not is_hybrid:
-                symbol_string_pos_offset = (1 if mana_cost_mode else 0, 
+                symbol_string_pos_offset = (0, 
                                         symbol_string_pos_offset[1] + (-1 if not mana_cost_mode else 0))
             else:
                 symbol_string_pos_offset = (0, 0)
             if not mana_cost_mode:
                 if is_numeric:
-                    symbol_string_pos_offset = (1, -0.5)
+                    symbol_string_pos_offset = (0.5, -0.5)
                 else:
                     if is_hybrid:
                         symbol_string_pos_offset = (-0.5, -0.5)
@@ -237,10 +234,6 @@ class LineSegment():
         font_mana_bg    = Fonts.get_font(font_name_mana, font_size_mana * 24 / 25) 
         font_italic     = Fonts.get_font(font_name_italic, font_size_text)
         
-        # chosen_font_text = Fonts.font_body if not small_text_mode else Fonts.font_body_tiny
-        # chosen_font_symbols = Fonts.font_symbols if not small_text_mode else Fonts.font_symbols_small
-        # chosen_font_symbols_bg = Fonts.font_symbols_pip_background if not small_text_mode else Fonts.font_symbols_small_pip_background
-
         for raw_segment in tokenized_strings:
             is_symbol = re.match(r"[{}]", raw_segment)
             _italic_char = metadata.settings_data_obj["card_semantics_settings"]["italics_toggle_character"]

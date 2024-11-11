@@ -17,39 +17,39 @@ CARD_PICTURE_FILE_FORMAT = "jpg"
 
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
-# TODO Make these percentages of the card dimensions
-# (These offsets appear a few times throughout the file)
-token_yoffset = 59
-card_pixel_dims = (500, 700)
-MAX_TYPES_STRING_WIDTH_IN_PIXELS = card_pixel_dims[0] * (355 / 500)
-MAX_TITLE_AND_MANACOST_STRING_WIDTH_RATIO = 415 / 500
-MAX_TITLE_AND_MANACOST_STRING_WIDTH_IN_PIXELS = MAX_TITLE_AND_MANACOST_STRING_WIDTH_RATIO * card_pixel_dims[0]
-CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD = round(card_pixel_dims[0] * 0.93)
-CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE = round(card_pixel_dims[0] * 0.49)
 
-TITLE_OFFSET_BASE_PIXELS = (card_pixel_dims[0] * 40 / 500, card_pixel_dims[1] * 54 / 700)
-TOKEN_TITLE_OFFSET_PIXELS = (card_pixel_dims[0] * 210 / 500, card_pixel_dims[1] * 1 / 700)
-TITLE_OFFSET_BASE_ADVENTURE_PIXELS = (card_pixel_dims[0] * 35 / 500, card_pixel_dims[1] * 460 / 700)
-types_string_offset_pixels = round(card_pixel_dims[1] * 413 / 700)
+CARD_PIXEL_DIMS = (500, 700)
+def scale_to_card_dims(percent_x, percent_y) -> tuple[float, float]:
+    return (percent_x * CARD_PIXEL_DIMS[0], percent_y * CARD_PIXEL_DIMS[1])
 
-BODY_TEXT_OFFSET_NORMAL_CARD = (card_pixel_dims[0] * (44 / 500), card_pixel_dims[1] * (445 / 700))
-BODY_TEXT_MAX_WIDTH_NORMAL_CARD = 0.84 * card_pixel_dims[0] #420
-BODY_TEXT_MAX_HEIGHT_NORMAL_CARD = 0.264 * card_pixel_dims[1] # 185
 
-BODY_TEXT_OFFSET_ADVENTURE_LEFT = (card_pixel_dims[0] * 35 / 500, card_pixel_dims[1] * (510 / 700))
-BODY_TEXT_OFFSET_ADVENTURE_RIGHT = math_utils.add_tuples(BODY_TEXT_OFFSET_ADVENTURE_LEFT, (round(0.45 * card_pixel_dims[0]), card_pixel_dims[1] * (-60 / 700)))
-BODY_TEXT_MAX_WIDTH_ADVENTURE  = round(0.45 * card_pixel_dims[0])
-BODY_TEXT_MAX_HEIGHT_ADVENTURE = round(0.13 * card_pixel_dims[1])
 
-MAX_TYPES_STRINGS_WIDTH_ADVENTURE_IN_PIXELS = BODY_TEXT_MAX_WIDTH_ADVENTURE
+TOKEN_TEXT_YOFFSET                              = 0.08429 * CARD_PIXEL_DIMS[1]
+MAX_TYPES_STRING_WIDTH_IN_PIXELS                = 0.71 * CARD_PIXEL_DIMS[0]
+MAX_TITLE_AND_MANACOST_STRING_WIDTH_IN_PIXELS   = 0.83 * CARD_PIXEL_DIMS[0]
+CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD        = 0.93 * CARD_PIXEL_DIMS[0]
+CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE          = 0.49 * CARD_PIXEL_DIMS[0]
 
-MANACOST_YOFFSET_PIXELS = round(card_pixel_dims[1] * 40 / 700)
-MANACOST_YOFFSET_PIXELS_ADVENTURE = round(card_pixel_dims[1] * 445 / 700)
+TITLE_OFFSET_BASE_PIXELS                        = scale_to_card_dims(0.08, 0.0771)
+TOKEN_TITLE_OFFSET_PIXELS                       = scale_to_card_dims(0.42, 0.00142857)
+TITLE_OFFSET_BASE_ADVENTURE_PIXELS              = scale_to_card_dims(0.07, 0.65714)
+TYPES_STRING_OFFSET_Y_PIXELS                    = 0.59 * CARD_PIXEL_DIMS[1]
 
-max_mana_cost_text_width = round(card_pixel_dims[0] * 420 / 500)
-max_mana_cost_text_height = round(card_pixel_dims[1] * 500 / 700)
+BODY_TEXT_OFFSET_NORMAL_CARD                    = scale_to_card_dims(0.088, 0.6357)
+BODY_TEXT_MAX_DIMS_NORMAL_CARD                  = scale_to_card_dims(0.84, 0.264)
 
-CARD_IMAGE_POWER_TOUGHNESS_POSITION = (card_pixel_dims[0] * 433 / 500, card_pixel_dims[1] * 645 / 700)
+BODY_TEXT_OFFSET_ADVENTURE_LEFT                 = scale_to_card_dims(0.07, 0.72857)
+BODY_TEXT_OFFSET_ADVENTURE_RIGHT                = math_utils.add_tuples(BODY_TEXT_OFFSET_ADVENTURE_LEFT, scale_to_card_dims(0.45, -0.085714))
+BODY_TEXT_MAX_DIMS_ADVENTURE                    = scale_to_card_dims(0.45, 0.13)
+
+MAX_TYPES_STRINGS_WIDTH_ADVENTURE_IN_PIXELS = BODY_TEXT_MAX_DIMS_ADVENTURE[0]
+
+MANACOST_YOFFSET_PIXELS                         = 0.057143 * CARD_PIXEL_DIMS[1]
+MANACOST_YOFFSET_PIXELS_ADVENTURE               = 0.6357 * CARD_PIXEL_DIMS[1]
+
+MAX_MANACOST_TEXT_DIMS                          = scale_to_card_dims(0.84, 0.71429)
+
+CARD_IMAGE_POWER_TOUGHNESS_POSITION             = scale_to_card_dims(0.866, 0.92143)
 
 markdown_closer_string_normal = \
 f"""
@@ -184,7 +184,7 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
                 stats = get_power_toughness_from_csv_row(row)
                 body_text = row["Desc"]
                 flavor_text = row["Flavor Text"]
-                related_card_names = row["Related Cards"].split(",") # @TODO change this delimeter. Some cardnames have ","
+                related_card_names = row["Related Cards"].split(",") # @TODO change this delimeter. Some cardnames have ",". Greedy match by regex...?
                 related_card_names = [name.strip() for name in related_card_names if len(name) > 0]
 
                 # Replace placeholder name with card name
@@ -368,36 +368,48 @@ def get_card_set_symbol_info(card_data: Card) -> CardImageInfo:
     """
     return CardImageInfo(f"set_symbol_{card_data.rarity_name}", "", "", should_be_modified=False, special_card_asset_name_mode=True)
 
-def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_cost_text_width, max_mana_cost_text_height,
+def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_manacost_text_dims,
                                         text_font_size, mana_font_size, title_position_offset,
                                         total_mana_cost_and_title_width,
                                         adventure_mode=False, debug_mode=False):
+    # When templating, we prefer to shrink the title before the mana cost.
+    # Therefore we'll try to fit the title in the space left by the manacost.
+                                        
+    # === Manacost ===
     # First find the mana cost's width at the current font
     mana_cost_segments, _, _= LineSegment.split_text_for_symbols(
         card_data.raw_mana_cost_string.lower(), card_image_total, 10000, 10000,
         Fonts.title_text_font_name, Fonts.symbols_font_name, text_font_size, mana_font_size
     )
     mana_cost_segments: list[LineSegment] = mana_cost_segments
-    # We assume each pip is the same width and draw them from left to right with manual offsets
-    # TODO: Adjust for larger pips (hybrid ones)
     num_mana_pips = len(mana_cost_segments)
-    mana_pip_width = mana_cost_segments[0].dims[0]
-    mana_cost_size = mana_pip_width * num_mana_pips
-    # When templating, we prefer to shrink the title before the mana cost.
-    # Therefore we'll try to fit the title in the space left by the manacost.
+
+    _total_manacost_width = sum(segment.dims[0] for segment in mana_cost_segments)
+
+    _right_border = CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE if adventure_mode else CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD
+    if num_mana_pips > 0:    
+        _margin = 0 #int(mana_pip_width * 0.1)
+        _left_mana_border = _right_border - _total_manacost_width - (_margin * (num_mana_pips-1))
+        _yoffset: int = MANACOST_YOFFSET_PIXELS_ADVENTURE if adventure_mode else MANACOST_YOFFSET_PIXELS
+        _total_manacost_width_drawn: float = 0
+        for segment in mana_cost_segments:
+            segment.draw(card_image_total, ((_left_mana_border + _total_manacost_width_drawn), _yoffset), absolute_draw_mode=True, mana_cost_mode=True)
+            _total_manacost_width_drawn += segment.dims[0] + _margin
     
+    # === Title ===
     chosen_title_font = Fonts.get_title_font(text_font_size)
-    # We require at least one pip worth of space between the text and the pips
-    space_remaining_for_title = total_mana_cost_and_title_width - mana_cost_size
+
+    # Note that the total manacost width drawn includes an extra _margin. We're ok with that natural buffer.
+    space_remaining_for_title = total_mana_cost_and_title_width - _total_manacost_width_drawn
     # Find the title font size
     title_string_width, _ = Fonts.get_string_size(card_data.name, chosen_title_font)
     if title_string_width > space_remaining_for_title:
         current_title_width_to_space_ratio = space_remaining_for_title / title_string_width
-        # print(current_title_width_to_space_ratio)
-        # print(card_data.name)
+        # if debug_mode:
+            # print(current_title_width_to_space_ratio)
+            # print(card_data.name)
         chosen_title_font = Fonts.get_title_font(text_font_size * current_title_width_to_space_ratio)
     
-    # Title
     title_color: tuple[int, int, int] = C_WHITE if (card_data.is_token or adventure_mode) else C_BLACK
     title_text: str = card_data.name.upper() if card_data.is_token else card_data.name
     title_position: tuple[int, int] = math_utils.add_tuples(title_position_offset, TOKEN_TITLE_OFFSET_PIXELS if card_data.is_token else (0, 0))
@@ -405,15 +417,7 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_mana_co
         title_position, title_text, title_color, font=chosen_title_font, anchor=("mm" if card_data.is_token else "lm")
     )
     
-    _right_border = CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE if adventure_mode else CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD
-    if num_mana_pips > 0:    
-        margin = 0 #int(mana_pip_width * 0.1)
-        left_mana_border = _right_border - (mana_pip_width * num_mana_pips) - (margin * (num_mana_pips-1))
-        _yoffset: int = MANACOST_YOFFSET_PIXELS_ADVENTURE if adventure_mode else MANACOST_YOFFSET_PIXELS
-        _total_manacost_width_drawn: float = 0
-        for i, segment in enumerate(mana_cost_segments):
-            segment.draw(card_image_total, ((left_mana_border + _total_manacost_width_drawn), _yoffset), absolute_draw_mode=True, mana_cost_mode=True)
-            _total_manacost_width_drawn += segment.dims[0]
+    
 
 def card_image_draw_body_text(card_data, card_image_total,
                               warn_about_card_semantics_errors=False, verbose_mode_cards=False):
@@ -439,8 +443,7 @@ def card_image_draw_body_text(card_data, card_image_total,
     adventure_mode = is_adventure_left or is_adventure_right
     _font_size_factor = Fonts.ADVENTURE_FONT_SIZE_FACTOR if adventure_mode else 1
 
-    max_text_width = BODY_TEXT_MAX_WIDTH_ADVENTURE if adventure_mode else BODY_TEXT_MAX_WIDTH_NORMAL_CARD
-    max_text_height = BODY_TEXT_MAX_HEIGHT_ADVENTURE if adventure_mode else BODY_TEXT_MAX_HEIGHT_NORMAL_CARD
+    max_text_width, max_text_height = BODY_TEXT_MAX_DIMS_ADVENTURE if adventure_mode else BODY_TEXT_MAX_DIMS_NORMAL_CARD
 
     text_font_size = Fonts.font_title_initial_size
     mana_font_size = Fonts.font_symbols_initial_size
@@ -480,7 +483,7 @@ def card_image_draw_body_text(card_data, card_image_total,
             
             segments, body_text_too_large, more_than_max_lines = LineSegment.split_text_for_symbols(
                     total_card_body_text, card_image_total, 
-                    BODY_TEXT_MAX_WIDTH_NORMAL_CARD, BODY_TEXT_MAX_HEIGHT_NORMAL_CARD, 
+                    BODY_TEXT_MAX_DIMS_NORMAL_CARD[0], BODY_TEXT_MAX_DIMS_NORMAL_CARD[1],
                     Fonts.body_text_font_name, Fonts.symbols_font_name, 
                     current_font_size * _font_size_factor, current_mana_font_size * _font_size_factor
                     )
@@ -513,11 +516,11 @@ def card_image_draw_types_text(card_data: Card, card_image_total, adventure_mode
         current_types_width_to_max_width_ratio = _max_types_string_width / types_string_width
         _font = Fonts.get_title_font(_font.size * current_types_width_to_max_width_ratio)
 
-    types_string_xoffset = (card_pixel_dims[0] * 40 / 500)
-    types_string_yoffset: float = types_string_offset_pixels + (token_yoffset if card_data.is_token else 0)
+    types_string_xoffset = (CARD_PIXEL_DIMS[0] * 40 / 500)
+    types_string_yoffset: float = TYPES_STRING_OFFSET_Y_PIXELS + (token_yoffset if card_data.is_token else 0)
     if adventure_mode:
-        types_string_xoffset = (card_pixel_dims[0] * 37 / 500)
-        types_string_yoffset = round(card_pixel_dims[1] * 490 / 700)
+        types_string_xoffset = (CARD_PIXEL_DIMS[0] * 37 / 500)
+        types_string_yoffset = round(CARD_PIXEL_DIMS[1] * 490 / 700)
         
     ImageDraw.Draw(card_image_total).text(
         (types_string_xoffset, types_string_yoffset), card_data.get_type_string(), C_WHITE if adventure_mode else C_BLACK, font=_font, anchor="lm"
@@ -537,22 +540,21 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             continue
 
         try:
-            # TODO: If this is an adventure card, go into each section below and accomodate for the second card.
             if len(card_data.related_card_names) == 1 and card_dict[card_data.related_card_names[0]].is_adventure:
                 related_adventure_spell_data = card_dict[card_data.related_card_names[0]]
 
-            card_image_total = Image.new(mode="RGB", size=card_pixel_dims, color=C_WHITE).convert("RGBA")
+            card_image_total = Image.new(mode="RGB", size=CARD_PIXEL_DIMS, color=C_WHITE).convert("RGBA")
 
             # Card Base
             card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
             for border_info in card_border_info:
-                pos = math_utils.multiply_tuples(border_info.position_on_card, card_pixel_dims)
+                pos = math_utils.multiply_tuples(border_info.position_on_card, CARD_PIXEL_DIMS)
                 card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=(round(pos[0]), round(pos[1])))
 
             if related_adventure_spell_data:
                 adventure_border_info: list[CardImageInfo] = get_card_image_border_info(related_adventure_spell_data)
                 for border_info in adventure_border_info:
-                    pos =  math_utils.multiply_tuples(border_info.position_on_card, card_pixel_dims)
+                    pos =  math_utils.multiply_tuples(border_info.position_on_card, CARD_PIXEL_DIMS)
                     card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=(round(pos[0]), round(pos[1])))
 
 
@@ -565,26 +567,17 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                                             dest=(0, token_yoffset if card_data.is_token else 0))
 
             # Name and Manacost #################################################
-            chosen_title_font = Fonts.font_title
-            chosen_manacost_font = Fonts.font_symbols_large
-            chosen_manacost_bg_font = Fonts.font_symbols_large_pip_bg
-            # Try a few times to shrink the text based on the estimated size
-            
-            # Mana Cost
-            # card_data, card_image_total, max_mana_cost_text_width, max_mana_cost_height,
-            #                             text_font_size, mana_font_size, title_position_offset,
-            #                             adventure_mode=False, debug_mode=False
             card_image_draw_title_and_mana_cost(card_data, card_image_total, 
-                                                max_mana_cost_text_width, max_mana_cost_text_height, 
+                                                MAX_MANACOST_TEXT_DIMS, 
                                                 Fonts.font_title_initial_size, Fonts.font_symbols_big_initial_size,
                                                 TITLE_OFFSET_BASE_PIXELS, MAX_TITLE_AND_MANACOST_STRING_WIDTH_IN_PIXELS)
 
             if related_adventure_spell_data:
                 card_image_draw_title_and_mana_cost(related_adventure_spell_data, card_image_total, 
-                                                max_mana_cost_text_width, max_mana_cost_text_height, 
+                                                MAX_MANACOST_TEXT_DIMS, 
                                                 Fonts.font_title_initial_size * Fonts.ADVENTURE_FONT_SIZE_FACTOR, 
                                                 Fonts.font_symbols_big_initial_size * Fonts.ADVENTURE_FONT_SIZE_FACTOR,
-                                                TITLE_OFFSET_BASE_ADVENTURE_PIXELS, round(0.35 * card_pixel_dims[0]),
+                                                TITLE_OFFSET_BASE_ADVENTURE_PIXELS, round(0.35 * CARD_PIXEL_DIMS[0]),
                                                 adventure_mode=True)
 
             # END Name and mana cost #################################################
@@ -605,7 +598,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             if card_data.has_stats:
                 _stats_color = C_BLACK if card_data.stats_are_power_toughness else C_WHITE
                 _stats_position = math_utils.add_tuples(CARD_IMAGE_POWER_TOUGHNESS_POSITION,
-                                        (0, 0) if card_data.stats_are_power_toughness else (-3  * card_pixel_dims[0]/500, 0)) 
+                                        (0, 0) if card_data.stats_are_power_toughness else (-3  * CARD_PIXEL_DIMS[0]/500, 0)) 
                 ImageDraw.Draw(card_image_total).text(
                     _stats_position, card_data.get_stats_string(), _stats_color, Fonts.font_stats, anchor="mm"
                 )
@@ -676,16 +669,22 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     image_prefixes += [CardImageInfo(f"set_symbol_{rarity}", "", "", should_be_modified=False, special_card_asset_name_mode=True) for rarity in ["common", "uncommon", "rare", "mythic"]]
     image_prefixes += [CardImageInfo("defense", "", "", should_be_modified=False, special_card_asset_name_mode=True)]
 
+    # Random card art generation assets
+    # @TODO add prefixes given that they're in a separate folder
+    # image_prefixes += [CardImageInfo("character", "", art_number, should_be_modified=False) for art_number in range(1, 3 + 1)]
+    # image_prefixes += [CardImageInfo("fx", "", art_number, should_be_modified=False) for art_number in range(1, 3 + 1)]
+    # image_prefixes += [CardImageInfo("large_fx", "", art_number, should_be_modified=False) for art_number in range(1, 2 + 1)]
+
     # If the card is one that needs masking and splitting, it's marked as such 
     image_suffix: str = "_base.png"
     hybrid_card_mask_image: Image = None
     hybrid_card_masks: dict[str, Image] = {}
     try:
         hybrid_card_mask_image = Image.open(assets_filepath["pre-set"] + "hybrid_card_mask.png")
-        hybrid_card_mask_image = hybrid_card_mask_image.resize(card_pixel_dims).convert("RGBA")
+        hybrid_card_mask_image = hybrid_card_mask_image.resize(CARD_PIXEL_DIMS).convert("RGBA")
         # Adventure pages mask
         _factor = 1
-        adventure_pixel_dims: tuple[int, int] = (round(card_pixel_dims[0] * 0.9197 * 0.5 * _factor), round(card_pixel_dims[1] * 0.32 * _factor))
+        adventure_pixel_dims: tuple[int, int] = (round(CARD_PIXEL_DIMS[0] * 0.9197 * 0.5 * _factor), round(CARD_PIXEL_DIMS[1] * 0.32 * _factor))
         hybrid_adventure_mask_image = hybrid_card_mask_image.resize(adventure_pixel_dims)
 
         hybrid_card_masks["l"] = hybrid_card_mask_image
@@ -708,7 +707,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 # ... and we just need to resize it and hold it in memory
                 log_and_print(f"Accessing base file to simply load it into memory {expected_image_filepath}", do_print=verbose_mode_files)
                 base_image: Image = Image.open(expected_image_filepath)
-                resized_image = base_image.resize(adventure_pixel_dims if "adventure" in prefix.file_prefix else card_pixel_dims)
+                resized_image = base_image.resize(adventure_pixel_dims if "adventure" in prefix.file_prefix else CARD_PIXEL_DIMS)
                 resized_images[image_info.file_prefix] = resized_image.convert("RGBA")
             else:
                 # Here the image shouldn't necessarily exist because we need to generate it.
@@ -725,7 +724,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                         resized_image = base_image.resize(adventure_pixel_dims)
                     else:
                         hybrid_mask = hybrid_card_masks[image_info.side]
-                        resized_image: Image = base_image.resize(card_pixel_dims)
+                        resized_image: Image = base_image.resize(CARD_PIXEL_DIMS)
                         
                     masked_image = ImageChops.multiply(resized_image, hybrid_mask)
                     resized_images[image_info.file_prefix] = masked_image
@@ -734,7 +733,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 else:
                     log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=verbose_mode_files)
                     loaded_image = Image.open(expected_image_filepath)
-                    resized_image: Image = loaded_image.resize(adventure_pixel_dims if is_adventure_card_image else card_pixel_dims)
+                    resized_image: Image = loaded_image.resize(adventure_pixel_dims if is_adventure_card_image else CARD_PIXEL_DIMS)
                     resized_images[image_info.file_prefix] = resized_image
         except:
             raise ValueError(f"There was an issue accessing image: {expected_image_filepath}.\n \

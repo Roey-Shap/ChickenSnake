@@ -53,23 +53,6 @@ settings_data_obj = {
     }
 }
 
-
-
-# Asset loading 
-# # Set to True if you want a new log each time you run the program. 
-# # ... if you want to can keep track of errors you've fixed over time.
-# make_unique_program_run_log = False
-# # Set to True if you want the program to always regenerate the hybrid colors
-# # and other card frames from the few base frames you have be default 
-# always_regenerate_base_card_frames = False
-
-# # Give updates about card errors and file accesses as the program runs.
-# verbose_mode_cards = False
-# verbose_mode_files = False
-# # @TODO: Should warn about things like mana symbols being out of order and corrected. 
-# # Maybe also templating issues?
-# warn_about_card_semantics_errors = True
-
 # Determines how often certain pack types appear in Draftmancer's drafts. 
 # This is a typical distribution for MtG packs in the wild.
 draft_pack_settings_string = \
