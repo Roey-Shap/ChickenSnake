@@ -165,7 +165,7 @@ class LineSegment():
             if is_numeric:
                 symbol_string_pos_offset = (0, -1.7)
             if not is_hybrid:
-                symbol_string_pos_offset = (0, 
+                symbol_string_pos_offset = (0 if is_numeric else 1, 
                                         symbol_string_pos_offset[1] + (-1 if not mana_cost_mode else 0))
             else:
                 symbol_string_pos_offset = (0, 0)

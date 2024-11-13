@@ -28,7 +28,7 @@ class Card():
         self.colors = colors
         self.is_colorless = len(colors) == 0
         self.colors_string = self.colors
-        self.converted_manacost = converted_manacost
+        self.converted_manacost = int(converted_manacost)
         self.manacost = manacost
         self.raw_mana_cost_string = raw_mana_cost_string
         self.split_mana_pips: list[str] = list(filter(None, [symbol.strip("{") for symbol in self.raw_mana_cost_string.split("}")]))

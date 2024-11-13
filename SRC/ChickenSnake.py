@@ -13,12 +13,6 @@ from UI import log_and_print
 # @TODO:
 # Right now:
 ############
-# Adding some card images under certain categories for random card generation
-# Making random card images. 
-# Add a random creature if it's a creature
-# Add one or two random creatures or large effects if it's a sorcery of instant
-# Add small effects based on mana cost
-
 
 # Updating spreadsheet to have Adventure-related cards point back to the original card
     # So then you could have double-faced adventures, for example:
@@ -36,8 +30,8 @@ from UI import log_and_print
     # Other ideas:
         # Words to automatically include reminder text for (is that feasible? Where should it go? Always at the end of the paragraph?)
 # Images:
-    # Make playtest art autogenerate images based on type and mana cost
-    # But also allow images to be pulled from for specific cards
+    # Allow card art images to be pulled from a filepath for specific cards
+    # Make proper "playtest mode" which has cards rendered in the typical low-effort style that wizards uses officially
 # Specific color trim
 
 # Support adding brackets around abilities that choose or span multiple lines to make them not have larger line spacings like

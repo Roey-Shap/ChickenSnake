@@ -1,8 +1,9 @@
 import csv
 import traceback
 import os.path
+import random
 
-from PIL import Image, ImageFont, ImageDraw, ImageTk, ImageChops
+from PIL import Image, ImageFont, ImageDraw, ImageTk, ImageChops, ImageOps
 
 from Card import Card
 from Fonts import body_text_font_name, symbols_font_name
@@ -20,7 +21,7 @@ C_WHITE = (255, 255, 255)
 
 CARD_PIXEL_DIMS = (500, 700)
 def scale_to_card_dims(percent_x, percent_y) -> tuple[float, float]:
-    return (percent_x * CARD_PIXEL_DIMS[0], percent_y * CARD_PIXEL_DIMS[1])
+    return (round(percent_x * CARD_PIXEL_DIMS[0]), round(percent_y * CARD_PIXEL_DIMS[1]))
 
 
 
@@ -51,6 +52,20 @@ MAX_MANACOST_TEXT_DIMS                          = scale_to_card_dims(0.84, 0.714
 
 CARD_IMAGE_POWER_TOUGHNESS_POSITION             = scale_to_card_dims(0.866, 0.92143)
 
+CARD_ART_GENERATION_COLOR_TINTS = {
+    "W": (255, 255,   0, 0),
+    "U": (  0,  50, 255, 0),
+    "B": (  0,   0,   0, 0),
+    "R": (255,   0,   0, 0),
+    "G": (  0, 255,   0, 0)
+}
+
+NUM_SMALL_FX_ARTS = 3
+NUM_LARGE_FX_ARTS = 2
+NUM_CHARACTER_ARTS = 3
+CARD_ART_FOLDER_NAME = "card_art_generation"
+CARD_ART_SCALE = 0.6 * CARD_PIXEL_DIMS[0] / 500       # for scaling the card image elements based on the card's overal size
+
 markdown_closer_string_normal = \
 f"""
 </cards>
@@ -70,7 +85,8 @@ class CardImageInfo():
     """
     def __init__(self, frame_supertype: str, side: str, frame_subtype: str,
                     should_be_modified=False, special_card_asset_name_mode=False,
-                    special_card_modifier="", position_on_card=(0, 0)) -> None:
+                    special_card_modifier="", position_on_card=(0, 0), 
+                    subfolder=None) -> None:
         self.frame_supertype = frame_supertype
         self.side = side
         self.frame_subtype = frame_subtype
@@ -89,6 +105,7 @@ class CardImageInfo():
         if not self.should_be_modified and not special_card_asset_name_mode:
             self.file_prefix = self.base_file_prefix
         
+        self.subfolder = subfolder
         self.filepath = ""
 
 def get_color_string_from_csv_row(csv_row: dict[str, str]) -> str:
@@ -288,6 +305,82 @@ def get_card_data_from_spreadsheet(card_data_filepath) -> dict[str, Card]:
 
 
     return cards_dict
+
+def card_image_generate_random_art(card_data: Card, card_image_total: Image.Image, image_assets: dict[CardImageInfo, Image.Image]):
+    def lerp_colors(c1, c2, t):
+        return tuple((1 - t) * c1[channel_index] + t * c2[channel_index] for channel_index in range(4))
+
+    def modify_image(image, scale, angle, flip_x, flip_y):
+        _image = image.resize((round(image.width * scale), round(image.height * scale)))
+        if flip_x is not None:
+            _image = _image.transpose(flip_x)
+        if flip_y is not None:
+            _image = _image.transpose(flip_y)
+        _image = Image.Image.rotate(_image, angle, expand=True)
+
+        _randomly_chosen_color_pair = (CARD_ART_GENERATION_COLOR_TINTS["B"], CARD_ART_GENERATION_COLOR_TINTS["B"])
+        if len(card_data.colors) > 0:
+           _randomly_chosen_color_pair = tuple(CARD_ART_GENERATION_COLOR_TINTS[random.choice(card_data.colors)] for i in range(2))
+        _image_tint = lerp_colors(_randomly_chosen_color_pair[0], _randomly_chosen_color_pair[1], random.random())
+        _, _, _, _image_alpha = _image.split()
+        _colored_image = ImageOps.colorize(ImageOps.grayscale(_image), black=_image_tint, white="white")
+        _colored_image.putalpha(_image_alpha)
+        return _colored_image
+
+
+    def draw_element_randomly(card_data, card_image_total: Image.Image, image_assets, image_topic, additional_scale=1.0):
+        _element_scale = (0.3 + (random.random() * 0.8)) * additional_scale
+        _element_angle = random.random() * 359
+        _element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None])
+        _element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None])
+
+        art_box_upper_left  = scale_to_card_dims(0.2, 0.2)
+        art_box_lower_right = scale_to_card_dims(0.8, 0.4)
+        _element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0])
+        _element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1])
+
+        _image_getter_data = {
+            "character": (get_character_card_image_info, NUM_CHARACTER_ARTS),
+            "small_fx" : (get_small_fx_card_image_info, NUM_SMALL_FX_ARTS),
+            "large_fx" : (get_large_fx_card_image_info, NUM_LARGE_FX_ARTS)
+        }
+        _image_get_func, _num_images_options = _image_getter_data[image_topic]
+        random_art_image_info: CardImageInfo = _image_get_func(random.randrange(1, _num_images_options))
+        random_art: Image.Image = image_assets[random_art_image_info.file_prefix]
+        modified_element_image: Image.Image = modify_image(random_art, _element_scale, _element_angle, _element_flip_x, _element_flip_y)
+        card_image_total.alpha_composite(modified_element_image, 
+                        dest=(_element_pos_x - modified_element_image.width//2, _element_pos_y - modified_element_image.height//2))
+
+    _card_identifier_seed: int = hash(card_data.name) + hash(card_data.body_text) + hash(card_data.colors_string)
+    random.seed(_card_identifier_seed) # Frankly I'm not sure this does what I want it to even if I put it before every random roll.
+
+    num_main_art_elements = random.randint(1, 2)
+    num_minor_art_elements = (card_data.converted_manacost // 2) + random.randint(1, card_data.converted_manacost)
+    
+    is_creature = card_data.search_for_supertype_string("creature")
+    is_instant_sorcery_enchantment = card_data.search_for_supertype_string("instant") or \
+                                     card_data.search_for_supertype_string("sorcery") or \
+                                     card_data.search_for_supertype_string("enchantment")
+    
+    _have_placed_main_element = False
+    for i in range(num_main_art_elements):
+        # if you're a creature, you can have char, char/char, char/large_fx
+        # otherwise, you can have large_fx, char/large_fx, large_fx/large_fx
+        if not _have_placed_main_element:
+            if is_creature:
+                # put creature if haven't put one yet, else put creature or large_fx
+                draw_element_randomly(card_data, card_image_total, image_assets, "character", 1.25)
+            elif is_instant_sorcery_enchantment:
+                # add large_fx image in a random spot if you haven't put one, else put creature or large_fx
+                draw_element_randomly(card_data, card_image_total, image_assets, "large_fx", 1.25)
+        else:
+            draw_element_randomly(card_data, card_image_total, image_assets, random.choice(["character", "large_fx"]))
+
+        _have_placed_main_element = True
+
+    for i in range(num_minor_art_elements):
+        draw_element_randomly(card_data, card_image_total, image_assets, "small_fx")
+
 
 def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
     """
@@ -526,7 +619,17 @@ def card_image_draw_types_text(card_data: Card, card_image_total, adventure_mode
         (types_string_xoffset, types_string_yoffset), card_data.get_type_string(), C_WHITE if adventure_mode else C_BLACK, font=_font, anchor="lm"
     )
 
-def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, image_assets: dict[CardImageInfo, Image]):
+def get_character_card_image_info(index) -> CardImageInfo:
+    return CardImageInfo("character", "", index, should_be_modified=False, subfolder=CARD_ART_FOLDER_NAME)
+
+def get_small_fx_card_image_info(index) -> CardImageInfo:
+    return CardImageInfo("fx", "", index, should_be_modified=False, subfolder=CARD_ART_FOLDER_NAME)
+
+def get_large_fx_card_image_info(index) -> CardImageInfo:
+    return CardImageInfo("large_fx", "", index, should_be_modified=False, subfolder=CARD_ART_FOLDER_NAME)
+
+
+def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, image_assets: dict[CardImageInfo, Image.Image]):
     verbose_mode_cards = metadata.settings_data_obj["card_semantics_settings"]["verbose_mode_cards"]
     warn_about_card_semantics_errors = metadata.settings_data_obj["card_semantics_settings"]["warn_about_card_semantics_errors"]
 
@@ -544,6 +647,10 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 related_adventure_spell_data = card_dict[card_data.related_card_names[0]]
 
             card_image_total = Image.new(mode="RGB", size=CARD_PIXEL_DIMS, color=C_WHITE).convert("RGBA")
+
+            # Card Art
+            if metadata.settings_data_obj["card_image_settings"]["generate_random_card_art"]:
+                card_image_generate_random_art(card_data, card_image_total, image_assets)
 
             # Card Base
             card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
@@ -670,21 +777,20 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     image_prefixes += [CardImageInfo("defense", "", "", should_be_modified=False, special_card_asset_name_mode=True)]
 
     # Random card art generation assets
-    # @TODO add prefixes given that they're in a separate folder
-    # image_prefixes += [CardImageInfo("character", "", art_number, should_be_modified=False) for art_number in range(1, 3 + 1)]
-    # image_prefixes += [CardImageInfo("fx", "", art_number, should_be_modified=False) for art_number in range(1, 3 + 1)]
-    # image_prefixes += [CardImageInfo("large_fx", "", art_number, should_be_modified=False) for art_number in range(1, 2 + 1)]
+    image_prefixes += [get_character_card_image_info(art_number) for art_number in range(1, NUM_CHARACTER_ARTS + 1)]
+    image_prefixes += [get_small_fx_card_image_info(art_number) for art_number in range(1, NUM_SMALL_FX_ARTS + 1)]
+    image_prefixes += [get_large_fx_card_image_info(art_number) for art_number in range(1, NUM_LARGE_FX_ARTS + 1)]
 
     # If the card is one that needs masking and splitting, it's marked as such 
-    image_suffix: str = "_base.png"
+    base_image_filetype: str = "png"
+    image_suffix: str = "_base." + base_image_filetype
     hybrid_card_mask_image: Image = None
     hybrid_card_masks: dict[str, Image] = {}
     try:
         hybrid_card_mask_image = Image.open(assets_filepath["pre-set"] + "hybrid_card_mask.png")
         hybrid_card_mask_image = hybrid_card_mask_image.resize(CARD_PIXEL_DIMS).convert("RGBA")
-        # Adventure pages mask
-        _factor = 1
-        adventure_pixel_dims: tuple[int, int] = (round(CARD_PIXEL_DIMS[0] * 0.9197 * 0.5 * _factor), round(CARD_PIXEL_DIMS[1] * 0.32 * _factor))
+        # Adventure pages mask                                      # vvv total width of adventure pages * half to make it for this single side
+        adventure_pixel_dims: tuple[int, int] = scale_to_card_dims(0.9197 * 0.5, 0.32)
         hybrid_adventure_mask_image = hybrid_card_mask_image.resize(adventure_pixel_dims)
 
         hybrid_card_masks["l"] = hybrid_card_mask_image
@@ -698,7 +804,15 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     for prefix in image_prefixes:
         image_info: CardImageInfo = prefix
         base_folder_path: str = assets_filepath["generated" if image_info.should_be_modified else "pre-set"]
-        expected_image_filepath = base_folder_path + image_info.file_prefix + image_suffix
+        expected_image_filepath = base_folder_path
+        if image_info.subfolder is not None:
+            expected_image_filepath += f"{image_info.subfolder}\\"
+        expected_image_filepath += image_info.file_prefix
+        if image_info.subfolder is None:
+            expected_image_filepath += image_suffix
+        else:
+            expected_image_filepath += "." + base_image_filetype
+
         image_info.filepath = expected_image_filepath
         try:
             is_adventure_card_image: bool = "adventure" in prefix.file_prefix
@@ -707,8 +821,15 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 # ... and we just need to resize it and hold it in memory
                 log_and_print(f"Accessing base file to simply load it into memory {expected_image_filepath}", do_print=verbose_mode_files)
                 base_image: Image = Image.open(expected_image_filepath)
-                resized_image = base_image.resize(adventure_pixel_dims if "adventure" in prefix.file_prefix else CARD_PIXEL_DIMS)
+                _resized_image_dimensions = CARD_PIXEL_DIMS
+                if is_adventure_card_image:
+                    _resized_image_dimensions = adventure_pixel_dims
+                elif image_info.subfolder == CARD_ART_FOLDER_NAME:
+                    _resized_image_dimensions = (round(CARD_ART_SCALE * base_image.width), round(CARD_ART_SCALE * base_image.height))
+
+                resized_image = base_image.resize(_resized_image_dimensions)
                 resized_images[image_info.file_prefix] = resized_image.convert("RGBA")
+                # print(f"{image_info.file_prefix: <20}, {_resized_image_dimensions[0]} {_resized_image_dimensions[1]}")
             else:
                 # Here the image shouldn't necessarily exist because we need to generate it.
                 # We'll check if we already have:

@@ -24,7 +24,8 @@ settings_data_obj = {
     },
     "card_image_settings": {
         "card_line_height_between_abilities": 1.4,
-        "card_line_height_normal": 1.035
+        "card_line_height_normal": 1.035,
+        "generate_random_card_art": True,
     },
     "card_semantics_settings":
     {
