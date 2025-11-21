@@ -98,6 +98,9 @@ class Card():
     def search_for_supertype_string(self, supertype: str) -> bool:
         return self.supertype.lower().find(supertype.lower()) != -1
 
+    def search_for_subtype_string(self, supertype: str) -> bool:
+        return self.subtype.lower().find(subtype.lower()) != -1
+
     def get_stats_string(self) -> str:
         if not self.stats_are_power_toughness:
             return f"{self.stats}"

@@ -2,6 +2,8 @@ import csv
 import traceback
 import os.path
 import random
+import hashlib
+from enum import IntEnum
 
 from PIL import Image, ImageFont, ImageDraw, ImageTk, ImageChops, ImageOps
 
@@ -12,7 +14,7 @@ import Fonts
 import metadata
 from UI import log_and_print
 import math_utils
-
+import CreatureTaxonomy
 
 CARD_PICTURE_FILE_FORMAT = "jpg"
 
@@ -22,7 +24,6 @@ C_WHITE = (255, 255, 255)
 CARD_PIXEL_DIMS = (500, 700)
 def scale_to_card_dims(percent_x, percent_y) -> tuple[float, float]:
     return (round(percent_x * CARD_PIXEL_DIMS[0]), round(percent_y * CARD_PIXEL_DIMS[1]))
-
 
 
 TOKEN_TEXT_YOFFSET                              = 0.08429 * CARD_PIXEL_DIMS[1]
@@ -65,6 +66,12 @@ NUM_LARGE_FX_ARTS = 2
 NUM_CHARACTER_ARTS = 3
 CARD_ART_FOLDER_NAME = "card_art_generation"
 CARD_ART_SCALE = 0.6 * CARD_PIXEL_DIMS[0] / 500       # for scaling the card image elements based on the card's overal size
+
+hash_algorithm = hashlib.sha256() 
+def do_hash(s):
+    hash_algorithm.update(str(s).encode())
+    return hash_algorithm.hexdigest()
+
 
 markdown_closer_string_normal = \
 f"""
@@ -310,7 +317,11 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
     def lerp_colors(c1, c2, t):
         return tuple((1 - t) * c1[channel_index] + t * c2[channel_index] for channel_index in range(4))
 
-    def modify_image(image, scale, angle, flip_x, flip_y):
+    def modify_image(image: Image.Image, 
+                     scale: float, 
+                     angle: int, 
+                     flip_x: IntEnum | None, 
+                     flip_y: IntEnum | None):
         _image = image.resize((round(image.width * scale), round(image.height * scale)))
         if flip_x is not None:
             _image = _image.transpose(flip_x)
@@ -327,59 +338,141 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         _colored_image.putalpha(_image_alpha)
         return _colored_image
 
+    def draw_element_randomly(card_data: Card,
+                              card_image_total: Image.Image, 
+                              image_assets: dict[CardImageInfo, Image.Image],
+                              image_topic: str | CardImageInfo, 
+                              angle_min: int=0,
+                              angle_max: int=0,
+                              scale_min: float=0.3,
+                              scale_max: float=0.8,
+                              flip_x: IntEnum | None=None,
+                              flip_y: IntEnum | None=None,
+                              scale_modifier: float=1.0):
+        element_scale = (scale_min + (random.random() * scale_max)) * scale_modifier
+        element_angle = angle_min + (random.random() * (angle_max - angle_min))
+        element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None]) if flip_x is None else flip_x
+        element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None]) if flip_y is None else flip_y
 
-    def draw_element_randomly(card_data, card_image_total: Image.Image, image_assets, image_topic, additional_scale=1.0):
-        _element_scale = (0.3 + (random.random() * 0.8)) * additional_scale
-        _element_angle = random.random() * 359
-        _element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None])
-        _element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None])
-
-        art_box_upper_left  = scale_to_card_dims(0.2, 0.2)
-        art_box_lower_right = scale_to_card_dims(0.8, 0.4)
-        _element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0])
-        _element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1])
+        # pick a position for the element
+        element_pos_x_min = 0.2
+        element_pos_y_min = 0.2
+        element_pos_x_max = 0.8
+        element_pos_y_max = 0.4
+        art_box_upper_left  = scale_to_card_dims(element_pos_x_min, element_pos_y_min)
+        art_box_lower_right = scale_to_card_dims(element_pos_x_max, element_pos_y_max)
+        element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0])
+        element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1])
 
         _image_getter_data = {
             "character": (get_character_card_image_info, NUM_CHARACTER_ARTS),
             "small_fx" : (get_small_fx_card_image_info, NUM_SMALL_FX_ARTS),
             "large_fx" : (get_large_fx_card_image_info, NUM_LARGE_FX_ARTS)
         }
-        _image_get_func, _num_images_options = _image_getter_data[image_topic]
-        random_art_image_info: CardImageInfo = _image_get_func(random.randrange(1, _num_images_options))
-        random_art: Image.Image = image_assets[random_art_image_info.file_prefix]
-        modified_element_image: Image.Image = modify_image(random_art, _element_scale, _element_angle, _element_flip_x, _element_flip_y)
-        card_image_total.alpha_composite(modified_element_image, 
-                        dest=(_element_pos_x - modified_element_image.width//2, _element_pos_y - modified_element_image.height//2))
 
-    _card_identifier_seed: int = hash(card_data.name) + hash(card_data.body_text) + hash(card_data.colors_string)
-    random.seed(_card_identifier_seed) # Frankly I'm not sure this does what I want it to even if I put it before every random roll.
-
-    num_main_art_elements = random.randint(1, 2)
-    num_minor_art_elements = (card_data.converted_manacost // 2) + random.randint(1, card_data.converted_manacost)
-    
-    is_creature = card_data.search_for_supertype_string("creature")
-    is_instant_sorcery_enchantment = card_data.search_for_supertype_string("instant") or \
-                                     card_data.search_for_supertype_string("sorcery") or \
-                                     card_data.search_for_supertype_string("enchantment")
-    
-    _have_placed_main_element = False
-    for i in range(num_main_art_elements):
-        # if you're a creature, you can have char, char/char, char/large_fx
-        # otherwise, you can have large_fx, char/large_fx, large_fx/large_fx
-        if not _have_placed_main_element:
-            if is_creature:
-                # put creature if haven't put one yet, else put creature or large_fx
-                draw_element_randomly(card_data, card_image_total, image_assets, "character", 1.25)
-            elif is_instant_sorcery_enchantment:
-                # add large_fx image in a random spot if you haven't put one, else put creature or large_fx
-                draw_element_randomly(card_data, card_image_total, image_assets, "large_fx", 1.25)
+        image_manually_chosen: bool = type(image_topic) == CardImageInfo
+        art_image_info: CardImageInfo = None
+        if image_manually_chosen:
+            art_image_info = image_topic
         else:
-            draw_element_randomly(card_data, card_image_total, image_assets, random.choice(["character", "large_fx"]))
+            print("here")
+            _image_get_func, _num_images_options = _image_getter_data[image_topic]
+            art_image_info = _image_get_func(random.randrange(1, _num_images_options))
 
-        _have_placed_main_element = True
+        art_image: Image.Image = image_assets[art_image_info.file_prefix]
+        modified_element_image: Image.Image = modify_image(art_image, element_scale, element_angle, element_flip_x, element_flip_y)
 
-    for i in range(num_minor_art_elements):
-        draw_element_randomly(card_data, card_image_total, image_assets, "small_fx")
+        card_image_total.alpha_composite(modified_element_image, 
+                        dest=(element_pos_x - modified_element_image.width//2, element_pos_y - modified_element_image.height//2))
+
+    _card_identifier_seed: int = do_hash(card_data.name) + do_hash(card_data.body_text) + do_hash(card_data.colors_string)
+    random.seed(_card_identifier_seed)
+
+    # If the card is a creature, draw the creature:
+    # Base form (from base subtype, default human)
+    # Modifiers (from other subtypes, some are given from type)
+    # Size (power + toughness)
+    # Color (color identity)
+    # Num fx (num words on card / mana cost)
+    # Randomness ranges are affected by color? (Red gets the most)
+
+    is_creature: bool = card_data.search_for_supertype_string("creature")
+    is_instant_sorcery_enchantment: bool =  card_data.search_for_supertype_string("instant") or \
+                                            card_data.search_for_supertype_string("sorcery") or \
+                                            card_data.search_for_supertype_string("enchantment")
+
+    if is_creature:
+        print("is creature!")
+        subtypes = card_data.subtype.split(" ")
+        base_shape = CreatureTaxonomy.find_creature_class(card_data.subtype)
+        modifiers = CreatureTaxonomy.SubtypeImageModifier()
+        modifiers.assign_modifiers_from_creature_subtypes(card_data.subtype)
+        # Need:
+        # head position
+        # back position
+        # foot position
+        # === Behind main body modifiers === #
+        if modifiers.sanddune:
+            pass #      add sand dune to back
+
+
+        if modifiers.wings:
+            pass #      add wings to back
+        if modifiers.horns:
+            pass #      add horns behind head
+        
+        # Draw base body
+        if modifiers.translucent:
+            pass #      make base shape translucent
+        if modifiers.short:
+            pass #      make base shape short
+
+        # draw base shape itself
+        base_shape_art = get_character_card_image_info(base_shape)
+        draw_element_randomly(card_data, 
+                              card_image_total,
+                              image_assets,
+                              base_shape_art,
+                              -20, 20,
+                              0.9, 1.1, 
+                              None, None,
+                              1.25)
+
+
+        if modifiers.helmet:
+            pass #      add helment to head 
+        if modifiers.wizard_hat:
+            pass #      add wizard hat 
+        if modifiers.eye_patch:
+            pass #
+        if modifiers.remove_eye:
+            pass #      subtract black pixels from eye area
+
+        
+        # add a number of modifiers relative to mana cost
+
+    # num_main_art_elements = random.randint(1, 2)
+    # num_minor_art_elements = (card_data.converted_manacost // 2) + random.randint(1, card_data.converted_manacost)
+    
+    
+    # _have_placed_main_element = False
+    # for i in range(num_main_art_elements):
+    #     # if you're a creature, you can have char, char/char, char/large_fx
+    #     # otherwise, you can have large_fx, char/large_fx, large_fx/large_fx
+    #     if not _have_placed_main_element:
+    #         if is_creature:
+    #             # put creature if haven't put one yet, else put creature or large_fx
+    #             draw_element_randomly(card_data, card_image_total, image_assets, "character", 1.25)
+    #         elif is_instant_sorcery_enchantment:
+    #             # add large_fx image in a random spot if you haven't put one, else put creature or large_fx
+    #             draw_element_randomly(card_data, card_image_total, image_assets, "large_fx", 1.25)
+    #     else:
+    #         draw_element_randomly(card_data, card_image_total, image_assets, random.choice(["character", "large_fx"]))
+
+    #     _have_placed_main_element = True
+
+    # for i in range(num_minor_art_elements):
+    #     draw_element_randomly(card_data, card_image_total, image_assets, "small_fx")
 
 
 def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
@@ -777,7 +870,8 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     image_prefixes += [CardImageInfo("defense", "", "", should_be_modified=False, special_card_asset_name_mode=True)]
 
     # Random card art generation assets
-    image_prefixes += [get_character_card_image_info(art_number) for art_number in range(1, NUM_CHARACTER_ARTS + 1)]
+    image_prefixes += [get_character_card_image_info(art_number) for art_number in list(range(1, NUM_CHARACTER_ARTS + 1)) + \
+                                                                                   list(CreatureTaxonomy.creature_subtype_generalization.keys())]
     image_prefixes += [get_small_fx_card_image_info(art_number) for art_number in range(1, NUM_SMALL_FX_ARTS + 1)]
     image_prefixes += [get_large_fx_card_image_info(art_number) for art_number in range(1, NUM_LARGE_FX_ARTS + 1)]
 

@@ -10,9 +10,16 @@ import LineSegment
 from ascii_art import logo_art
 from UI import log_and_print
 
+import hashlib
+
 # @TODO:
 # Right now:
-############
+# Improve "playtest art":
+    # Make base art for each of the creature classes
+    # Add special modifiers for each of the classes if a creature has multiple types
+        # Which does it take as a base, then the others act as modifiers; each can have multiple functions
+
+# < # ===================================================================================================================== # > #
 
 # Updating spreadsheet to have Adventure-related cards point back to the original card
     # So then you could have double-faced adventures, for example:
@@ -22,6 +29,11 @@ from UI import log_and_print
     # Double-faced tokens are supported this way as well:
         # Suppose A is a card that refers to token T. T is marked as a token and points to A.
         # S is the backface of T; it's marked as a backface and a token and points to T.
+# Spreadsheet general:
+    # ensure no conditional formatting or equations are broken
+    # One tab for all filtering types
+# File logging:
+    # make file writing happen all at once? Make it accumulate into a big string at runtime then spill once an error is encountered / it finishes naturally?
 # Support most common other card types:
     # Planeswalker, Saga, Fuse/Split
 # Italics:
@@ -44,8 +56,6 @@ from UI import log_and_print
 # Flip (Kamigawa)
 # Class
 # Cases (Karlov Manor)
-
-
 def main():
     try:
         metadata.settings_final_configs = metadata.get_user_settings()
