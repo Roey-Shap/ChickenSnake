@@ -4,6 +4,8 @@ import os.path
 import random
 import hashlib
 from enum import IntEnum
+from dataclasses import dataclass
+import math
 
 from PIL import Image, ImageFont, ImageDraw, ImageTk, ImageChops, ImageOps
 
@@ -14,16 +16,15 @@ import Fonts
 import metadata
 from UI import log_and_print
 import math_utils
+from math_utils import scale_to_card_dims, CARD_PIXEL_DIMS
 import CreatureTaxonomy
 
 CARD_PICTURE_FILE_FORMAT = "jpg"
 
 C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
-
-CARD_PIXEL_DIMS = (500, 700)
-def scale_to_card_dims(percent_x, percent_y) -> tuple[float, float]:
-    return (round(percent_x * CARD_PIXEL_DIMS[0]), round(percent_y * CARD_PIXEL_DIMS[1]))
+CARD_BG_INTENSITY = 235
+CARD_BG_COL = (CARD_BG_INTENSITY, CARD_BG_INTENSITY, CARD_BG_INTENSITY)
 
 
 TOKEN_TEXT_YOFFSET                              = 0.08429 * CARD_PIXEL_DIMS[1]
@@ -54,7 +55,7 @@ MAX_MANACOST_TEXT_DIMS                          = scale_to_card_dims(0.84, 0.714
 CARD_IMAGE_POWER_TOUGHNESS_POSITION             = scale_to_card_dims(0.866, 0.92143)
 
 CARD_ART_GENERATION_COLOR_TINTS = {
-    "W": (255, 255,   0, 0),
+    "W": (190, 190,   0, 0),
     "U": (  0,  50, 255, 0),
     "B": (  0,   0,   0, 0),
     "R": (255,   0,   0, 0),
@@ -66,6 +67,10 @@ NUM_LARGE_FX_ARTS = 2
 NUM_CHARACTER_ARTS = 3
 CARD_ART_FOLDER_NAME = "card_art_generation"
 CARD_ART_SCALE = 0.6 * CARD_PIXEL_DIMS[0] / 500       # for scaling the card image elements based on the card's overal size
+
+class FlipControl(IntEnum):
+    FLIP_NO_RANDOM = 0
+    FLIP_DO_RANDOM = 1
 
 hash_algorithm = hashlib.sha256() 
 def do_hash(s):
@@ -320,13 +325,12 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
     def modify_image(image: Image.Image, 
                      scale: float, 
                      angle: int, 
-                     flip_x: IntEnum | None, 
-                     flip_y: IntEnum | None):
+                     flip: tuple[IntEnum | None, IntEnum | None]):
         _image = image.resize((round(image.width * scale), round(image.height * scale)))
-        if flip_x is not None:
-            _image = _image.transpose(flip_x)
-        if flip_y is not None:
-            _image = _image.transpose(flip_y)
+        if flip[0] is not None:
+            _image = _image.transpose(flip[0])
+        if flip[1] is not None:
+            _image = _image.transpose(flip[1])
         _image = Image.Image.rotate(_image, angle, expand=True)
 
         _randomly_chosen_color_pair = (CARD_ART_GENERATION_COLOR_TINTS["B"], CARD_ART_GENERATION_COLOR_TINTS["B"])
@@ -338,31 +342,93 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         _colored_image.putalpha(_image_alpha)
         return _colored_image
 
-    def draw_element_randomly(card_data: Card,
-                              card_image_total: Image.Image, 
-                              image_assets: dict[CardImageInfo, Image.Image],
-                              image_topic: str | CardImageInfo, 
+    @dataclass
+    class ImageElementData():
+        position: tuple[int, int]
+        angle: int
+        scale: float
+        flip: tuple[IntEnum | None, IntEnum | None]
+
+    def decide_element_random_data(card_data: Card,
+                              base_pos: tuple=(0, 0),
+                              pos_randomness_factor: float=1.0,
                               angle_min: int=0,
                               angle_max: int=0,
                               scale_min: float=0.3,
                               scale_max: float=0.8,
-                              flip_x: IntEnum | None=None,
-                              flip_y: IntEnum | None=None,
+                              flip_x: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
+                              flip_y: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
                               scale_modifier: float=1.0):
         element_scale = (scale_min + (random.random() * scale_max)) * scale_modifier
         element_angle = angle_min + (random.random() * (angle_max - angle_min))
-        element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None]) if flip_x is None else flip_x
-        element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None]) if flip_y is None else flip_y
+        element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None]) if flip_x == FlipControl.FLIP_DO_RANDOM else None
+        element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None]) if flip_y == FlipControl.FLIP_DO_RANDOM else None
 
         # pick a position for the element
-        element_pos_x_min = 0.2
-        element_pos_y_min = 0.2
-        element_pos_x_max = 0.8
-        element_pos_y_max = 0.4
+        element_pos_x_min = -0.2 * pos_randomness_factor
+        element_pos_y_min = -0.1 * pos_randomness_factor
+        element_pos_x_max = 0.2 * pos_randomness_factor
+        element_pos_y_max = 0.1 * pos_randomness_factor
         art_box_upper_left  = scale_to_card_dims(element_pos_x_min, element_pos_y_min)
         art_box_lower_right = scale_to_card_dims(element_pos_x_max, element_pos_y_max)
-        element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0])
-        element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1])
+        element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0]) + base_pos[0]
+        element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1]) + base_pos[1]
+
+        return ImageElementData((element_pos_x, element_pos_y), element_angle, element_scale, (element_flip_x, element_flip_y))
+
+    def draw_element(card_data: Card, 
+                     card_image_total: Image.Image, 
+                     image_assets: dict[CardImageInfo, Image.Image], 
+                     image_topic: str | CardImageInfo, 
+                     image_data: ImageElementData):
+        _image_getter_data = {
+            "character": (get_character_card_image_info, NUM_CHARACTER_ARTS),
+            "small_fx" : (get_small_fx_card_image_info, NUM_SMALL_FX_ARTS),
+            "large_fx" : (get_large_fx_card_image_info, NUM_LARGE_FX_ARTS)
+        }
+
+        image_manually_chosen: bool = type(image_topic) == CardImageInfo
+        art_image_info: CardImageInfo = None
+        if image_manually_chosen:
+            art_image_info = image_topic
+        else:
+            print("here")
+            _image_get_func, _num_images_options = _image_getter_data[image_topic]
+            art_image_info = _image_get_func(random.randrange(1, _num_images_options))
+
+        art_image: Image.Image = image_assets[art_image_info.file_prefix]
+        modified_element_image: Image.Image = modify_image(art_image, image_data.scale, image_data.angle, image_data.flip)
+
+        card_image_total.alpha_composite(modified_element_image, 
+                        dest=(image_data.position[0] - modified_element_image.width//2, image_data.position[1] - modified_element_image.height//2))
+
+    def draw_element_randomly(card_data: Card,
+                              card_image_total: Image.Image, 
+                              image_assets: dict[CardImageInfo, Image.Image],
+                              image_topic: str | CardImageInfo,
+                              base_pos: tuple=(0, 0),
+                              pos_randomness_factor: float=1.0,
+                              angle_min: int=0,
+                              angle_max: int=0,
+                              scale_min: float=0.3,
+                              scale_max: float=0.8,
+                              flip_x: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
+                              flip_y: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
+                              scale_modifier: float=1.0):
+        element_scale = (scale_min + (random.random() * scale_max)) * scale_modifier
+        element_angle = angle_min + (random.random() * (angle_max - angle_min))
+        element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None]) if flip_x == FlipControl.FLIP_DO_RANDOM else None
+        element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None]) if flip_y == FlipControl.FLIP_DO_RANDOM else None
+
+        # pick a position for the element
+        element_pos_x_min = -0.2 * pos_randomness_factor
+        element_pos_y_min = -0.1 * pos_randomness_factor
+        element_pos_x_max = 0.2 * pos_randomness_factor
+        element_pos_y_max = 0.1 * pos_randomness_factor
+        art_box_upper_left  = scale_to_card_dims(element_pos_x_min, element_pos_y_min)
+        art_box_lower_right = scale_to_card_dims(element_pos_x_max, element_pos_y_max)
+        element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0]) + base_pos[0]
+        element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1]) + base_pos[1]
 
         _image_getter_data = {
             "character": (get_character_card_image_info, NUM_CHARACTER_ARTS),
@@ -385,6 +451,22 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         card_image_total.alpha_composite(modified_element_image, 
                         dest=(element_pos_x - modified_element_image.width//2, element_pos_y - modified_element_image.height//2))
 
+        return ImageElementD((element_pos_x, element_pos_y), element_angle)
+
+    def draw_base_image_modifier(modifier_file_suffix_name, card_image_total, image_assets, base_shape_image_data, local_offset, scale):
+        # "warriorish", card_image_total, image_assets, base_shape_image_data, base_shape_body_positions["head_pos"], 0.8)
+        modifier_art = get_character_card_image_info(modifier_file_suffix_name)
+        # pos_random_factor = 0.05
+        transformed_offset = math_utils.scale_tuple(local_offset, scale, True)
+        position = math_utils.add_tuples(base_shape_image_data.position, transformed_offset)
+        image_element_data = ImageElementData(position, base_shape_image_data.angle, base_shape_image_data.scale * scale, base_shape_image_data.flip)
+        draw_element(card_data, 
+                     card_image_total,
+                     image_assets,
+                     modifier_art,
+                     image_element_data)
+    #################################
+    
     _card_identifier_seed: int = do_hash(card_data.name) + do_hash(card_data.body_text) + do_hash(card_data.colors_string)
     random.seed(_card_identifier_seed)
 
@@ -402,19 +484,53 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
                                             card_data.search_for_supertype_string("enchantment")
 
     if is_creature:
-        print("is creature!")
         subtypes = card_data.subtype.split(" ")
-        base_shape = CreatureTaxonomy.find_creature_class(card_data.subtype)
+        dominant_subtype: str = sorted(subtypes)[0]
+        base_shape = CreatureTaxonomy.find_creature_class(dominant_subtype)
+        
+        is_warriorish: bool = any(CreatureTaxonomy.find_creature_class(subtype) == "warriorish" for subtype in subtypes)
+        if is_warriorish:
+            base_shape = "humanish"
+                    
         modifiers = CreatureTaxonomy.SubtypeImageModifier()
-        modifiers.assign_modifiers_from_creature_subtypes(card_data.subtype)
-        # Need:
-        # head position
-        # back position
-        # foot position
+        modifiers.assign_modifiers_from_creature_subtypes(subtypes)
+        
+
+        main_body_scale: float = 2.1
+        base_shape_pos:  tuple[float, float] = scale_to_card_dims(0.5, 0.325)
+
+        base_shape_art = get_character_card_image_info(base_shape)
+        base_shape_image_data: ImageElementData = decide_element_random_data(card_data, 
+                                                    base_shape_pos, 0.8,
+                                                    -20, 20,
+                                                    0.9, 1.1, 
+                                                    FlipControl.FLIP_NO_RANDOM, FlipControl.FLIP_NO_RANDOM,
+                                                    main_body_scale)
+
+        base_shape_body_offsets = CreatureTaxonomy.creature_base_image_body_data_map[base_shape]
+        base_shape_body_positions = {
+            "base_pos": base_shape_pos,
+            "head_pos": math_utils.sub_tuples(base_shape_body_offsets.head_offset, (0, 80)),
+            "back_pos": base_shape_body_offsets.back_offset,
+            "eye_pos" : (-35, -250 * round(base_shape_body_offsets.head_scale)),
+            "witch_off": (120, 500),
+            "helmet_off": (20, -250),
+            "eye_patch_off": (-30, -470)
+        }
+
+        # account for chosen base image angle
+        base_shape_angle_radians = base_shape_image_data.angle * math.pi / 180
+        base_shape_angle_cos = math.abs(math.cos(base_shape_angle_radians))
+        base_shape_angle_sin = math.abs(math.sin(base_shape_angle_radians))
+        for offset_name in base_shape_body_positions:
+            x, y = base_shape_body_positions[offset_name]
+            x *= base_shape_angle_cos
+            y *= base_shape_angle_sin
+            base_shape_body_positions[offset_name] = (round(x), round(y))
+
         # === Behind main body modifiers === #
         if modifiers.sanddune:
             pass #      add sand dune to back
-
 
         if modifiers.wings:
             pass #      add wings to back
@@ -428,25 +544,21 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
             pass #      make base shape short
 
         # draw base shape itself
-        base_shape_art = get_character_card_image_info(base_shape)
-        draw_element_randomly(card_data, 
-                              card_image_total,
-                              image_assets,
-                              base_shape_art,
-                              -20, 20,
-                              0.9, 1.1, 
-                              None, None,
-                              1.25)
+        draw_element(card_data, card_image_total, image_assets, base_shape_art, base_shape_image_data)
 
 
         if modifiers.helmet:
-            pass #      add helment to head 
+            print("WWW")
+            draw_base_image_modifier("warriorish", card_image_total, image_assets, base_shape_image_data, 
+                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], base_shape_body_positions["helmet_off"]), 0.6)
         if modifiers.wizard_hat:
-            pass #      add wizard hat 
+            draw_base_image_modifier("wizard_hat", card_image_total, image_assets, base_shape_image_data,
+                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], base_shape_body_positions["witch_off"]), 0.5)
         if modifiers.eye_patch:
-            pass #
+            draw_base_image_modifier("eye_patch", card_image_total, image_assets, base_shape_image_data, 
+                                    math_utils.sub_tuples(base_shape_body_positions["eye_pos"], base_shape_body_positions["eye_patch_off"]), 0.45)
         if modifiers.remove_eye:
-            pass #      subtract black pixels from eye area
+            draw_base_image_modifier("single_eye", card_image_total, image_assets, base_shape_image_data, base_shape_body_positions["eye_pos"], 0.2)
 
         
         # add a number of modifiers relative to mana cost
@@ -473,7 +585,6 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
 
     # for i in range(num_minor_art_elements):
     #     draw_element_randomly(card_data, card_image_total, image_assets, "small_fx")
-
 
 def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
     """
@@ -602,8 +713,6 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_manacos
     ImageDraw.Draw(card_image_total).text(
         title_position, title_text, title_color, font=chosen_title_font, anchor=("mm" if card_data.is_token else "lm")
     )
-    
-    
 
 def card_image_draw_body_text(card_data, card_image_total,
                               warn_about_card_semantics_errors=False, verbose_mode_cards=False):
@@ -739,7 +848,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             if len(card_data.related_card_names) == 1 and card_dict[card_data.related_card_names[0]].is_adventure:
                 related_adventure_spell_data = card_dict[card_data.related_card_names[0]]
 
-            card_image_total = Image.new(mode="RGB", size=CARD_PIXEL_DIMS, color=C_WHITE).convert("RGBA")
+                                                                  # used to be C_WHITE vvv
+            card_image_total = Image.new(mode="RGB", size=CARD_PIXEL_DIMS, color=CARD_BG_COL).convert("RGBA")
 
             # Card Art
             if metadata.settings_data_obj["card_image_settings"]["generate_random_card_art"]:
@@ -871,7 +981,8 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
 
     # Random card art generation assets
     image_prefixes += [get_character_card_image_info(art_number) for art_number in list(range(1, NUM_CHARACTER_ARTS + 1)) + \
-                                                                                   list(CreatureTaxonomy.creature_subtype_generalization.keys())]
+                                                                                   list(CreatureTaxonomy.creature_subtype_generalization.keys()) + \
+                                                                                   ["eye_patch", "single_eye", "wizard_hat"]]
     image_prefixes += [get_small_fx_card_image_info(art_number) for art_number in range(1, NUM_SMALL_FX_ARTS + 1)]
     image_prefixes += [get_large_fx_card_image_info(art_number) for art_number in range(1, NUM_LARGE_FX_ARTS + 1)]
 

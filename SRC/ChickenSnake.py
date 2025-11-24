@@ -143,7 +143,7 @@ def main():
         print(e)
         print("\n")
 
-    _ = input("Press any key then enter to close this window.")
+    _ = input("Press any key then enter to exit.")
 
 
 if __name__ == "__main__":

@@ -1,3 +1,8 @@
+from dataclasses import dataclass
+
+from CardData import scale_to_card_dims
+import math_utils
+
 """ in the end we have: 
     alien, rodent, grazing animal, object, abstract, 
     warrior, beast, bird, cat, dog, mythic, fish, 
@@ -370,16 +375,42 @@ creature_subtype_generalization: dict[str: list[str]] = \
         ]
 }
 
-def find_creature_class(subtypes: str) -> str:
-    dominant_subtype: str = sorted(subtypes.split(" "))[0]
+def find_creature_class(subtype: str) -> str:
     for creature_class in creature_subtype_generalization:
-        if dominant_subtype in creature_subtype_generalization[creature_class]:
+        if subtype in creature_subtype_generalization[creature_class]:
             return creature_class
 
     return "humanish"
 
+class ImageElementBodyData():
+    def __init__(self, head_offset, head_scale, back_offset):
+        ELEMENT_HALF_DIMS = (200 / 2, 200 / 2)
+        self.head_offset: tuple[int, int] = math_utils.sub_tuples(ELEMENT_HALF_DIMS, head_offset)
+        self.head_scale: float            = head_scale
+        self.back_offset: tuple[int, int] = math_utils.sub_tuples(ELEMENT_HALF_DIMS, back_offset)
+
+creature_base_image_body_data_map = {
+    "humanish":     ImageElementBodyData((94, 74), 1.0, (92, 109)),
+    "alienish":     ImageElementBodyData((120, 70), 0.55, (110, 117)),
+    "rodentish":    ImageElementBodyData((61, 107), 0.6, (111, 84)),
+    "grazing":      ImageElementBodyData((95, 70), 0.85, (82, 118)),
+    "objectish":    ImageElementBodyData((101, 100), 1.0, (102, 122)),
+    "abstract":     ImageElementBodyData((143, 100), 0.7, (75, 91)),
+    "beastish":     ImageElementBodyData((102, 82), 1.1, (120, 134)),
+    "birdish":      ImageElementBodyData((82, 97), 0.9, (117, 92)),
+    "catish":       ImageElementBodyData((109, 77), 1.1, (149, 70)),
+    "fishish":      ImageElementBodyData((58, 155), 0.5, (78, 97)),
+    "dogish":       ImageElementBodyData((101, 95), 1.2, (96, 140)),
+    "robotish":     ImageElementBodyData((94, 70), 1.0, (95, 104)),
+    "snakish":      ImageElementBodyData((86, 71), 0.5, (117, 81)),
+    "eggish":       ImageElementBodyData((101, 98), 0.8, (102, 130)),
+    "plantish":     ImageElementBodyData((108, 122), 0.8, (98, 145)),
+    "dark":         ImageElementBodyData((80, 80), 1.1, (120, 92))
+}
+
+        
 class SubtypeImageModifier:
-    helmet_subtypes = ["warrior"]
+    helmet_subtypes = [subtype.lower() for subtype in creature_subtype_generalization["warriorish"]]
     wing_subtypes = ["harpy", "faerie", "angel", "archon"]
     wizard_hat_subtypes = ["warlock", "wizard", "spellshaper", "druid"]
     eye_patch_subtypes = ["pirate"]
@@ -391,20 +422,21 @@ class SubtypeImageModifier:
     translucent_subtypes = ["glimmer", "illusion"]
 
     def __init__(self):
-        self.helmet = False
-        self.wings = False
-        self.wizard_hat = False
-        self.eye_patch = False
-        self.horns = False
-        self.on_cloud = False
-        self.remove_eye = False
-        self.short = False
-        self.sanddune = False
-        self.translucent = False
+        self.helmet: bool = False
+        self.wings: bool = False
+        self.wizard_hat: bool = False
+        self.eye_patch: bool = False
+        self.horns: bool = False
+        self.on_cloud: bool = False
+        self.remove_eye: bool = False
+        self.short: bool = False
+        self.sanddune: bool = False
+        self.translucent: bool = False
 
 
     def assign_modifiers_from_creature_subtypes(self, subtypes: list[str]):
         for subtype in subtypes:
+            subtype = subtype.lower()
             self.helmet     |= subtype in SubtypeImageModifier.helmet_subtypes
             self.wings      |= subtype in SubtypeImageModifier.wing_subtypes 
             self.wizard_hat |= subtype in SubtypeImageModifier.wizard_hat_subtypes
