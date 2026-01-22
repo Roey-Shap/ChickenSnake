@@ -375,6 +375,7 @@ creature_subtype_generalization: dict[str: list[str]] = \
         ]
 }
 
+# @TODO dominant creature type (find first one which can't be applied as a cosmetic? Priority?)
 def find_creature_class(subtype: str) -> str:
     for creature_class in creature_subtype_generalization:
         if subtype in creature_subtype_generalization[creature_class]:

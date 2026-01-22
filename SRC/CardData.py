@@ -6,6 +6,7 @@ import hashlib
 from enum import IntEnum
 from dataclasses import dataclass
 import math
+import copy
 
 from PIL import Image, ImageFont, ImageDraw, ImageTk, ImageChops, ImageOps
 
@@ -67,6 +68,7 @@ NUM_LARGE_FX_ARTS = 2
 NUM_CHARACTER_ARTS = 3
 CARD_ART_FOLDER_NAME = "card_art_generation"
 CARD_ART_SCALE = 0.6 * CARD_PIXEL_DIMS[0] / 500       # for scaling the card image elements based on the card's overal size
+CHARACTER_ART_SHORT_SCALE_FACTOR = 0.5
 
 class FlipControl(IntEnum):
     FLIP_NO_RANDOM = 0
@@ -326,7 +328,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
                      scale: float, 
                      angle: int, 
                      flip: tuple[IntEnum | None, IntEnum | None]):
-        _image = image.resize((round(image.width * scale), round(image.height * scale)))
+        _image = image.resize(math_utils.multiply_tuples((image.width, image.height), scale, do_round=True))
         if flip[0] is not None:
             _image = _image.transpose(flip[0])
         if flip[1] is not None:
@@ -346,7 +348,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
     class ImageElementData():
         position: tuple[int, int]
         angle: int
-        scale: float
+        scale: tuple[float, float]
         flip: tuple[IntEnum | None, IntEnum | None]
 
     def decide_element_random_data(card_data: Card,
@@ -374,7 +376,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0]) + base_pos[0]
         element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1]) + base_pos[1]
 
-        return ImageElementData((element_pos_x, element_pos_y), element_angle, element_scale, (element_flip_x, element_flip_y))
+        return ImageElementData((element_pos_x, element_pos_y), element_angle, (element_scale, element_scale), (element_flip_x, element_flip_y))
 
     def draw_element(card_data: Card, 
                      card_image_total: Image.Image, 
@@ -459,7 +461,9 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         # pos_random_factor = 0.05
         transformed_offset = math_utils.scale_tuple(local_offset, scale, True)
         position = math_utils.add_tuples(base_shape_image_data.position, transformed_offset)
-        image_element_data = ImageElementData(position, base_shape_image_data.angle, base_shape_image_data.scale * scale, base_shape_image_data.flip)
+        image_element_data = ImageElementData(position, base_shape_image_data.angle, 
+                                              math_utils.scale_tuple(base_shape_image_data.scale, scale), 
+                                              base_shape_image_data.flip)
         draw_element(card_data, 
                      card_image_total,
                      image_assets,
@@ -508,25 +512,42 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
                                                     main_body_scale)
 
         base_shape_body_offsets = CreatureTaxonomy.creature_base_image_body_data_map[base_shape]
+
+        if modifiers.short:
+            # note how we do this here so it isn't taken into consideration when applying cosmetics
+            # (hats should be big on dwarfs.)
+            base_shape_image_data.scale = (base_shape_image_data.scale[0], base_shape_image_data.scale[1] * CHARACTER_ART_SHORT_SCALE_FACTOR)
+
         base_shape_body_positions = {
             "base_pos": base_shape_pos,
             "head_pos": math_utils.sub_tuples(base_shape_body_offsets.head_offset, (0, 80)),
             "back_pos": base_shape_body_offsets.back_offset,
-            "eye_pos" : (-35, -250 * round(base_shape_body_offsets.head_scale)),
+            "eye_pos" : (-35, -350 * round(base_shape_body_offsets.head_scale)),
             "witch_off": (120, 500),
-            "helmet_off": (20, -250),
-            "eye_patch_off": (-30, -470)
+            "helmet_off": (20, 135),
+            "eye_patch_off": (0, -140),
+            "horns_off": (20, 175)
         }
+
+        accumulated_head_accessory_offset: float = 0
+        if modifiers.helmet:
+            accumulated_head_accessory_offset += base_shape_body_positions["helmet_off"][1]
+    
+        if modifiers.wizard_hat:
+            accumulated_head_accessory_offset += base_shape_body_positions["witch_off"][1]
+
+        base_shape_body_positions["horns_off"] = math_utils.add_tuples(base_shape_body_positions["horns_off"], (0, accumulated_head_accessory_offset))
 
         # account for chosen base image angle
         base_shape_angle_radians = base_shape_image_data.angle * math.pi / 180
-        base_shape_angle_cos = math.abs(math.cos(base_shape_angle_radians))
-        base_shape_angle_sin = math.abs(math.sin(base_shape_angle_radians))
+        base_shape_angle_cos = abs(math.cos(base_shape_angle_radians))
+        base_shape_angle_sin = abs(math.sin(base_shape_angle_radians))
         for offset_name in base_shape_body_positions:
             x, y = base_shape_body_positions[offset_name]
             x *= base_shape_angle_cos
             y *= base_shape_angle_sin
             base_shape_body_positions[offset_name] = (round(x), round(y))
+
 
         # === Behind main body modifiers === #
         if modifiers.sanddune:
@@ -535,31 +556,45 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         if modifiers.wings:
             pass #      add wings to back
         if modifiers.horns:
-            pass #      add horns behind head
+            # add horns behind head
+            draw_base_image_modifier("horns", card_image_total, image_assets, base_shape_image_data,
+                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], 
+                                                          base_shape_body_positions["horns_off"]),
+                                    0.5)
         
         # Draw base body
         if modifiers.translucent:
             pass #      make base shape translucent
-        if modifiers.short:
-            pass #      make base shape short
 
         # draw base shape itself
-        draw_element(card_data, card_image_total, image_assets, base_shape_art, base_shape_image_data)
-
+        head_centered_base_shape_image_data: ImageElementData = copy.copy(base_shape_image_data)
+        head_centered_base_shape_image_data.position = (head_centered_base_shape_image_data.position[0],
+                                                        head_centered_base_shape_image_data.position[1] + round(image_assets[base_shape_art.file_prefix].height * 0.1))
+        draw_element(card_data, card_image_total, image_assets, base_shape_art, head_centered_base_shape_image_data)
 
         if modifiers.helmet:
-            print("WWW")
             draw_base_image_modifier("warriorish", card_image_total, image_assets, base_shape_image_data, 
-                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], base_shape_body_positions["helmet_off"]), 0.6)
+                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], 
+                                    base_shape_body_positions["helmet_off"]), 
+                                    0.6)
+        
         if modifiers.wizard_hat:
             draw_base_image_modifier("wizard_hat", card_image_total, image_assets, base_shape_image_data,
-                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], base_shape_body_positions["witch_off"]), 0.5)
+                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], 
+                                    base_shape_body_positions["witch_off"]), 
+                                    0.5)
+
+        if modifiers.remove_eye:
+            draw_base_image_modifier("single_eye", card_image_total, image_assets, 
+                                    base_shape_image_data, 
+                                    base_shape_body_positions["eye_pos"], 
+                                    0.2)
+
         if modifiers.eye_patch:
             draw_base_image_modifier("eye_patch", card_image_total, image_assets, base_shape_image_data, 
-                                    math_utils.sub_tuples(base_shape_body_positions["eye_pos"], base_shape_body_positions["eye_patch_off"]), 0.45)
-        if modifiers.remove_eye:
-            draw_base_image_modifier("single_eye", card_image_total, image_assets, base_shape_image_data, base_shape_body_positions["eye_pos"], 0.2)
-
+                                    math_utils.sub_tuples(base_shape_body_positions["eye_pos"], 
+                                    base_shape_body_positions["eye_patch_off"]), 
+                                    0.45)
         
         # add a number of modifiers relative to mana cost
 
@@ -849,7 +884,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                 related_adventure_spell_data = card_dict[card_data.related_card_names[0]]
 
                                                                   # used to be C_WHITE vvv
-            card_image_total = Image.new(mode="RGB", size=CARD_PIXEL_DIMS, color=CARD_BG_COL).convert("RGBA")
+            card_image_total: Image.Image = Image.new(mode="RGB", size=CARD_PIXEL_DIMS, color=CARD_BG_COL).convert("RGBA")
 
             # Card Art
             if metadata.settings_data_obj["card_image_settings"]["generate_random_card_art"]:
@@ -982,7 +1017,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     # Random card art generation assets
     image_prefixes += [get_character_card_image_info(art_number) for art_number in list(range(1, NUM_CHARACTER_ARTS + 1)) + \
                                                                                    list(CreatureTaxonomy.creature_subtype_generalization.keys()) + \
-                                                                                   ["eye_patch", "single_eye", "wizard_hat"]]
+                                                                                   ["eye_patch", "single_eye", "wizard_hat", "horns"]]
     image_prefixes += [get_small_fx_card_image_info(art_number) for art_number in range(1, NUM_SMALL_FX_ARTS + 1)]
     image_prefixes += [get_large_fx_card_image_info(art_number) for art_number in range(1, NUM_LARGE_FX_ARTS + 1)]
 
