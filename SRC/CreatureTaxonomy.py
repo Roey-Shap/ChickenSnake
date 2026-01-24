@@ -375,11 +375,22 @@ creature_subtype_generalization: dict[str: list[str]] = \
         ]
 }
 
-# @TODO dominant creature type (find first one which can't be applied as a cosmetic? Priority?)
-def find_creature_class(subtype: str) -> str:
+def classify_creature(subtype: str) -> str:
     for creature_class in creature_subtype_generalization:
-        if subtype in creature_subtype_generalization[creature_class]:
+        if subtype.capitalize() in creature_subtype_generalization[creature_class]:
             return creature_class
+
+    return "humanish"
+
+def find_dominant_creature_class(subtypes: str) -> str:
+    non_human_default: str = ""
+
+    for subtype in subtypes.split(" "):
+        for creature_class in creature_subtype_generalization:
+            if subtype.capitalize() in creature_subtype_generalization[creature_class]:
+                if classify_creature(subtype) != "humanish":
+                    if subtype not in SubtypeImageModifier.modifier_subtypes:
+                        return creature_class
 
     return "humanish"
 
@@ -391,7 +402,7 @@ class ImageElementBodyData():
         self.back_offset: tuple[int, int] = math_utils.sub_tuples(ELEMENT_HALF_DIMS, back_offset)
 
 creature_base_image_body_data_map = {
-    "humanish":     ImageElementBodyData((94, 74), 1.0, (92, 109)),
+    "humanish":     ImageElementBodyData((114, 74), 1.0, (114, 109)),
     "alienish":     ImageElementBodyData((120, 70), 0.55, (110, 117)),
     "rodentish":    ImageElementBodyData((61, 107), 0.6, (111, 84)),
     "grazing":      ImageElementBodyData((95, 70), 0.85, (82, 118)),
@@ -421,6 +432,11 @@ class SubtypeImageModifier:
     short_subtypes = ["kithkin", "homunculus", "halfling", "gnome", "dwarf", "beeble", "child"]
     sanddune_subtypes = ["sand"]
     translucent_subtypes = ["glimmer", "illusion"]
+
+    modifier_subtypes = helmet_subtypes + wing_subtypes + wizard_hat_subtypes + \
+                        eye_patch_subtypes + horn_subtypes + on_cloud_subtypes + \
+                        remove_eye_subtypes + short_subtypes + sanddune_subtypes + \
+                        translucent_subtypes
 
     def __init__(self):
         self.helmet: bool = False

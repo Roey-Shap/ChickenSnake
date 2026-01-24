@@ -487,12 +487,12 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
                                             card_data.search_for_supertype_string("sorcery") or \
                                             card_data.search_for_supertype_string("enchantment")
 
+    subtypes: list[str] = card_data.subtype.split(" ")
     if is_creature:
-        subtypes = card_data.subtype.split(" ")
-        dominant_subtype: str = sorted(subtypes)[0]
-        base_shape = CreatureTaxonomy.find_creature_class(dominant_subtype)
+        base_shape = CreatureTaxonomy.find_dominant_creature_class(card_data.subtype)
+        print(base_shape)
         
-        is_warriorish: bool = any(CreatureTaxonomy.find_creature_class(subtype) == "warriorish" for subtype in subtypes)
+        is_warriorish: bool = any(CreatureTaxonomy.classify_creature(subtype) == "warriorish" for subtype in subtypes)
         if is_warriorish:
             base_shape = "humanish"
                     
@@ -526,7 +526,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
             "witch_off": (120, 500),
             "helmet_off": (20, 135),
             "eye_patch_off": (0, -140),
-            "horns_off": (20, 175)
+            "horns_off": (20, 175),
         }
 
         accumulated_head_accessory_offset: float = 0
@@ -540,8 +540,8 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
 
         # account for chosen base image angle
         base_shape_angle_radians = base_shape_image_data.angle * math.pi / 180
-        base_shape_angle_cos = abs(math.cos(base_shape_angle_radians))
-        base_shape_angle_sin = abs(math.sin(base_shape_angle_radians))
+        base_shape_angle_cos = math.cos(base_shape_angle_radians)
+        base_shape_angle_sin = math.sin(base_shape_angle_radians)
         for offset_name in base_shape_body_positions:
             x, y = base_shape_body_positions[offset_name]
             x *= base_shape_angle_cos
@@ -554,7 +554,8 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
             pass #      add sand dune to back
 
         if modifiers.wings:
-            pass #      add wings to back
+            draw_base_image_modifier("wings", card_image_total, image_assets, base_shape_image_data, base_shape_body_positions["back_pos"], 0.85)
+
         if modifiers.horns:
             # add horns behind head
             draw_base_image_modifier("horns", card_image_total, image_assets, base_shape_image_data,
@@ -1017,7 +1018,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     # Random card art generation assets
     image_prefixes += [get_character_card_image_info(art_number) for art_number in list(range(1, NUM_CHARACTER_ARTS + 1)) + \
                                                                                    list(CreatureTaxonomy.creature_subtype_generalization.keys()) + \
-                                                                                   ["eye_patch", "single_eye", "wizard_hat", "horns"]]
+                                                                                   ["eye_patch", "single_eye", "wizard_hat", "horns", "wings"]]
     image_prefixes += [get_small_fx_card_image_info(art_number) for art_number in range(1, NUM_SMALL_FX_ARTS + 1)]
     image_prefixes += [get_large_fx_card_image_info(art_number) for art_number in range(1, NUM_LARGE_FX_ARTS + 1)]
 
