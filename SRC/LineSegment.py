@@ -4,7 +4,7 @@ import re
 import Fonts
 import metadata
 from UI import log_and_print
-from math_utils import flatten, strings_have_overlap, add_tuples, scale_tuple
+from math_utils import flatten, strings_have_overlap, Tupe
 
 scryfall_hybrid_format = [
     "w/u",
@@ -83,8 +83,8 @@ MAX_LINE_COUNT = 9
 
 class LineSegment():
     def __init__(self, text: str, 
-                 font: ImageFont, offset: tuple[int, int],
-                 is_symbol: bool, dims: tuple[int, int],
+                 font: ImageFont, offset: Tupe,
+                 is_symbol: bool, dims: Tupe,
                  font_name: str,
                  color: tuple[int, int, int]=(0, 0, 0)):
         self.text = text
@@ -103,9 +103,12 @@ class LineSegment():
         self.font_secondary = font
         return self
 
-    def draw(self, image: Image, relative_offset: tuple[int, int], 
-             absolute_draw_mode=False, mana_cost_mode=False):
-        absolute_pos = (self.offset[0] + relative_offset[0], self.offset[1] + relative_offset[1])
+    def draw(self, image: Image, 
+             relative_offset: Tupe, 
+             absolute_draw_mode=False, 
+             mana_cost_mode=False):
+
+        absolute_pos = self.offset + relative_offset
         if absolute_draw_mode:
             absolute_pos = relative_offset
 
@@ -125,7 +128,7 @@ class LineSegment():
                 symbol_font_bg = Fonts.get_font(self.font_name, symbol_font_bg.size * Fonts.HYBRID_PIP_SIZE_FACTOR)
 
             if mana_cost_mode:
-                bg_offset_position = add_tuples(absolute_pos, (-2, 2))
+                bg_offset_position = absolute_pos + Tupe(-2, 2)
                 draw_pip_color_background(C_PIP_BG, C_PIP_BG, bg_offset_position, image, symbol_font_bg)
              
             # If the text is tap, colorless, or 'X', make the background colorless
@@ -161,31 +164,31 @@ class LineSegment():
             else:
                 symbol_string = self.text
 
-            symbol_string_pos_offset = (-1, -1)
+            symbol_string_pos_offset = Tupe(-1, -1)
             if is_numeric:
-                symbol_string_pos_offset = (0, -1.7)
+                symbol_string_pos_offset = Tupe(0, -1.7)
             if not is_hybrid:
-                symbol_string_pos_offset = (0 if is_numeric else 1, 
-                                        symbol_string_pos_offset[1] + (-1 if not mana_cost_mode else 0))
+                symbol_string_pos_offset = Tupe(0 if is_numeric else 1, 
+                                        symbol_string_pos_offset.y + (-1 if not mana_cost_mode else 0))
             else:
-                symbol_string_pos_offset = (0, 0)
+                symbol_string_pos_offset = Tupe(0, 0)
             if not mana_cost_mode:
                 if is_numeric:
-                    symbol_string_pos_offset = (0.5, -0.5)
+                    symbol_string_pos_offset = Tupe(0.5, -0.5)
                 else:
                     if is_hybrid:
-                        symbol_string_pos_offset = (-0.5, -0.5)
+                        symbol_string_pos_offset = Tupe(-0.5, -0.5)
                     else:
-                        symbol_string_pos_offset = (1, -0.5)
+                        symbol_string_pos_offset = Tupe(1, -0.5)
 
-            scaled_offset = scale_tuple(symbol_string_pos_offset, font.size / (Fonts.font_body_initial_size if not self.is_symbol else Fonts.font_symbols_initial_size))
-            final_symbol_string_pos = add_tuples(absolute_pos, scaled_offset)
+            scaled_offset = symbol_string_pos_offset.scale(font.size / (Fonts.font_body_initial_size if not self.is_symbol else Fonts.font_symbols_initial_size))
+            final_symbol_string_pos = absolute_pos + scaled_offset
             ImageDraw.Draw(image).text(
-                final_symbol_string_pos, symbol_string, self.color, font, spacing=self.spacing
+                Tupe.to_tuple(final_symbol_string_pos), symbol_string, self.color, font, spacing=self.spacing
             )
         else:
             ImageDraw.Draw(image).text(
-                absolute_pos, self.text, self.color, font, spacing=self.spacing
+                Tupe.to_tuple(absolute_pos), self.text, self.color, font, spacing=self.spacing
             )
 
     @staticmethod
@@ -302,8 +305,8 @@ class LineSegment():
 
             new_segment: LineSegment = LineSegment(
                 parsed_text.replace(NEWLINE_TOKENIZING_CHAR, ""), chosen_font,
-                (current_x_offset, line_count-1), is_symbol,
-                (string_width, string_height), chosen_font_name
+                Tupe(current_x_offset, line_count-1), is_symbol,
+                Tupe(string_width, string_height), chosen_font_name
             )
             new_segment.set_secondary_font(font_mana_bg)
 
@@ -321,20 +324,20 @@ class LineSegment():
             
         lowest_char_y = 0
         for segment in line_segments:
-            final_text_y = segment.offset[1] * max_lineheight_seen * metadata.settings_data_obj["card_image_settings"]["card_line_height_normal"]
-            segment.offset = (segment.offset[0], final_text_y)
+            final_text_y = segment.offset.y * max_lineheight_seen * metadata.settings_data_obj["card_image_settings"]["card_line_height_normal"]
+            segment.offset = Tupe(segment.offset.x, final_text_y)
             lowest_char_y = max(final_text_y, lowest_char_y)
 
         return line_segments, lowest_char_y + max_lineheight_seen > max_height, num_literal_lines > MAX_LINE_COUNT
 
 def draw_pip_color_background(c1: str, c2: str, 
-                              pos: tuple[int, int], image: Image, 
+                              pos: Tupe, image: Image, 
                               font: ImageFont.FreeTypeFont):
     
     ImageDraw.Draw(image).text(
-        pos, CHAR_PIP_BG, color_code_map[c1.lower()], font
+        Tupe.to_tuple(pos), CHAR_PIP_BG, color_code_map[c1.lower()], font
     )
 
     ImageDraw.Draw(image).text(
-        pos, "J", color_code_map[c2.lower()], font
+        Tupe.to_tuple(pos), "J", color_code_map[c2.lower()], font
     )

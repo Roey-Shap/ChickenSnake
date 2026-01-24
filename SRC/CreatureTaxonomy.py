@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 from CardData import scale_to_card_dims
 import math_utils
+from math_utils import Tupe
 
 """ in the end we have: 
     alien, rodent, grazing animal, object, abstract, 
@@ -395,29 +396,36 @@ def find_dominant_creature_class(subtypes: str) -> str:
     return "humanish"
 
 class ImageElementBodyData():
-    def __init__(self, head_offset, head_scale, back_offset):
-        ELEMENT_HALF_DIMS = (200 / 2, 200 / 2)
-        self.head_offset: tuple[int, int] = math_utils.sub_tuples(ELEMENT_HALF_DIMS, head_offset)
-        self.head_scale: float            = head_scale
-        self.back_offset: tuple[int, int] = math_utils.sub_tuples(ELEMENT_HALF_DIMS, back_offset)
+    def __init__(self, head_offset: Tupe, 
+                       eye_offset: Tupe,
+                       head_scale: float,
+                       back_offset: Tupe):
+        # these values describe offsets from the center of the creature image 
+        ELEMENT_HALF_DIMS = Tupe(200, 200).scale(0.5, do_round=True)
+        Y_CORRECTION = Tupe(1, -1)
+        self.head_offset: Tupe = head_offset * Y_CORRECTION
+        self.eye_offset: Tupe = eye_offset * Y_CORRECTION
+        self.head_scale: float = head_scale
+        self.back_offset: Tupe = back_offset * Y_CORRECTION
 
 creature_base_image_body_data_map = {
-    "humanish":     ImageElementBodyData((114, 74), 1.0, (114, 109)),
-    "alienish":     ImageElementBodyData((120, 70), 0.55, (110, 117)),
-    "rodentish":    ImageElementBodyData((61, 107), 0.6, (111, 84)),
-    "grazing":      ImageElementBodyData((95, 70), 0.85, (82, 118)),
-    "objectish":    ImageElementBodyData((101, 100), 1.0, (102, 122)),
-    "abstract":     ImageElementBodyData((143, 100), 0.7, (75, 91)),
-    "beastish":     ImageElementBodyData((102, 82), 1.1, (120, 134)),
-    "birdish":      ImageElementBodyData((82, 97), 0.9, (117, 92)),
-    "catish":       ImageElementBodyData((109, 77), 1.1, (149, 70)),
-    "fishish":      ImageElementBodyData((58, 155), 0.5, (78, 97)),
-    "dogish":       ImageElementBodyData((101, 95), 1.2, (96, 140)),
-    "robotish":     ImageElementBodyData((94, 70), 1.0, (95, 104)),
-    "snakish":      ImageElementBodyData((86, 71), 0.5, (117, 81)),
-    "eggish":       ImageElementBodyData((101, 98), 0.8, (102, 130)),
-    "plantish":     ImageElementBodyData((108, 122), 0.8, (98, 145)),
-    "dark":         ImageElementBodyData((80, 80), 1.1, (120, 92))
+                                         # Head pos       # Eye pos  # Scale    # Back pos
+    "humanish":     ImageElementBodyData(Tupe(-15,  80), Tupe(  0,  65), 1.00, Tupe(114, 109)),
+    "alienish":     ImageElementBodyData(Tupe(120,  70), Tupe(120,  70), 0.55, Tupe(110, 117)),
+    "rodentish":    ImageElementBodyData(Tupe( 61, 107), Tupe( 61, 107), 0.60, Tupe(111,  84)),
+    "grazing":      ImageElementBodyData(Tupe(-45,  60), Tupe(-30,  85), 0.85, Tupe( 82, 118)),
+    "objectish":    ImageElementBodyData(Tupe(101, 100), Tupe(101, 100), 1.00, Tupe(102, 122)),
+    "abstract":     ImageElementBodyData(Tupe(143, 100), Tupe(143, 100), 0.70, Tupe( 75,  91)),
+    "beastish":     ImageElementBodyData(Tupe(102,  82), Tupe(102,  82), 1.10, Tupe(120, 134)),
+    "birdish":      ImageElementBodyData(Tupe( 82,  97), Tupe( 82,  97), 0.90, Tupe(117,  92)),
+    "catish":       ImageElementBodyData(Tupe(-30,  60), Tupe(109,  77), 1.10, Tupe(149,  70)),
+    "fishish":      ImageElementBodyData(Tupe( 58, 155), Tupe( 58, 155), 0.50, Tupe( 78,  97)),
+    "dogish":       ImageElementBodyData(Tupe(101,  95), Tupe(101,  95), 1.20, Tupe( 96, 140)),
+    "robotish":     ImageElementBodyData(Tupe( 94,  70), Tupe( 94,  70), 1.00, Tupe( 95, 104)),
+    "snakish":      ImageElementBodyData(Tupe( 86,  71), Tupe( 86,  71), 0.50, Tupe(117,  81)),
+    "eggish":       ImageElementBodyData(Tupe(101,  98), Tupe(101,  98), 0.80, Tupe(102, 130)),
+    "plantish":     ImageElementBodyData(Tupe(108, 122), Tupe(108, 122), 0.80, Tupe( 98, 145)),
+    "dark":         ImageElementBodyData(Tupe( 80,  80), Tupe( 80,  80), 1.10, Tupe(120,  92))
 }
 
         

@@ -17,7 +17,7 @@ import Fonts
 import metadata
 from UI import log_and_print
 import math_utils
-from math_utils import scale_to_card_dims, CARD_PIXEL_DIMS
+from math_utils import scale_to_card_dims, CARD_PIXEL_DIMS, Tupe
 import CreatureTaxonomy
 
 CARD_PICTURE_FILE_FORMAT = "jpg"
@@ -28,28 +28,28 @@ CARD_BG_INTENSITY = 235
 CARD_BG_COL = (CARD_BG_INTENSITY, CARD_BG_INTENSITY, CARD_BG_INTENSITY)
 
 
-TOKEN_TEXT_YOFFSET                              = 0.08429 * CARD_PIXEL_DIMS[1]
-MAX_TYPES_STRING_WIDTH_IN_PIXELS                = 0.71 * CARD_PIXEL_DIMS[0]
-MAX_TITLE_AND_MANACOST_STRING_WIDTH_IN_PIXELS   = 0.83 * CARD_PIXEL_DIMS[0]
-CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD        = 0.93 * CARD_PIXEL_DIMS[0]
-CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE          = 0.49 * CARD_PIXEL_DIMS[0]
+TOKEN_TEXT_YOFFSET                              = 0.08429 * CARD_PIXEL_DIMS.y
+MAX_TYPES_STRING_WIDTH_IN_PIXELS                = 0.71 * CARD_PIXEL_DIMS.x
+MAX_TITLE_AND_MANACOST_STRING_WIDTH_IN_PIXELS   = 0.83 * CARD_PIXEL_DIMS.x
+CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD        = 0.93 * CARD_PIXEL_DIMS.x
+CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE          = 0.49 * CARD_PIXEL_DIMS.x
 
 TITLE_OFFSET_BASE_PIXELS                        = scale_to_card_dims(0.08, 0.0771)
 TOKEN_TITLE_OFFSET_PIXELS                       = scale_to_card_dims(0.42, 0.00142857)
 TITLE_OFFSET_BASE_ADVENTURE_PIXELS              = scale_to_card_dims(0.07, 0.65714)
-TYPES_STRING_OFFSET_Y_PIXELS                    = 0.59 * CARD_PIXEL_DIMS[1]
+TYPES_STRING_OFFSET_Y_PIXELS                    = 0.59 * CARD_PIXEL_DIMS.y
 
 BODY_TEXT_OFFSET_NORMAL_CARD                    = scale_to_card_dims(0.088, 0.6357)
 BODY_TEXT_MAX_DIMS_NORMAL_CARD                  = scale_to_card_dims(0.84, 0.264)
 
 BODY_TEXT_OFFSET_ADVENTURE_LEFT                 = scale_to_card_dims(0.07, 0.72857)
-BODY_TEXT_OFFSET_ADVENTURE_RIGHT                = math_utils.add_tuples(BODY_TEXT_OFFSET_ADVENTURE_LEFT, scale_to_card_dims(0.45, -0.085714))
+BODY_TEXT_OFFSET_ADVENTURE_RIGHT                = BODY_TEXT_OFFSET_ADVENTURE_LEFT + scale_to_card_dims(0.45, -0.085714)
 BODY_TEXT_MAX_DIMS_ADVENTURE                    = scale_to_card_dims(0.45, 0.13)
 
-MAX_TYPES_STRINGS_WIDTH_ADVENTURE_IN_PIXELS = BODY_TEXT_MAX_DIMS_ADVENTURE[0]
+MAX_TYPES_STRINGS_WIDTH_ADVENTURE_IN_PIXELS = BODY_TEXT_MAX_DIMS_ADVENTURE.x
 
-MANACOST_YOFFSET_PIXELS                         = 0.057143 * CARD_PIXEL_DIMS[1]
-MANACOST_YOFFSET_PIXELS_ADVENTURE               = 0.6357 * CARD_PIXEL_DIMS[1]
+MANACOST_YOFFSET_PIXELS                         = 0.057143 * CARD_PIXEL_DIMS.y
+MANACOST_YOFFSET_PIXELS_ADVENTURE               = 0.6357 * CARD_PIXEL_DIMS.y
 
 MAX_MANACOST_TEXT_DIMS                          = scale_to_card_dims(0.84, 0.71429)
 
@@ -67,7 +67,7 @@ NUM_SMALL_FX_ARTS = 3
 NUM_LARGE_FX_ARTS = 2
 NUM_CHARACTER_ARTS = 3
 CARD_ART_FOLDER_NAME = "card_art_generation"
-CARD_ART_SCALE = 0.6 * CARD_PIXEL_DIMS[0] / 500       # for scaling the card image elements based on the card's overal size
+CARD_ART_SCALE = 0.6 * CARD_PIXEL_DIMS.x / 500       # for scaling the card image elements based on the card's overal size
 CHARACTER_ART_SHORT_SCALE_FACTOR = 0.5
 
 class FlipControl(IntEnum):
@@ -99,13 +99,13 @@ class CardImageInfo():
     """
     def __init__(self, frame_supertype: str, side: str, frame_subtype: str,
                     should_be_modified=False, special_card_asset_name_mode=False,
-                    special_card_modifier="", position_on_card=(0, 0), 
+                    special_card_modifier="", position_on_card=Tupe(0, 0), 
                     subfolder=None) -> None:
         self.frame_supertype = frame_supertype
         self.side = side
         self.frame_subtype = frame_subtype
         self.should_be_modified = should_be_modified
-        self.position_on_card = (position_on_card[0], position_on_card[1]) # Copy the tuple
+        self.position_on_card = position_on_card.copy() # Copy the tuple
         # TODO: This whole underscore business is super messy
         extra_underscore = "_" if len(self.side) > 0 else ""
         single_underscore = "_" if not special_card_asset_name_mode else ""
@@ -325,14 +325,14 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         return tuple((1 - t) * c1[channel_index] + t * c2[channel_index] for channel_index in range(4))
 
     def modify_image(image: Image.Image, 
-                     scale: float, 
+                     scale: Tupe, 
                      angle: int, 
-                     flip: tuple[IntEnum | None, IntEnum | None]):
-        _image = image.resize(math_utils.multiply_tuples((image.width, image.height), scale, do_round=True))
-        if flip[0] is not None:
-            _image = _image.transpose(flip[0])
-        if flip[1] is not None:
-            _image = _image.transpose(flip[1])
+                     flip: Tupe):
+        _image = image.resize(Tupe.to_tuple(Tupe.round(Tupe(image.width, image.height) * scale)))
+        if flip.x is not None:
+            _image = _image.transpose(flip.x)
+        if flip.y is not None:
+            _image = _image.transpose(flip.y)
         _image = Image.Image.rotate(_image, angle, expand=True)
 
         _randomly_chosen_color_pair = (CARD_ART_GENERATION_COLOR_TINTS["B"], CARD_ART_GENERATION_COLOR_TINTS["B"])
@@ -346,25 +346,23 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
 
     @dataclass
     class ImageElementData():
-        position: tuple[int, int]
+        position: Tupe
         angle: int
-        scale: tuple[float, float]
-        flip: tuple[IntEnum | None, IntEnum | None]
+        scale: Tupe
+        flip: Tupe
+
 
     def decide_element_random_data(card_data: Card,
-                              base_pos: tuple=(0, 0),
-                              pos_randomness_factor: float=1.0,
-                              angle_min: int=0,
-                              angle_max: int=0,
-                              scale_min: float=0.3,
-                              scale_max: float=0.8,
-                              flip_x: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
-                              flip_y: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
-                              scale_modifier: float=1.0):
-        element_scale = (scale_min + (random.random() * scale_max)) * scale_modifier
-        element_angle = angle_min + (random.random() * (angle_max - angle_min))
-        element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None]) if flip_x == FlipControl.FLIP_DO_RANDOM else None
-        element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None]) if flip_y == FlipControl.FLIP_DO_RANDOM else None
+                              base_pos: Tupe,
+                              pos_randomness_factor: float,
+                              angle_range: Tupe,
+                              scale_range: Tupe,
+                              flip: Tupe,
+                              scale_modifier):
+        element_scale = math_utils.map_value(random.random(), Tupe(0, 1), scale_range) * scale_modifier
+        element_angle = math_utils.map_value(random.random(), Tupe(0, 1), angle_range) * scale_modifier
+        element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None]) if flip.x == FlipControl.FLIP_DO_RANDOM else None
+        element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None]) if flip.y == FlipControl.FLIP_DO_RANDOM else None
 
         # pick a position for the element
         element_pos_x_min = -0.2 * pos_randomness_factor
@@ -373,10 +371,12 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         element_pos_y_max = 0.1 * pos_randomness_factor
         art_box_upper_left  = scale_to_card_dims(element_pos_x_min, element_pos_y_min)
         art_box_lower_right = scale_to_card_dims(element_pos_x_max, element_pos_y_max)
-        element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0]) + base_pos[0]
-        element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1]) + base_pos[1]
+        element_pos_x = random.randint(art_box_upper_left.x, art_box_lower_right.x) + base_pos.x
+        element_pos_y = random.randint(art_box_upper_left.y, art_box_lower_right.y) + base_pos.y
 
-        return ImageElementData((element_pos_x, element_pos_y), element_angle, (element_scale, element_scale), (element_flip_x, element_flip_y))
+        return ImageElementData(Tupe(element_pos_x, element_pos_y), element_angle, 
+                                Tupe(element_scale, element_scale), 
+                                Tupe(element_flip_x, element_flip_y))
 
     def draw_element(card_data: Card, 
                      card_image_total: Image.Image, 
@@ -394,75 +394,29 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         if image_manually_chosen:
             art_image_info = image_topic
         else:
-            print("here")
+            print("here !!")
             _image_get_func, _num_images_options = _image_getter_data[image_topic]
             art_image_info = _image_get_func(random.randrange(1, _num_images_options))
 
         art_image: Image.Image = image_assets[art_image_info.file_prefix]
         modified_element_image: Image.Image = modify_image(art_image, image_data.scale, image_data.angle, image_data.flip)
-
+        modified_element_image_dims: Tupe = Tupe(modified_element_image.width, modified_element_image.height)
+        print(image_data.position - modified_element_image_dims.scale(0.5))
         card_image_total.alpha_composite(modified_element_image, 
-                        dest=(image_data.position[0] - modified_element_image.width//2, image_data.position[1] - modified_element_image.height//2))
+                                         dest=Tupe.to_tuple(image_data.position - modified_element_image_dims.scale(0.5, do_round=True)))
 
-    def draw_element_randomly(card_data: Card,
-                              card_image_total: Image.Image, 
-                              image_assets: dict[CardImageInfo, Image.Image],
-                              image_topic: str | CardImageInfo,
-                              base_pos: tuple=(0, 0),
-                              pos_randomness_factor: float=1.0,
-                              angle_min: int=0,
-                              angle_max: int=0,
-                              scale_min: float=0.3,
-                              scale_max: float=0.8,
-                              flip_x: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
-                              flip_y: IntEnum | None=FlipControl.FLIP_NO_RANDOM,
-                              scale_modifier: float=1.0):
-        element_scale = (scale_min + (random.random() * scale_max)) * scale_modifier
-        element_angle = angle_min + (random.random() * (angle_max - angle_min))
-        element_flip_x = random.choice([Image.Transpose.FLIP_LEFT_RIGHT, None]) if flip_x == FlipControl.FLIP_DO_RANDOM else None
-        element_flip_y = random.choice([Image.Transpose.FLIP_TOP_BOTTOM, None]) if flip_y == FlipControl.FLIP_DO_RANDOM else None
-
-        # pick a position for the element
-        element_pos_x_min = -0.2 * pos_randomness_factor
-        element_pos_y_min = -0.1 * pos_randomness_factor
-        element_pos_x_max = 0.2 * pos_randomness_factor
-        element_pos_y_max = 0.1 * pos_randomness_factor
-        art_box_upper_left  = scale_to_card_dims(element_pos_x_min, element_pos_y_min)
-        art_box_lower_right = scale_to_card_dims(element_pos_x_max, element_pos_y_max)
-        element_pos_x = random.randint(art_box_upper_left[0], art_box_lower_right[0]) + base_pos[0]
-        element_pos_y = random.randint(art_box_upper_left[1], art_box_lower_right[1]) + base_pos[1]
-
-        _image_getter_data = {
-            "character": (get_character_card_image_info, NUM_CHARACTER_ARTS),
-            "small_fx" : (get_small_fx_card_image_info, NUM_SMALL_FX_ARTS),
-            "large_fx" : (get_large_fx_card_image_info, NUM_LARGE_FX_ARTS)
-        }
-
-        image_manually_chosen: bool = type(image_topic) == CardImageInfo
-        art_image_info: CardImageInfo = None
-        if image_manually_chosen:
-            art_image_info = image_topic
-        else:
-            print("here")
-            _image_get_func, _num_images_options = _image_getter_data[image_topic]
-            art_image_info = _image_get_func(random.randrange(1, _num_images_options))
-
-        art_image: Image.Image = image_assets[art_image_info.file_prefix]
-        modified_element_image: Image.Image = modify_image(art_image, element_scale, element_angle, element_flip_x, element_flip_y)
-
-        card_image_total.alpha_composite(modified_element_image, 
-                        dest=(element_pos_x - modified_element_image.width//2, element_pos_y - modified_element_image.height//2))
-
-        return ImageElementD((element_pos_x, element_pos_y), element_angle)
-
-    def draw_base_image_modifier(modifier_file_suffix_name, card_image_total, image_assets, base_shape_image_data, local_offset, scale):
+    # Pastes a base image and any modifiers onto a given existing card image
+    def draw_base_image_modifier(modifier_file_suffix_name: str,
+                                 card_image_total, image_assets, 
+                                 base_shape_image_data, local_offset: Tupe, scale: float):
         # "warriorish", card_image_total, image_assets, base_shape_image_data, base_shape_body_positions["head_pos"], 0.8)
         modifier_art = get_character_card_image_info(modifier_file_suffix_name)
-        # pos_random_factor = 0.05
-        transformed_offset = math_utils.scale_tuple(local_offset, scale, True)
-        position = math_utils.add_tuples(base_shape_image_data.position, transformed_offset)
-        image_element_data = ImageElementData(position, base_shape_image_data.angle, 
-                                              math_utils.scale_tuple(base_shape_image_data.scale, scale), 
+        transformed_offset = local_offset.scale(scale, do_round=True)
+        position = base_shape_image_data.position + transformed_offset
+        print("!", base_shape_image_data.scale)
+        image_element_data = ImageElementData(position, 
+                                              base_shape_image_data.angle, 
+                                              base_shape_image_data.scale.scale(scale), 
                                               base_shape_image_data.flip)
         draw_element(card_data, 
                      card_image_total,
@@ -501,14 +455,14 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         
 
         main_body_scale: float = 2.1
-        base_shape_pos:  tuple[float, float] = scale_to_card_dims(0.5, 0.325)
+        base_shape_pos: Tupe = scale_to_card_dims(0.5, 0.325)
 
         base_shape_art = get_character_card_image_info(base_shape)
         base_shape_image_data: ImageElementData = decide_element_random_data(card_data, 
                                                     base_shape_pos, 0.8,
-                                                    -20, 20,
-                                                    0.9, 1.1, 
-                                                    FlipControl.FLIP_NO_RANDOM, FlipControl.FLIP_NO_RANDOM,
+                                                    Tupe(-20, 20),
+                                                    Tupe(0.9, 1.1), 
+                                                    Tupe(FlipControl.FLIP_NO_RANDOM, FlipControl.FLIP_NO_RANDOM),
                                                     main_body_scale)
 
         base_shape_body_offsets = CreatureTaxonomy.creature_base_image_body_data_map[base_shape]
@@ -516,40 +470,38 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         if modifiers.short:
             # note how we do this here so it isn't taken into consideration when applying cosmetics
             # (hats should be big on dwarfs.)
-            base_shape_image_data.scale = (base_shape_image_data.scale[0], base_shape_image_data.scale[1] * CHARACTER_ART_SHORT_SCALE_FACTOR)
+            base_shape_image_data.scale = base_shape_image_data * Tupe(0, CHARACTER_ART_SHORT_SCALE_FACTOR)
 
-        base_shape_body_positions = {
+        # positions of body parts relative to the top-left corner of base body image
+        base_shape_body_positions: dict[str, Tupe] = {
             "base_pos": base_shape_pos,
-            "head_pos": math_utils.sub_tuples(base_shape_body_offsets.head_offset, (0, 80)),
-            "back_pos": base_shape_body_offsets.back_offset,
-            "eye_pos" : (-35, -350 * round(base_shape_body_offsets.head_scale)),
-            "witch_off": (120, 500),
-            "helmet_off": (20, 135),
-            "eye_patch_off": (0, -140),
-            "horns_off": (20, 175),
+            "head_pos": base_shape_body_offsets.head_offset,
+            "back_pos": Tupe(0, 0), #base_shape_body_offsets.back_offset,
+            "eye_pos" : base_shape_body_offsets.eye_offset + Tupe(-10, round(-70 * base_shape_body_offsets.head_scale)),
+            "witch_off": Tupe(0, -80),
+            "helmet_off": Tupe(0, 50), #(20, 135),
+            "eye_patch_off": Tupe(0, 75), #(0, -140),
+            "horns_off": Tupe(0, 0), #(20, 175),
         }
 
         accumulated_head_accessory_offset: float = 0
         if modifiers.helmet:
-            accumulated_head_accessory_offset += base_shape_body_positions["helmet_off"][1]
+            accumulated_head_accessory_offset += base_shape_body_positions["helmet_off"].y
     
         if modifiers.wizard_hat:
-            accumulated_head_accessory_offset += base_shape_body_positions["witch_off"][1]
+            accumulated_head_accessory_offset += base_shape_body_positions["witch_off"].y
 
-        base_shape_body_positions["horns_off"] = math_utils.add_tuples(base_shape_body_positions["horns_off"], (0, accumulated_head_accessory_offset))
+        # move horns up so they sit on head/hat(s)
+        base_shape_body_positions["horns_off"] = base_shape_body_positions["horns_off"] + \
+                                                 Tupe(0, accumulated_head_accessory_offset)
 
         # account for chosen base image angle
-        base_shape_angle_radians = base_shape_image_data.angle * math.pi / 180
-        base_shape_angle_cos = math.cos(base_shape_angle_radians)
-        base_shape_angle_sin = math.sin(base_shape_angle_radians)
-        for offset_name in base_shape_body_positions:
-            x, y = base_shape_body_positions[offset_name]
-            x *= base_shape_angle_cos
-            y *= base_shape_angle_sin
-            base_shape_body_positions[offset_name] = (round(x), round(y))
+        base_shape_angle_radians = (base_shape_image_data.angle * math.pi / 180)
+        print("angle", base_shape_angle_radians)
+        base_shape_body_positions = {key : Tupe.round(math_utils.rotate_vector(offset, base_shape_angle_radians)) for \
+                                     key, offset in base_shape_body_positions.items()}
 
-
-        # === Behind main body modifiers === #
+        # === Behind base body modifiers === #
         if modifiers.sanddune:
             pass #      add sand dune to back
 
@@ -559,8 +511,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         if modifiers.horns:
             # add horns behind head
             draw_base_image_modifier("horns", card_image_total, image_assets, base_shape_image_data,
-                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], 
-                                                          base_shape_body_positions["horns_off"]),
+                                    base_shape_body_positions["head_pos"] - base_shape_body_positions["horns_off"],
                                     0.5)
         
         # Draw base body
@@ -569,20 +520,19 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
 
         # draw base shape itself
         head_centered_base_shape_image_data: ImageElementData = copy.copy(base_shape_image_data)
-        head_centered_base_shape_image_data.position = (head_centered_base_shape_image_data.position[0],
-                                                        head_centered_base_shape_image_data.position[1] + round(image_assets[base_shape_art.file_prefix].height * 0.1))
+        # head_centered_base_shape_image_data.position = head_cenetered_base_shape_image_data.position + \
+        #                                                Tupe(0, round(image_assets[base_shape_art.file_prefix].height * 0.1))
         draw_element(card_data, card_image_total, image_assets, base_shape_art, head_centered_base_shape_image_data)
 
+        # === On top of base body modifiers === #
         if modifiers.helmet:
             draw_base_image_modifier("warriorish", card_image_total, image_assets, base_shape_image_data, 
-                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], 
-                                    base_shape_body_positions["helmet_off"]), 
+                                    base_shape_body_positions["head_pos"] + base_shape_body_positions["helmet_off"],
                                     0.6)
         
         if modifiers.wizard_hat:
             draw_base_image_modifier("wizard_hat", card_image_total, image_assets, base_shape_image_data,
-                                    math_utils.sub_tuples(base_shape_body_positions["head_pos"], 
-                                    base_shape_body_positions["witch_off"]), 
+                                    base_shape_body_positions["head_pos"] + base_shape_body_positions["witch_off"],
                                     0.5)
 
         if modifiers.remove_eye:
@@ -593,8 +543,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
 
         if modifiers.eye_patch:
             draw_base_image_modifier("eye_patch", card_image_total, image_assets, base_shape_image_data, 
-                                    math_utils.sub_tuples(base_shape_body_positions["eye_pos"], 
-                                    base_shape_body_positions["eye_patch_off"]), 
+                                    base_shape_body_positions["eye_pos"] + base_shape_body_positions["eye_patch_off"],
                                     0.45)
         
         # add a number of modifiers relative to mana cost
@@ -668,9 +617,9 @@ def get_card_image_border_info(card_data: Card) -> list[CardImageInfo]:
 
     for i, info in enumerate(infos):
         if "adventureleft" in info.file_prefix:
-            infos[i].position_on_card = (0.045, 0.625)
+            infos[i].position_on_card = Tupe(0.045, 0.625)
         elif "adventureright" in info.file_prefix:
-            infos[i].position_on_card = (0.495, 0.625)
+            infos[i].position_on_card = Tupe(0.495, 0.625)
 
     return infos
 
@@ -717,7 +666,7 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_manacos
     mana_cost_segments: list[LineSegment] = mana_cost_segments
     num_mana_pips = len(mana_cost_segments)
 
-    _total_manacost_width = sum(segment.dims[0] for segment in mana_cost_segments)
+    _total_manacost_width = sum(segment.dims.x for segment in mana_cost_segments)
 
     _right_border = CARD_IMAGE_RIGHT_MANA_BORDER_ADVENTURE if adventure_mode else CARD_IMAGE_RIGHT_MANA_BORDER_NORMAL_CARD
     if num_mana_pips > 0:    
@@ -726,8 +675,11 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_manacos
         _yoffset: int = MANACOST_YOFFSET_PIXELS_ADVENTURE if adventure_mode else MANACOST_YOFFSET_PIXELS
         _total_manacost_width_drawn: float = 0
         for segment in mana_cost_segments:
-            segment.draw(card_image_total, ((_left_mana_border + _total_manacost_width_drawn), _yoffset), absolute_draw_mode=True, mana_cost_mode=True)
-            _total_manacost_width_drawn += segment.dims[0] + _margin
+            segment.draw(card_image_total, 
+                         Tupe(_left_mana_border + _total_manacost_width_drawn, _yoffset), 
+                         absolute_draw_mode=True, mana_cost_mode=True)
+            
+            _total_manacost_width_drawn += segment.dims.x + _margin
     
     # === Title ===
     chosen_title_font = Fonts.get_title_font(text_font_size)
@@ -745,9 +697,9 @@ def card_image_draw_title_and_mana_cost(card_data, card_image_total, max_manacos
     
     title_color: tuple[int, int, int] = C_WHITE if (card_data.is_token or adventure_mode) else C_BLACK
     title_text: str = card_data.name.upper() if card_data.is_token else card_data.name
-    title_position: tuple[int, int] = math_utils.add_tuples(title_position_offset, TOKEN_TITLE_OFFSET_PIXELS if card_data.is_token else (0, 0))
+    title_position: Tupe = title_position_offset + (TOKEN_TITLE_OFFSET_PIXELS if card_data.is_token else Tupe(0, 0))
     ImageDraw.Draw(card_image_total).text(
-        title_position, title_text, title_color, font=chosen_title_font, anchor=("mm" if card_data.is_token else "lm")
+        Tupe.to_tuple(title_position), title_text, title_color, font=chosen_title_font, anchor=("mm" if card_data.is_token else "lm")
     )
 
 def card_image_draw_body_text(card_data, card_image_total,
@@ -814,7 +766,7 @@ def card_image_draw_body_text(card_data, card_image_total,
             
             segments, body_text_too_large, more_than_max_lines = LineSegment.split_text_for_symbols(
                     total_card_body_text, card_image_total, 
-                    BODY_TEXT_MAX_DIMS_NORMAL_CARD[0], BODY_TEXT_MAX_DIMS_NORMAL_CARD[1],
+                    BODY_TEXT_MAX_DIMS_NORMAL_CARD.x, BODY_TEXT_MAX_DIMS_NORMAL_CARD.y,
                     Fonts.body_text_font_name, Fonts.symbols_font_name, 
                     current_font_size * _font_size_factor, current_mana_font_size * _font_size_factor
                     )
@@ -826,7 +778,7 @@ def card_image_draw_body_text(card_data, card_image_total,
     if more_than_max_lines and warn_about_card_semantics_errors:
         log_and_print(f"{card_data.name}'s text was was more than {LineSegment.MAX_LINE_COUNT} even at the smallest font.", do_print=verbose_mode_cards)
 
-    body_text_position: tuple[int, int] = math_utils.add_tuples(BODY_TEXT_OFFSET_NORMAL_CARD, (0, token_yoffset) if card_data.is_token else (0, 0))
+    body_text_position: Tupe = BODY_TEXT_OFFSET_NORMAL_CARD + (Tupe(0, token_yoffset) if card_data.is_token else Tupe(0, 0))
     if is_adventure_left:
         body_text_position = BODY_TEXT_OFFSET_ADVENTURE_LEFT
     elif is_adventure_right:
@@ -847,11 +799,11 @@ def card_image_draw_types_text(card_data: Card, card_image_total, adventure_mode
         current_types_width_to_max_width_ratio = _max_types_string_width / types_string_width
         _font = Fonts.get_title_font(_font.size * current_types_width_to_max_width_ratio)
 
-    types_string_xoffset = (CARD_PIXEL_DIMS[0] * 40 / 500)
+    types_string_xoffset = (CARD_PIXEL_DIMS.x * 40 / 500)
     types_string_yoffset: float = TYPES_STRING_OFFSET_Y_PIXELS + (token_yoffset if card_data.is_token else 0)
     if adventure_mode:
-        types_string_xoffset = (CARD_PIXEL_DIMS[0] * 37 / 500)
-        types_string_yoffset = round(CARD_PIXEL_DIMS[1] * 490 / 700)
+        types_string_xoffset = (CARD_PIXEL_DIMS.x * 37 / 500)
+        types_string_yoffset = round(CARD_PIXEL_DIMS.y * 490 / 700)
         
     ImageDraw.Draw(card_image_total).text(
         (types_string_xoffset, types_string_yoffset), card_data.get_type_string(), C_WHITE if adventure_mode else C_BLACK, font=_font, anchor="lm"
@@ -884,8 +836,8 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             if len(card_data.related_card_names) == 1 and card_dict[card_data.related_card_names[0]].is_adventure:
                 related_adventure_spell_data = card_dict[card_data.related_card_names[0]]
 
-                                                                  # used to be C_WHITE vvv
-            card_image_total: Image.Image = Image.new(mode="RGB", size=CARD_PIXEL_DIMS, color=CARD_BG_COL).convert("RGBA")
+                                                                                            # used to be C_WHITE vvv
+            card_image_total: Image.Image = Image.new(mode="RGB", size=Tupe.to_tuple(CARD_PIXEL_DIMS), color=CARD_BG_COL).convert("RGBA")
 
             # Card Art
             if metadata.settings_data_obj["card_image_settings"]["generate_random_card_art"]:
@@ -894,14 +846,14 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # Card Base
             card_border_info: list[CardImageInfo] = get_card_image_border_info(card_data)
             for border_info in card_border_info:
-                pos = math_utils.multiply_tuples(border_info.position_on_card, CARD_PIXEL_DIMS)
-                card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=(round(pos[0]), round(pos[1])))
+                pos = Tupe.to_tuple(Tupe.round(border_info.position_on_card * CARD_PIXEL_DIMS))
+                card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=pos)
 
             if related_adventure_spell_data:
                 adventure_border_info: list[CardImageInfo] = get_card_image_border_info(related_adventure_spell_data)
                 for border_info in adventure_border_info:
-                    pos =  math_utils.multiply_tuples(border_info.position_on_card, CARD_PIXEL_DIMS)
-                    card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=(round(pos[0]), round(pos[1])))
+                    pos = Tupe.to_tuple(Tupe.round(border_info.position_on_card * CARD_PIXEL_DIMS))
+                    card_image_total.alpha_composite(image_assets[border_info.file_prefix], dest=pos)
 
 
             # Power/Toughness
@@ -923,7 +875,7 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
                                                 MAX_MANACOST_TEXT_DIMS, 
                                                 Fonts.font_title_initial_size * Fonts.ADVENTURE_FONT_SIZE_FACTOR, 
                                                 Fonts.font_symbols_big_initial_size * Fonts.ADVENTURE_FONT_SIZE_FACTOR,
-                                                TITLE_OFFSET_BASE_ADVENTURE_PIXELS, round(0.35 * CARD_PIXEL_DIMS[0]),
+                                                TITLE_OFFSET_BASE_ADVENTURE_PIXELS, round(0.35 * CARD_PIXEL_DIMS.x),
                                                 adventure_mode=True)
 
             # END Name and mana cost #################################################
@@ -943,10 +895,11 @@ def generate_card_images(card_dict: dict[str, Card], images_save_filepath: str, 
             # Draw power/toughness or analogous stat (loyalty, defense, etc.)
             if card_data.has_stats:
                 _stats_color = C_BLACK if card_data.stats_are_power_toughness else C_WHITE
-                _stats_position = math_utils.add_tuples(CARD_IMAGE_POWER_TOUGHNESS_POSITION,
-                                        (0, 0) if card_data.stats_are_power_toughness else (-3  * CARD_PIXEL_DIMS[0]/500, 0)) 
+                _stats_position = CARD_IMAGE_POWER_TOUGHNESS_POSITION + (\
+                                        Tupe(0, 0) if card_data.stats_are_power_toughness \
+                                        else Tupe(-3  * CARD_PIXEL_DIMS.x/500, 0)) 
                 ImageDraw.Draw(card_image_total).text(
-                    _stats_position, card_data.get_stats_string(), _stats_color, Fonts.font_stats, anchor="mm"
+                    Tupe.to_tuple(_stats_position), card_data.get_stats_string(), _stats_color, Fonts.font_stats, anchor="mm"
                 )
             
             rgb_image = card_image_total.convert("RGB")
@@ -1029,10 +982,10 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
     hybrid_card_masks: dict[str, Image] = {}
     try:
         hybrid_card_mask_image = Image.open(assets_filepath["pre-set"] + "hybrid_card_mask.png")
-        hybrid_card_mask_image = hybrid_card_mask_image.resize(CARD_PIXEL_DIMS).convert("RGBA")
+        hybrid_card_mask_image = hybrid_card_mask_image.resize(Tupe.to_tuple(CARD_PIXEL_DIMS)).convert("RGBA")
         # Adventure pages mask                                      # vvv total width of adventure pages * half to make it for this single side
-        adventure_pixel_dims: tuple[int, int] = scale_to_card_dims(0.9197 * 0.5, 0.32)
-        hybrid_adventure_mask_image = hybrid_card_mask_image.resize(adventure_pixel_dims)
+        adventure_pixel_dims: Tupe = scale_to_card_dims(0.9197 * 0.5, 0.32)
+        hybrid_adventure_mask_image = hybrid_card_mask_image.resize(Tupe.to_tuple(adventure_pixel_dims))
 
         hybrid_card_masks["l"] = hybrid_card_mask_image
         hybrid_card_masks["r"] = hybrid_card_mask_image.transpose(Image.FLIP_LEFT_RIGHT)
@@ -1062,13 +1015,13 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 # ... and we just need to resize it and hold it in memory
                 log_and_print(f"Accessing base file to simply load it into memory {expected_image_filepath}", do_print=verbose_mode_files)
                 base_image: Image = Image.open(expected_image_filepath)
-                _resized_image_dimensions = CARD_PIXEL_DIMS
+                _resized_image_dimensions: Tupe = CARD_PIXEL_DIMS
                 if is_adventure_card_image:
                     _resized_image_dimensions = adventure_pixel_dims
                 elif image_info.subfolder == CARD_ART_FOLDER_NAME:
-                    _resized_image_dimensions = (round(CARD_ART_SCALE * base_image.width), round(CARD_ART_SCALE * base_image.height))
+                    _resized_image_dimensions = Tupe(base_image.width, base_image.height).scale(CARD_ART_SCALE, do_round=True)
 
-                resized_image = base_image.resize(_resized_image_dimensions)
+                resized_image = base_image.resize(Tupe.to_tuple(_resized_image_dimensions))
                 resized_images[image_info.file_prefix] = resized_image.convert("RGBA")
                 # print(f"{image_info.file_prefix: <20}, {_resized_image_dimensions[0]} {_resized_image_dimensions[1]}")
             else:
@@ -1083,7 +1036,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                     resized_image: Image = None
                     if is_adventure_card_image:
                         hybrid_mask = hybrid_card_masks[f"{image_info.side}_adventure"]
-                        resized_image = base_image.resize(adventure_pixel_dims)
+                        resized_image = base_image.resize(Tupe.to_tuple(adventure_pixel_dims))
                     else:
                         hybrid_mask = hybrid_card_masks[image_info.side]
                         resized_image: Image = base_image.resize(CARD_PIXEL_DIMS)
@@ -1095,7 +1048,7 @@ def initialize_card_image_assets(assets_filepath: dict[str, str]) -> dict[str, I
                 else:
                     log_and_print(f"Generated file {base_image_filepath} already exists! Simply loading/resizing.", do_print=verbose_mode_files)
                     loaded_image = Image.open(expected_image_filepath)
-                    resized_image: Image = loaded_image.resize(adventure_pixel_dims if is_adventure_card_image else CARD_PIXEL_DIMS)
+                    resized_image: Image = loaded_image.resize(Tupe.to_tuple(adventure_pixel_dims if is_adventure_card_image else CARD_PIXEL_DIMS))
                     resized_images[image_info.file_prefix] = resized_image
         except:
             raise ValueError(f"There was an issue accessing image: {expected_image_filepath}.\n \
