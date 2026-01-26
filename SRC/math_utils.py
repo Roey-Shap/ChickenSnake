@@ -51,7 +51,6 @@ def map_value(value, pre_range: Tupe, post_range: Tupe):
     d_prev: float = pre_range.max - pre_range.min
     d_post: float = post_range.max - post_range.min
     v = post_range.min + (value - pre_range.min) * (d_post / d_prev)
-    print(v)
     return v
 
 def rotate_vector(v: Tupe, radians: float):

@@ -401,7 +401,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         art_image: Image.Image = image_assets[art_image_info.file_prefix]
         modified_element_image: Image.Image = modify_image(art_image, image_data.scale, image_data.angle, image_data.flip)
         modified_element_image_dims: Tupe = Tupe(modified_element_image.width, modified_element_image.height)
-        print(image_data.position - modified_element_image_dims.scale(0.5))
+        # print(image_data.position - modified_element_image_dims.scale(0.5))
         card_image_total.alpha_composite(modified_element_image, 
                                          dest=Tupe.to_tuple(image_data.position - modified_element_image_dims.scale(0.5, do_round=True)))
 
@@ -413,7 +413,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         modifier_art = get_character_card_image_info(modifier_file_suffix_name)
         transformed_offset = local_offset.scale(scale, do_round=True)
         position = base_shape_image_data.position + transformed_offset
-        print("!", base_shape_image_data.scale)
+        # print("!", base_shape_image_data.scale)
         image_element_data = ImageElementData(position, 
                                               base_shape_image_data.angle, 
                                               base_shape_image_data.scale.scale(scale), 
@@ -444,11 +444,11 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
     subtypes: list[str] = card_data.subtype.split(" ")
     if is_creature:
         base_shape = CreatureTaxonomy.find_dominant_creature_class(card_data.subtype)
-        print(base_shape)
+        # print(base_shape)
         
-        is_warriorish: bool = any(CreatureTaxonomy.classify_creature(subtype) == "warriorish" for subtype in subtypes)
-        if is_warriorish:
-            base_shape = "humanish"
+        # is_warriorish: bool = any(CreatureTaxonomy.classify_creature(subtype) == "warriorish" for subtype in subtypes)
+        # if is_warriorish and base_shape :
+        #     base_shape = "humanish"
                     
         modifiers = CreatureTaxonomy.SubtypeImageModifier()
         modifiers.assign_modifiers_from_creature_subtypes(subtypes)
@@ -476,9 +476,9 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
         base_shape_body_positions: dict[str, Tupe] = {
             "base_pos": base_shape_pos,
             "head_pos": base_shape_body_offsets.head_offset,
-            "back_pos": Tupe(0, 0), #base_shape_body_offsets.back_offset,
+            "back_pos": base_shape_body_offsets.back_offset,
             "eye_pos" : base_shape_body_offsets.eye_offset + Tupe(-10, round(-70 * base_shape_body_offsets.head_scale)),
-            "witch_off": Tupe(0, -80),
+            "witch_off": Tupe(0, -65),
             "helmet_off": Tupe(0, 50), #(20, 135),
             "eye_patch_off": Tupe(0, 75), #(0, -140),
             "horns_off": Tupe(0, 0), #(20, 175),
@@ -497,7 +497,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
 
         # account for chosen base image angle
         base_shape_angle_radians = (base_shape_image_data.angle * math.pi / 180)
-        print("angle", base_shape_angle_radians)
+        # print("angle", base_shape_angle_radians)
         base_shape_body_positions = {key : Tupe.round(math_utils.rotate_vector(offset, base_shape_angle_radians)) for \
                                      key, offset in base_shape_body_positions.items()}
 
