@@ -387,11 +387,9 @@ def find_dominant_creature_class(subtypes: str) -> str:
     non_human_default: str = ""
 
     for subtype in subtypes.split(" "):
-        print(f"trying {subtype}")
         for creature_class in creature_subtype_generalization:
             if subtype.capitalize() in creature_subtype_generalization[creature_class]:
                 if classify_creature(subtype) not in ["humanish", "warriorish"]:
-                    print(creature_class)
                     if subtype not in SubtypeImageModifier.modifier_subtypes:
                         return creature_class
 
@@ -403,31 +401,54 @@ class ImageElementBodyData():
                        head_scale: float,
                        back_offset: Tupe):
         # these values describe offsets from the center of the creature image 
-        Y_CORRECTION = Tupe(1, -1)
-        self.head_offset: Tupe = head_offset * Y_CORRECTION
-        self.eye_offset: Tupe = eye_offset * Y_CORRECTION
+        IMAGE_CENTER_COORD = Tupe(200, 200).scale(0.5)
+        Y_CORRECTION = Tupe(1, 1)
+        self.head_offset: Tupe = (head_offset - IMAGE_CENTER_COORD) * Y_CORRECTION
+        self.eye_offset: Tupe  = (eye_offset - IMAGE_CENTER_COORD) * Y_CORRECTION
         self.head_scale: float = head_scale
-        self.back_offset: Tupe = back_offset * Y_CORRECTION
+        self.back_offset: Tupe = (back_offset - IMAGE_CENTER_COORD) * Y_CORRECTION
 
 creature_base_image_body_data_map = {
-                                         # Head pos       # Eye pos  # Scale    # Back pos
-    "humanish":     ImageElementBodyData(Tupe(- 15,   80), Tupe(   0,   65), 1.00, Tupe(   0,     0)),
-    "alienish":     ImageElementBodyData(Tupe(  20,   70), Tupe( 120,   70), 0.55, Tupe(   0,     0)),
-    "rodentish":    ImageElementBodyData(Tupe(  61,  107), Tupe(  61,  107), 0.60, Tupe(   0,     0)),
-    "grazing":      ImageElementBodyData(Tupe(- 45,   60), Tupe(- 30,   85), 0.85, Tupe(   0,     0)),
-    "objectish":    ImageElementBodyData(Tupe( 101,  100), Tupe( 101,  100), 1.00, Tupe(   0,     0)),
-    "abstract":     ImageElementBodyData(Tupe( 143,  100), Tupe( 143,  100), 0.70, Tupe(   0,     0)),
-    "beastish":     ImageElementBodyData(Tupe( 102,   82), Tupe( 102,   82), 1.10, Tupe(   0,     0)),
-    "birdish":      ImageElementBodyData(Tupe(  82,   97), Tupe(  82,   97), 0.90, Tupe(   0,     0)),
-    "catish":       ImageElementBodyData(Tupe(- 30,   95), Tupe( 109,   77), 1.50, Tupe(   0,     0)),
-    "fishish":      ImageElementBodyData(Tupe(- 55,   10), Tupe(- 65,    0), 0.40, Tupe(   0,     0)),
-    "dogish":       ImageElementBodyData(Tupe( 101,   95), Tupe(  35, - 75), 1.20, Tupe(   0,     0)),
-    "robotish":     ImageElementBodyData(Tupe(- 20,  120), Tupe(  10,  120), 1.20, Tupe(   0,     0)),
-    "snakish":      ImageElementBodyData(Tupe(  86,   71), Tupe(  86,   71), 0.50, Tupe(   0,     0)),
-    "eggish":       ImageElementBodyData(Tupe(- 10,   70), Tupe(- 25, -170), 3.50, Tupe(   0,     0)),
-    "plantish":     ImageElementBodyData(Tupe( 108,  122), Tupe( 108,  122), 0.80, Tupe(   0,     0)),
-    "dark":         ImageElementBodyData(Tupe(  80,   80), Tupe(  80,   80), 1.10, Tupe(   0,     0)),
-    "mythical":     ImageElementBodyData(Tupe(  80,   80), Tupe(  80,   80), 1.10, Tupe(- 15,    35))
+    # these ultimately represent offsets from the center of the creature image
+    # but the coordinates fed into the objects is the actual coordinate of the head in the image
+    # found simply by hovering over it in an image editor and then finetuned after seeing some images generated
+
+    "humanish":     ImageElementBodyData(Tupe(  94,   60), Tupe(  94,   74), 1.00, Tupe(  92,  116)),
+    "alienish":     ImageElementBodyData(Tupe( 120,   70), Tupe( 110,  117), 0.55, Tupe( 113,  121)),
+    "rodentish":    ImageElementBodyData(Tupe(  62,   96), Tupe(  62,  106), 0.60, Tupe( 107,   92)),
+    "grazing":      ImageElementBodyData(Tupe(  95,   70), Tupe(  82,  118), 0.85, Tupe(   0,    0)),
+    "objectish":    ImageElementBodyData(Tupe( 101,  100), Tupe( 103,  124), 1.00, Tupe( 103,  124)),
+    "abstract":     ImageElementBodyData(Tupe( 107,   63), Tupe(  73,   82), 0.70, Tupe( 132,   75)),
+    "beastish":     ImageElementBodyData(Tupe( 110,   85), Tupe( 125,   65), 1.10, Tupe( 125,  138)),
+    "birdish":      ImageElementBodyData(Tupe(  75,   85), Tupe(  75,  104), 1.50, Tupe( 111,   96)),
+    "catish":       ImageElementBodyData(Tupe(  82,   97), Tupe(  78,   92), 0.90, Tupe( 138,  109)),
+    "fishish":      ImageElementBodyData(Tupe(  73,  115), Tupe(  67,  107), 0.40, Tupe(  95,  101)),
+    "dogish":       ImageElementBodyData(Tupe(  98,   82), Tupe(  98,  102), 1.20, Tupe(  97,  142)),
+    "robotish":     ImageElementBodyData(Tupe(  94,   50), Tupe(  95,   66), 1.20, Tupe(  96,  102)),
+    "snakish":      ImageElementBodyData(Tupe(  62,   60), Tupe(  80,   70), 0.50, Tupe( 120,   78)),
+    "eggish":       ImageElementBodyData(Tupe( 100,   62), Tupe( 102,  112), 1.00, Tupe( 100,   83)),
+    "plantish":     ImageElementBodyData(Tupe( 117,   88), Tupe( 108,  112), 0.80, Tupe( 101,  139)),
+    "dark":         ImageElementBodyData(Tupe(  73,   75), Tupe(  75,   84), 1.10, Tupe( 122,  113)),
+    "mythical":     ImageElementBodyData(Tupe( 102,   71), Tupe( 107,  102), 1.10, Tupe( 110,   85))
+
+    #                                      # Head pos       # Eye pos  # Scale    # Back pos
+    # "humanish":     ImageElementBodyData(Tupe(- 15,   80), Tupe(   0,   65), 1.00, Tupe(   0,     0)), #
+    # "alienish":     ImageElementBodyData(Tupe(  20,   70), Tupe( 120,   70), 0.55, Tupe(   0,     0)),
+    # "rodentish":    ImageElementBodyData(Tupe(  61,  107), Tupe(  61,  107), 0.60, Tupe(   0,     0)),
+    # "grazing":      ImageElementBodyData(Tupe(- 45,   60), Tupe(- 30,   85), 0.85, Tupe(   0,     0)), #
+    # "objectish":    ImageElementBodyData(Tupe( 101,  100), Tupe( 101,  100), 1.00, Tupe(   0,     0)),
+    # "abstract":     ImageElementBodyData(Tupe( 143,  100), Tupe( 143,  100), 0.70, Tupe(   0,     0)),
+    # "beastish":     ImageElementBodyData(Tupe( 102,   82), Tupe( 102,   82), 1.10, Tupe(   0,     0)),
+    # "birdish":      ImageElementBodyData(Tupe(  82,   97), Tupe(  82,   97), 0.90, Tupe(   0,     0)),
+    # "catish":       ImageElementBodyData(Tupe(- 30,   95), Tupe( 109,   77), 1.50, Tupe(   0,     0)), #
+    # "fishish":      ImageElementBodyData(Tupe(- 55,   10), Tupe(- 65,    0), 0.40, Tupe(   0,     0)), #
+    # "dogish":       ImageElementBodyData(Tupe( 101,   95), Tupe(  35, - 75), 1.20, Tupe(   0,     0)), #
+    # "robotish":     ImageElementBodyData(Tupe(- 20,  120), Tupe(  10,  120), 1.20, Tupe(   0,     0)), #
+    # "snakish":      ImageElementBodyData(Tupe(  86,   71), Tupe(  86,   71), 0.50, Tupe(   0,     0)),
+    # "eggish":       ImageElementBodyData(Tupe(- 10,   70), Tupe(- 25, -170), 3.50, Tupe(   0,     0)), #
+    # "plantish":     ImageElementBodyData(Tupe( 108,  122), Tupe( 108,  122), 0.80, Tupe(   0,     0)),
+    # "dark":         ImageElementBodyData(Tupe(  80,   80), Tupe(  80,   80), 1.10, Tupe(   0,     0)), 
+    # "mythical":     ImageElementBodyData(Tupe(  80,   80), Tupe(  80,   80), 1.10, Tupe(- 15,    35))  #
 }
 
         

@@ -411,7 +411,7 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
                                  base_shape_image_data, local_offset: Tupe, scale: float):
         # "warriorish", card_image_total, image_assets, base_shape_image_data, base_shape_body_positions["head_pos"], 0.8)
         modifier_art = get_character_card_image_info(modifier_file_suffix_name)
-        transformed_offset = local_offset.scale(scale, do_round=True)
+        transformed_offset = local_offset.scale(1, do_round=True)
         position = base_shape_image_data.position + transformed_offset
         # print("!", base_shape_image_data.scale)
         image_element_data = ImageElementData(position, 
@@ -477,10 +477,10 @@ def card_image_generate_random_art(card_data: Card, card_image_total: Image.Imag
             "base_pos": base_shape_pos,
             "head_pos": base_shape_body_offsets.head_offset,
             "back_pos": base_shape_body_offsets.back_offset,
-            "eye_pos" : base_shape_body_offsets.eye_offset + Tupe(-10, round(-70 * base_shape_body_offsets.head_scale)),
+            "eye_pos" : base_shape_body_offsets.eye_offset,
             "witch_off": Tupe(0, -65),
             "helmet_off": Tupe(0, 50), #(20, 135),
-            "eye_patch_off": Tupe(0, 75), #(0, -140),
+            "eye_patch_off": Tupe(-15, 0), #(0, -140),
             "horns_off": Tupe(0, 0), #(20, 175),
         }
 
